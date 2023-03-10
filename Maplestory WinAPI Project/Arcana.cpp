@@ -4,6 +4,7 @@
 #include "SceneManager.h"
 #include "MainChar.h"
 #include "waterspirit.h"
+#include "Camera.h"
 
 Arcana::Arcana()
 {
@@ -18,6 +19,7 @@ void Arcana::Initialize()
 
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
+	Camera::SetTarget(mMainChar);
 
 	m_waterspirit = new waterspirit();
 	AddGameObeject(m_waterspirit, eLayerType::Monster);

@@ -3,6 +3,8 @@
 #include "Input.h"
 #include "SceneManager.h"
 #include "MainChar.h"
+#include "Boss_Ion.h"
+#include "Boss_Yaldabaoth.h"
 
 Boss_Stage1_Scene::Boss_Stage1_Scene()
 {
@@ -17,6 +19,12 @@ void Boss_Stage1_Scene::Initialize()
 
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
+
+	m_Boss_Ion = new Boss_Ion();
+	AddGameObeject(m_Boss_Ion, eLayerType::Monster);
+
+	m_Boss_Yaldabaoth = new Boss_Yaldabaoth();
+	AddGameObeject(m_Boss_Yaldabaoth, eLayerType::Monster);
 
 	Scene::Initialize();
 }

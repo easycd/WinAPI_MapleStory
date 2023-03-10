@@ -5,7 +5,8 @@
 
 class MainChar;
 class Boss_Stage1_Back;
-
+class Boss_Ion;
+class Boss_Yaldabaoth;
 
 class Boss_Stage1_Scene : public Scene
 {
@@ -24,5 +25,7 @@ public:
 private:
 	MainChar* mMainChar;
 	Boss_Stage1_Back* m_Boss_Stage1_Back;
+	Boss_Ion* m_Boss_Ion;
+	Boss_Yaldabaoth* m_Boss_Yaldabaoth;
 };
 

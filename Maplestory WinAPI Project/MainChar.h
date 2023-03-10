@@ -9,7 +9,7 @@ public:
 	enum class eMainCharState
 	{
 		Move,
-		Shoot,
+		Attack,
 		Death,
 		Idle,
 	};
@@ -25,6 +25,7 @@ public:
 private:
 	void move();
 	void idle();
+	void attack();
 
 private:
 	eMainCharState m_State;

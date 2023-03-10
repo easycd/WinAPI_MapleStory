@@ -144,3 +144,8 @@ void MainChar::idle()
 	}
 	
 }
+
+void MainChar::attack()
+{
+
+}

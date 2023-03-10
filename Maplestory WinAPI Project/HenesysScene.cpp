@@ -23,7 +23,7 @@ void HenesysScene::Initialize()
 	//캐릭터
 	MainChar* mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
-	/*Camera::SetTarget(mMainChar);*/
+	Camera::SetTarget(mMainChar);
 
 	//빨간달팽이 몬스터
 	RedSnail* m_redsnail = new RedSnail();
