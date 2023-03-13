@@ -26,8 +26,9 @@ void waterspirit::Initialize()
 	m_Animator = AddComponent<Animator>();
 
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\waterspirit\\move", Vector2::Zero, 0.2f);
+	m_Animator->Play(L"waterspiritmove", true);
 
-	m_State = ewaterspiritState::Idle;
+	/*m_State = ewaterspiritState::Idle;*/
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(40, 40)); // 히트박스 크기 조정
 	collider->SetCenter(Vector2(0.0f, 0.0f)); // 히트박스 위치 조정

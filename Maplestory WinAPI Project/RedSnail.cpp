@@ -26,8 +26,9 @@ void RedSnail::Initialize()
 	m_Animator = AddComponent<Animator>();
 
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\redsnail\\move", Vector2::Zero, 0.6f);
+	m_Animator->Play(L"redsnailmove", true);
 
-	m_State = eRedSnailState::Idle;
+	/*m_State = eRedSnailState::Idle;*/
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(40, 40)); // 히트박스 크기 조정
 	collider->SetCenter(Vector2(0.0f, 0.0f)); // 히트박스 위치 조정

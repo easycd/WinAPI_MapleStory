@@ -23,8 +23,8 @@ void mushroom::Initialize()
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\move", Vector2::Zero, 0.4f);
-
-	m_State = emushroomState::Idle;
+	m_Animator->Play(L"mushroommove", true);
+	/*m_State = emushroomState::Idle;*/
 
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(70, 70)); // 히트박스 크기 조정
@@ -73,3 +73,4 @@ void mushroom::idle()
 void mushroom::dead()
 {
 }
+

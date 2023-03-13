@@ -14,6 +14,7 @@
 		virtual void Release();
 
 		void AddGameObject(GameObject* gameObj);
+		const std::vector<GameObject*>& GetGameObjects() { return mGameObjects; }
 
 	private:
 		std::vector<GameObject*> mGameObjects;

@@ -27,6 +27,8 @@ private:
 	void idle();
 	void attack();
 
+	void idleCompleteEvent();
+
 private:
 	eMainCharState m_State;
 	Animator* m_Animator;

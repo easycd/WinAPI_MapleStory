@@ -1,44 +1,48 @@
 #include "Scene.h"
 
-Scene::Scene()
-{
-	mLayers.reserve(5);
-	mLayers.resize((UINT)eLayerType::End);
-}
-Scene::~Scene()
-{
-}
-void Scene::Initialize()
-{
-	for (Layer& layer : mLayers)
+	Scene::Scene()
 	{
-		layer.Initialize();
+		mLayers.reserve(5);
+		mLayers.resize((UINT)eLayerType::End);
 	}
-}
-void Scene::Update()
-{
-	for (Layer& layer : mLayers)
+	Scene::~Scene()
 	{
-		layer.Update();
 	}
-}
-void Scene::Render(HDC hdc)
-{
-	for (Layer& layer : mLayers)
+	void Scene::Initialize()
 	{
-		layer.Render(hdc);
+		for (Layer& layer : mLayers)
+		{
+			layer.Initialize();
+		}
 	}
-}
-void Scene::Release()
-{
-}
-void Scene::OnEnter()
-{
-}
-void Scene::OnExit()
-{
-}
-void Scene::AddGameObeject(GameObject* obj, eLayerType layer)
-{
-	mLayers[(UINT)layer].AddGameObject(obj);
-}
+	void Scene::Update()
+	{
+		for (Layer& layer : mLayers)
+		{
+			layer.Update();
+		}
+	}
+	void Scene::Render(HDC hdc)
+	{
+		for (Layer& layer : mLayers)
+		{
+			layer.Render(hdc);
+		}
+	}
+	void Scene::Release()
+	{
+	}
+	void Scene::OnEnter()
+	{
+	}
+	void Scene::OnExit()
+	{
+	}
+	void Scene::AddGameObeject(GameObject* obj, eLayerType layer)
+	{
+		mLayers[(UINT)layer].AddGameObject(obj);
+	}
+	const std::vector<GameObject*>& Scene::GetGameObjects(eLayerType layer)
+	{
+		return mLayers[(UINT)layer].GetGameObjects();
+	}

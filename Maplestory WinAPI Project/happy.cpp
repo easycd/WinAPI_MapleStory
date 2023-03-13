@@ -23,13 +23,13 @@ void happy::Initialize()
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\happymob\\move", Vector2::Zero, 0.2f);
-
-	m_State = ehappyState::Idle;
+	m_Animator->Play(L"happymobmove", true);
 
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(70, 70)); // 히트박스 크기 조정
 	collider->SetCenter(Vector2(0.0f, 0.0f)); // 히트박스 위치 조정
 
+	/*m_State = ehappyState::Idle;*/
 	GameObject::Initialize();
 }
 

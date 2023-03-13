@@ -26,6 +26,7 @@ private:
 	void move();
 	void idle();
 
+
 private:
 	eRedSnailState m_State;
 	Animator* m_Animator;

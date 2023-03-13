@@ -205,6 +205,9 @@
     <ClInclude Include="waterspirit.h">
       <Filter>Contents\01. GameObject\02. Monster</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>Engine\Collider</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -336,6 +339,9 @@
     </ClCompile>
     <ClCompile Include="waterspirit.cpp">
       <Filter>Contents\01. GameObject\02. Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>Engine\Collider</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

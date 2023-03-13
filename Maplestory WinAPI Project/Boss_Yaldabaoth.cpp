@@ -23,8 +23,9 @@ void Boss_Yaldabaoth::Initialize()
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Yaldabaoth\\stand", Vector2::Zero, 0.1f);
+	m_Animator->Play(L"Yaldabaothstand", true);
 
-	m_State = eBoss_YaldabaothState::Idle;
+	/*m_State = eBoss_YaldabaothState::Idle;*/
 
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(70, 70)); // 히트박스 크기 조정

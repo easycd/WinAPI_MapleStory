@@ -12,13 +12,14 @@ public:
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
 
+	virtual void OnCollisionEnter(Collider* other);
+	virtual void OnCollisionStay(Collider* other);
+	virtual void OnCollisionExit(Collider* other);
+
 	void SetCenter(Vector2 center) { mCenter = center; };
 	void SetSize(Vector2 size) { mSize = size; };
-	void SetScale(Vector2 scale) { mScale = scale; };
-
-	/*Vector2 SetSize() { return mSize; }
-	Vector2 SetCenter() { return mCenter; }
-	Vector2 SetScale() { return mScale; }*/
+	Vector2 GetPos() { return mPos; }
+	Vector2 GetSize() { return mSize; }
 
 private:
 	Vector2 mCenter;

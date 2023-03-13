@@ -53,9 +53,9 @@ class Animator : public Component
 		void Play(const std::wstring& name, bool loop);
 
 		Events* FindEvents(const std::wstring& name);
-		/*std::function<void>& GetStartEvent(const std::wstring& name);
-		std::function<void>& GetCompleteEvent(const std::wstring& name);
-		std::function<void>& GetEndEvent(const std::wstring& name);*/
+		std::function<void()>& GetStartEvent(const std::wstring& name);
+		std::function<void()>& GetCompleteEvent(const std::wstring& name);
+		std::function<void()>& GetEndEvent(const std::wstring& name);
 
 	private:
 		std::map<std::wstring, Animation*> mAnimations;

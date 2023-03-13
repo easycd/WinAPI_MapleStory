@@ -42,3 +42,12 @@ void Collider::Render(HDC hdc)
 void Collider::Release()
 {
 }
+void Collider::OnCollisionEnter(Collider* other)
+{
+}
+void Collider::OnCollisionStay(Collider* other)
+{
+}
+void Collider::OnCollisionExit(Collider* other)
+{
+}

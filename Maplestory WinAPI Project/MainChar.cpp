@@ -28,11 +28,13 @@ void MainChar::Initialize()
 
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\moveRight", Vector2::Zero, 0.3f);
 
+	/*m_Animator->GetStartEvent(L"CharIdleRight") = std::bind(&MainChar::idleCompleteEvent, this);*/
+	m_Animator->Play(L"CharIdleRight", true);
+
 	Collider* collider = AddComponent<Collider>();
 	collider->SetCenter(Vector2(125.0f, 5.0f));
 
-	m_State = eMainCharState::Idle;
-	m_Animator->Play(L"CharIdleRight", true);
+	/*m_State = eMainCharState::Idle;*/
 	GameObject::Initialize();
 }
 
@@ -148,4 +150,16 @@ void MainChar::idle()
 void MainChar::attack()
 {
 
+}
+
+//애니메이션 1번 끝났을떄 호출되는 함수
+void MainChar::idleCompleteEvent(/*const Cuphead* this*/)
+{
+	int a = 0;
+	//mState =
+	//Transform* tr = GetComponent<Transform>();
+	//Scene* curScene = SceneManager::GetActiveScene();
+	//BaseBullet* bullet = new BaseBullet();
+	//bullet->GetComponent<Transform>()->SetPos(tr->GetPos());
+	//curScene->AddGameObeject(bullet, eLayerType::Bullet);
 }

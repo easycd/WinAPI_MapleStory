@@ -26,6 +26,7 @@ private:
 	void idle();
 	void dead();
 
+
 private:
 	eBoss_IonState m_State;
 	Animator* m_Animator;

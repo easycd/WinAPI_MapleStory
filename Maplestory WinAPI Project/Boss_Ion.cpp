@@ -23,8 +23,9 @@ void Boss_Ion::Initialize()
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\stand", Vector2::Zero, 0.1f);
+	m_Animator->Play(L"Ionstand", true);
 
-	m_State = eBoss_IonState::Idle;
+	/*m_State = eBoss_IonState::Idle;*/
 
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(70, 70)); // 히트박스 크기 조정

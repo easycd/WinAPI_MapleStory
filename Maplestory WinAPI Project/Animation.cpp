@@ -50,6 +50,11 @@ void Animation::Render(HDC hdc)
         = mAnimator->GetOwner()->GetComponent<Transform>();
     Vector2 scale = tr->GetScale();
 
+   /* Vector2 pos = tr->GetPos();
+    pos += mSpriteSheet[mSpriteIndex].offset;
+    pos.x -= mSpriteSheet[mSpriteIndex].size.x / 2.0f;
+    pos.y -= mSpriteSheet[mSpriteIndex].size.y;*/
+
     TransparentBlt(hdc, tr->GetPos().x + mSpriteSheet[mSpriteIndex].offset.x
         , tr->GetPos().y + mSpriteSheet[mSpriteIndex].offset.y
         , mSpriteSheet[mSpriteIndex].size.x * scale.x

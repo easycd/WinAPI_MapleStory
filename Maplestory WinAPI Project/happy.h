@@ -26,6 +26,7 @@ private:
 	void idle();
 	void dead();
 
+
 private:
 	ehappyState m_State;
 	Animator* m_Animator;
