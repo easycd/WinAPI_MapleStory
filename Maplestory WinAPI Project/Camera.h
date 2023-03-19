@@ -9,7 +9,7 @@ public:
 	static void Update();
 
 	static void SetTarget(GameObject* target) { mTarget = target; }
-	static Vector2 CaluatePos(Vector2 pos) { return pos - mDistance; }
+	static const Vector2 CaluatePos(Vector2 pos) { return pos - mDistance; }
 
 private:
 	static Vector2 mResolution;

@@ -28,8 +28,8 @@ Image* Image::Create(const std::wstring& name, UINT widht, UINT height)
 	image->SetKey(name);
 	RResources::Insert<Image>(name, image);
 
-	HBRUSH grayBrush = CreateSolidBrush(RGB(255, 0, 255));
-	HBRUSH oldBrush = (HBRUSH)SelectObject(image->GetHdc(), grayBrush);
+	/*HBRUSH grayBrush = CreateSolidBrush(RGB(255, 0, 255));
+	HBRUSH oldBrush = (HBRUSH)SelectObject(image->GetHdc(), grayBrush);*/
 	Rectangle(image->GetHdc(), -1, -1, image->mWidth, image->mHeight); //애니메이션 뒷배경
 
 	return image;

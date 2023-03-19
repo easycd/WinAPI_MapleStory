@@ -16,7 +16,7 @@ public:
 	virtual void OnExit();
 
 	void AddGameObeject(GameObject* obj, eLayerType layer);
-	const std::vector<GameObject*>& GetGameObjects(eLayerType layer);
+	std::vector<GameObject*>& GetGameObjects(eLayerType layer);
 
 private:
 	std::vector<Layer> mLayers;

@@ -11,7 +11,7 @@ public:
 	void Run();
 	void Update();
 	void Render();
-
+	void SetMenuBar(bool power);
 	//void Release(); // 메모리 해제
 
 	HWND GetHwnd() { return mHwnd; }
@@ -29,6 +29,7 @@ private:
 	//백버퍼
 	HBITMAP mBackBuffer;
 	HDC mBackHDC;
+	HMENU mMenubar;
 
 	UINT mWidth;
 	UINT mHeight;

@@ -19,7 +19,7 @@ Boss_Yaldabaoth::~Boss_Yaldabaoth()
 void Boss_Yaldabaoth::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetPos(Vector2(300.0f, 230.0f));
+	tr->SetPos(Vector2(600.0f, 800.0f));
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Yaldabaoth\\stand", Vector2::Zero, 0.1f);
@@ -28,8 +28,8 @@ void Boss_Yaldabaoth::Initialize()
 	/*m_State = eBoss_YaldabaothState::Idle;*/
 
 	Collider* collider = AddComponent<Collider>();
-	collider->SetSize(Vector2(70, 70)); // 히트박스 크기 조정
-	collider->SetCenter(Vector2(0.0f, 0.0f)); // 히트박스 위치 조정
+	collider->SetSize(Vector2(300, 580)); // 히트박스 크기 조정
+	collider->SetCenter(Vector2(-150.0f, -580.0f)); // 히트박스 위치 조정
 
 	GameObject::Initialize();
 }

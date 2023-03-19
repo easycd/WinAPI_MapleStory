@@ -6,7 +6,8 @@ int ASCII[(UINT)eKeyCode::END] =
 	'A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L',
 	'Z', 'X', 'C', 'V', 'B', 'N', 'M',
 
-	VK_UP, VK_DOWN, VK_LEFT ,VK_RIGHT,
+	VK_UP, VK_DOWN, VK_LEFT ,VK_RIGHT,  VK_SPACE, VK_MENU,
+	VK_CONTROL,
 };
 
 std::vector<Input::Key> Input::mKeys;

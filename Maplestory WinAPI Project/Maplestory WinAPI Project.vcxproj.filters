@@ -47,15 +47,6 @@
     <Filter Include="Contents\01. GameObject">
       <UniqueIdentifier>{dd5c4730-5329-4952-84ff-477db27469c8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\01. GameObject\01. Player">
-      <UniqueIdentifier>{baa9516f-52e5-4987-8293-957feda29877}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\01. GameObject\02. Monster">
-      <UniqueIdentifier>{dbb98c9d-19e2-4e31-a622-393300f743e7}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\01. GameObject\03. BackObj">
-      <UniqueIdentifier>{6a71e012-0575-4332-b34d-bbc7a99833e5}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\02. Scene">
       <UniqueIdentifier>{db05c74c-64b8-4eaa-999e-28dcb036874a}</UniqueIdentifier>
     </Filter>
@@ -67,6 +58,27 @@
     </Filter>
     <Filter Include="Contents\01. GameObject\BossStage">
       <UniqueIdentifier>{325356db-179e-4c60-b163-a49bb8732934}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\Skill">
+      <UniqueIdentifier>{4bdbf170-672b-43c7-8c45-33165ab175c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\Player">
+      <UniqueIdentifier>{baa9516f-52e5-4987-8293-957feda29877}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\Monster">
+      <UniqueIdentifier>{dbb98c9d-19e2-4e31-a622-393300f743e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\BackObj">
+      <UniqueIdentifier>{6a71e012-0575-4332-b34d-bbc7a99833e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component\Animator">
+      <UniqueIdentifier>{7f7c70f3-710a-422f-ac54-f2de4cc6dc38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component\Transform">
+      <UniqueIdentifier>{fdf00277-07de-4f9d-ab9b-43b279794e0b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\Component\RigidBody">
+      <UniqueIdentifier>{f8c0590f-24e2-4174-b5c0-83b57586b3ff}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -130,56 +142,47 @@
     <ClInclude Include="RResources.h">
       <Filter>Engine\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="Transform.h">
-      <Filter>Engine\Component</Filter>
-    </ClInclude>
     <ClInclude Include="Arcana.h">
       <Filter>Contents\02. Scene</Filter>
     </ClInclude>
     <ClInclude Include="MainChar.h">
-      <Filter>Contents\01. GameObject\01. Player</Filter>
+      <Filter>Contents\01. GameObject\Player</Filter>
     </ClInclude>
     <ClInclude Include="ArcanaBack.h">
-      <Filter>Contents\01. GameObject\03. BackObj</Filter>
+      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClInclude>
     <ClInclude Include="HenesysBack.h">
-      <Filter>Contents\01. GameObject\03. BackObj</Filter>
+      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClInclude>
     <ClInclude Include="HenesysScene.h">
       <Filter>Contents\02. Scene</Filter>
     </ClInclude>
     <ClInclude Include="SomyeolBack.h">
-      <Filter>Contents\01. GameObject\03. BackObj</Filter>
+      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClInclude>
     <ClInclude Include="SomyeolScene.h">
       <Filter>Contents\02. Scene</Filter>
     </ClInclude>
     <ClInclude Include="LoginBack.h">
-      <Filter>Contents\01. GameObject\03. BackObj</Filter>
+      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClInclude>
     <ClInclude Include="LoginScene.h">
       <Filter>Contents\02. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>Engine\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="Animator.h">
-      <Filter>Engine\Component</Filter>
-    </ClInclude>
     <ClInclude Include="mushroom.h">
-      <Filter>Contents\01. GameObject\02. Monster</Filter>
+      <Filter>Contents\01. GameObject\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Collider.h">
       <Filter>Engine\Collider</Filter>
     </ClInclude>
     <ClInclude Include="RedSnail.h">
-      <Filter>Contents\01. GameObject\02. Monster</Filter>
+      <Filter>Contents\01. GameObject\Monster</Filter>
     </ClInclude>
     <ClInclude Include="Boss_Stage1_Back.h">
-      <Filter>Contents\01. GameObject\03. BackObj</Filter>
+      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClInclude>
     <ClInclude Include="Boss_Stage2_Back.h">
-      <Filter>Contents\01. GameObject\03. BackObj</Filter>
+      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClInclude>
     <ClInclude Include="Boss_Stage1_Scene.h">
       <Filter>Contents\02. Scene</Filter>
@@ -200,14 +203,33 @@
       <Filter>Contents\01. GameObject\BossStage</Filter>
     </ClInclude>
     <ClInclude Include="happy.h">
-      <Filter>Contents\01. GameObject\02. Monster</Filter>
+      <Filter>Contents\01. GameObject\Monster</Filter>
     </ClInclude>
     <ClInclude Include="waterspirit.h">
-      <Filter>Contents\01. GameObject\02. Monster</Filter>
+      <Filter>Contents\01. GameObject\Monster</Filter>
     </ClInclude>
     <ClInclude Include="CollisionManager.h">
       <Filter>Engine\Collider</Filter>
     </ClInclude>
+    <ClInclude Include="BasicSkill.h">
+      <Filter>Contents\01. GameObject\Skill</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Engine\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Engine\Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="Animator.h">
+      <Filter>Engine\Component\Animator</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Engine\Component\Transform</Filter>
+    </ClInclude>
+    <ClInclude Include="Rigidbody.h">
+      <Filter>Engine\Component\RigidBody</Filter>
+    </ClInclude>
+    <ClInclude Include="Ground.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -265,56 +287,47 @@
     <ClCompile Include="RResources.cpp">
       <Filter>Engine\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="Transform.cpp">
-      <Filter>Engine\Component</Filter>
-    </ClCompile>
     <ClCompile Include="Arcana.cpp">
       <Filter>Contents\02. Scene</Filter>
     </ClCompile>
     <ClCompile Include="MainChar.cpp">
-      <Filter>Contents\01. GameObject\01. Player</Filter>
+      <Filter>Contents\01. GameObject\Player</Filter>
     </ClCompile>
     <ClCompile Include="ArcanaBack.cpp">
-      <Filter>Contents\01. GameObject\03. BackObj</Filter>
+      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClCompile>
     <ClCompile Include="HenesysBack.cpp">
-      <Filter>Contents\01. GameObject\03. BackObj</Filter>
+      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClCompile>
     <ClCompile Include="HenesysScene.cpp">
       <Filter>Contents\02. Scene</Filter>
     </ClCompile>
     <ClCompile Include="SomyeolBack.cpp">
-      <Filter>Contents\01. GameObject\03. BackObj</Filter>
+      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClCompile>
     <ClCompile Include="SomyeolScene.cpp">
       <Filter>Contents\02. Scene</Filter>
     </ClCompile>
     <ClCompile Include="LoginBack.cpp">
-      <Filter>Contents\01. GameObject\03. BackObj</Filter>
+      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClCompile>
     <ClCompile Include="LoginScene.cpp">
       <Filter>Contents\02. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="Animation.cpp">
-      <Filter>Engine\Component</Filter>
-    </ClCompile>
-    <ClCompile Include="Animator.cpp">
-      <Filter>Engine\Component</Filter>
-    </ClCompile>
     <ClCompile Include="mushroom.cpp">
-      <Filter>Contents\01. GameObject\02. Monster</Filter>
+      <Filter>Contents\01. GameObject\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Collider.cpp">
       <Filter>Engine\Collider</Filter>
     </ClCompile>
     <ClCompile Include="RedSnail.cpp">
-      <Filter>Contents\01. GameObject\02. Monster</Filter>
+      <Filter>Contents\01. GameObject\Monster</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Stage1_Back.cpp">
-      <Filter>Contents\01. GameObject\03. BackObj</Filter>
+      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Stage2_Back.cpp">
-      <Filter>Contents\01. GameObject\03. BackObj</Filter>
+      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Stage1_Scene.cpp">
       <Filter>Contents\02. Scene</Filter>
@@ -335,13 +348,29 @@
       <Filter>Contents\01. GameObject\BossStage</Filter>
     </ClCompile>
     <ClCompile Include="happy.cpp">
-      <Filter>Contents\01. GameObject\02. Monster</Filter>
+      <Filter>Contents\01. GameObject\Monster</Filter>
     </ClCompile>
     <ClCompile Include="waterspirit.cpp">
-      <Filter>Contents\01. GameObject\02. Monster</Filter>
+      <Filter>Contents\01. GameObject\Monster</Filter>
     </ClCompile>
     <ClCompile Include="CollisionManager.cpp">
       <Filter>Engine\Collider</Filter>
     </ClCompile>
+    <ClCompile Include="BasicSkill.cpp">
+      <Filter>Contents\01. GameObject\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>Engine\Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="Animator.cpp">
+      <Filter>Engine\Component\Animator</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Engine\Component\Transform</Filter>
+    </ClCompile>
+    <ClCompile Include="Rigidbody.cpp">
+      <Filter>Engine\Component\RigidBody</Filter>
+    </ClCompile>
+    <ClCompile Include="Ground.cpp" />
   </ItemGroup>
 </Project>

@@ -7,6 +7,8 @@
 #include "Animator.h"
 #include "Scene.h"
 #include "Collider.h"
+#include "BasicSkill.h"
+#include "Rigidbody.h"
 
 MainChar::MainChar()
 {
@@ -18,23 +20,30 @@ MainChar::~MainChar()
 
 void MainChar::Initialize()
 {
+	Transform* tr = GetComponent<Transform>();
+	tr->SetPos(Vector2(300.0f, 300.0f));
 	m_Animator = AddComponent<Animator>();
 
-	m_Animator->CreateAnimations(L"..\\Resources\\Char\\IdleLeft", Vector2::Zero, 0.8f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Char\\IdleLeft", Vector2::Zero, 0.8f); //왼쪽 아이들
+	m_Animator->CreateAnimations(L"..\\Resources\\Char\\IdleRight", Vector2::Zero, 0.6f); // 오른쪽 아이들
 
-	m_Animator->CreateAnimations(L"..\\Resources\\Char\\IdleRight", Vector2::Zero, 0.6f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Char\\moveLeft", Vector2::Zero, 0.3f); // 왼쪽 걷기
+	m_Animator->CreateAnimations(L"..\\Resources\\Char\\moveRight", Vector2::Zero, 0.3f); // 오른쪽 걷기
 
-	m_Animator->CreateAnimations(L"..\\Resources\\Char\\moveLeft", Vector2::Zero, 0.3f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Char\\attackLeft", Vector2::Zero, 0.2f); // 왼쪽 공격모션
+	m_Animator->CreateAnimations(L"..\\Resources\\Char\\attackRight", Vector2::Zero, 0.2f); // 오른쪽 공격모션
 
-	m_Animator->CreateAnimations(L"..\\Resources\\Char\\moveRight", Vector2::Zero, 0.3f);
 
 	/*m_Animator->GetStartEvent(L"CharIdleRight") = std::bind(&MainChar::idleCompleteEvent, this);*/
 	m_Animator->Play(L"CharIdleRight", true);
 
 	Collider* collider = AddComponent<Collider>();
-	collider->SetCenter(Vector2(125.0f, 5.0f));
+	collider->SetCenter(Vector2(-30.0f, -220.0f));
 
-	/*m_State = eMainCharState::Idle;*/
+	mRigidbody = AddComponent<Rigidbody>();
+	mRigidbody->SetMass(1.0f);
+
+	m_State = eMainCharState::Idle;
 	GameObject::Initialize();
 }
 
@@ -49,6 +58,9 @@ void MainChar::Update()
 		break;
 	case  MainChar::eMainCharState::Idle:
 		idle();
+		break;
+	case  MainChar::eMainCharState::Attack:
+		basic_attack();
 		break;
 	default:
 		break;
@@ -67,89 +79,126 @@ void MainChar::Release()
 
 void MainChar::move()
 {
-	/*if (Input::GetKeyUp(eKeyCode::A)
-		|| Input::GetKeyUp(eKeyCode::D)
-		|| Input::GetKeyUp(eKeyCode::S)
-		|| Input::GetKeyUp(eKeyCode::W))
-	{
-		m_State = eMainCharState::Idle;
-		m_Animator->Play(L"CharIdleRight", true);
-	}*/
-	if (Input::GetKeyUp(eKeyCode::A))
+	if (Input::GetKeyUp(eKeyCode::LEFT))
 	{
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleLeft", true);
 	}
-	else if (Input::GetKeyUp(eKeyCode::D))
+	else if (Input::GetKeyUp(eKeyCode::RIGHT))
 	{
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleRight", true);
 	}
-	else if (Input::GetKeyUp(eKeyCode::W))
+	else if (Input::GetKeyUp(eKeyCode::UP))
 	{
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleRight", true);
 	}
-	else if (Input::GetKeyUp(eKeyCode::S))
+	else if (Input::GetKeyUp(eKeyCode::DOWN))
 	{
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleRight", true);
+	}
+    else if (Input::GetKeyDown(eKeyCode::SPACE))
+	{
+		Vector2 velocity = mRigidbody->GetVelocity();
+		velocity.y -= 500.0f;
+
+		mRigidbody->SetVelocity(velocity);
+		mRigidbody->SetGround(false);
 	}
 
 	Transform* tr = GetComponent<Transform>();
 	Vector2 pos = tr->GetPos();
 
-	if (Input::GetKey(eKeyCode::A))
-		pos.x -= 150.0f * Time::DeltaTime();
 
-	if (Input::GetKey(eKeyCode::D))
-		pos.x += 150.0f * Time::DeltaTime();
+	if (Input::GetKey(eKeyCode::LEFT))
+		mRigidbody->AddForce(Vector2(-200.0f, 0.0f));
+	//pos.x -= 100.0f * Time::DeltaTime();
 
-	if (Input::GetKey(eKeyCode::W))
-		pos.y -= 150.0f * Time::DeltaTime();
+	if (Input::GetKey(eKeyCode::RIGHT))
+		mRigidbody->AddForce(Vector2(200.0f, 0.0f));
+	//pos.x += 100.0f * Time::DeltaTime();
 
-	if (Input::GetKey(eKeyCode::S))
-		pos.y += 150.0f * Time::DeltaTime();
+	if (Input::GetKey(eKeyCode::UP))
+		mRigidbody->AddForce(Vector2(0.0f, -200.0f));
+	//pos.y -= 100.0f * Time::DeltaTime();
+
+	if (Input::GetKey(eKeyCode::DOWN))
+		mRigidbody->AddForce(Vector2(0.0f, +200.0f));
+	//pos.y += 100.0f * Time::DeltaTime();
+
+	/*if (Input::GetKey(eKeyCode::LEFT))
+		pos.x -= 180.0f * Time::DeltaTime();
+
+	if (Input::GetKey(eKeyCode::RIGHT))
+		pos.x += 180.0f * Time::DeltaTime();
+
+	if (Input::GetKey(eKeyCode::UP))
+		pos.y -= 180.0f * Time::DeltaTime();
+
+	if (Input::GetKey(eKeyCode::DOWN))
+		pos.y += 180.0f * Time::DeltaTime();*/
 
 	tr->SetPos(pos);
 }
 
 void MainChar::idle()
 {
-	if (Input::GetKeyDown(eKeyCode::A)
-		|| Input::GetKeyDown(eKeyCode::D)
-		|| Input::GetKeyDown(eKeyCode::S)
-		|| Input::GetKeyDown(eKeyCode::W))
-	{
-		m_State = eMainCharState::Move;
-		m_Animator->Play(L"CharmoveRight", true);
-	}
-	if (Input::GetKeyDown(eKeyCode::A))
+	if (Input::GetKeyDown(eKeyCode::LEFT))
 	{
 		m_State = eMainCharState::Move;
 		m_Animator->Play(L"CharmoveLeft", true);
 	}
-	else if (Input::GetKeyDown(eKeyCode::D))
+	else if (Input::GetKeyDown(eKeyCode::RIGHT))
 	{
 		m_State = eMainCharState::Move;
 		m_Animator->Play(L"CharmoveRight", true);
 	}
-	else if (Input::GetKeyDown(eKeyCode::W))
+	else if (Input::GetKeyDown(eKeyCode::UP))
 	{
 		m_State = eMainCharState::Move;
 		m_Animator->Play(L"CharmoveRight", true);
 	}
-	else if (Input::GetKeyDown(eKeyCode::S))
+	else if (Input::GetKeyDown(eKeyCode::DOWN))
 	{
 		m_State = eMainCharState::Move;
 		m_Animator->Play(L"CharmoveRight", true);
+	}
+	else if (Input::GetKeyDown(eKeyCode::CONTROL))
+	{
+		m_State = eMainCharState::Attack;
+		m_Animator->Play(L"CharattackRight", true);
+	}
+	else if (Input::GetKeyDown(eKeyCode::SPACE))
+	{
+		Vector2 velocity = mRigidbody->GetVelocity();
+		velocity.y -= 500.0f;
+
+		mRigidbody->SetVelocity(velocity);
+		mRigidbody->SetGround(false);
 	}
 	
 }
 
-void MainChar::attack()
+void MainChar::basic_attack()
 {
+	if (Input::GetKeyUp(eKeyCode::CONTROL))
+	{
+		m_State = eMainCharState::Idle;
+		m_Animator->Play(L"CharIdleRight", true);
+	}
 
+
+	Transform* tr = GetComponent<Transform>();
+	if (Input::GetKey(eKeyCode::CONTROL))
+	{
+		Scene* curScene = SceneManager::GetActiveScene();
+		BasicSkill* attack = new BasicSkill();
+		attack->GetComponent<Transform>()->SetPos(tr->GetPos());
+		curScene->AddGameObeject(attack, eLayerType::Skill);
+	}
+	
 }
 
 //애니메이션 1번 끝났을떄 호출되는 함수

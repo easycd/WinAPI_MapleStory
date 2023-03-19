@@ -2,6 +2,7 @@
 #include "GameObject.h"
 #include "Image.h"
 
+class Rigidbody;
 class Animator;
 class MainChar : public GameObject 
 {
@@ -25,12 +26,14 @@ public:
 private:
 	void move();
 	void idle();
-	void attack();
+	void basic_attack();
 
 	void idleCompleteEvent();
 
 private:
 	eMainCharState m_State;
 	Animator* m_Animator;
+	Animator* attack;
+	Rigidbody* mRigidbody;
 };
 

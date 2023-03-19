@@ -19,16 +19,16 @@ mushroom::~mushroom()
 void mushroom::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetPos(Vector2(700.0f, 482.0f));
+	tr->SetPos(Vector2(800.0f, 550.0f));
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\move", Vector2::Zero, 0.4f);
 	m_Animator->Play(L"mushroommove", true);
-	/*m_State = emushroomState::Idle;*/
+	//m_State = emushroomState::Idle;
 
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(70, 70)); // 히트박스 크기 조정
-	collider->SetCenter(Vector2(0.0f, 0.0f)); // 히트박스 위치 조정
+	collider->SetCenter(Vector2(-35.0f, -65.0f)); // 히트박스 위치 조정
 
 	GameObject::Initialize();
 }

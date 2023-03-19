@@ -23,8 +23,8 @@ void CollisionManager::Update()
 
 void CollisionManager::LayerCollision(Scene* scene, eLayerType left, eLayerType right)
 {
-	const std::vector<GameObject*>& lefts = scene->GetGameObjects(left); //몬스터
-	const std::vector<GameObject*>& rights = scene->GetGameObjects(right); // 플레이어
+	 std::vector<GameObject*>& lefts = scene->GetGameObjects(left); //몬스터
+	 std::vector<GameObject*>& rights = scene->GetGameObjects(right); // 플레이어
 
 	for (auto leftObject : lefts)
 	{
@@ -107,6 +107,12 @@ bool CollisionManager::Intersect(Collider* left, Collider* right)
 	Vector2 leftSize = left->GetSize();
 	Vector2 rightSize = right->GetSize();
 
+	leftPos.x = leftPos.x + leftSize.x / 2.0f;
+	leftPos.y = leftPos.y + leftSize.y / 2.0f;
+
+	rightPos.x = rightPos.x + rightSize.x / 2.0f;
+	rightPos.y = rightPos.y + rightSize.y / 2.0f;
+
 	//fabs = 절댓값 구해주는 함수.
 	if (fabs(leftPos.x - rightPos.x) < (leftSize.x / 2.0f) + (rightSize.x / 2.0f)
 		&& fabs(leftPos.y - rightPos.y) < (leftSize.y / 2.0f) + (rightSize.y / 2.0f))
@@ -144,5 +150,6 @@ void CollisionManager::SetLayer(eLayerType left, eLayerType right, bool value)
 
 void CollisionManager::Clear()
 {
-
+	memset(mMatrix, 0, sizeof(WORD) * (UINT)eLayerType::End);
+	mCollisionMap.clear();
 }

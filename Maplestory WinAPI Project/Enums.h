@@ -19,6 +19,8 @@ enum class eLayerType
 	BG,
 	Monster,
 	Player,
+	Skill,
+	Ground,
 	Effect,
 	UI,
 	End,
@@ -30,6 +32,7 @@ enum class eComponentType
 	Collider,
 	SpriteRenderer,
 	Animator,
+	Rigidbody,
 	Audio,
 	End,
 };

@@ -5,6 +5,8 @@
 #include "MainChar.h"
 #include "Boss_Ion.h"
 #include "Boss_Yaldabaoth.h"
+#include "CollisionManager.h"
+#include "Camera.h"
 
 Boss_Stage1_Scene::Boss_Stage1_Scene()
 {
@@ -19,6 +21,7 @@ void Boss_Stage1_Scene::Initialize()
 
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
+	//Camera::SetTarget(mMainChar);
 
 	m_Boss_Ion = new Boss_Ion();
 	AddGameObeject(m_Boss_Ion, eLayerType::Monster);
@@ -49,6 +52,7 @@ void Boss_Stage1_Scene::Release()
 }
 void Boss_Stage1_Scene::OnEnter()
 {
+	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 }
 void Boss_Stage1_Scene::OnExit()
 {

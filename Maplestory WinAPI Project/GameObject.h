@@ -5,6 +5,13 @@
 	class GameObject : public Entity // 이름 쓸려고 상속 받음 ex) 몬스터1 몬스터2
 	{
 	public:
+		enum class eState
+		{
+			Active,
+			Pause,
+			Death,
+		};
+
 		GameObject();
 		virtual ~GameObject();
 
@@ -12,6 +19,10 @@
 		virtual void Update();
 		virtual void Render(HDC hdc);
 		virtual void Release();
+
+		virtual void OnCollisionEnter(class Collider* other);
+		virtual void OnCollisionStay(class Collider* other);
+		virtual void OnCollisionExit(class Collider* other);
 
 		template <typename T>
 		T* AddComponent()
@@ -36,8 +47,11 @@
 			return nullptr;
 		}
 
+		eState GetState() { return mState; }
+		void SetState(eState state) { mState = state; }
 	private:
 		std::vector<Component*> mComponents;
+		eState mState;
 	};
 
 

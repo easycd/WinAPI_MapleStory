@@ -19,15 +19,15 @@ happy::~happy()
 void happy::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetPos(Vector2(700.0f, 230.0f));
+	tr->SetPos(Vector2(900.0f, 410.0f));
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\happymob\\move", Vector2::Zero, 0.2f);
 	m_Animator->Play(L"happymobmove", true);
 
 	Collider* collider = AddComponent<Collider>();
-	collider->SetSize(Vector2(70, 70)); // 히트박스 크기 조정
-	collider->SetCenter(Vector2(0.0f, 0.0f)); // 히트박스 위치 조정
+	collider->SetSize(Vector2(100, 200)); // 히트박스 크기 조정
+	collider->SetCenter(Vector2(-45.0f, -200.0f)); // 히트박스 위치 조정
 
 	/*m_State = ehappyState::Idle;*/
 	GameObject::Initialize();

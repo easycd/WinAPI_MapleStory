@@ -19,7 +19,7 @@ Boss_Ion::~Boss_Ion()
 void Boss_Ion::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetPos(Vector2(700.0f, 230.0f));
+	tr->SetPos(Vector2(1000.0f, 800.0f));
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\stand", Vector2::Zero, 0.1f);
@@ -28,8 +28,8 @@ void Boss_Ion::Initialize()
 	/*m_State = eBoss_IonState::Idle;*/
 
 	Collider* collider = AddComponent<Collider>();
-	collider->SetSize(Vector2(70, 70)); // 히트박스 크기 조정
-	collider->SetCenter(Vector2(0.0f, 0.0f)); // 히트박스 위치 조정
+	collider->SetSize(Vector2(300, 580)); // 히트박스 크기 조정
+	collider->SetCenter(Vector2(-150.0f, -580.0f)); // 히트박스 위치 조정
 
 	GameObject::Initialize();
 }

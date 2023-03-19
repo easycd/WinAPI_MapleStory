@@ -4,6 +4,8 @@
 #include "happy.h"
 #include "Input.h"
 #include "SceneManager.h"
+#include "CollisionManager.h"
+#include "Camera.h"
 
 SomyeolScene::SomyeolScene()
 {
@@ -18,6 +20,7 @@ void SomyeolScene::Initialize()
 
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
+	//Camera::SetTarget(mMainChar);
 
 	happy* m_happy = new happy();
 	AddGameObeject(m_happy, eLayerType::Monster);
@@ -41,6 +44,7 @@ void SomyeolScene::Release()
 }
 void SomyeolScene::OnEnter()
 {
+	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 }
 void SomyeolScene::OnExit()
 {

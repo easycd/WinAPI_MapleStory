@@ -22,6 +22,9 @@ public:
 	Vector2 GetSize() { return mSize; }
 
 private:
+	static UINT ColliderNumber;
+	UINT mCollisionCount;
+	UINT mID;
 	Vector2 mCenter;
 	Vector2 mSize;
 	Vector2 mScale;

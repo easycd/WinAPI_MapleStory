@@ -21,19 +21,17 @@ void Camera::Initiailize()
 
 void Camera::Update()
 {
+	/*if (Input::GetKey(eKeyCode::LEFT))
+			mLookPosition.x -= 100.0f * Time::DeltaTime();
 
-	if (Input::GetKey(eKeyCode::LEFT))
-		mLookPosition.x -= 100.0f * Time::DeltaTime();
+		if (Input::GetKey(eKeyCode::RIGHT))
+			mLookPosition.x += 100.0f * Time::DeltaTime();
 
-	if (Input::GetKey(eKeyCode::RIGHT))
-		mLookPosition.x += 100.0f * Time::DeltaTime();
+		if (Input::GetKey(eKeyCode::UP))
+			mLookPosition.y -= 100.0f * Time::DeltaTime();
 
-	if (Input::GetKey(eKeyCode::UP))
-		mLookPosition.y -= 100.0f * Time::DeltaTime();
-
-	if (Input::GetKey(eKeyCode::DOWN))
-		mLookPosition.y += 100.0f * Time::DeltaTime();
-
+		if (Input::GetKey(eKeyCode::DOWN))
+			mLookPosition.y += 100.0f * Time::DeltaTime();*/
 
 	if (mTarget != nullptr)
 	{

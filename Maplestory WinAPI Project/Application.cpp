@@ -2,6 +2,9 @@
 #include "SceneManager.h"
 #include "Time.h"
 #include "Input.h"
+#include "CollisionManager.h"
+#include "Camera.h"
+#include "resource.h"
 
 Application::Application()
 	: mHwnd(NULL) //초기화
@@ -43,6 +46,7 @@ void Application::Initialize(HWND hWnd)
 	Time::Initialize();
 	Input::Initialize();
 	SceneManager::Initialize();
+	Camera::Initiailize(); //카메라 함수 초기화
 }
 
 void Application::Run()
@@ -55,7 +59,10 @@ void Application::Update()
 {
 	Time::Update();
 	Input::Update();
+	Camera::Update(); //카메라 함수 업데이트
+
 	SceneManager::Update();
+	CollisionManager::Update();
 }
 
 void Application::Render()
@@ -69,6 +76,22 @@ void Application::Render()
 
 	// 백버퍼에 있는 그림을 원본버퍼에 그려줘야한다.
 	BitBlt(mHdc, 0, 0, mWidth, mHeight, mBackHDC, 0, 0, SRCCOPY);
+}
+
+void Application::SetMenuBar(bool power)
+{
+	SetMenu(mHwnd, mMenubar);
+
+	RECT rect = { 0, 0, mWidth , mHeight };
+	AdjustWindowRect(&rect, WS_OVERLAPPEDWINDOW, power);
+
+	// 윈도우 크기 변경및 출력 설정
+	SetWindowPos(mHwnd
+		, nullptr, 0, 0
+		, rect.right - rect.left
+		, rect.bottom - rect.top
+		, 0);
+	ShowWindow(mHwnd, true);
 }
 
 void Application::clear()

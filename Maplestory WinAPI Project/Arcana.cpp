@@ -5,21 +5,23 @@
 #include "MainChar.h"
 #include "waterspirit.h"
 #include "Camera.h"
+#include "CollisionManager.h"
 
 Arcana::Arcana()
 {
+	
 }
 Arcana::~Arcana()
 {
 }
 void Arcana::Initialize()
 {
-	m_arcanaBack = new ArcanaBack();
-	AddGameObeject(m_arcanaBack, eLayerType::BG);
-
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
-	Camera::SetTarget(mMainChar);
+	//Camera::SetTarget(mMainChar);
+	
+	m_arcanaBack = new ArcanaBack();
+	AddGameObeject(m_arcanaBack, eLayerType::BG);
 
 	m_waterspirit = new waterspirit();
 	AddGameObeject(m_waterspirit, eLayerType::Monster);
@@ -47,6 +49,7 @@ void Arcana::Release()
 }
 void Arcana::OnEnter()
 {
+	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 }
 void Arcana::OnExit()
 {

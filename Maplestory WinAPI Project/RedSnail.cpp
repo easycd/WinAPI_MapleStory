@@ -19,7 +19,7 @@ RedSnail::~RedSnail()
 void RedSnail::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetPos(Vector2(900.0f, 515.0f));
+	tr->SetPos(Vector2(900.0f, 550.0f));
 
 	
 
@@ -31,7 +31,7 @@ void RedSnail::Initialize()
 	/*m_State = eRedSnailState::Idle;*/
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(40, 40)); // 히트박스 크기 조정
-	collider->SetCenter(Vector2(0.0f, 0.0f)); // 히트박스 위치 조정
+	collider->SetCenter(Vector2(-20.0f, -40.0f)); // 히트박스 위치 조정
 
 	GameObject::Initialize();
 }

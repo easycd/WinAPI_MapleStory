@@ -19,7 +19,7 @@ waterspirit::~waterspirit()
 void waterspirit::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetPos(Vector2(900.0f, 200.0f));
+	tr->SetPos(Vector2(900.0f, 555.0f));
 
 
 
@@ -30,8 +30,8 @@ void waterspirit::Initialize()
 
 	/*m_State = ewaterspiritState::Idle;*/
 	Collider* collider = AddComponent<Collider>();
-	collider->SetSize(Vector2(40, 40)); // 히트박스 크기 조정
-	collider->SetCenter(Vector2(0.0f, 0.0f)); // 히트박스 위치 조정
+	collider->SetSize(Vector2(120, 160)); // 히트박스 크기 조정
+	collider->SetCenter(Vector2(-65.0f, -155.0f)); // 히트박스 위치 조정
 
 	GameObject::Initialize();
 }

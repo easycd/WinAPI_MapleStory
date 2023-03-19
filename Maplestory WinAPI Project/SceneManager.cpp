@@ -1,4 +1,5 @@
 #include "SceneManager.h"
+#include "CollisionManager.h"
 #include "Arcana.h"
 #include "HenesysScene.h"
 #include "SomyeolScene.h"
@@ -25,7 +26,7 @@ void SceneManager::Initialize()
 
 	mScenes[(UINT)eSceneType::Boss_Stage2] = new Boss_Stage2_Scene(); //∫∏Ω∫Ω∫≈◊¿Ã¡ˆ2 æ¿
 
-	mActiveScene = mScenes[(UINT)eSceneType::Login];
+	mActiveScene = mScenes[(UINT)eSceneType::Login]; //∑Œ±◊¿Œ æ¿ Ω√¿€
 
 	for (Scene* scene : mScenes)
 	{
@@ -62,6 +63,8 @@ void SceneManager::LoadScene(eSceneType type)
 {
 	// «ˆ¿Áæ¿
 	mActiveScene->OnExit();
+
+	CollisionManager::Clear();
 
 	//¥Ÿ¿Ωæ¿
 	mActiveScene = mScenes[(UINT)type];

@@ -6,7 +6,6 @@
 class MainChar;
 class Boss_Stage2_Back;
 
-
 class Boss_Stage2_Scene : public Scene
 {
 public:
