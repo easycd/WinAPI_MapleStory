@@ -10,6 +10,7 @@ public:
 	enum class eMainCharState
 	{
 		Move,
+		Jump,
 		Attack,
 		Death,
 		Idle,
@@ -26,6 +27,7 @@ public:
 private:
 	void move();
 	void idle();
+	void jump();
 	void basic_attack();
 
 	void idleCompleteEvent();
@@ -35,5 +37,6 @@ private:
 	Animator* m_Animator;
 	Animator* attack;
 	Rigidbody* mRigidbody;
+	int direction = 0; //0이면 왼쪽 1이면 오른쪽
 };
 

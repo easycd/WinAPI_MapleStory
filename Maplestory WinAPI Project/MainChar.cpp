@@ -26,16 +26,17 @@ void MainChar::Initialize()
 
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\IdleLeft", Vector2::Zero, 0.8f); //왼쪽 아이들
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\IdleRight", Vector2::Zero, 0.6f); // 오른쪽 아이들
-
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\moveLeft", Vector2::Zero, 0.3f); // 왼쪽 걷기
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\moveRight", Vector2::Zero, 0.3f); // 오른쪽 걷기
-
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\attackLeft", Vector2::Zero, 0.2f); // 왼쪽 공격모션
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\attackRight", Vector2::Zero, 0.2f); // 오른쪽 공격모션
+	m_Animator->CreateAnimations(L"..\\Resources\\Char\\jumpLeft", Vector2::Zero, 0.2f); // 왼쪽 점프
+	m_Animator->CreateAnimations(L"..\\Resources\\Char\\jumpRight", Vector2::Zero, 0.2f); // 오른쪽 점프
 
 
 	/*m_Animator->GetStartEvent(L"CharIdleRight") = std::bind(&MainChar::idleCompleteEvent, this);*/
 	m_Animator->Play(L"CharIdleRight", true);
+	direction = 1;
 
 	Collider* collider = AddComponent<Collider>();
 	collider->SetCenter(Vector2(-30.0f, -220.0f));
@@ -62,6 +63,9 @@ void MainChar::Update()
 	case  MainChar::eMainCharState::Attack:
 		basic_attack();
 		break;
+	case  MainChar::eMainCharState::Jump:
+		jump();
+		break;
 	default:
 		break;
 	}
@@ -83,11 +87,13 @@ void MainChar::move()
 	{
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleLeft", true);
+		direction = 0;
 	}
 	else if (Input::GetKeyUp(eKeyCode::RIGHT))
 	{
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleRight", true);
+		direction = 1;
 	}
 	else if (Input::GetKeyUp(eKeyCode::UP))
 	{
@@ -99,8 +105,30 @@ void MainChar::move()
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleRight", true);
 	}
-    else if (Input::GetKeyDown(eKeyCode::SPACE))
+	else if (direction == 1 && Input::GetKeyDown(eKeyCode::F))
 	{
+		m_State = eMainCharState::Attack;
+		m_Animator->Play(L"CharattackRight", true);
+	}
+	else if (direction == 0 && Input::GetKeyDown(eKeyCode::F))
+	{
+		m_State = eMainCharState::Attack;
+		m_Animator->Play(L"CharattackLeft", true);
+	}
+	else if (direction == 0 && Input::GetKeyDown(eKeyCode::SPACE))
+	{
+		m_State = eMainCharState::Jump;
+		m_Animator->Play(L"CharjumpLeft", true);
+		Vector2 velocity = mRigidbody->GetVelocity();
+		velocity.y -= 500.0f;
+
+		mRigidbody->SetVelocity(velocity);
+		mRigidbody->SetGround(false);
+	}
+	else if (direction == 1 && Input::GetKeyDown(eKeyCode::SPACE))
+	{
+		m_State = eMainCharState::Jump;
+		m_Animator->Play(L"CharjumpRight", true);
 		Vector2 velocity = mRigidbody->GetVelocity();
 		velocity.y -= 500.0f;
 
@@ -113,20 +141,30 @@ void MainChar::move()
 
 
 	if (Input::GetKey(eKeyCode::LEFT))
+	{
 		mRigidbody->AddForce(Vector2(-200.0f, 0.0f));
-	//pos.x -= 100.0f * Time::DeltaTime();
+		direction = 0;
+		//pos.x -= 100.0f * Time::DeltaTime();
+	}
 
 	if (Input::GetKey(eKeyCode::RIGHT))
+	{
 		mRigidbody->AddForce(Vector2(200.0f, 0.0f));
-	//pos.x += 100.0f * Time::DeltaTime();
+		direction = 1;
+		//pos.x += 100.0f * Time::DeltaTime();
+	}
 
 	if (Input::GetKey(eKeyCode::UP))
+	{
 		mRigidbody->AddForce(Vector2(0.0f, -200.0f));
-	//pos.y -= 100.0f * Time::DeltaTime();
+		//pos.y -= 100.0f * Time::DeltaTime();
+	}
 
 	if (Input::GetKey(eKeyCode::DOWN))
+	{
 		mRigidbody->AddForce(Vector2(0.0f, +200.0f));
-	//pos.y += 100.0f * Time::DeltaTime();
+		//pos.y += 100.0f * Time::DeltaTime();
+	}
 
 	/*if (Input::GetKey(eKeyCode::LEFT))
 		pos.x -= 180.0f * Time::DeltaTime();
@@ -149,11 +187,13 @@ void MainChar::idle()
 	{
 		m_State = eMainCharState::Move;
 		m_Animator->Play(L"CharmoveLeft", true);
+		direction = 0;
 	}
 	else if (Input::GetKeyDown(eKeyCode::RIGHT))
 	{
 		m_State = eMainCharState::Move;
 		m_Animator->Play(L"CharmoveRight", true);
+		direction = 1;
 	}
 	else if (Input::GetKeyDown(eKeyCode::UP))
 	{
@@ -165,13 +205,32 @@ void MainChar::idle()
 		m_State = eMainCharState::Move;
 		m_Animator->Play(L"CharmoveRight", true);
 	}
-	else if (Input::GetKeyDown(eKeyCode::CONTROL))
+	else if (Input::GetKeyDown(eKeyCode::F) && direction == 1)
 	{
 		m_State = eMainCharState::Attack;
 		m_Animator->Play(L"CharattackRight", true);
+		direction == 1;
 	}
-	else if (Input::GetKeyDown(eKeyCode::SPACE))
+	else if (Input::GetKeyDown(eKeyCode::F) && direction == 0)
 	{
+		m_State = eMainCharState::Attack;
+		m_Animator->Play(L"CharattackLeft", true);
+		direction == 0;
+	}
+	else if (direction == 0 && Input::GetKeyDown(eKeyCode::SPACE))
+	{
+		m_State = eMainCharState::Jump;
+		m_Animator->Play(L"CharjumpLeft", true);
+		Vector2 velocity = mRigidbody->GetVelocity();
+		velocity.y -= 500.0f;
+
+		mRigidbody->SetVelocity(velocity);
+		mRigidbody->SetGround(false);
+	}
+	else if (direction == 1 && Input::GetKeyDown(eKeyCode::SPACE))
+	{
+		m_State = eMainCharState::Jump;
+		m_Animator->Play(L"CharjumpRight", true);
 		Vector2 velocity = mRigidbody->GetVelocity();
 		velocity.y -= 500.0f;
 
@@ -179,25 +238,47 @@ void MainChar::idle()
 		mRigidbody->SetGround(false);
 	}
 	
+	
+}
+
+void MainChar::jump()
+{
+	if (direction == 0 && Input::GetKeyUp(eKeyCode::SPACE))
+	{
+		m_State = eMainCharState::Idle;
+		m_Animator->Play(L"CharIdleLeft", true);
+		direction = 0;
+	}
+	else if (direction == 1 && Input::GetKeyUp(eKeyCode::SPACE))
+	{
+		m_State = eMainCharState::Idle;
+		m_Animator->Play(L"CharIdleRight", true);
+		direction = 1;
+	}
 }
 
 void MainChar::basic_attack()
 {
-	if (Input::GetKeyUp(eKeyCode::CONTROL))
+	if (Input::GetKeyUp(eKeyCode::F) && direction == 1)
 	{
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleRight", true);
 	}
+	else if (Input::GetKeyUp(eKeyCode::F) && direction == 0)
+	{
+		m_State = eMainCharState::Idle;
+		m_Animator->Play(L"CharIdleLeft", true);
+	}
 
 
-	Transform* tr = GetComponent<Transform>();
+	/*Transform* tr = GetComponent<Transform>();
 	if (Input::GetKey(eKeyCode::CONTROL))
 	{
 		Scene* curScene = SceneManager::GetActiveScene();
 		BasicSkill* attack = new BasicSkill();
 		attack->GetComponent<Transform>()->SetPos(tr->GetPos());
 		curScene->AddGameObeject(attack, eLayerType::Skill);
-	}
+	}*/
 	
 }
 

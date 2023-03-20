@@ -80,6 +80,9 @@
     <Filter Include="Engine\Component\RigidBody">
       <UniqueIdentifier>{f8c0590f-24e2-4174-b5c0-83b57586b3ff}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\01. GameObject\Ground">
+      <UniqueIdentifier>{7cdcbf16-a226-47e6-b232-10c4a9c640c0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -229,7 +232,9 @@
     <ClInclude Include="Rigidbody.h">
       <Filter>Engine\Component\RigidBody</Filter>
     </ClInclude>
-    <ClInclude Include="Ground.h" />
+    <ClInclude Include="Ground.h">
+      <Filter>Contents\01. GameObject\Ground</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -371,6 +376,8 @@
     <ClCompile Include="Rigidbody.cpp">
       <Filter>Engine\Component\RigidBody</Filter>
     </ClCompile>
-    <ClCompile Include="Ground.cpp" />
+    <ClCompile Include="Ground.cpp">
+      <Filter>Contents\01. GameObject\Ground</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

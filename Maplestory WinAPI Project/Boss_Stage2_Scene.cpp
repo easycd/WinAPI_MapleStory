@@ -17,9 +17,9 @@ void Boss_Stage2_Scene::Initialize()
 	m_Boss_Stage2_Back = new Boss_Stage2_Back();
 	AddGameObeject(m_Boss_Stage2_Back, eLayerType::BG);
 
-	//mMainChar = new MainChar();
+	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
-	Camera::SetTarget(mMainChar);
+	/*Camera::SetTarget(mMainChar);*/
 
 	Scene::Initialize();
 }

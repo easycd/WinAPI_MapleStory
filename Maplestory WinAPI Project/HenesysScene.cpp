@@ -9,6 +9,8 @@
 #include "Camera.h"
 #include "CollisionManager.h"
 #include "Ground.h"
+#include "GameObject.h"
+
 
 HenesysScene::HenesysScene()
 {
@@ -38,6 +40,7 @@ void HenesysScene::Initialize()
 
 	Ground* ground = new Ground();
 	AddGameObeject(ground, eLayerType::Ground);
+
 	
 
 	Scene::Initialize();
