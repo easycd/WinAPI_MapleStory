@@ -19,5 +19,6 @@ public:
 
 private:
 	class Collider* mCollider;
+	class Collider* collider;
 };
 

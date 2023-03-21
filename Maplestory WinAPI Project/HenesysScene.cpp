@@ -40,7 +40,6 @@ void HenesysScene::Initialize()
 
 	Ground* ground = new Ground();
 	AddGameObeject(ground, eLayerType::Ground);
-
 	
 
 	Scene::Initialize();
