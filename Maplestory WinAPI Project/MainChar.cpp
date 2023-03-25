@@ -179,7 +179,7 @@ void MainChar::move()
 	if (Input::GetKey(eKeyCode::DOWN))
 	{
 		//mRigidbody->AddForce(Vector2(0.0f, +200.0f));
-		pos.y += 200.0 * Time::DeltaTime();
+		//pos.y += 200.0 * Time::DeltaTime();
 	}
 
 	/*if (Input::GetKey(eKeyCode::LEFT))

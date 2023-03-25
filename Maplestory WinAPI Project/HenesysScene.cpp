@@ -38,11 +38,20 @@ void HenesysScene::Initialize()
 	mushroom* m_mushroom = new mushroom();
 	AddGameObeject(m_mushroom, eLayerType::Monster);
 
+	//mushroom* m_mushroom1 
+
 	Ground* ground = new Ground();
 	AddGameObeject(ground, eLayerType::Ground);
-	
+
+	Ground* ground1 = new Ground();
+	AddGameObeject(ground1, eLayerType::Ground);
 
 	Scene::Initialize();
+	//Ground* ground1 = new Ground();
+	//AddGameObeject(ground1, eLayerType::Ground);
+	ground->GetComponent<Transform>()->SetPos(Vector2(100.0f, 30.0f));
+	ground1->GetComponent<Transform>()->SetPos(Vector2(300.0f, 10.0f));
+
 }
 void HenesysScene::Update()
 {
