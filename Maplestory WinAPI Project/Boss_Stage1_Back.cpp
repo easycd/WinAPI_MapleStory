@@ -14,7 +14,7 @@ Boss_Stage1_Back::~Boss_Stage1_Back()
 
 void Boss_Stage1_Back::Initialize()
 {
-	mImage = RResources::Load<Image>(L"Boss_Stage1_Back", L"..\\Resources\\Map\\boss1.bmp");
+	mImage = RResources::Load<Image>(L"Boss_Stage1_Back", L"..\\Resources\\Map\\Boss\\boss1_Back.bmp");
 	GameObject::Initialize();
 }
 

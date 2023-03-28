@@ -56,9 +56,6 @@
     <Filter Include="Engine\Camera">
       <UniqueIdentifier>{5d1ce8d5-f49f-497d-953e-6ce9935df770}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\01. GameObject\BossStage">
-      <UniqueIdentifier>{325356db-179e-4c60-b163-a49bb8732934}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\01. GameObject\Skill">
       <UniqueIdentifier>{4bdbf170-672b-43c7-8c45-33165ab175c1}</UniqueIdentifier>
     </Filter>
@@ -82,6 +79,24 @@
     </Filter>
     <Filter Include="Contents\01. GameObject\Ground">
       <UniqueIdentifier>{7cdcbf16-a226-47e6-b232-10c4a9c640c0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\BackObj\Arcana">
+      <UniqueIdentifier>{1efa029d-ea86-4eae-a085-2977053aa590}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\BackObj\Boss_Stage">
+      <UniqueIdentifier>{582c299c-8295-4d47-8e5a-bd2977b13f3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\BackObj\Henesys">
+      <UniqueIdentifier>{8913dec4-d6e7-4150-9d37-957dd0a0bced}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\BackObj\Login">
+      <UniqueIdentifier>{28310f8d-6305-48fa-810b-e5562f9cf982}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\BackObj\Somyel">
+      <UniqueIdentifier>{0c272131-ddfd-4f77-83c9-c4386d645c55}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\BossStage_Mob">
+      <UniqueIdentifier>{325356db-179e-4c60-b163-a49bb8732934}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -151,23 +166,11 @@
     <ClInclude Include="MainChar.h">
       <Filter>Contents\01. GameObject\Player</Filter>
     </ClInclude>
-    <ClInclude Include="ArcanaBack.h">
-      <Filter>Contents\01. GameObject\BackObj</Filter>
-    </ClInclude>
-    <ClInclude Include="HenesysBack.h">
-      <Filter>Contents\01. GameObject\BackObj</Filter>
-    </ClInclude>
     <ClInclude Include="HenesysScene.h">
       <Filter>Contents\02. Scene</Filter>
     </ClInclude>
-    <ClInclude Include="SomyeolBack.h">
-      <Filter>Contents\01. GameObject\BackObj</Filter>
-    </ClInclude>
     <ClInclude Include="SomyeolScene.h">
       <Filter>Contents\02. Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="LoginBack.h">
-      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClInclude>
     <ClInclude Include="LoginScene.h">
       <Filter>Contents\02. Scene</Filter>
@@ -181,12 +184,6 @@
     <ClInclude Include="RedSnail.h">
       <Filter>Contents\01. GameObject\Monster</Filter>
     </ClInclude>
-    <ClInclude Include="Boss_Stage1_Back.h">
-      <Filter>Contents\01. GameObject\BackObj</Filter>
-    </ClInclude>
-    <ClInclude Include="Boss_Stage2_Back.h">
-      <Filter>Contents\01. GameObject\BackObj</Filter>
-    </ClInclude>
     <ClInclude Include="Boss_Stage1_Scene.h">
       <Filter>Contents\02. Scene</Filter>
     </ClInclude>
@@ -197,13 +194,13 @@
       <Filter>Engine\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Boss_Yaldabaoth.h">
-      <Filter>Contents\01. GameObject\BossStage</Filter>
+      <Filter>Contents\01. GameObject\BossStage_Mob</Filter>
     </ClInclude>
     <ClInclude Include="Boss_Ion.h">
-      <Filter>Contents\01. GameObject\BossStage</Filter>
+      <Filter>Contents\01. GameObject\BossStage_Mob</Filter>
     </ClInclude>
     <ClInclude Include="Boss.h">
-      <Filter>Contents\01. GameObject\BossStage</Filter>
+      <Filter>Contents\01. GameObject\BossStage_Mob</Filter>
     </ClInclude>
     <ClInclude Include="happy.h">
       <Filter>Contents\01. GameObject\Monster</Filter>
@@ -234,6 +231,39 @@
     </ClInclude>
     <ClInclude Include="Ground.h">
       <Filter>Contents\01. GameObject\Ground</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcanaBack.h">
+      <Filter>Contents\01. GameObject\BackObj\Arcana</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Stage1_Back.h">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Stage2_Back.h">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="HenesysBack.h">
+      <Filter>Contents\01. GameObject\BackObj\Henesys</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginBack.h">
+      <Filter>Contents\01. GameObject\BackObj\Login</Filter>
+    </ClInclude>
+    <ClInclude Include="SomyeolBack.h">
+      <Filter>Contents\01. GameObject\BackObj\Somyel</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcanaObject.h">
+      <Filter>Contents\01. GameObject\BackObj\Arcana</Filter>
+    </ClInclude>
+    <ClInclude Include="HenesysObject.h">
+      <Filter>Contents\01. GameObject\BackObj\Henesys</Filter>
+    </ClInclude>
+    <ClInclude Include="SomyeolObject.h">
+      <Filter>Contents\01. GameObject\BackObj\Somyel</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Stage1_Object.h">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Stage2_Object.h">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -298,23 +328,11 @@
     <ClCompile Include="MainChar.cpp">
       <Filter>Contents\01. GameObject\Player</Filter>
     </ClCompile>
-    <ClCompile Include="ArcanaBack.cpp">
-      <Filter>Contents\01. GameObject\BackObj</Filter>
-    </ClCompile>
-    <ClCompile Include="HenesysBack.cpp">
-      <Filter>Contents\01. GameObject\BackObj</Filter>
-    </ClCompile>
     <ClCompile Include="HenesysScene.cpp">
       <Filter>Contents\02. Scene</Filter>
     </ClCompile>
-    <ClCompile Include="SomyeolBack.cpp">
-      <Filter>Contents\01. GameObject\BackObj</Filter>
-    </ClCompile>
     <ClCompile Include="SomyeolScene.cpp">
       <Filter>Contents\02. Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="LoginBack.cpp">
-      <Filter>Contents\01. GameObject\BackObj</Filter>
     </ClCompile>
     <ClCompile Include="LoginScene.cpp">
       <Filter>Contents\02. Scene</Filter>
@@ -328,12 +346,6 @@
     <ClCompile Include="RedSnail.cpp">
       <Filter>Contents\01. GameObject\Monster</Filter>
     </ClCompile>
-    <ClCompile Include="Boss_Stage1_Back.cpp">
-      <Filter>Contents\01. GameObject\BackObj</Filter>
-    </ClCompile>
-    <ClCompile Include="Boss_Stage2_Back.cpp">
-      <Filter>Contents\01. GameObject\BackObj</Filter>
-    </ClCompile>
     <ClCompile Include="Boss_Stage1_Scene.cpp">
       <Filter>Contents\02. Scene</Filter>
     </ClCompile>
@@ -344,13 +356,13 @@
       <Filter>Engine\Camera</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Yaldabaoth.cpp">
-      <Filter>Contents\01. GameObject\BossStage</Filter>
+      <Filter>Contents\01. GameObject\BossStage_Mob</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Ion.cpp">
-      <Filter>Contents\01. GameObject\BossStage</Filter>
+      <Filter>Contents\01. GameObject\BossStage_Mob</Filter>
     </ClCompile>
     <ClCompile Include="Boss.cpp">
-      <Filter>Contents\01. GameObject\BossStage</Filter>
+      <Filter>Contents\01. GameObject\BossStage_Mob</Filter>
     </ClCompile>
     <ClCompile Include="happy.cpp">
       <Filter>Contents\01. GameObject\Monster</Filter>
@@ -378,6 +390,39 @@
     </ClCompile>
     <ClCompile Include="Ground.cpp">
       <Filter>Contents\01. GameObject\Ground</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcanaBack.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Arcana</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Stage1_Back.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Stage2_Back.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="HenesysBack.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Henesys</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginBack.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Login</Filter>
+    </ClCompile>
+    <ClCompile Include="SomyeolBack.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Somyel</Filter>
+    </ClCompile>
+    <ClCompile Include="ArcanaObject.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Arcana</Filter>
+    </ClCompile>
+    <ClCompile Include="HenesysObject.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Henesys</Filter>
+    </ClCompile>
+    <ClCompile Include="SomyeolObject.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Somyel</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Stage1_Object.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Stage2_Object.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

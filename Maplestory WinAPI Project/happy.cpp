@@ -19,7 +19,7 @@ happy::~happy()
 void happy::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetPos(Vector2(900.0f, 410.0f));
+	tr->SetPos(Vector2(900.0f, 460.0f));
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\happymob\\move", Vector2::Zero, 0.2f);

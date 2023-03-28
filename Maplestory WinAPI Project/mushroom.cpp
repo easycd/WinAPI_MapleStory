@@ -19,7 +19,7 @@ mushroom::~mushroom()
 void mushroom::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetPos(Vector2(800.0f, 550.0f));
+	tr->SetPos(Vector2(800.0f, 600.0f));
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\move", Vector2::Zero, 0.4f);

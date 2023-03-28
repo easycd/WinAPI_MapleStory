@@ -1,5 +1,6 @@
 #include "SomyeolScene.h"
 #include "SomyeolBack.h"
+#include "SomyeolObject.h"
 #include "MainChar.h"
 #include "happy.h"
 #include "Input.h"
@@ -18,9 +19,11 @@ void SomyeolScene::Initialize()
 	m_somyeolBack = new SomyeolBack();
 	AddGameObeject(m_somyeolBack, eLayerType::BG);
 
+	m_somyeolObject = new SomyeolObject();
+	AddGameObeject(m_somyeolObject, eLayerType::BG);
+
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
-	//Camera::SetTarget(mMainChar);
 
 	happy* m_happy = new happy();
 	AddGameObeject(m_happy, eLayerType::Monster);
@@ -34,6 +37,8 @@ void SomyeolScene::Update()
 		SceneManager::LoadScene(eSceneType::Arcana);
 	}
 	Scene::Update();
+
+	Camera::SetTarget(mMainChar);
 }
 void SomyeolScene::Render(HDC hdc)
 {

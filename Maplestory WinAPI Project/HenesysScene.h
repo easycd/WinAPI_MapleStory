@@ -5,6 +5,7 @@
 
 class MainChar;
 class HenesysBack;
+class HenesysObject;
 class mushroom;
 class RedSnail;
 
@@ -24,6 +25,7 @@ class RedSnail;
 
 	private:
 		HenesysBack* m_henesysBack;
+		HenesysObject* m_henesysobject;
 		MainChar* mMainChar;
 		mushroom* m_mushroom;
 		RedSnail* m_redsnail;

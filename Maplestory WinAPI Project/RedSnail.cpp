@@ -19,7 +19,7 @@ RedSnail::~RedSnail()
 void RedSnail::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetPos(Vector2(900.0f, 550.0f));
+	tr->SetPos(Vector2(900.0f, 600.0f));
 
 	
 

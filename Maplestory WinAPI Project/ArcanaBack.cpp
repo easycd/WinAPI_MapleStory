@@ -14,7 +14,7 @@ ArcanaBack::~ArcanaBack()
 
 void ArcanaBack::Initialize()
 {
-	mImage = RResources::Load<Image>(L"ArcanaBack", L"..\\Resources\\Map\\Arcana.bmp");
+	mImage = RResources::Load<Image>(L"ArcanaBack", L"..\\Resources\\Map\\Arcana\\Arcana_Back.bmp");
 	GameObject::Initialize();
 }
 
@@ -31,7 +31,7 @@ void ArcanaBack::Render(HDC hdc)
 	GameObject::Render(hdc);
 	Transform* tr = GetComponent<Transform>();
 	Vector2 pos = tr->GetPos();
-	//pos = Camera::CaluatePos(pos);
+	pos = Camera::CaluatePos(pos);
 	BitBlt(hdc, pos.x, pos.y, mImage->GetWidth(), mImage->GetHeight(), mImage->GetHdc(), 0, 0, SRCCOPY);
 }
 void ArcanaBack::Release()

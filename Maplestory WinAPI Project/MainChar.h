@@ -11,9 +11,11 @@ public:
 	{
 		Move,
 		Jump,
-		Attack,
-		Death,
+		Down,
 		Idle,
+		Death,
+		DownAttack,
+		Attack,
 	};
 
 	MainChar();
@@ -29,6 +31,8 @@ private:
 	void idle();
 	void jump();
 	void basic_attack();
+	void down();
+	void downattack();
 
 	void idleCompleteEvent();
 

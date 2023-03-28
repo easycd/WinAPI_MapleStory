@@ -5,6 +5,7 @@
 
 class MainChar;
 class Boss_Stage1_Back;
+class Boss_Stage1_Object;
 class Boss_Ion;
 class Boss_Yaldabaoth;
 
@@ -25,6 +26,7 @@ public:
 private:
 	MainChar* mMainChar;
 	Boss_Stage1_Back* m_Boss_Stage1_Back;
+	Boss_Stage1_Object* m_Boss_Stage1_Object;
 	Boss_Ion* m_Boss_Ion;
 	Boss_Yaldabaoth* m_Boss_Yaldabaoth;
 };

@@ -4,6 +4,7 @@
 
 class MainChar;
 class SomyeolBack;
+class SomyeolObject;
 class happy;
 
 	class SomyeolScene : public Scene
@@ -22,6 +23,7 @@ class happy;
 
 	private:
 		SomyeolBack* m_somyeolBack;
+		SomyeolObject* m_somyeolObject;
 		MainChar* mMainChar;
 		happy* m_happy;
 	};

@@ -15,5 +15,6 @@ public:
 
 private:
 	Animator* m_Animator;
+	float mTime;
 };
 

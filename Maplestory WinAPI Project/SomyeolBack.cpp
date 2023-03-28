@@ -15,7 +15,7 @@ SomyeolBack::~SomyeolBack()
 void SomyeolBack::Initialize()
 {
 
-	mImage = RResources::Load<Image>(L"SomyeolBack", L"..\\Resources\\Map\\Somyeol.bmp");
+	mImage = RResources::Load<Image>(L"SomyeolBack", L"..\\Resources\\Map\\Somyeol\\Somyeol_Back.bmp");
 	GameObject::Initialize();
 }
 
@@ -33,7 +33,7 @@ void SomyeolBack::Render(HDC hdc)
 	Transform* tr = GetComponent<Transform>();
 	Vector2 pos = tr->GetPos();
 	pos = Camera::CaluatePos(pos);
-	BitBlt(hdc, pos.x, pos.y, mImage->GetWidth(), mImage->GetHeight(), mImage->GetHdc(), 0, 0, SRCCOPY);
+	BitBlt(hdc, pos.x, pos.y + 50, mImage->GetWidth(), mImage->GetHeight(), mImage->GetHdc(), 0, 0, SRCCOPY);
 }
 void SomyeolBack::Release()
 {

@@ -19,7 +19,7 @@ waterspirit::~waterspirit()
 void waterspirit::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetPos(Vector2(900.0f, 555.0f));
+	tr->SetPos(Vector2(900.0f, 605.0f));
 
 
 

@@ -2,7 +2,7 @@
 #include "Transform.h"
 #include "Time.h"
 #include "Animator.h"
-
+#include "Object.h"
 
 BasicSkill::BasicSkill()
 {
@@ -16,23 +16,27 @@ void BasicSkill::Initialize()
 {
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\BasicAttack", Vector2::Zero, 0.1f);
-
-	GameObject::Initialize();
 }
 
 void BasicSkill::Update()
 {
 	Transform* tr = GetComponent<Transform>();
 	Vector2 pos = tr->GetPos();
-	//tr->GetPos(pos);
-	m_Animator->Play(L"SkillBasicAttack", false);
+	m_Animator->Play(L"SkillBasicAttack", true);
+
+	//mTime += Time::DeltaTime();
+	//if (mTime > 2.0f) //2초가 지나면 사라짐
+	//{
+	//	Destory(this);
+	//}
 }
 
 void BasicSkill::Render(HDC hdc)
 {
-	GameObject::Render(hdc);
+	m_Animator->Render(hdc);
 }
 
 void BasicSkill::Release()
 {
+	GameObject::Release();
 }

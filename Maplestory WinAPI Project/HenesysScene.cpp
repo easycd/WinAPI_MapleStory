@@ -10,7 +10,7 @@
 #include "CollisionManager.h"
 #include "Ground.h"
 #include "GameObject.h"
-
+#include "HenesysObject.h"
 
 HenesysScene::HenesysScene()
 {
@@ -24,11 +24,12 @@ void HenesysScene::Initialize()
 	HenesysBack* m_henesysBack = new HenesysBack();
 	AddGameObeject(m_henesysBack, eLayerType::BG);
 
+	HenesysObject* m_henesysobject = new HenesysObject();
+	AddGameObeject(m_henesysobject, eLayerType::BG);
+
 	//캐릭터
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
-
-	//Camera::SetTarget(mMainChar);
 
 	//빨간달팽이 몬스터
 	RedSnail* m_redsnail = new RedSnail();
@@ -37,8 +38,6 @@ void HenesysScene::Initialize()
 	//주황버섯 몬스터
 	mushroom* m_mushroom = new mushroom();
 	AddGameObeject(m_mushroom, eLayerType::Monster);
-
-	//mushroom* m_mushroom1 
 
 	Ground* ground = new Ground();
 	AddGameObeject(ground, eLayerType::Ground);
@@ -60,6 +59,8 @@ void HenesysScene::Update()
 		SceneManager::LoadScene(eSceneType::Somyeol);
 	}
 	Scene::Update();
+
+	Camera::SetTarget(mMainChar);
 }
 void HenesysScene::Render(HDC hdc)
 {

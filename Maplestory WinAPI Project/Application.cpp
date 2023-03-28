@@ -21,8 +21,8 @@ void Application::Initialize(HWND hWnd)
 {
 	mHwnd = hWnd;
 	mHdc = GetDC(hWnd);
-	mWidth = 1600;
-	mHeight = 900;
+	mWidth = 1366;
+	mHeight = 768;
 
 	//비트맵 해상도를 설정하기 위한 실제 윈도우 크기를 계산해준다.
 	RECT rect = { 0, 0, mWidth , mHeight };

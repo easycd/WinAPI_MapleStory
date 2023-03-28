@@ -1,5 +1,6 @@
 #include "Boss_Stage1_Scene.h"
 #include "Boss_Stage1_Back.h"
+#include "Boss_Stage1_Object.h"
 #include "Input.h"
 #include "SceneManager.h"
 #include "MainChar.h"
@@ -19,9 +20,12 @@ void Boss_Stage1_Scene::Initialize()
 	m_Boss_Stage1_Back = new Boss_Stage1_Back();
 	AddGameObeject(m_Boss_Stage1_Back, eLayerType::BG);
 
+	m_Boss_Stage1_Object = new Boss_Stage1_Object();
+	AddGameObeject(m_Boss_Stage1_Object, eLayerType::BG);
+
+
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
-	//Camera::SetTarget(mMainChar);
 
 	m_Boss_Ion = new Boss_Ion();
 	AddGameObeject(m_Boss_Ion, eLayerType::Monster);
@@ -40,6 +44,7 @@ void Boss_Stage1_Scene::Update()
 
 	Scene::Update();
 
+	Camera::SetTarget(mMainChar);
 
 }
 void Boss_Stage1_Scene::Render(HDC hdc)

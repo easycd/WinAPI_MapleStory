@@ -5,6 +5,7 @@
 
 class MainChar;
 class ArcanaBack;
+class ArcanaObject;
 class waterspirit;
 
 	class Arcana : public Scene
@@ -22,8 +23,9 @@ class waterspirit;
 		virtual void OnExit() override;
 
 	private:
-		MainChar* mMainChar;
-		ArcanaBack* m_arcanaBack;
+		MainChar* m_mainchar;
+		ArcanaBack* m_arcanaback;
+		ArcanaObject* m_arcanaobject;
 		waterspirit* m_waterspirit;
 	};
 
