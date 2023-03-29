@@ -96,17 +96,8 @@
 		Vector2 pos = tr->GetPos();
 		pos = pos + mVelocity * Time::DeltaTime();
 
-		/*if (pos.y > 900.0f)
-			mbGround = true;*/
-
 		tr->SetPos(pos);
 		mForce.Clear();
-
-
-		//Vector2 pos = tr->GetPos();
-		//pos += mVelocity * Time::DeltaTime(); //속도와 시간을 곱해서 이동시킨다.
-		//tr->SetPos(pos);
-		//mForce.Clear();
 	}
 
 	void Rigidbody::Render(HDC hdc)

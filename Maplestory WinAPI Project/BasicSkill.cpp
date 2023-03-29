@@ -22,7 +22,6 @@ void BasicSkill::Update()
 {
 	Transform* tr = GetComponent<Transform>();
 	Vector2 pos = tr->GetPos();
-	m_Animator->Play(L"SkillBasicAttack", true);
 
 	//mTime += Time::DeltaTime();
 	//if (mTime > 2.0f) //2초가 지나면 사라짐
@@ -33,7 +32,7 @@ void BasicSkill::Update()
 
 void BasicSkill::Render(HDC hdc)
 {
-	m_Animator->Render(hdc);
+	m_Animator->Play(L"SkillBasicAttack", true);
 }
 
 void BasicSkill::Release()
