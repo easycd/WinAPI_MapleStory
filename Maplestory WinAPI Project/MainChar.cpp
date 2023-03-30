@@ -263,24 +263,26 @@ void MainChar::jump()
 
 void MainChar::basic_attack()
 {
-	/*if (Input::GetKeyUp(eKeyCode::F) && direction == 1)
+	Transform* tr = GetComponent<Transform>();
+	if (Input::GetKey(eKeyCode::F))
 	{
-		m_State = eMainCharState::Idle;
-		m_Animator->Play(L"CharIdleRight", true);
+		Scene* curScene = SceneManager::GetActiveScene();
+		
+		BasicSkill* basicskill = new BasicSkill();
+		basicskill->RightAttack();
+		basicskill->GetComponent<Transform>()->SetPos(tr->GetPos());
+		curScene->AddGameObeject(basicskill, eLayerType::Skill);
+
 	}
 	else if (Input::GetKeyUp(eKeyCode::F) && direction == 0)
 	{
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleLeft", true);
-	}*/
-
-	Transform* tr = GetComponent<Transform>();
-	if (Input::GetKey(eKeyCode::F))
+	}
+	else if (Input::GetKeyUp(eKeyCode::F) && direction == 1)
 	{
-		Scene* curScene = SceneManager::GetActiveScene();
-		BasicSkill* basicskill = new BasicSkill();
-		basicskill->GetComponent<Transform>()->SetPos(tr->GetPos());
-		curScene->AddGameObeject(basicskill, eLayerType::Skill);
+		m_State = eMainCharState::Idle;
+		m_Animator->Play(L"CharIdleRight", true);
 	}
 
 	
