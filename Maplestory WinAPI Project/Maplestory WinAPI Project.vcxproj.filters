@@ -265,6 +265,12 @@
     <ClInclude Include="Boss_Stage2_Object.h">
       <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
     </ClInclude>
+    <ClInclude Include="Boss_Enter_Scene.h">
+      <Filter>Contents\02. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Enter_Back.h">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -422,6 +428,12 @@
       <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Stage2_Object.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Enter_Scene.cpp">
+      <Filter>Contents\02. Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Enter_Back.cpp">
       <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
     </ClCompile>
   </ItemGroup>

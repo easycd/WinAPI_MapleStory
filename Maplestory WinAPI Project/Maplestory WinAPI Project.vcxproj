@@ -136,6 +136,8 @@
     <ClInclude Include="ArcanaObject.h" />
     <ClInclude Include="BasicSkill.h" />
     <ClInclude Include="Boss.h" />
+    <ClInclude Include="Boss_Enter_Scene.h" />
+    <ClInclude Include="Boss_Enter_Back.h" />
     <ClInclude Include="Boss_Ion.h" />
     <ClInclude Include="Boss_Stage1_Object.h" />
     <ClInclude Include="Boss_Stage1_Scene.h" />
@@ -193,6 +195,8 @@
     <ClCompile Include="ArcanaObject.cpp" />
     <ClCompile Include="BasicSkill.cpp" />
     <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="Boss_Enter_Scene.cpp" />
+    <ClCompile Include="Boss_Enter_Back.cpp" />
     <ClCompile Include="Boss_Ion.cpp" />
     <ClCompile Include="Boss_Stage1_Object.cpp" />
     <ClCompile Include="Boss_Stage1_Scene.cpp" />

@@ -35,7 +35,7 @@ void Arcana::Update()
 {
 	if (Input::GetKeyState(eKeyCode::N) == eKeyState::Down)
 	{
-		SceneManager::LoadScene(eSceneType::Boss_Stage1);
+		SceneManager::LoadScene(eSceneType::Boss_Enter);
 	}
 
 	Scene::Update();

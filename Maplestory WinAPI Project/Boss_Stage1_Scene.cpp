@@ -23,7 +23,6 @@ void Boss_Stage1_Scene::Initialize()
 	m_Boss_Stage1_Object = new Boss_Stage1_Object();
 	AddGameObeject(m_Boss_Stage1_Object, eLayerType::BG);
 
-
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
 

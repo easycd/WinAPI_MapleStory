@@ -8,6 +8,7 @@ enum class eSceneType
 	Henesys,
 	Somyeol,
 	Arcana,
+	Boss_Enter,
 	Boss_Stage1,
 	Boss_Stage2,
 	Ending,

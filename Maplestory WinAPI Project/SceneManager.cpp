@@ -6,6 +6,7 @@
 #include "LoginScene.h"
 #include "Boss_Stage1_Scene.h"
 #include "Boss_Stage2_Scene.h"
+#include "Boss_Enter_Scene.h"
 
 std::vector<Scene*> SceneManager::mScenes = {};
 Scene* SceneManager::mActiveScene = nullptr;
@@ -21,6 +22,8 @@ void SceneManager::Initialize()
 	mScenes[(UINT)eSceneType::Arcana] = new Arcana(); // 아르카나 씬
 
 	mScenes[(UINT)eSceneType::Somyeol] = new SomyeolScene(); //소멸여로 씬
+
+	mScenes[(UINT)eSceneType::Boss_Enter] = new Boss_Enter_Scene(); //보스스테이지2 씬
 
 	mScenes[(UINT)eSceneType::Boss_Stage1] = new Boss_Stage1_Scene(); //보스스테이지1 씬
 
