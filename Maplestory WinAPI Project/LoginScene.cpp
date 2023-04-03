@@ -3,6 +3,7 @@
 #include "MainChar.h"
 #include "Input.h"
 #include "SceneManager.h"
+#include "Time.h"
 
 LoginScene::LoginScene()
 {

@@ -50,6 +50,14 @@ void MainChar::Initialize()
 
 	m_State = eMainCharState::Idle;
 	GameObject::Initialize();
+
+	//
+
+	Vector2 velocity = mRigidbody->GetVelocity();
+	velocity.y -= 500.0f;
+
+	mRigidbody->SetVelocity(velocity);
+	mRigidbody->SetGround(false);
 }
 
 void MainChar::Update()
@@ -79,6 +87,13 @@ void MainChar::Update()
 	default:
 		break;
 	}
+	//
+	/*Vector2 velocity = mRigidbody->GetVelocity();
+	velocity.y = 100.0f;
+
+	mRigidbody->SetVelocity(velocity);
+	mRigidbody->SetGround(false);*/
+
 }
 
 void MainChar::Render(HDC hdc)

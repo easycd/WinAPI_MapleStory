@@ -3,6 +3,7 @@
 
 enum class eSceneType
 {
+	Start,
 	Login,
 	CharSelect,
 	Henesys,
@@ -17,6 +18,7 @@ enum class eSceneType
 
 enum class eLayerType
 {
+	Wizet,
 	BG,
 	Monster,
 	Player,

@@ -39,7 +39,7 @@ void Ground::Release()
 void Ground::OnCollisionEnter(Collider* other)
 {
 	MainChar* mainchar = dynamic_cast<MainChar*>(other->GetOwner());
-	if (mainchar == nullptr) //컵헤드가 없다면 리턴
+	if (mainchar == nullptr) 
 		return;
 
 	Rigidbody* rb = mainchar->GetComponent<Rigidbody>();
@@ -73,5 +73,11 @@ void Ground::OnCollisionStay(Collider* other)
 
 void Ground::OnCollisionExit(Collider* other)
 {
+	MainChar* mainchar = dynamic_cast<MainChar*>(other->GetOwner());
+	if (mainchar == nullptr) 
+		return;
+
+	Rigidbody* rb = mainchar->GetComponent<Rigidbody>();
+	rb->SetGround(false);
 }
 

@@ -16,16 +16,20 @@ BasicSkill::~BasicSkill()
 
 void BasicSkill::Initialize()
 {
-	/*mTime += Time::DeltaTime();
-	if (mTime > 1.0f)
-	{
-		Destory(this);
-	}*/
 }
 
 void BasicSkill::Update()
 {
+
 	GameObject::Update();
+
+	mTime += Time::DeltaTime();
+
+	if (mTime > 1.0f)
+	{
+		Destory(this);
+	}
+
 }
 
 void BasicSkill::Render(HDC hdc)

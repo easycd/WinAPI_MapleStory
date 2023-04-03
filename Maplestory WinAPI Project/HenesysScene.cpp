@@ -11,6 +11,8 @@
 #include "Ground.h"
 #include "GameObject.h"
 #include "HenesysObject.h"
+#include "Rigidbody.h"
+
 
 HenesysScene::HenesysScene()
 {
@@ -100,6 +102,8 @@ void HenesysScene::OnEnter()
 	mMainChar->GetComponent<Transform>()->SetPos(Vector2(600.0f, 1500.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
+	mMainChar->GetComponent<Rigidbody>()->SetGround(true);
+	
 }
 void HenesysScene::OnExit()
 {

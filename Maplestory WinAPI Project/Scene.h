@@ -10,6 +10,7 @@ public:
 	virtual void Initialize();
 	virtual void Update();
 	virtual void Render(HDC hdc);
+	virtual void Destroy();
 	virtual void Release();
 
 	virtual void OnEnter();

@@ -98,6 +98,27 @@
     <Filter Include="Contents\01. GameObject\BossStage_Mob">
       <UniqueIdentifier>{325356db-179e-4c60-b163-a49bb8732934}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\02. Scene\HenesysScene">
+      <UniqueIdentifier>{ba1ace44-3230-41a6-a77b-349f088d8f8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\02. Scene\ArcanaScene">
+      <UniqueIdentifier>{497aeb39-8aae-416d-b125-99b8884ec8ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\02. Scene\BossScene">
+      <UniqueIdentifier>{cc07f761-2ad9-47b0-8134-b864c7db8aa2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\02. Scene\LoginScene">
+      <UniqueIdentifier>{76c91b62-c553-44b5-ad87-1c2c0627967b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\02. Scene\SomyeolScene">
+      <UniqueIdentifier>{05aee2f6-635d-4d9a-a482-11d1db726e4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\BackObj\Start">
+      <UniqueIdentifier>{86040a58-c603-4d31-95fb-4b3f87fb3f89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\02. Scene\StartScene">
+      <UniqueIdentifier>{16627339-5da6-4769-8e66-1a60b263f927}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -160,20 +181,8 @@
     <ClInclude Include="RResources.h">
       <Filter>Engine\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="Arcana.h">
-      <Filter>Contents\02. Scene</Filter>
-    </ClInclude>
     <ClInclude Include="MainChar.h">
       <Filter>Contents\01. GameObject\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="HenesysScene.h">
-      <Filter>Contents\02. Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="SomyeolScene.h">
-      <Filter>Contents\02. Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="LoginScene.h">
-      <Filter>Contents\02. Scene</Filter>
     </ClInclude>
     <ClInclude Include="mushroom.h">
       <Filter>Contents\01. GameObject\Monster</Filter>
@@ -183,12 +192,6 @@
     </ClInclude>
     <ClInclude Include="RedSnail.h">
       <Filter>Contents\01. GameObject\Monster</Filter>
-    </ClInclude>
-    <ClInclude Include="Boss_Stage1_Scene.h">
-      <Filter>Contents\02. Scene</Filter>
-    </ClInclude>
-    <ClInclude Include="Boss_Stage2_Scene.h">
-      <Filter>Contents\02. Scene</Filter>
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Engine\Camera</Filter>
@@ -265,11 +268,35 @@
     <ClInclude Include="Boss_Stage2_Object.h">
       <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
     </ClInclude>
-    <ClInclude Include="Boss_Enter_Scene.h">
-      <Filter>Contents\02. Scene</Filter>
-    </ClInclude>
     <ClInclude Include="Boss_Enter_Back.h">
       <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="HenesysScene.h">
+      <Filter>Contents\02. Scene\HenesysScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Arcana.h">
+      <Filter>Contents\02. Scene\ArcanaScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Enter_Scene.h">
+      <Filter>Contents\02. Scene\BossScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Stage1_Scene.h">
+      <Filter>Contents\02. Scene\BossScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Stage2_Scene.h">
+      <Filter>Contents\02. Scene\BossScene</Filter>
+    </ClInclude>
+    <ClInclude Include="LoginScene.h">
+      <Filter>Contents\02. Scene\LoginScene</Filter>
+    </ClInclude>
+    <ClInclude Include="SomyeolScene.h">
+      <Filter>Contents\02. Scene\SomyeolScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Wizet.h">
+      <Filter>Contents\01. GameObject\BackObj\Start</Filter>
+    </ClInclude>
+    <ClInclude Include="WizetScene.h">
+      <Filter>Contents\02. Scene\StartScene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -328,20 +355,8 @@
     <ClCompile Include="RResources.cpp">
       <Filter>Engine\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="Arcana.cpp">
-      <Filter>Contents\02. Scene</Filter>
-    </ClCompile>
     <ClCompile Include="MainChar.cpp">
       <Filter>Contents\01. GameObject\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="HenesysScene.cpp">
-      <Filter>Contents\02. Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="SomyeolScene.cpp">
-      <Filter>Contents\02. Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="LoginScene.cpp">
-      <Filter>Contents\02. Scene</Filter>
     </ClCompile>
     <ClCompile Include="mushroom.cpp">
       <Filter>Contents\01. GameObject\Monster</Filter>
@@ -351,12 +366,6 @@
     </ClCompile>
     <ClCompile Include="RedSnail.cpp">
       <Filter>Contents\01. GameObject\Monster</Filter>
-    </ClCompile>
-    <ClCompile Include="Boss_Stage1_Scene.cpp">
-      <Filter>Contents\02. Scene</Filter>
-    </ClCompile>
-    <ClCompile Include="Boss_Stage2_Scene.cpp">
-      <Filter>Contents\02. Scene</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Engine\Camera</Filter>
@@ -430,11 +439,35 @@
     <ClCompile Include="Boss_Stage2_Object.cpp">
       <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
     </ClCompile>
-    <ClCompile Include="Boss_Enter_Scene.cpp">
-      <Filter>Contents\02. Scene</Filter>
-    </ClCompile>
     <ClCompile Include="Boss_Enter_Back.cpp">
       <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="HenesysScene.cpp">
+      <Filter>Contents\02. Scene\HenesysScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Arcana.cpp">
+      <Filter>Contents\02. Scene\ArcanaScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Enter_Scene.cpp">
+      <Filter>Contents\02. Scene\BossScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Stage1_Scene.cpp">
+      <Filter>Contents\02. Scene\BossScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Stage2_Scene.cpp">
+      <Filter>Contents\02. Scene\BossScene</Filter>
+    </ClCompile>
+    <ClCompile Include="LoginScene.cpp">
+      <Filter>Contents\02. Scene\LoginScene</Filter>
+    </ClCompile>
+    <ClCompile Include="SomyeolScene.cpp">
+      <Filter>Contents\02. Scene\SomyeolScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Wizet.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Start</Filter>
+    </ClCompile>
+    <ClCompile Include="WizetScene.cpp">
+      <Filter>Contents\02. Scene\StartScene</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
