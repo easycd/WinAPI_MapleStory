@@ -54,8 +54,8 @@ void CollisionManager::LayerCollision(Scene* scene, eLayerType left, eLayerType 
 void CollisionManager::ColliderCollision(Collider* leftCol, Collider* rightCol, eLayerType left, eLayerType right)
 {
 	ColliderID collidrID = {};
-	collidrID.left = (UINT)left;
-	collidrID.left = (UINT)right;
+	collidrID.left = (UINT)leftCol->GetID();
+	collidrID.right = (UINT)rightCol->GetID();
 
 	std::map<UINT64, bool>::iterator iter = mCollisionMap.find(collidrID.id); //이미 충돌 중인 경우
 

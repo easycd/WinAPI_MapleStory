@@ -16,7 +16,7 @@ void HenesysBack::Initialize()
 {
 	mImage = RResources::Load<Image>(L"Henesys_Back", L"..\\Resources\\Map\\Henesys\\Henesys_Back.bmp");
 	GameObject::Initialize();
-}
+} 
 
 void HenesysBack::Update()
 {

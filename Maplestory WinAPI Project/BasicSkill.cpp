@@ -16,7 +16,6 @@ BasicSkill::~BasicSkill()
 
 void BasicSkill::Initialize()
 {
-
 	/*mTime += Time::DeltaTime();
 	if (mTime > 1.0f)
 	{

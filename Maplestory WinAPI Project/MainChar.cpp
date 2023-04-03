@@ -267,7 +267,6 @@ void MainChar::basic_attack()
 	if (Input::GetKey(eKeyCode::F))
 	{
 		Scene* curScene = SceneManager::GetActiveScene();
-		
 		BasicSkill* basicskill = new BasicSkill();
 		basicskill->RightAttack();
 		basicskill->GetComponent<Transform>()->SetPos(tr->GetPos());
