@@ -9,6 +9,7 @@
 #include "Camera.h"
 #include "Ground.h"
 #include "Transform.h"
+#include "Portal.h"
 
 SomyeolScene::SomyeolScene()
 {
@@ -23,6 +24,12 @@ void SomyeolScene::Initialize()
 
 	m_somyeolObject = new SomyeolObject();
 	AddGameObeject(m_somyeolObject, eLayerType::BG);
+
+	Portal* portal0 = new Portal();
+	AddGameObeject(portal0, eLayerType::Portal);
+
+	Portal* portal1 = new Portal();
+	AddGameObeject(portal1, eLayerType::Portal);
 
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
@@ -60,6 +67,9 @@ void SomyeolScene::Initialize()
 	ground5->GetComponent<Collider>()->SetSize(Vector2(778.0f, 30.0f));
 	ground6->GetComponent<Transform>()->SetPos(Vector2(665.0f, 435.0f));
 	ground6->GetComponent<Collider>()->SetSize(Vector2(778.0f, 30.0f));
+
+	portal0->GetComponent<Transform>()->SetPos(Vector2(100.0f, 560.0f));
+	portal1->GetComponent<Transform>()->SetPos(Vector2(2000.0f, 1210.0f));
 }
 void SomyeolScene::Update()
 {
@@ -80,6 +90,7 @@ void SomyeolScene::Release()
 }
 void SomyeolScene::OnEnter()
 {
+	mMainChar->GetComponent<Transform>()->SetPos(Vector2(600.0f, 1050.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 }

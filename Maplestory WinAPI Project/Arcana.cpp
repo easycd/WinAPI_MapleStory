@@ -7,6 +7,8 @@
 #include "waterspirit.h"
 #include "Camera.h"
 #include "CollisionManager.h"
+#include "Ground.h"
+#include "Transform.h"
 
 Arcana::Arcana()
 {
@@ -29,7 +31,12 @@ void Arcana::Initialize()
 	m_waterspirit = new waterspirit();
 	AddGameObeject(m_waterspirit, eLayerType::Monster);
 
+	Ground* ground0 = new Ground();
+	AddGameObeject(ground0, eLayerType::Monster);
+
 	Scene::Initialize();
+	ground0->GetComponent<Transform>()->SetPos(Vector2(0.0f, 1005.0f));
+	ground0->GetComponent<Collider>()->SetSize(Vector2(2800.0f, 30.0f));
 }
 void Arcana::Update()
 {

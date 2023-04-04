@@ -8,6 +8,8 @@
 #include "Boss_Yaldabaoth.h"
 #include "CollisionManager.h"
 #include "Camera.h"
+#include "Ground.h"
+#include "Transform.h"
 
 Boss_Stage1_Scene::Boss_Stage1_Scene()
 {
@@ -23,6 +25,9 @@ void Boss_Stage1_Scene::Initialize()
 	m_Boss_Stage1_Object = new Boss_Stage1_Object();
 	AddGameObeject(m_Boss_Stage1_Object, eLayerType::BG);
 
+	Ground* ground0 = new Ground();
+	AddGameObeject(ground0, eLayerType::Ground);
+
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
 
@@ -33,6 +38,11 @@ void Boss_Stage1_Scene::Initialize()
 	AddGameObeject(m_Boss_Yaldabaoth, eLayerType::Monster);
 
 	Scene::Initialize();
+	m_Boss_Ion->GetComponent<Transform>()->SetPos(Vector2(1800, 780));
+	m_Boss_Yaldabaoth->GetComponent<Transform>()->SetPos(Vector2(2700, 780));
+
+	ground0->GetComponent<Transform>()->SetPos(Vector2(0.0f, 770.0f));
+	ground0->GetComponent<Collider>()->SetSize(Vector2(5000.0f, 30.0f));
 }
 void Boss_Stage1_Scene::Update()
 {
@@ -56,7 +66,9 @@ void Boss_Stage1_Scene::Release()
 }
 void Boss_Stage1_Scene::OnEnter()
 {
+	mMainChar->GetComponent<Transform>()->SetPos(Vector2(2400.0f, 700.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
+	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 }
 void Boss_Stage1_Scene::OnExit()
 {
