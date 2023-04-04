@@ -14,9 +14,10 @@ WizetScene::~WizetScene()
 }
 void WizetScene::Initialize()
 {
-	m_wizet = new Wizet();
-	AddGameObeject(m_wizet, eLayerType::BG);
-	m_wizet->Initialize();
+	//메모리 누수
+		m_wizet = new Wizet();
+		AddGameObeject(m_wizet, eLayerType::BG);
+		m_wizet->Initialize();
 
 	Scene::Initialize();
 }
@@ -27,7 +28,6 @@ void WizetScene::Update()
 	{
 		SceneManager::LoadScene(eSceneType::Login);
 	}
-
 	Scene::Update();
 
 }
