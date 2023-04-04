@@ -119,6 +119,9 @@
     <Filter Include="Contents\02. Scene\StartScene">
       <UniqueIdentifier>{16627339-5da6-4769-8e66-1a60b263f927}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\01. GameObject\Object">
+      <UniqueIdentifier>{02c9a848-48e9-4112-9202-fcfbe83b8b4b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -298,6 +301,9 @@
     <ClInclude Include="WizetScene.h">
       <Filter>Contents\02. Scene\StartScene</Filter>
     </ClInclude>
+    <ClInclude Include="Portal.h">
+      <Filter>Contents\01. GameObject\Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -468,6 +474,9 @@
     </ClCompile>
     <ClCompile Include="WizetScene.cpp">
       <Filter>Contents\02. Scene\StartScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Portal.cpp">
+      <Filter>Contents\01. GameObject\Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

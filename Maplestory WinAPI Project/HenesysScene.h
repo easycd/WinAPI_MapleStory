@@ -8,6 +8,7 @@ class HenesysBack;
 class HenesysObject;
 class mushroom;
 class RedSnail;
+class Portal;
 
 	class HenesysScene : public Scene
 	{
@@ -29,5 +30,6 @@ class RedSnail;
 		MainChar* mMainChar;
 		mushroom* m_mushroom;
 		RedSnail* m_redsnail;
+		Portal* m_portal;
 	};
 

@@ -32,7 +32,7 @@ void SceneManager::Initialize()
 
 	mScenes[(UINT)eSceneType::Boss_Stage2] = new Boss_Stage2_Scene(); //보스스테이지2 씬
 
-	mActiveScene = mScenes[(UINT)eSceneType::Start]; //로그인 씬 시작
+	mActiveScene = mScenes[(UINT)eSceneType::Henesys]; //로그인 씬 시작
 
 	for (Scene* scene : mScenes)
 	{

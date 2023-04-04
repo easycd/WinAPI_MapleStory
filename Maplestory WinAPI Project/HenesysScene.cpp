@@ -12,7 +12,7 @@
 #include "GameObject.h"
 #include "HenesysObject.h"
 #include "Rigidbody.h"
-
+#include "Portal.h"
 
 HenesysScene::HenesysScene()
 {
@@ -29,6 +29,12 @@ void HenesysScene::Initialize()
 	HenesysObject* m_henesysobject = new HenesysObject();
 	AddGameObeject(m_henesysobject, eLayerType::BG);
 
+	Portal* m_portal0 = new Portal();
+	AddGameObeject(m_portal0, eLayerType::Portal);
+
+	Portal* m_portal1 = new Portal();
+	AddGameObeject(m_portal1, eLayerType::Portal);
+
 	//Ä³¸¯ÅÍ
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
@@ -41,24 +47,17 @@ void HenesysScene::Initialize()
 	mushroom* m_mushroom = new mushroom();
 	AddGameObeject(m_mushroom, eLayerType::Monster);
 
-	Ground* ground0 = new Ground();
-	AddGameObeject(ground0, eLayerType::Ground);
-	Ground* ground1 = new Ground();
-	AddGameObeject(ground1, eLayerType::Ground);
-	Ground* ground2 = new Ground();
-	AddGameObeject(ground2, eLayerType::Ground);
-	Ground* ground3 = new Ground();
-	AddGameObeject(ground3, eLayerType::Ground);
-	Ground* ground4 = new Ground();
-	AddGameObeject(ground4, eLayerType::Ground);
-	Ground* ground5 = new Ground();
-	AddGameObeject(ground5, eLayerType::Ground);
-	Ground* ground6 = new Ground();
-	AddGameObeject(ground6, eLayerType::Ground);
-	Ground* ground7 = new Ground();
-	AddGameObeject(ground7, eLayerType::Ground);
-	Ground* ground8 = new Ground();
-	AddGameObeject(ground8, eLayerType::Ground);
+	Ground* ground0 = new Ground(); AddGameObeject(ground0, eLayerType::Ground);
+	Ground* ground1 = new Ground(); AddGameObeject(ground1, eLayerType::Ground);
+	Ground* ground2 = new Ground(); AddGameObeject(ground2, eLayerType::Ground);
+	Ground* ground3 = new Ground(); AddGameObeject(ground3, eLayerType::Ground);
+	Ground* ground4 = new Ground(); AddGameObeject(ground4, eLayerType::Ground);
+	Ground* ground5 = new Ground(); AddGameObeject(ground5, eLayerType::Ground);
+	Ground* ground6 = new Ground(); AddGameObeject(ground6, eLayerType::Ground);
+	Ground* ground7 = new Ground(); AddGameObeject(ground7, eLayerType::Ground);
+	Ground* ground8 = new Ground(); AddGameObeject(ground8, eLayerType::Ground);
+
+	
 
 	Scene::Initialize();
 	ground0->GetComponent<Transform>()->SetPos(Vector2(0.0f, 880.0f));
@@ -79,6 +78,10 @@ void HenesysScene::Initialize()
 	ground7->GetComponent<Collider>()->SetSize(Vector2(500.0f, 30.0f));
 	ground8->GetComponent<Transform>()->SetPos(Vector2(1375.0f, 370.0f));
 	ground8->GetComponent<Collider>()->SetSize(Vector2(495.0f, 30.0f));
+
+	m_portal0->GetComponent<Transform>()->SetPos(Vector2(200.0f, 310.0f));
+	m_portal1->GetComponent<Transform>()->SetPos(Vector2(1800.0f, 880.0f));
+
 }
 void HenesysScene::Update()
 {
@@ -102,7 +105,8 @@ void HenesysScene::OnEnter()
 	mMainChar->GetComponent<Transform>()->SetPos(Vector2(600.0f, 1500.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
-	mMainChar->GetComponent<Rigidbody>()->SetGround(true);
+	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);
+	
 	
 }
 void HenesysScene::OnExit()

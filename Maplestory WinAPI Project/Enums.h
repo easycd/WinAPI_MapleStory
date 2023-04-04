@@ -20,6 +20,7 @@ enum class eLayerType
 {
 	Wizet,
 	BG,
+	Portal,
 	Monster,
 	Player,
 	Skill,

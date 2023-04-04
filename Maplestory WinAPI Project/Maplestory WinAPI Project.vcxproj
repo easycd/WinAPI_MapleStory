@@ -171,6 +171,7 @@
     <ClInclude Include="Math.h" />
     <ClInclude Include="mushroom.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="Portal.h" />
     <ClInclude Include="RedSnail.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Rigidbody.h" />
@@ -227,6 +228,7 @@
     <ClCompile Include="MainChar.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="mushroom.cpp" />
+    <ClCompile Include="Portal.cpp" />
     <ClCompile Include="RedSnail.cpp" />
     <ClCompile Include="Rigidbody.cpp" />
     <ClCompile Include="RResource.cpp" />
