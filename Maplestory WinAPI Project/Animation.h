@@ -44,5 +44,8 @@ private:
 	float mTime;
 	bool mbComplete;
 	int mSpriteIndex;
+	int r;
+	int g;
+	int b;
 	};
 

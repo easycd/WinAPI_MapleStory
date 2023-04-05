@@ -53,6 +53,7 @@ void Application::Run()
 {
 	Update();
 	Render();
+	SceneManager::Destroy();
 }
 
 void Application::Update()

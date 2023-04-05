@@ -102,7 +102,7 @@ void HenesysScene::Release()
 }
 void HenesysScene::OnEnter()
 {
-	mMainChar->GetComponent<Transform>()->SetPos(Vector2(600.0f, 1500.0f));
+	mMainChar->GetComponent<Transform>()->SetPos(Vector2(700.0f, 900.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);
