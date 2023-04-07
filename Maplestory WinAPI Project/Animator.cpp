@@ -102,7 +102,7 @@ void Animator::CreateAnimations(const std::wstring& path, Vector2 offset, float 
 		{
 			height = image->GetHeight();
 		}
-		fileCount++;
+		fileCount++; //이미지 갯수
 	}
 
 	std::wstring key = fs.parent_path().filename();

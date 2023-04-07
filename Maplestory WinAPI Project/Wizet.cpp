@@ -34,5 +34,4 @@ void Wizet::Render(HDC hdc)
 void Wizet::Release()
 {
 	GameObject::Release();
-
 }

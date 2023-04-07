@@ -4,6 +4,7 @@
 #include "Animator.h"
 #include "Object.h"
 #include "Collider.h"
+#include "Animation.h"
 
 BasicSkill::BasicSkill()
 	:mTime(0.0f)
@@ -22,7 +23,7 @@ void BasicSkill::Update()
 {
 	mTime += Time::DeltaTime();
 
-	if (mTime > 2.0f)
+	if (mTime > 1.0f)
 	{
 		Destory(this);
 	}
@@ -31,7 +32,11 @@ void BasicSkill::Update()
 
 void BasicSkill::Render(HDC hdc)
 {
-	GameObject::Render(hdc);
+	R->SetR(207);
+	G->SetG(207);
+	B->SetB(207);
+	GameObject::Render(hdc); //여기서 색빼는 함수 실행됨
+
 }
 
 void BasicSkill::Release()

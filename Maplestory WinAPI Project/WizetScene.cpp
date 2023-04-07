@@ -18,7 +18,7 @@ void WizetScene::Initialize()
 		m_wizet = new Wizet();
 		AddGameObeject(m_wizet, eLayerType::BG);
 		m_wizet->Initialize();
-
+		
 	Scene::Initialize();
 }
 void WizetScene::Update()
@@ -29,7 +29,6 @@ void WizetScene::Update()
 		SceneManager::LoadScene(eSceneType::Login);
 	}
 	Scene::Update();
-
 }
 void WizetScene::Render(HDC hdc)
 {

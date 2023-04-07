@@ -2,6 +2,8 @@
 #include "GameObject.h"
 
 class Animator;
+class Animation;
+
 class BasicSkill : public GameObject
 {
 public:
@@ -17,6 +19,9 @@ public:
 
 private:
 	Animator* m_Animator;
+	Animation* R;
+	Animation* G;
+	Animation* B;
 	float mTime;
 };
 

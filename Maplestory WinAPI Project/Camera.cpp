@@ -39,5 +39,5 @@ void Camera::Update()
 			= mTarget->GetComponent<Transform>()->GetPos();
 	}
 
-	mDistance = mLookPosition - (mResolution / 2.0f);
+	mDistance = mLookPosition - (mResolution / 2.f);
 }

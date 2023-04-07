@@ -35,7 +35,9 @@ public:
 
 	bool IsComplete() { return mbComplete; }
 	void SetAnimator(Animator* animator) { mAnimator = animator; }
-
+	void SetR(float r) { float R = r; }
+	void SetG(float g) { float G = g; }
+	void SetB(float b) { float B = b; }
 
 private:
 	Animator* mAnimator;
@@ -44,8 +46,8 @@ private:
 	float mTime;
 	bool mbComplete;
 	int mSpriteIndex;
-	int r;
-	int g;
-	int b;
+	float R;
+	float G;
+	float B;
 	};
 
