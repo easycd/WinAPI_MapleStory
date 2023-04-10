@@ -21,9 +21,7 @@ void BasicSkill::Initialize()
 
 void BasicSkill::Update()
 {
-	mTime += Time::DeltaTime();
-
-	if (mTime > 1.0f)
+	if(m_Animator->IsComplte())
 	{
 		Destory(this);
 	}
@@ -32,10 +30,10 @@ void BasicSkill::Update()
 
 void BasicSkill::Render(HDC hdc)
 {
-	R->SetR(207);
-	G->SetG(207);
-	B->SetB(207);
-	GameObject::Render(hdc); //여기서 색빼는 함수 실행됨
+	R->SetR((__int8)207);
+	G->SetG((__int8)207);
+	B->SetB((__int8)207);
+	GameObject::Render(hdc); //TransparentBlt 실행
 
 }
 
@@ -49,7 +47,7 @@ void BasicSkill::RightAttack()
 	Transform* tr = GetComponent<Transform>();
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\BasicAttackRight", Vector2::Zero, 0.1f);
-	m_Animator->Play(L"SkillBasicAttackRight", true);
+	m_Animator->Play(L"SkillBasicAttackRight", false);
 
 	Collider* collider = AddComponent<Collider>();
 	collider->SetCenter(Vector2(-300.0f, -380.0f));

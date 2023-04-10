@@ -16,22 +16,12 @@ void Camera::Initiailize()
 {
 	mResolution.x = application.GetWidth();
 	mResolution.y = application.GetHeight();
-	mLookPosition = (mResolution / 2.0f);
+	mLookPosition = (mResolution / 2.0f); //타겟 기준 위치
 }
 
 void Camera::Update()
 {
-	/*if (Input::GetKey(eKeyCode::LEFT))
-			mLookPosition.x -= 100.0f * Time::DeltaTime();
 
-		if (Input::GetKey(eKeyCode::RIGHT))
-			mLookPosition.x += 100.0f * Time::DeltaTime();
-
-		if (Input::GetKey(eKeyCode::UP))
-			mLookPosition.y -= 100.0f * Time::DeltaTime();
-
-		if (Input::GetKey(eKeyCode::DOWN))
-			mLookPosition.y += 100.0f * Time::DeltaTime();*/
 
 	if (mTarget != nullptr)
 	{
@@ -39,5 +29,7 @@ void Camera::Update()
 			= mTarget->GetComponent<Transform>()->GetPos();
 	}
 
-	mDistance = mLookPosition - (mResolution / 2.f);
+	mDistance = mLookPosition - (mResolution / 2.0f);
+
+
 }

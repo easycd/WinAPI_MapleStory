@@ -8,9 +8,12 @@ class Boss_Ion : public GameObject
 public:
 	enum class eBoss_IonState
 	{
+		Respawn,
 		Move,
 		Death,
 		Idle,
+		Attack1,
+		Attack2,
 	};
 
 	Boss_Ion();
@@ -22,14 +25,18 @@ public:
 	virtual void Release() override;
 
 private:
+	void respawn();
 	void move();
 	void idle();
 	void dead();
+	void attack1();
+	void attack2();
 
 
 private:
 	eBoss_IonState m_State;
 	Animator* m_Animator;
+	int direction = 0; //0이면 왼쪽 1이면 오른쪽
 };
 
 

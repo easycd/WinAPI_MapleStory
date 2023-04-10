@@ -172,25 +172,19 @@ void MainChar::move()
 
 	if (Input::GetKey(eKeyCode::LEFT))
 	{
-		//mRigidbody->AddForce(Vector2(-200.0f, 0.0f));
 		direction = 0;
 		pos.x -= 200.0 * Time::DeltaTime();
 	}
 	if (Input::GetKey(eKeyCode::RIGHT))
 	{
-		//mRigidbody->AddForce(Vector2(200.0f, 0.0f));
 		direction = 1;
 		pos.x += 200.0 * Time::DeltaTime();
 	}
 	if (Input::GetKey(eKeyCode::UP))
 	{
-		//mRigidbody->AddForce(Vector2(0.0f, -200.0f));
-		//pos.y -= 200.0 * Time::DeltaTime();
 	}
 	if (Input::GetKey(eKeyCode::DOWN))
 	{
-		//mRigidbody->AddForce(Vector2(0.0f, +200.0f));
-		//pos.y += 200.0 * Time::DeltaTime();
 	}
 
 	tr->SetPos(pos);
@@ -241,15 +235,18 @@ void MainChar::idle()
 	}
 	else if (direction == 0 && Input::GetKeyDown(eKeyCode::SPACE))
 	{
+		m_State = eMainCharState::Jump;
 		m_Animator->Play(L"CharjumpLeft", true);
 		Vector2 velocity = mRigidbody->GetVelocity();
 		velocity.y -= 500.0f;
 
 		mRigidbody->SetVelocity(velocity);
 		mRigidbody->SetGround(false);
+		
 	}
 	else if (direction == 1 && Input::GetKeyDown(eKeyCode::SPACE))
 	{
+		m_State = eMainCharState::Jump;
 		m_Animator->Play(L"CharjumpRight", true);
 		Vector2 velocity = mRigidbody->GetVelocity();
 		velocity.y -= 500.0f;

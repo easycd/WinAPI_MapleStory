@@ -19,7 +19,7 @@ void Wizet::Initialize()
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Wizet", Vector2::Zero, 0.1f);
-	m_Animator->Play(L"ResourcesWizet", true);
+	m_Animator->Play(L"ResourcesWizet", false);
 	GameObject::Initialize();
 }
 

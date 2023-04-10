@@ -95,9 +95,6 @@
     <Filter Include="Contents\01. GameObject\BackObj\Somyel">
       <UniqueIdentifier>{0c272131-ddfd-4f77-83c9-c4386d645c55}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\01. GameObject\BossStage_Mob">
-      <UniqueIdentifier>{325356db-179e-4c60-b163-a49bb8732934}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\02. Scene\HenesysScene">
       <UniqueIdentifier>{ba1ace44-3230-41a6-a77b-349f088d8f8f}</UniqueIdentifier>
     </Filter>
@@ -121,6 +118,9 @@
     </Filter>
     <Filter Include="Contents\01. GameObject\Object">
       <UniqueIdentifier>{02c9a848-48e9-4112-9202-fcfbe83b8b4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\BossMob">
+      <UniqueIdentifier>{325356db-179e-4c60-b163-a49bb8732934}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -200,13 +200,13 @@
       <Filter>Engine\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Boss_Yaldabaoth.h">
-      <Filter>Contents\01. GameObject\BossStage_Mob</Filter>
+      <Filter>Contents\01. GameObject\BossMob</Filter>
     </ClInclude>
     <ClInclude Include="Boss_Ion.h">
-      <Filter>Contents\01. GameObject\BossStage_Mob</Filter>
+      <Filter>Contents\01. GameObject\BossMob</Filter>
     </ClInclude>
     <ClInclude Include="Boss.h">
-      <Filter>Contents\01. GameObject\BossStage_Mob</Filter>
+      <Filter>Contents\01. GameObject\BossMob</Filter>
     </ClInclude>
     <ClInclude Include="happy.h">
       <Filter>Contents\01. GameObject\Monster</Filter>
@@ -377,13 +377,13 @@
       <Filter>Engine\Camera</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Yaldabaoth.cpp">
-      <Filter>Contents\01. GameObject\BossStage_Mob</Filter>
+      <Filter>Contents\01. GameObject\BossMob</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Ion.cpp">
-      <Filter>Contents\01. GameObject\BossStage_Mob</Filter>
+      <Filter>Contents\01. GameObject\BossMob</Filter>
     </ClCompile>
     <ClCompile Include="Boss.cpp">
-      <Filter>Contents\01. GameObject\BossStage_Mob</Filter>
+      <Filter>Contents\01. GameObject\BossMob</Filter>
     </ClCompile>
     <ClCompile Include="happy.cpp">
       <Filter>Contents\01. GameObject\Monster</Filter>
