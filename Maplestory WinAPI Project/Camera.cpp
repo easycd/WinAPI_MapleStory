@@ -16,7 +16,7 @@ void Camera::Initiailize()
 {
 	mResolution.x = application.GetWidth();
 	mResolution.y = application.GetHeight();
-	mLookPosition = (mResolution / 2.0f); //타겟 기준 위치
+	mLookPosition = (mResolution / 2.0f); //타겟기준 위치
 }
 
 void Camera::Update()
