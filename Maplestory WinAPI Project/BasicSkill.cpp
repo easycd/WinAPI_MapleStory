@@ -33,7 +33,7 @@ void BasicSkill::Render(HDC hdc)
 	R->SetR((__int8)207);
 	G->SetG((__int8)207);
 	B->SetB((__int8)207);
-	GameObject::Render(hdc); //TransparentBlt 실행
+	GameObject::Render(hdc); //TransparentBlt실행
 
 }
 
