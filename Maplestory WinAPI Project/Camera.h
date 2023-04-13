@@ -11,6 +11,11 @@ public:
 	static void SetTarget(GameObject* target) { mTarget = target; } // 카메라 기준 지정
 	static const Vector2 CaluatePos(Vector2 pos) { return pos - mDistance; }
 
+	Vector2 GetResolution()
+	{
+		return mResolution;
+	}
+
 private:
 	static Vector2 mResolution; // 화면 해상도
 	static Vector2 mLookPosition; //카메라가 쳐다보고 있는 위치 

@@ -7,7 +7,7 @@ class Wizet : public GameObject
 {
 public:
 	Wizet();
-	~Wizet();
+	virtual ~Wizet();
 
 	virtual void Initialize() override;
 	virtual void Update() override;

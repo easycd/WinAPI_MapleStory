@@ -69,7 +69,7 @@ void Animation::Render(HDC hdc)
         , mSheetImage->GetHdc()
         , mSpriteSheet[mSpriteIndex].leftTop.x, mSpriteSheet[mSpriteIndex].leftTop.y
         , mSpriteSheet[mSpriteIndex].size.x, mSpriteSheet[mSpriteIndex].size.y,
-        RGB(R, G, B)); //RGB(207, 207, 207)
+        RGB(207, 207, 207)); //RGB(207, 207, 207)
 
     ////알파 블랜드
     ////TransparentBlt 비해서 연산량이 많음

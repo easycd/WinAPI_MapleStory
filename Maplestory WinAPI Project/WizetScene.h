@@ -9,7 +9,7 @@ class WizetScene : public Scene
 {
 public:
 	WizetScene();
-	~WizetScene();
+	virtual ~WizetScene();
 
 	virtual void Initialize() override;
 	virtual void Update() override;

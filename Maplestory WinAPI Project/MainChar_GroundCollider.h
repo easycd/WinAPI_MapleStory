@@ -19,4 +19,5 @@ private:
 	Vector2 mPos;
 	MainChar* player;
 	Transform* Pos;
+	Scene*	mScene;
 };

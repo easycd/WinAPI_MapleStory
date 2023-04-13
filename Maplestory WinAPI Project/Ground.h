@@ -17,6 +17,7 @@ public:
 	virtual void OnCollisionStay(class Collider* other);
 	virtual void OnCollisionExit(class Collider* other);
 
+
 private:
 	class Collider* mCollider;
 	class Collider* collider;

@@ -224,13 +224,13 @@ void MainChar::idle()
 	else if (Input::GetKeyDown(eKeyCode::F) && direction == 1)
 	{
 		m_State = eMainCharState::Attack;
-		m_Animator->Play(L"CharattackRight", true);
+		m_Animator->Play(L"CharattackRight", false);
 		direction == 1;
 	}
 	else if (Input::GetKeyDown(eKeyCode::F) && direction == 0)
 	{
 		m_State = eMainCharState::Attack;
-		m_Animator->Play(L"CharattackLeft", true);
+		m_Animator->Play(L"CharattackLeft", false);
 		direction == 0;
 	}
 	else if (direction == 0 && Input::GetKeyDown(eKeyCode::SPACE))
@@ -281,7 +281,7 @@ void MainChar::basic_attack()
 		Scene* curScene = SceneManager::GetActiveScene();
 		BasicSkill* basicskill = new BasicSkill();
 		basicskill->RightAttack();
-		basicskill->GetComponent<Transform>()->SetPos(tr->GetPos()); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
+		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x + 50.f, GetPos().y + 200.f)); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
 		curScene->AddGameObeject(basicskill, eLayerType::Skill);
 
 	}

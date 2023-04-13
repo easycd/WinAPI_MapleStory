@@ -31,5 +31,9 @@ class Portal;
 		mushroom* m_mushroom;
 		RedSnail* m_redsnail;
 		Portal* m_portal;
+
+
+
+		Camera* Camera;
 	};
 

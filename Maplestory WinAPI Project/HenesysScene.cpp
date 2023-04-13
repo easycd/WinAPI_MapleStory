@@ -14,6 +14,7 @@
 #include "Rigidbody.h"
 #include "Portal.h"
 #include "MainChar_GroundCollider.h"
+#include "Camera.h"
 
 HenesysScene::HenesysScene()
 {
@@ -23,6 +24,14 @@ HenesysScene::~HenesysScene()
 }
 void HenesysScene::Initialize()
 {
+	/*Vector2 Resolution = Camera->GetResolution();
+	if (Resolution.x <= 0.f)
+		Resolution.x = 0.f;
+
+	if (Resolution.y >= 768.f)
+		Resolution.y = 768.f;*/
+
+
 	//헤네시스 배경
 	HenesysBack* m_henesysBack = new HenesysBack();
 	AddGameObeject(m_henesysBack, eLayerType::BG);
@@ -110,6 +119,7 @@ void HenesysScene::OnEnter()
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);
+
 	
 	
 }
