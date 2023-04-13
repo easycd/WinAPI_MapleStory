@@ -281,7 +281,7 @@ void MainChar::basic_attack()
 		Scene* curScene = SceneManager::GetActiveScene();
 		BasicSkill* basicskill = new BasicSkill();
 		basicskill->RightAttack();
-		basicskill->GetComponent<Transform>()->SetPos(tr->GetPos());
+		basicskill->GetComponent<Transform>()->SetPos(tr->GetPos()); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
 		curScene->AddGameObeject(basicskill, eLayerType::Skill);
 
 	}

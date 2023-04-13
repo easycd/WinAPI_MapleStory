@@ -166,6 +166,7 @@
     <ClInclude Include="LoginBack.h" />
     <ClInclude Include="LoginScene.h" />
     <ClInclude Include="MainChar.h" />
+    <ClInclude Include="MainChar_GroundCollider.h" />
     <ClInclude Include="MapleEngine.h" />
     <ClInclude Include="Maplestory WinAPI Project.h" />
     <ClInclude Include="Math.h" />
@@ -226,6 +227,7 @@
     <ClCompile Include="LoginScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainChar.cpp" />
+    <ClCompile Include="MainChar_GroundCollider.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="mushroom.cpp" />
     <ClCompile Include="Portal.cpp" />

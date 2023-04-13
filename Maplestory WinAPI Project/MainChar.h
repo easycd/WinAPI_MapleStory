@@ -36,11 +36,16 @@ private:
 
 	void idleCompleteEvent();
 
+	void SetPos(Vector2 pos) { mPos = pos; }
+	Vector2 GetPos() { return mPos; }
+	
+
 private:
 	eMainCharState m_State;
 	Animator* m_Animator;
 	Animator* attack;
 	Rigidbody* mRigidbody;
+	Vector2 mPos;
 	int direction = 0; //0이면 왼쪽 1이면 오른쪽
 };
 

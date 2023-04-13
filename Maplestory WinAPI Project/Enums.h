@@ -23,6 +23,7 @@ enum class eLayerType
 	Portal,
 	Monster,
 	Player,
+	PlayerGround,
 	Skill,
 	Ground,
 	Effect,

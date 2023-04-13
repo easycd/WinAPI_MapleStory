@@ -13,6 +13,7 @@
 #include "HenesysObject.h"
 #include "Rigidbody.h"
 #include "Portal.h"
+#include "MainChar_GroundCollider.h"
 
 HenesysScene::HenesysScene()
 {
@@ -38,6 +39,9 @@ void HenesysScene::Initialize()
 	//캐릭터
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
+
+	MainChar_GroundCollider* CGround = new MainChar_GroundCollider();
+	AddGameObeject(CGround, eLayerType::PlayerGround);
 
 	//빨간달팽이 몬스터
 	RedSnail* m_redsnail = new RedSnail();
