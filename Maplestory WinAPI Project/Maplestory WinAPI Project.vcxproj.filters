@@ -307,6 +307,9 @@
     <ClInclude Include="MainChar_GroundCollider.h">
       <Filter>Engine\Collider</Filter>
     </ClInclude>
+    <ClInclude Include="Cosmos.h">
+      <Filter>Contents\01. GameObject\Skill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -483,6 +486,9 @@
     </ClCompile>
     <ClCompile Include="MainChar_GroundCollider.cpp">
       <Filter>Engine\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Cosmos.cpp">
+      <Filter>Contents\01. GameObject\Skill</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

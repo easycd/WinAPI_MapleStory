@@ -11,9 +11,14 @@ public:
 	static void SetTarget(GameObject* target) { mTarget = target; } // 카메라 기준 지정
 	static const Vector2 CaluatePos(Vector2 pos) { return pos - mDistance; }
 
-	Vector2 GetResolution()
+	Vector2 GetLookPosition()
 	{
-		return mResolution;
+		return mLookPosition;
+	}
+
+	void SetLookPosition(Vector2 LookPosition)
+	{
+		mLookPosition = LookPosition;
 	}
 
 private:

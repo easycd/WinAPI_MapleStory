@@ -28,7 +28,7 @@ void MainChar_GroundCollider::Initialize()
 ////
 //
 //	Collider* collider = AddComponent<Collider>();
-//	collider->SetSize(Vector2(10, 10)); // 히트박스 크기 조정
+//	collider->SetSize(Vector2(50, 50)); // 히트박스 크기 조정
 //	collider->SetCenter(Vector2(-35.0f, -65.0f)); // 히트박스 위치 조정
 
 	GameObject::Initialize();
@@ -40,9 +40,9 @@ void MainChar_GroundCollider::Update()
 //
 //	Collider* collider = AddComponent<Collider>();
 //	collider->SetCenter(Vector2(mPos.x -35.0f, mPos.y -65.0f)); // 히트박스 위치 조정
-
-	//Transform* tr = GetComponent<Transform>();
-	//tr->SetPos(Vector2(mPos.x + 30.f, mPos.y + 10.f));
+//
+//	Transform* tr = GetComponent<Transform>();
+//	tr->SetPos(Vector2(mPos.x + 30.f, mPos.y + 10.f));
 
 	GameObject::Update();
 }

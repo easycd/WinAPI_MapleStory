@@ -4,6 +4,7 @@
 #include "Transform.h"
 #include "Input.h"
 #include "Time.h"
+#include "HenesysBack.h"
 
 extern Application application;
 
@@ -22,7 +23,6 @@ void Camera::Initiailize()
 void Camera::Update()
 {
 
-
 	if (mTarget != nullptr)
 	{
 		mLookPosition
@@ -30,6 +30,5 @@ void Camera::Update()
 	}
 
 	mDistance = mLookPosition - (mResolution / 2.0f);
-
 
 }

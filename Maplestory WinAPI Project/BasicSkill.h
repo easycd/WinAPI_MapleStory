@@ -16,6 +16,7 @@ public:
 	virtual void Release() override;
 
 	void RightAttack();
+	void LeftAttack();
 
 private:
 	Animator* m_Animator;

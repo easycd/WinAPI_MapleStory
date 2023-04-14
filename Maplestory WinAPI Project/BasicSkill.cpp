@@ -53,3 +53,14 @@ void BasicSkill::RightAttack()
 	collider->SetCenter(Vector2(-300.0f, -380.0f));
 	collider->SetSize(Vector2(580.0f, 380.0f));
 }
+void BasicSkill::LeftAttack()
+{
+	Transform* tr = GetComponent<Transform>();
+	m_Animator = AddComponent<Animator>();
+	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\BasicAttackLeft", Vector2::Zero, 0.1f);
+	m_Animator->Play(L"SkillBasicAttackLeft", false);
+
+	Collider* collider = AddComponent<Collider>();
+	collider->SetCenter(Vector2(-300.0f, -380.0f));
+	collider->SetSize(Vector2(580.0f, 380.0f));
+}

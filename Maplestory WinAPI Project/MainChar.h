@@ -16,6 +16,8 @@ public:
 		Death,
 		DownAttack,
 		Attack,
+		CosmosSkill,
+
 	};
 
 	MainChar();
@@ -30,9 +32,10 @@ private:
 	void move();
 	void idle();
 	void jump();
-	void basic_attack();
 	void down();
 	void downattack();
+	void basic_attack();
+	void cosmosSkill();
 
 	void idleCompleteEvent();
 
@@ -47,5 +50,9 @@ private:
 	Rigidbody* mRigidbody;
 	Vector2 mPos;
 	int direction = 0; //0이면 왼쪽 1이면 오른쪽
+	bool mGroundCheck;
+
+	Camera* m_Camera;
+	//HenesysBack* m_HenesysBack;
 };
 

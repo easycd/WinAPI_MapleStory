@@ -7,8 +7,12 @@
 #include "Animator.h"
 #include "Scene.h"
 #include "Collider.h"
-#include "BasicSkill.h"
 #include "Rigidbody.h"
+#include "CollisionManager.h"
+#include "BasicSkill.h"
+#include "Cosmos.h"
+#include "Camera.h"
+#include "HenesysBack.h"
 
 MainChar::MainChar()
 {
@@ -36,6 +40,17 @@ void MainChar::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownRight", Vector2::Zero, 0.2f); // 오른쪽 눕기
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownAttackLeft", Vector2::Zero, 0.2f); // 왼쪽 아래 공격
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownAttackRight", Vector2::Zero, 0.2f); // 오른쪽 아래 공격
+	/*m_Animator->Play(L"CharIdleLeft", false);
+	m_Animator->Play(L"CharmoveLeft", false);
+	m_Animator->Play(L"CharmoveRight", false);
+	m_Animator->Play(L"CharattackLeft", false);
+	m_Animator->Play(L"CharattackRight", false);
+	m_Animator->Play(L"CharjumpLeft", false);
+	m_Animator->Play(L"CharjumpRight", false);
+	m_Animator->Play(L"CharDownLeft", false);
+	m_Animator->Play(L"CharDownRight", false);
+	m_Animator->Play(L"CharDownAttackLeft", false);
+	m_Animator->Play(L"CharDownAttackRight", false);*/
 
 
 	/*m_Animator->GetStartEvent(L"CharIdleRight") = std::bind(&MainChar::idleCompleteEvent, this);*/
@@ -51,13 +66,13 @@ void MainChar::Initialize()
 	m_State = eMainCharState::Idle;
 	GameObject::Initialize();
 
-	//
 
 	Vector2 velocity = mRigidbody->GetVelocity();
 	velocity.y -= 500.0f;
 
 	mRigidbody->SetVelocity(velocity);
 	mRigidbody->SetGround(false);
+
 }
 
 void MainChar::Update()
@@ -72,9 +87,6 @@ void MainChar::Update()
 	case  MainChar::eMainCharState::Idle:
 		idle();
 		break;
-	case  MainChar::eMainCharState::Attack:
-		basic_attack();
-		break;
 	case  MainChar::eMainCharState::Jump:
 		jump();
 		break;
@@ -83,6 +95,12 @@ void MainChar::Update()
 		break;
 	case  MainChar::eMainCharState::DownAttack:
 		downattack();
+		break;
+	case  MainChar::eMainCharState::Attack:
+		basic_attack();
+		break;
+	case  MainChar::eMainCharState::CosmosSkill:
+		cosmosSkill();
 		break;
 	default:
 		break;
@@ -93,6 +111,14 @@ void MainChar::Update()
 
 	mRigidbody->SetVelocity(velocity);
 	mRigidbody->SetGround(false);*/
+
+	/*Transform* tr = GetComponent<Transform>();
+	if (tr->GetPos().x <= 0.f)
+		tr->SetPos(Vector2(0.f, tr->GetPos().y));*/
+
+	/*if (m_Camera->GetLookPosition().x <= 0.f)
+		m_Camera->SetLookPosition(Vector2(0.f, m_Camera->GetLookPosition().y));*/
+
 
 }
 
@@ -129,23 +155,39 @@ void MainChar::move()
 	{
 		m_State = eMainCharState::Down;
 		m_Animator->Play(L"CharDownLeft", true);
-		direction == 0;
+		direction = 0;
 	}
 	else if (direction == 1 && Input::GetKeyDown(eKeyCode::DOWN))
 	{
 		m_State = eMainCharState::Down;
 		m_Animator->Play(L"CharDownRight", true);
-		direction == 1;
+		direction = 1;
 	}
-	else if (direction == 1 && Input::GetKeyDown(eKeyCode::F))
+	else if (Input::GetKeyDown(eKeyCode::F) && direction == 1)
 	{
 		m_State = eMainCharState::Attack;
 		m_Animator->Play(L"CharattackRight", true);
+		direction = 1;
+		Transform* tr = GetComponent<Transform>();
+		Scene* curScene = SceneManager::GetActiveScene();
+		BasicSkill* basicskill = new BasicSkill();
+		basicskill->RightAttack();
+		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x + 300.f, tr->GetPos().y)); // 캐릭터의 좌표를 가저옴
+		curScene->AddGameObeject(basicskill, eLayerType::Skill);
+		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
-	else if (direction == 0 && Input::GetKeyDown(eKeyCode::F))
+	else if (Input::GetKeyDown(eKeyCode::F) && direction == 0)
 	{
 		m_State = eMainCharState::Attack;
 		m_Animator->Play(L"CharattackLeft", true);
+		direction = 0;
+		Transform* tr = GetComponent<Transform>();
+		Scene* curScene = SceneManager::GetActiveScene();
+		BasicSkill* basicskill = new BasicSkill();
+		basicskill->LeftAttack();
+		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x - 300.f, tr->GetPos().y)); // 캐릭터의 좌표를 가저옴
+		curScene->AddGameObeject(basicskill, eLayerType::Skill);
+		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
 	else if (direction == 0 && Input::GetKeyDown(eKeyCode::SPACE))
 	{
@@ -213,25 +255,13 @@ void MainChar::idle()
 	{
 		m_State = eMainCharState::Down;
 		m_Animator->Play(L"CharDownLeft", true);
-		direction == 0;
+		direction = 0;
 	}
 	else if (direction == 1 && Input::GetKeyDown(eKeyCode::DOWN))
 	{
 		m_State = eMainCharState::Down;
 		m_Animator->Play(L"CharDownRight", true);
-		direction == 1;
-	}
-	else if (Input::GetKeyDown(eKeyCode::F) && direction == 1)
-	{
-		m_State = eMainCharState::Attack;
-		m_Animator->Play(L"CharattackRight", false);
-		direction == 1;
-	}
-	else if (Input::GetKeyDown(eKeyCode::F) && direction == 0)
-	{
-		m_State = eMainCharState::Attack;
-		m_Animator->Play(L"CharattackLeft", false);
-		direction == 0;
+		direction = 1;
 	}
 	else if (direction == 0 && Input::GetKeyDown(eKeyCode::SPACE))
 	{
@@ -242,6 +272,7 @@ void MainChar::idle()
 
 		mRigidbody->SetVelocity(velocity);
 		mRigidbody->SetGround(false);
+		mGroundCheck = false;
 		
 	}
 	else if (direction == 1 && Input::GetKeyDown(eKeyCode::SPACE))
@@ -254,7 +285,45 @@ void MainChar::idle()
 		mRigidbody->SetVelocity(velocity);
 		mRigidbody->SetGround(false);
 	}
-	
+	else if (Input::GetKeyDown(eKeyCode::F) && direction == 1)
+	{
+		m_State = eMainCharState::Attack; 
+		m_Animator->Play(L"CharattackRight", true);
+		direction = 1;
+		Transform* tr = GetComponent<Transform>();
+		Scene* curScene = SceneManager::GetActiveScene();
+		BasicSkill* basicskill = new BasicSkill();
+		basicskill->RightAttack();
+		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x + 300.f, tr->GetPos().y )); // 캐릭터의 좌표를 가저옴
+		curScene->AddGameObeject(basicskill, eLayerType::Skill);
+		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
+
+	}
+	else if (Input::GetKeyDown(eKeyCode::F) && direction == 0)
+	{
+		m_State = eMainCharState::Attack;
+		m_Animator->Play(L"CharattackLeft", true);
+		direction = 0;
+		Transform* tr = GetComponent<Transform>();
+		Scene* curScene = SceneManager::GetActiveScene();
+		BasicSkill* basicskill = new BasicSkill();
+		basicskill->LeftAttack();
+		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x - 300.f, tr->GetPos().y )); // 캐릭터의 좌표를 가저옴
+		curScene->AddGameObeject(basicskill, eLayerType::Skill);
+		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
+	}
+	else if (Input::GetKeyDown(eKeyCode::D))
+	{
+		m_State = eMainCharState::CosmosSkill;
+		//m_Animator->Play(L"CharattackLeft", true);
+		Transform* tr = GetComponent<Transform>();
+		Scene* curScene = SceneManager::GetActiveScene();
+		Cosmos* cosmos = new Cosmos();
+		cosmos->Initialize();
+		cosmos->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x + 85.f, tr->GetPos().y + 300)); // 캐릭터의 좌표를 가저옴
+		curScene->AddGameObeject(cosmos, eLayerType::Skill);
+		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
+	}
 }
 
 void MainChar::jump()
@@ -275,17 +344,7 @@ void MainChar::jump()
 
 void MainChar::basic_attack()
 {
-	Transform* tr = GetComponent<Transform>();
-	if (Input::GetKey(eKeyCode::F))
-	{
-		Scene* curScene = SceneManager::GetActiveScene();
-		BasicSkill* basicskill = new BasicSkill();
-		basicskill->RightAttack();
-		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x + 50.f, GetPos().y + 200.f)); // 캐릭터의 좌표를 가저옴
-		curScene->AddGameObeject(basicskill, eLayerType::Skill);
-
-	}
-	else if (Input::GetKeyUp(eKeyCode::F) && direction == 0)
+	if (Input::GetKeyUp(eKeyCode::F) && direction == 0)
 	{
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleLeft", true);
@@ -295,8 +354,20 @@ void MainChar::basic_attack()
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleRight", true);
 	}
+}
 
-	
+void MainChar::cosmosSkill()
+{
+	if (Input::GetKeyUp(eKeyCode::D) && direction == 0)
+	{
+		m_State = eMainCharState::Idle;
+		m_Animator->Play(L"CharIdleLeft", true);
+	}
+	else if (Input::GetKeyUp(eKeyCode::D) && direction == 1)
+	{
+		m_State = eMainCharState::Idle;
+		m_Animator->Play(L"CharIdleRight", true);
+	}
 }
 
 void MainChar::down()
@@ -327,13 +398,13 @@ void MainChar::down()
 	{
 		m_State = eMainCharState::DownAttack;
 		m_Animator->Play(L"CharDownAttackLeft", true);
-		direction == 0;
+		direction = 0;
 	}
 	else if (direction == 1 && Input::GetKey(eKeyCode::F))
 	{
 		m_State = eMainCharState::DownAttack;
 		m_Animator->Play(L"CharDownAttackRight", true);
-		direction == 1;
+		direction = 1;
 	}
 }
 
@@ -353,13 +424,13 @@ void MainChar::downattack()
 	{
 		m_State = eMainCharState::Down;
 		m_Animator->Play(L"CharDownLeft", true);
-		direction == 0;
+		direction = 0;
 	}
 	else if (direction == 1 && Input::GetKeyUp(eKeyCode::F))
 	{
 		m_State = eMainCharState::Down;
 		m_Animator->Play(L"CharDownRight", true);
-		direction == 1;
+		direction = 1;
 	}
 }
 

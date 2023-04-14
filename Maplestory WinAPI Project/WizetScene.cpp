@@ -12,8 +12,8 @@ WizetScene::WizetScene()
 }
 WizetScene::~WizetScene()
 {
-	delete m_wizet;
-	m_wizet = nullptr;
+	/*delete m_wizet;
+	m_wizet = nullptr;*/
 }
 void WizetScene::Initialize()
 {
