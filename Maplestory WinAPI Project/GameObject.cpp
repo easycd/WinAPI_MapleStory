@@ -2,6 +2,7 @@
 #include "Transform.h"
 
 GameObject::GameObject()
+	: mState(eState::Active)
 {
 	mComponents.resize((UINT)eComponentType::End);
 	AddComponent<Transform>();

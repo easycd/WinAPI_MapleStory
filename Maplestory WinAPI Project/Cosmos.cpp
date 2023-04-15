@@ -22,7 +22,10 @@ void Cosmos::Initialize()
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\start", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\end", Vector2::Zero, 0.1f);
+
+	m_Animator->GetStartEvent(L"Cosmossstart") = std::bind(&Cosmos::StartSkill, this);
 	m_Animator->Play(L"Cosmosstart", true);
+
 	//m_Animator->Play(L"Cosmosend", true);
 
 
@@ -36,22 +39,29 @@ void Cosmos::Update()
 	GameObject::Update();
 
 	//EndSkill();
-	mTime += Time::DeltaTime();
-
-	if (mTime > 3.0f)
+	if (m_State == eCosmosState::End)
 	{
-		//Destory(this);
-		//m_Animator->Play(L"Cosmosend", true);
-		//m_Animator->GetEndEvent(L"Cosmosstart");
-		m_Animator->Play(L"Cosmosend", true);
-
-
-		//EndSkill();
+		EndSkill();
 	}
 
+	mTime += Time::DeltaTime();
+	if (mTime >= 3.0f)
+		m_State = eCosmosState::End;
+
+	//if (mTime > 3.0f)
+	//{
+	//	//Destory(this);
+	//	//m_Animator->Play(L"Cosmosend", true);
+	//	//m_Animator->GetEndEvent(L"Cosmosstart");
+	//	m_Animator->Play(L"Cosmosend", true);
+
+
+	//	//EndSkill();
+	//}
+
 	// 플레이어 가져와
-	vector2 playerpos = mainchar->getpos
-		tr->setpos(playerpos().x + , playerpos.y);
+	//vector2 playerpos = mainchar->getpos
+	//	tr->setpos(playerpos().x + , playerpos.y);
 	
 
 	//if(m_Animator->FindAnimation((L"Cosmosstart"))->IsComplete())
@@ -76,9 +86,6 @@ void Cosmos::Update()
 
 void Cosmos::Render(HDC hdc)
 {
-	R->SetR((__int8)207);
-	G->SetG((__int8)207);
-	B->SetB((__int8)207);
 	GameObject::Render(hdc); //TransparentBlt실행
 
 }
@@ -94,3 +101,9 @@ void Cosmos::EndSkill()
 	tr->SetScale(Vector2(0.8f, 0.8f));
 	m_Animator->Play(L"Cosmosend", true);
 }
+
+void Cosmos::StartSkill()
+{
+	m_State = eCosmosState::Start;
+}
+

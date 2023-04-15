@@ -21,6 +21,7 @@ public:
 	virtual void Release() override;
 
 	void EndSkill();
+	void StartSkill();
 
 
 private:

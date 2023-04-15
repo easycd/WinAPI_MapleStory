@@ -29,7 +29,7 @@ void Boss_Ion::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack2", Vector2::Zero, 0.1f);
 	m_Animator->Play(L"Ionrespawn", true);
 
-	/*m_State = eBoss_IonState::Idle;*/
+	m_State = eBoss_IonState::Idle;
 
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(300, 580)); // 히트박스 크기 조정
@@ -76,7 +76,7 @@ void Boss_Ion::Release()
 
 void Boss_Ion::respawn()
 {
-	m_State = eBoss_IonState::Idle;
+	m_State = eBoss_IonState::Respawn;
 	m_Animator->Play(L"Ionrespawn", true);
 }
 

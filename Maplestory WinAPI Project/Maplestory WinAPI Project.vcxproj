@@ -184,6 +184,8 @@
     <ClInclude Include="SomyeolBack.h" />
     <ClInclude Include="SomyeolObject.h" />
     <ClInclude Include="SomyeolScene.h" />
+    <ClInclude Include="SoulEclipseBackGround.h" />
+    <ClInclude Include="SoulEclipseStart.h" />
     <ClInclude Include="WizetScene.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Time.h" />
@@ -242,6 +244,8 @@
     <ClCompile Include="SomyeolBack.cpp" />
     <ClCompile Include="SomyeolObject.cpp" />
     <ClCompile Include="SomyeolScene.cpp" />
+    <ClCompile Include="SoulEclipseBackGround.cpp" />
+    <ClCompile Include="SoulEclipseStart.cpp" />
     <ClCompile Include="WizetScene.cpp" />
     <ClCompile Include="Time.cpp" />
     <ClCompile Include="Arcana.cpp" />

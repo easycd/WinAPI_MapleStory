@@ -122,6 +122,9 @@
     <Filter Include="Contents\01. GameObject\BossMob">
       <UniqueIdentifier>{325356db-179e-4c60-b163-a49bb8732934}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\01. GameObject\Skill\SoulEclipse">
+      <UniqueIdentifier>{b9a9d4f1-81ae-43b8-8f89-ed4e3193778c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -310,6 +313,12 @@
     <ClInclude Include="Cosmos.h">
       <Filter>Contents\01. GameObject\Skill</Filter>
     </ClInclude>
+    <ClInclude Include="SoulEclipseStart.h">
+      <Filter>Contents\01. GameObject\Skill\SoulEclipse</Filter>
+    </ClInclude>
+    <ClInclude Include="SoulEclipseBackGround.h">
+      <Filter>Contents\01. GameObject\Skill\SoulEclipse</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -489,6 +498,12 @@
     </ClCompile>
     <ClCompile Include="Cosmos.cpp">
       <Filter>Contents\01. GameObject\Skill</Filter>
+    </ClCompile>
+    <ClCompile Include="SoulEclipseStart.cpp">
+      <Filter>Contents\01. GameObject\Skill\SoulEclipse</Filter>
+    </ClCompile>
+    <ClCompile Include="SoulEclipseBackGround.cpp">
+      <Filter>Contents\01. GameObject\Skill\SoulEclipse</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

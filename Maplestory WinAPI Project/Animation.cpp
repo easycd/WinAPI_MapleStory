@@ -15,6 +15,7 @@ Animation::Animation()
     , R(100)
     , G(100)
     , B(100)
+    , Color(RGB(207,207,207))
 {
 
 }

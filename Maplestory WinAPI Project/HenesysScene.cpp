@@ -102,6 +102,7 @@ void HenesysScene::Update()
 	{
 		SceneManager::LoadScene(eSceneType::Somyeol);
 	}
+	//if(CollisionManager::ColliderCollision(mMainChar->collider, m_portal1->collider, eLayerType::Player, eLayerType::Portal) == true)
 	Scene::Update();
 
 	Camera::SetTarget(mMainChar);

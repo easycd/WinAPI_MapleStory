@@ -1,29 +1,23 @@
 #pragma once
 #include "GameObject.h"
 
-class Animator;
 class Animation;
+class Animator;
 
-class BasicSkill : public GameObject
+class SoulEclipseStart : public GameObject
 {
 public:
-	BasicSkill();
-	~BasicSkill();
+	SoulEclipseStart();
+	~SoulEclipseStart();
 
 	virtual void Initialize() override;
 	virtual void Update() override;
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
 
-	void RightAttack();
-	void LeftAttack();
-
 private:
 	Animator* m_Animator;
-	Animation* R;
-	Animation* G;
-	Animation* B;
-	Animation* rgb;
+	Animator* m_Animator1;
 	float mTime;
 };
 

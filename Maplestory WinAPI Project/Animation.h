@@ -35,9 +35,10 @@ public:
 
 	bool IsComplete() { return mbComplete; }
 	void SetAnimator(Animator* animator) { mAnimator = animator; }
-	void SetR(int r) { int R = r; }
-	void SetG(int g) { int G = g; }
-	void SetB(int b) { int B = b; }
+	void SetR(WORD r) { WORD R = r; }
+	void SetG(WORD g) { WORD G = g; }
+	void SetB(WORD b) { WORD B = b; }
+	void SetRGB(COLORREF rgb) { COLORREF Color = rgb; }
 
 private:
 	Animator* mAnimator;
@@ -46,8 +47,9 @@ private:
 	float mTime;
 	bool mbComplete;
 	int mSpriteIndex;
-	int R;
-	int G;
-	int B;
+	WORD R;
+	WORD G;
+	WORD B;
+	COLORREF Color;
 	};
 

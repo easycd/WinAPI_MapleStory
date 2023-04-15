@@ -23,10 +23,15 @@ void Camera::Initiailize()
 void Camera::Update()
 {
 
-	if (mTarget != nullptr)
+	/*if (mTarget != nullptr)
 	{
 		mLookPosition
 			= mTarget->GetComponent<Transform>()->GetPos();
+	}*/
+	if (mTarget != nullptr)
+	{
+		mLookPosition.x = mTarget->GetComponent<Transform>()->GetPos().x + 500.f;
+		mLookPosition.y = mTarget->GetComponent<Transform>()->GetPos().y;
 	}
 
 	mDistance = mLookPosition - (mResolution / 2.0f);

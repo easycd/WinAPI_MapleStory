@@ -5,7 +5,6 @@
 #include "CollisionManager.h"
 #include "Camera.h"
 #include "resource.h"
-
 Application::Application()
 	: mHwnd(NULL) //초기화
 	, mHdc(NULL)  //초기화
@@ -61,7 +60,6 @@ void Application::Update()
 	Time::Update();
 	Input::Update();
 	Camera::Update(); //카메라 함수 업데이트
-
 	SceneManager::Update();
 	CollisionManager::Update();
 }
