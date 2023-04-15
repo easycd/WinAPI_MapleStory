@@ -17,22 +17,25 @@ void SoulEclipseStart::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
 	m_Animator = AddComponent<Animator>();
-	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\SoulEclipse\\", Vector2::Zero, 0.1f);
-	m_Animator->Play(L"", false);
+	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\SoulEclipse\\StartEffect", Vector2::Zero, 0.15f);
+	m_Animator->Play(L"SoulEclipseStartEffect", false);
 }
 
 void SoulEclipseStart::Update()
 {
-	if (m_Animator->IsComplte())
+	GameObject::Update();
+	/*if (m_Animator->IsComplte())
 	{
 		Destory(this);
-	}
+	}*/
 }
 
 void SoulEclipseStart::Render(HDC hdc)
 {
+	GameObject::Render(hdc);
 }
 
 void SoulEclipseStart::Release()
 {
+	GameObject::Release();
 }

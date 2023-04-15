@@ -20,6 +20,8 @@ enum class eLayerType
 {
 	Wizet,
 	BG,
+	SoulEclipse,
+	Object,
 	Portal,
 	Monster,
 	Skill,

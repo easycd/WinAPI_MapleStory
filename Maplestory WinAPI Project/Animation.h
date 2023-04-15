@@ -35,10 +35,6 @@ public:
 
 	bool IsComplete() { return mbComplete; }
 	void SetAnimator(Animator* animator) { mAnimator = animator; }
-	void SetR(WORD r) { WORD R = r; }
-	void SetG(WORD g) { WORD G = g; }
-	void SetB(WORD b) { WORD B = b; }
-	void SetRGB(COLORREF rgb) { COLORREF Color = rgb; }
 
 private:
 	Animator* mAnimator;
@@ -47,9 +43,38 @@ private:
 	float mTime;
 	bool mbComplete;
 	int mSpriteIndex;
-	WORD R;
-	WORD G;
-	WORD B;
-	COLORREF Color;
-	};
+	//WORD R;
+	//WORD G;
+	//WORD B;
+	COLORREF m_Color;
+	bool m_IsCameraMove;
+	int m_nullcameraX;
+	int m_nullcameraY;
+
+public:
+	void SetIsCameraMove(bool IsCameraMove) //카메라 설정
+	{
+		m_IsCameraMove = IsCameraMove;
+	}
+
+	bool GetIsCameraMove()
+	{
+		return m_IsCameraMove;
+	}
+
+	void SetRGB(COLORREF rgb) //이미지 색 제거 설정
+	{
+		m_Color = rgb;
+	}
+
+	void SetNullCameraPosX(int x)
+	{
+		m_nullcameraX = x;
+	}
+	void SetNullCameraPosY(int y)
+	{
+		m_nullcameraY = y;
+	}
+
+};
 

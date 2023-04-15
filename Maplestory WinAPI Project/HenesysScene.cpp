@@ -15,6 +15,7 @@
 #include "Portal.h"
 #include "MainChar_GroundCollider.h"
 #include "Camera.h"
+#include "SoulEclipseBackGround.h"
 
 HenesysScene::HenesysScene()
 {
@@ -37,7 +38,7 @@ void HenesysScene::Initialize()
 	AddGameObeject(m_henesysBack, eLayerType::BG);
 
 	HenesysObject* m_henesysobject = new HenesysObject();
-	AddGameObeject(m_henesysobject, eLayerType::BG);
+	AddGameObeject(m_henesysobject, eLayerType::Object);
 
 	Portal* m_portal0 = new Portal();
 	AddGameObeject(m_portal0, eLayerType::Portal);
@@ -98,11 +99,16 @@ void HenesysScene::Initialize()
 }
 void HenesysScene::Update()
 {
+	/*if (Input::GetKeyState(eKeyCode::S) == eKeyState::Down)
+	{
+		SoulEclipseBackGround* SEGBG = new SoulEclipseBackGround();
+		AddGameObeject(SEGBG, eLayerType::SoulEclipseBG);
+	}*/
+	//if(CollisionManager::ColliderCollision(mMainChar->collider, m_portal1->collider, eLayerType::Player, eLayerType::Portal) == true)
 	if (Input::GetKeyState(eKeyCode::N) == eKeyState::Down)
 	{
 		SceneManager::LoadScene(eSceneType::Somyeol);
 	}
-	//if(CollisionManager::ColliderCollision(mMainChar->collider, m_portal1->collider, eLayerType::Player, eLayerType::Portal) == true)
 	Scene::Update();
 
 	Camera::SetTarget(mMainChar);

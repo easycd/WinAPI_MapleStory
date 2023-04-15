@@ -20,16 +20,22 @@ public:
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
 
-	void EndSkill();
-	void StartSkill();
-
-
 private:
 	Animator* m_Animator;
-	Animation* R;
-	Animation* G;
-	Animation* B;
 	eCosmosState m_State;
 	float mTime;
+	bool IsSkillOn;
+	int posx;
+	int posy;
+
+public:
+	const void SetPosX(int x)
+	{
+		posx = x;
+	}
+	const void SetPosY(int y)
+	{
+		posy = y;
+	}
 };
 

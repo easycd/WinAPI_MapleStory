@@ -17,6 +17,7 @@ public:
 		DownAttack,
 		Attack,
 		CosmosSkill,
+		SoulEclipse,
 
 	};
 
@@ -36,6 +37,7 @@ private:
 	void downattack();
 	void basic_attack();
 	void cosmosSkill();
+	void souleclipseSkill();
 
 	void idleCompleteEvent();
 

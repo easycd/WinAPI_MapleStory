@@ -57,6 +57,31 @@ class Animator : public Component
 		std::function<void()>& GetCompleteEvent(const std::wstring& name);
 		std::function<void()>& GetEndEvent(const std::wstring& name);
 		bool IsComplte() { return mActiveAnimation->IsComplete(); } //현재 애니메이션이 끝났는지 안끝났는지 확인하는 함수
+		
+		void SetIsCameraMove(bool IsCameraMove) 
+		{ 
+			mActiveAnimation->SetIsCameraMove(IsCameraMove); 
+		}
+
+		bool GetIsCameraMove() 
+		{ 
+			return mActiveAnimation->GetIsCameraMove();
+		}
+
+		void SetRGB(COLORREF rgb)
+		{
+			mActiveAnimation->SetRGB(rgb);
+		}
+
+		void SetNullCameraPosX(int x)
+		{
+			mActiveAnimation->SetNullCameraPosX(x);
+		}
+
+		void SetNullCameraPosY(int y)
+		{
+			mActiveAnimation->SetNullCameraPosY(y);
+		}
 
 	private:
 		std::map<std::wstring, Animation*> mAnimations;

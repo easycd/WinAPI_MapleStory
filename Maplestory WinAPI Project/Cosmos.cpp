@@ -7,7 +7,10 @@
 #include "Animation.h"
 
 Cosmos::Cosmos()
-	:mTime(0.0f)
+	:mTime(0.0f),
+	IsSkillOn(false)
+	, posx(0)
+	, posy(0)
 {
 }
 
@@ -23,9 +26,9 @@ void Cosmos::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\start", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\end", Vector2::Zero, 0.1f);
 
-	m_Animator->GetStartEvent(L"Cosmossstart") = std::bind(&Cosmos::StartSkill, this);
+	//m_Animator->GetStartEvent(L"Cosmossstart") = std::bind(&Cosmos::StartSkill, this);
 	m_Animator->Play(L"Cosmosstart", true);
-
+	m_Animator->SetIsCameraMove(false);
 	//m_Animator->Play(L"Cosmosend", true);
 
 
@@ -38,72 +41,33 @@ void Cosmos::Update()
 {
 	GameObject::Update();
 
-	//EndSkill();
-	if (m_State == eCosmosState::End)
+	mTime += Time::DeltaTime();
+
+	if (mTime > 5.0f && IsSkillOn == false)
 	{
-		EndSkill();
+		IsSkillOn = true;
+		m_Animator->Play(L"Cosmosend", false);
+		m_Animator->SetIsCameraMove(false);
+
 	}
 
-	mTime += Time::DeltaTime();
-	if (mTime >= 3.0f)
-		m_State = eCosmosState::End;
-
-	//if (mTime > 3.0f)
-	//{
-	//	//Destory(this);
-	//	//m_Animator->Play(L"Cosmosend", true);
-	//	//m_Animator->GetEndEvent(L"Cosmosstart");
-	//	m_Animator->Play(L"Cosmosend", true);
-
-
-	//	//EndSkill();
-	//}
-
-	// 플레이어 가져와
-	//vector2 playerpos = mainchar->getpos
-	//	tr->setpos(playerpos().x + , playerpos.y);
-	
-
-	//if(m_Animator->FindAnimation((L"Cosmosstart"))->IsComplete())
-		//m_Animator->Play(L"Cosmosend", true);
-
-	
-
-
-
-	/*switch (m_State)
+	if (IsSkillOn)
 	{
-	case Cosmos::eCosmosState::Start:
-		Initialize();
-		break;
-	case  Cosmos::eCosmosState::End:
-		EndSkill();
-		break;
-	default:
-		break;
-	}*/
+		if (mTime > 8.f)
+			Destory(this);
+	}
 }
 
 void Cosmos::Render(HDC hdc)
 {
+	m_Animator->SetRGB(RGB(56, 11, 153));
+	m_Animator->SetNullCameraPosX(posx);
+	m_Animator->SetNullCameraPosY(posy);
 	GameObject::Render(hdc); //TransparentBlt실행
-
 }
 
 void Cosmos::Release()
 {
 	GameObject::Release();
-}
-
-void Cosmos::EndSkill()
-{
-	Transform* tr = GetComponent<Transform>();
-	tr->SetScale(Vector2(0.8f, 0.8f));
-	m_Animator->Play(L"Cosmosend", true);
-}
-
-void Cosmos::StartSkill()
-{
-	m_State = eCosmosState::Start;
 }
 

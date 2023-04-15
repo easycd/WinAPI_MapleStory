@@ -20,10 +20,18 @@ public:
 
 private:
 	Animator* m_Animator;
-	Animation* R;
-	Animation* G;
-	Animation* B;
-	Animation* rgb;
 	float mTime;
+	int posx;
+	int posy;
+
+public:
+	const void SetPosX(int x)
+	{
+		posx = x;
+	}
+	const void SetPosY(int y)
+	{
+		posy = y;
+	}
 };
 

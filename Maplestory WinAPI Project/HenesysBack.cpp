@@ -14,6 +14,8 @@ HenesysBack::~HenesysBack()
 
 void HenesysBack::Initialize()
 {
+	Transform* tr = GetComponent<Transform>();
+	tr->SetScale(Vector2(2.f, 2.f));
 	mImage = RResources::Load<Image>(L"Henesys_Back", L"..\\Resources\\Map\\Henesys\\Henesys_Back.bmp");
 	GameObject::Initialize();
 } 

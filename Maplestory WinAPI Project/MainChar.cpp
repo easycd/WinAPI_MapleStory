@@ -11,6 +11,8 @@
 #include "CollisionManager.h"
 #include "BasicSkill.h"
 #include "Cosmos.h"
+#include "SoulEclipseStart.h"
+#include "SoulEclipseBackGround.h"
 #include "Camera.h"
 #include "HenesysBack.h"
 
@@ -101,6 +103,9 @@ void MainChar::Update()
 		break;
 	case  MainChar::eMainCharState::CosmosSkill:
 		cosmosSkill();
+		break;
+	case  MainChar::eMainCharState::SoulEclipse:
+		souleclipseSkill();
 		break;
 	default:
 		break;
@@ -293,6 +298,7 @@ void MainChar::idle()
 		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		BasicSkill* basicskill = new BasicSkill();
+		basicskill->SetPosX(200);
 		basicskill->RightAttack();
 		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x + 300.f, tr->GetPos().y )); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
 		curScene->AddGameObeject(basicskill, eLayerType::Skill);
@@ -307,8 +313,9 @@ void MainChar::idle()
 		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		BasicSkill* basicskill = new BasicSkill();
+		basicskill->SetPosX(-400);
 		basicskill->LeftAttack();
-		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x - 300.f, tr->GetPos().y )); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
+		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos())); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
 		curScene->AddGameObeject(basicskill, eLayerType::Skill);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
@@ -319,9 +326,29 @@ void MainChar::idle()
 		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		Cosmos* cosmos = new Cosmos();
+		cosmos->SetPosX(-250);
+		cosmos->SetPosY(-350);
 		cosmos->Initialize();
-		cosmos->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x + 85.f, tr->GetPos().y + 300)); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
+		cosmos->GetComponent<Transform>()->SetPos(tr->GetPos());
 		curScene->AddGameObeject(cosmos, eLayerType::Skill);
+		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
+	}
+	else if (Input::GetKeyDown(eKeyCode::S))
+	{
+		m_State = eMainCharState::SoulEclipse;
+		//m_Animator->Play(L"CharattackLeft", true);
+		Transform* tr = GetComponent<Transform>();
+		Scene* curScene = SceneManager::GetActiveScene();
+		SoulEclipseBackGround* SBG = new SoulEclipseBackGround();
+		SoulEclipseStart* SBS = new SoulEclipseStart();
+		SBG->Initialize();
+		SBS->Initialize();
+		//SBG->GetComponent<Transform>()->SetPos(Vector2::Zero);
+		//SBG->GetComponent<Transform>()->SetScale(Vector2(2.5f, 2.5f));
+		//SBG->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos())); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
+		SBS->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos())); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
+		curScene->AddGameObeject(SBG, eLayerType::SoulEclipse);
+		curScene->AddGameObeject(SBS, eLayerType::SoulEclipse);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
 }
@@ -364,6 +391,20 @@ void MainChar::cosmosSkill()
 		m_Animator->Play(L"CharIdleLeft", true);
 	}
 	else if (Input::GetKeyUp(eKeyCode::D) && direction == 1)
+	{
+		m_State = eMainCharState::Idle;
+		m_Animator->Play(L"CharIdleRight", true);
+	}
+}
+
+void MainChar::souleclipseSkill()
+{
+	if (Input::GetKeyUp(eKeyCode::S) && direction == 0)
+	{
+		m_State = eMainCharState::Idle;
+		m_Animator->Play(L"CharIdleLeft", true);
+	}
+	else if (Input::GetKeyUp(eKeyCode::S) && direction == 1)
 	{
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleRight", true);
