@@ -7,8 +7,8 @@
 #include "Animation.h"
 
 Cosmos::Cosmos()
-	:mTime(0.0f),
-	IsSkillOn(false)
+	:mTime(0.0f)
+	, IsSkillOn(false)
 	, posx(0)
 	, posy(0)
 {

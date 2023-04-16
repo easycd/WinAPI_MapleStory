@@ -22,6 +22,7 @@ private:
 	int posx;
 	int posy;
 	float m_Time;
+	bool IsSkillOn;
 
 public:
 	const void SetPosX(int x)

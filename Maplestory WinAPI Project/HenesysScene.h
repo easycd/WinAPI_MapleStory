@@ -9,6 +9,8 @@ class HenesysObject;
 class mushroom;
 class RedSnail;
 class Portal;
+class Ground;
+class Camera;
 
 	class HenesysScene : public Scene
 	{
@@ -32,9 +34,6 @@ class Portal;
 		RedSnail* m_redsnail;
 		Portal* m_portal;
 		Portal* m_portal1;
-
-
-
 		Camera* Camera;
 	};
 

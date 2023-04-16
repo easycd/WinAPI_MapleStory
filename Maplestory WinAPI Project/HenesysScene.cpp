@@ -71,30 +71,23 @@ void HenesysScene::Initialize()
 	Ground* ground7 = new Ground(); AddGameObeject(ground7, eLayerType::Ground);
 	Ground* ground8 = new Ground(); AddGameObeject(ground8, eLayerType::Ground);
 
-	
+	Ground* col = new Ground(); AddGameObeject(col, eLayerType::TransformCol);
 
 	Scene::Initialize();
-	ground0->GetComponent<Transform>()->SetPos(Vector2(0.0f, 880.0f));
-	ground0->GetComponent<Collider>()->SetSize(Vector2(1900.0f, 30.0f));
-	ground1->GetComponent<Transform>()->SetPos(Vector2(110.0f, 310.0f));
-	ground1->GetComponent<Collider>()->SetSize(Vector2(680.0f, 30.0f));
-	ground2->GetComponent<Transform>()->SetPos(Vector2(1190.0f, 310.0f));
-	ground2->GetComponent<Collider>()->SetSize(Vector2(140.0f, 30.0f));
-	ground3->GetComponent<Transform>()->SetPos(Vector2(830.0f, 250.0f));
-	ground3->GetComponent<Collider>()->SetSize(Vector2(320.0f, 30.0f));
-	ground4->GetComponent<Transform>()->SetPos(Vector2(745.0f, 430.0f));
-	ground4->GetComponent<Collider>()->SetSize(Vector2(485.0f, 30.0f));
-	ground5->GetComponent<Transform>()->SetPos(Vector2(1280.0f, 430.0f));
-	ground5->GetComponent<Collider>()->SetSize(Vector2(50.0f, 30.0f));
-	ground6->GetComponent<Transform>()->SetPos(Vector2(650.0f, 610.0f));
-	ground6->GetComponent<Collider>()->SetSize(Vector2(680.0f, 30.0f));
-	ground7->GetComponent<Transform>()->SetPos(Vector2(110.0f, 670.0f));
-	ground7->GetComponent<Collider>()->SetSize(Vector2(500.0f, 30.0f));
-	ground8->GetComponent<Transform>()->SetPos(Vector2(1375.0f, 370.0f));
-	ground8->GetComponent<Collider>()->SetSize(Vector2(495.0f, 30.0f));
+	ground0->GetComponent<Transform>()->SetPos(Vector2(0.0f, 880.0f));    ground0->GetComponent<Collider>()->SetSize(Vector2(1900.0f, 30.0f));
+	ground1->GetComponent<Transform>()->SetPos(Vector2(110.0f, 310.0f));  ground1->GetComponent<Collider>()->SetSize(Vector2(680.0f, 30.0f));
+	ground2->GetComponent<Transform>()->SetPos(Vector2(1190.0f, 310.0f)); ground2->GetComponent<Collider>()->SetSize(Vector2(140.0f, 30.0f));
+	ground3->GetComponent<Transform>()->SetPos(Vector2(830.0f, 250.0f));  ground3->GetComponent<Collider>()->SetSize(Vector2(320.0f, 30.0f));
+	ground4->GetComponent<Transform>()->SetPos(Vector2(745.0f, 430.0f));  ground4->GetComponent<Collider>()->SetSize(Vector2(485.0f, 30.0f));
+	ground5->GetComponent<Transform>()->SetPos(Vector2(1280.0f, 430.0f)); ground5->GetComponent<Collider>()->SetSize(Vector2(50.0f, 30.0f));
+	ground6->GetComponent<Transform>()->SetPos(Vector2(650.0f, 610.0f));  ground6->GetComponent<Collider>()->SetSize(Vector2(680.0f, 30.0f)); //set monster
+	ground7->GetComponent<Transform>()->SetPos(Vector2(110.0f, 670.0f));  ground7->GetComponent<Collider>()->SetSize(Vector2(500.0f, 30.0f));
+	ground8->GetComponent<Transform>()->SetPos(Vector2(1375.0f, 370.0f)); ground8->GetComponent<Collider>()->SetSize(Vector2(495.0f, 30.0f));
 
 	m_portal0->GetComponent<Transform>()->SetPos(Vector2(200.0f, 310.0f));
 	m_portal1->GetComponent<Transform>()->SetPos(Vector2(1800.0f, 880.0f));
+
+	col->GetComponent<Transform>()->SetPos(Vector2(650.0f, 610.0f)); col->GetComponent<Collider>()->SetSize(Vector2(1.0f, -30.0f));
 
 }
 void HenesysScene::Update()

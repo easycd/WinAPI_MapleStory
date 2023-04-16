@@ -13,6 +13,7 @@
 #include "Cosmos.h"
 #include "SoulEclipseStart.h"
 #include "SoulEclipseBackGround.h"
+#include "SoulEclipseEffect.h"
 #include "Camera.h"
 #include "HenesysBack.h"
 
@@ -342,17 +343,20 @@ void MainChar::idle()
 		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		SoulEclipseBackGround* SBG = new SoulEclipseBackGround();
-		SoulEclipseStart* SBS = new SoulEclipseStart();
+		SoulEclipseStart* SS = new SoulEclipseStart();
+		SoulEclipseEffect* SE = new SoulEclipseEffect();
 		SBG->Initialize();
-		SBS->Initialize();
-		SBS->SetPosX(240);
-		SBS->SetPosY(80);
+		SS->Initialize();
+		//SE->Initialize();
+		SS->SetPosX(240);
+		SS->SetPosY(80);
 		//SBG->GetComponent<Transform>()->SetPos(Vector2::Zero);
 		//SBG->GetComponent<Transform>()->SetScale(Vector2(2.5f, 2.5f));
 		//SBG->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos())); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
-		SBS->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos())); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
+		//SS->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos())); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
 		curScene->AddGameObeject(SBG, eLayerType::SoulEclipse);
-		curScene->AddGameObeject(SBS, eLayerType::SoulEclipse);
+		curScene->AddGameObeject(SS, eLayerType::SoulEclipse);
+		//curScene->AddGameObeject(SE, eLayerType::SoulEclipseEffect);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
 }

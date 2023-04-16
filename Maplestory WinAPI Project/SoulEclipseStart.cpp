@@ -10,7 +10,8 @@
 SoulEclipseStart::SoulEclipseStart()
 	: posx(0)
 	, posy(0)
-	, m_Time(0)
+	, m_Time(0.0f)
+	, IsSkillOn(false)
 {
 }
 SoulEclipseStart::~SoulEclipseStart()
@@ -22,6 +23,7 @@ void SoulEclipseStart::Initialize()
 	Transform* tr = GetComponent<Transform>();
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\SoulEclipse\\StartEffect", Vector2::Zero, 0.15f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\SoulEclipse\\Continue", Vector2::Zero, 0.15f);
 	m_Animator->Play(L"SoulEclipseStartEffect", false);
 	m_Animator->SetIsCameraMove(false);
 }
@@ -34,8 +36,17 @@ void SoulEclipseStart::Update()
 	{
 		Destory(this);
 	}*/
-	if (m_Time > 5.0f)
+	if (m_Time > 5.0f && IsSkillOn == false)
 	{
+		IsSkillOn = true;
+		m_Animator->Play(L"SoulEclipseContinue", true);
+		m_Animator->SetIsCameraMove(false);
+
+	}
+	
+	if (IsSkillOn)
+	{
+		if (m_Time > 10.0f)
 		Destory(this);
 	}
 }

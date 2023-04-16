@@ -29,6 +29,8 @@ private:
 private:
 	emushroomState m_State;
 	Animator* m_Animator;
+	HenesysScene* col;
+	float m_Time;
 };
 
 

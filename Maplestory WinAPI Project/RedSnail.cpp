@@ -25,8 +25,8 @@ void RedSnail::Initialize()
 
 	m_Animator = AddComponent<Animator>();
 
-	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\redsnail\\move", Vector2::Zero, 0.6f);
-	m_Animator->Play(L"redsnailmove", true);
+	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\redsnail\\moveLeft", Vector2::Zero, 0.6f);
+	m_Animator->Play(L"redsnailmoveLeft", true);
 
 	/*m_State = eRedSnailState::Idle;*/
 	Collider* collider = AddComponent<Collider>();

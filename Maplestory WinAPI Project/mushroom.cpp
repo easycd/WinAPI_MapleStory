@@ -7,8 +7,8 @@
 #include "Animator.h"
 #include "Scene.h"
 #include "Collider.h"
-
 mushroom::mushroom()
+	: m_Time(0.0f)
 {
 }
 
@@ -22,8 +22,8 @@ void mushroom::Initialize()
 	tr->SetPos(Vector2(800.0f, 600.0f));
 
 	m_Animator = AddComponent<Animator>();
-	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\move", Vector2::Zero, 0.4f);
-	m_Animator->Play(L"mushroommove", true);
+	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\moveLeft", Vector2::Zero, 0.3f);
+	m_Animator->Play(L"mushroommoveLeft", true);
 	//m_State = emushroomState::Idle;
 
 	Collider* collider = AddComponent<Collider>();
@@ -62,6 +62,17 @@ void mushroom::Release()
 
 void mushroom::move()
 {
+	Transform* tr = GetComponent<Transform>();
+	Vector2 pos = tr->GetPos();
+
+	m_Time += Time::DeltaTime();
+	float Setpos = pos.x;
+	if(m_Time < 3.f)
+	pos.x -= 100.0 * Time::DeltaTime();
+	if (m_Time > 3.f)
+		pos.x += 100.0 * Time::DeltaTime();
+
+	tr->SetPos(pos);
 }
 
 void mushroom::idle()
