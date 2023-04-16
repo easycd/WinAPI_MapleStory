@@ -17,6 +17,8 @@
 #include "HenesysBack.h"
 
 MainChar::MainChar()
+	: posx(0)
+	, posy(0)
 {
 }
 
@@ -27,7 +29,7 @@ MainChar::~MainChar()
 void MainChar::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetPos(Vector2(300.0f, 300.0f));
+	tr->SetPos(Vector2(posx, posy));
 	m_Animator = AddComponent<Animator>();
 
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\IdleLeft", Vector2::Zero, 0.8f); //왼쪽 아이들
@@ -343,6 +345,8 @@ void MainChar::idle()
 		SoulEclipseStart* SBS = new SoulEclipseStart();
 		SBG->Initialize();
 		SBS->Initialize();
+		SBS->SetPosX(240);
+		SBS->SetPosY(80);
 		//SBG->GetComponent<Transform>()->SetPos(Vector2::Zero);
 		//SBG->GetComponent<Transform>()->SetScale(Vector2(2.5f, 2.5f));
 		//SBG->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos())); // 캐릭터의 좌표를 가저옴

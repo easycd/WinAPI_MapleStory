@@ -93,6 +93,7 @@ void SomyeolScene::OnEnter()
 	mMainChar->GetComponent<Transform>()->SetPos(Vector2(600.0f, 1050.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
+	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);
 }
 void SomyeolScene::OnExit()
 {

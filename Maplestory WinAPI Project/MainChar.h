@@ -53,8 +53,27 @@ private:
 	Vector2 mPos;
 	int direction = 0; //0이면 왼쪽 1이면 오른쪽
 	bool mGroundCheck;
-
 	Camera* m_Camera;
 	//HenesysBack* m_HenesysBack;
+	int posx;
+	int posy;
+
+public:
+	void SetCharPosX(int x)
+	{
+		posx = x;
+	}
+	void SetCharPosY(int y)
+	{
+		posx = y;
+	}
+	int GetCharPosX()
+	{
+		return posx;
+	}
+	int GetCharPosY()
+	{
+		return posy;
+	}
 };
 

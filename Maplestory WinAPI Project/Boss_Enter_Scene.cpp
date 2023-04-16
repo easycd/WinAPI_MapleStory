@@ -7,6 +7,7 @@
 #include "Camera.h"
 #include "Ground.h"
 #include "Transform.h"
+#include "Portal.h"
 
 Boss_Enter_Scene::Boss_Enter_Scene()
 {
@@ -25,10 +26,23 @@ void Boss_Enter_Scene::Initialize()
 	Ground* ground0 = new Ground();
 	AddGameObeject(ground0, eLayerType::Ground);
 
+	Ground* ground1 = new Ground();
+	AddGameObeject(ground1, eLayerType::Ground);
+
+	Portal* portal0 = new Portal();
+	AddGameObeject(portal0, eLayerType::Portal);
+
+	Portal* portal1 = new Portal();
+	AddGameObeject(portal1, eLayerType::Portal);
+
 	Scene::Initialize();
 
-	ground0->GetComponent<Transform>()->SetPos(Vector2(0.0f, 600.0f));
-	ground0->GetComponent<Collider>()->SetSize(Vector2(2000.0f, 30.0f));
+	ground0->GetComponent<Transform>()->SetPos(Vector2(0.0f, 600.0f)); ground0->GetComponent<Collider>()->SetSize(Vector2(2000.0f, 30.0f));
+
+	ground1->GetComponent<Transform>()->SetPos(Vector2(720.0f, 555.0f)); ground1->GetComponent<Collider>()->SetSize(Vector2(550.0f, 10.0f));
+
+	portal0->GetComponent<Transform>()->SetPos(Vector2(130.0f, 600.0f));
+	portal1->GetComponent<Transform>()->SetPos(Vector2(1000.0f, 550.0f));
 }
 void Boss_Enter_Scene::Update()
 {
@@ -53,6 +67,7 @@ void Boss_Enter_Scene::Release()
 void Boss_Enter_Scene::OnEnter()
 {
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
+	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);
 }
 void Boss_Enter_Scene::OnExit()
 {

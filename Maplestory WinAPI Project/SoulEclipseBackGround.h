@@ -2,6 +2,9 @@
 #include "GameObject.h"
 #include "Image.h"
 
+class Animator;
+class Animation;
+
 class SoulEclipseBackGround : public GameObject
 {
 public:
@@ -14,6 +17,7 @@ public:
 	virtual void Release() override;
 
 private:
-	Image* mImage;
+	Animator* m_Animator;
+	float m_Time;
 };
 

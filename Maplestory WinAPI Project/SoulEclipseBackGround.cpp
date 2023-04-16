@@ -2,8 +2,14 @@
 #include "SceneManager.h"
 #include "Transform.h"
 #include "RResources.h"
+#include "Animator.h"
+#include "Object.h"
+#include "Collider.h"
+#include "Animation.h"
+#include "Time.h"
 
 SoulEclipseBackGround::SoulEclipseBackGround()
+	: m_Time(0)
 {
 }
 
@@ -14,26 +20,29 @@ SoulEclipseBackGround::~SoulEclipseBackGround()
 void SoulEclipseBackGround::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetScale(Vector2(5.0f, 5.0f));
-	mImage = RResources::Load<Image>(L"SoulEclipseBG", L"..\\Resources\\Skill\\SoulEclipse\\BackGround\\BackGround.bmp");
+	tr->SetScale(Vector2(2.f, 2.f));
+	//tr->SetPos(Vector2(200.0f, 500.0f));
+	m_Animator = AddComponent<Animator>();
+	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\SoulEclipse\\BackGround", Vector2::Zero, 0.1f);
+	m_Animator->Play(L"SoulEclipseBackGround", false);
+	m_Animator->SetIsCameraMove(false);
 	GameObject::Initialize();
 }
 
 void SoulEclipseBackGround::Update()
 {
 	GameObject::Update();
-
-	Transform* tr = GetComponent<Transform>();
-	Vector2 pos = tr->GetPos();
-	tr->SetPos(pos);
+	m_Time += Time::DeltaTime();
+	if (m_Time > 5.0f)
+	{
+		Destory(this);
+	}
+	
 }
 
 void SoulEclipseBackGround::Render(HDC hdc)
 {
 	GameObject::Render(hdc);
-	Transform* tr = GetComponent<Transform>();
-	Vector2 pos = tr->GetPos();
-	BitBlt(hdc, pos.x, pos.y, mImage->GetWidth(), mImage->GetHeight(), mImage->GetHdc(), 0, 0, SRCCOPY);
 }
 
 void SoulEclipseBackGround::Release()
