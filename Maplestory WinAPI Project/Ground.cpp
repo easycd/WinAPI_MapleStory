@@ -34,6 +34,7 @@ void Ground::Render(HDC hdc)
 
 void Ground::Release()
 {
+	GameObject::Release();
 }
 
 void Ground::OnCollisionEnter(Collider* other)

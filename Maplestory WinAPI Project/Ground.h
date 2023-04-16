@@ -1,6 +1,7 @@
 #pragma once
 #include "GameObject.h"
 
+class Collider;
 
 class Ground : public GameObject
 {
@@ -21,5 +22,7 @@ public:
 private:
 	class Collider* mCollider;
 	class Collider* collider;
+
+
 };
 
