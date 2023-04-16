@@ -23,13 +23,13 @@ void Boss_Ion::Initialize()
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\respawn", Vector2::Zero, 0.1f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\stand", Vector2::Zero, 0.1f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\die", Vector2::Zero, 0.1f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack1", Vector2::Zero, 0.1f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack2", Vector2::Zero, 0.1f);
-	m_Animator->Play(L"Ionrespawn", true);
+	//m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\stand", Vector2::Zero, 0.1f);
+	//m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\die", Vector2::Zero, 0.1f);
+	//m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack1", Vector2::Zero, 0.1f);
+	//m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack2", Vector2::Zero, 0.1f);
+	m_Animator->Play(L"Ionrespawn", false);
 
-	m_State = eBoss_IonState::Idle;
+	//m_State = eBoss_IonState::Idle;
 
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(300, 580)); // 히트박스 크기 조정
@@ -41,7 +41,10 @@ void Boss_Ion::Initialize()
 void Boss_Ion::Update()
 {
 	GameObject::Update();
-
+	//if (m_State == Boss_Ion::eBoss_IonState::Respawn)
+	//{
+	//	respawn();
+	//}
 	switch (m_State)
 	{
 	case Boss_Ion::eBoss_IonState::Respawn:

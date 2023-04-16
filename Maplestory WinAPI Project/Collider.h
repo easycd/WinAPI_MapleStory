@@ -29,5 +29,23 @@ private:
 	Vector2 mSize;
 	Vector2 mScale;
 	Vector2 mPos;
+	bool m_IsCameraMove;
+	int m_nullcameraX;
+	int m_nullcameraY;
+
+public:
+	void SetIsColliderMove(bool IsColliderMove) //카메라 설정
+	{
+		m_IsCameraMove = IsColliderMove;
+	}
+
+	void SetNullCameraPosX(int x)
+	{
+		m_nullcameraX = x;
+	}
+	void SetNullCameraPosY(int y)
+	{
+		m_nullcameraY = y;
+	}
 };
 

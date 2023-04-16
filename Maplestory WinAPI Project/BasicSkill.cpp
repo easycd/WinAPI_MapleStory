@@ -55,6 +55,8 @@ void BasicSkill::RightAttack()
 	Collider* collider = AddComponent<Collider>();
 	collider->SetCenter(Vector2(-300.0f, -380.0f));
 	collider->SetSize(Vector2(580.0f, 380.0f));
+	collider->SetIsColliderMove(false);
+	collider->SetNullCameraPosX(200);
 }
 void BasicSkill::LeftAttack()
 {
@@ -66,4 +68,5 @@ void BasicSkill::LeftAttack()
 	Collider* collider = AddComponent<Collider>();
 	collider->SetCenter(Vector2(-300.0f, -380.0f));
 	collider->SetSize(Vector2(580.0f, 380.0f));
+	collider->SetNullCameraPosX(-400);
 }

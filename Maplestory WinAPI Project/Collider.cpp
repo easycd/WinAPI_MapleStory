@@ -10,6 +10,9 @@ Collider::Collider()
 	, mPos(Vector2::Zero)
 	, mSize(55.0f, 85.0f)
 	, mCollisionCount(0)
+	, m_IsCameraMove(true)
+	, m_nullcameraX(0)
+	, m_nullcameraY(0)
 {
 
 }
@@ -38,9 +41,19 @@ void Collider::Render(HDC hdc)
 	HPEN oldPen = (HPEN)SelectObject(hdc, pen);
 	HBRUSH brush = (HBRUSH)GetStockObject(NULL_BRUSH); //투명으로 채우기
 	HBRUSH oldBrush = (HBRUSH)SelectObject(hdc, brush);
-
+	//bool 함수로 true면 카메라 기능 , false면 카메라 기능 제거
+	if (m_IsCameraMove)
+	{
 	Vector2 pos = Camera::CaluatePos(mPos); //pos를 카메라 좌표로 변경
 	Rectangle(hdc, pos.x, pos.y, pos.x + mSize.x, pos.y + mSize.y); //테두리 크기 조정
+	}
+	else
+	{
+		mPos.x += m_nullcameraX;
+		mPos.y += m_nullcameraY;
+		Vector2 pos = mPos;
+		Rectangle(hdc, pos.x, pos.y, pos.x + mSize.x, pos.y + mSize.y);
+	}
 
 	(HPEN)SelectObject(hdc, oldPen);
 	(HBRUSH)SelectObject(hdc, oldBrush);
