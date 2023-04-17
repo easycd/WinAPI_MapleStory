@@ -31,16 +31,16 @@ void Camera::Initiailize()
 
 void Camera::Update()
 {
-	if (mTarget != nullptr)
+	/*if (mTarget != nullptr)
 	{
 		mLookPosition
 			= mTarget->GetComponent<Transform>()->GetPos();
-	}
-	/*if (mTarget != nullptr)
+	}*/
+	if (mTarget != nullptr)
 	{
 		mLookPosition.x = mTarget->GetComponent<Transform>()->GetPos().x + 500.f;
 		mLookPosition.y = mTarget->GetComponent<Transform>()->GetPos().y + 100;
-	}*/
+	}
 
 	//if (mDistance.x < 0.0f || mDistance.x > 524.0f || mDistance.y < 0.0f || mDistance.y > 312.0f) //¸ÊX°ª - 1366, ¸ÊY°ª - 768 
 	//{
@@ -50,7 +50,7 @@ void Camera::Update()
 	//{
 	//	mDistance = mLookPosition - (mResolution / 2.0f);
 	//}
-
+  //
 
 	mDistance = mLookPosition - (mResolution / 2.0f);
 

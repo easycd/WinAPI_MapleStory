@@ -34,7 +34,7 @@ void HenesysBack::Render(HDC hdc)
 	Transform* tr = GetComponent<Transform>();
 	Vector2 pos = tr->GetPos();
 	pos = Camera::CaluatePos(pos);
-	BitBlt(hdc, pos.x, pos.y + 52, mImage->GetWidth(), mImage->GetHeight(), mImage->GetHdc(), 0, 0, SRCCOPY);
+	BitBlt(hdc, pos.x, pos.y , mImage->GetWidth(), mImage->GetHeight(), mImage->GetHdc(), 0, 0, SRCCOPY);
 }
 void HenesysBack::Release()
 {
