@@ -23,11 +23,11 @@ void Boss_Ion::Initialize()
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\respawn", Vector2::Zero, 0.1f);
-	//m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\stand", Vector2::Zero, 0.1f);
-	//m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\die", Vector2::Zero, 0.1f);
-	//m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack1", Vector2::Zero, 0.1f);
-	//m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack2", Vector2::Zero, 0.1f);
-	m_Animator->Play(L"Ionrespawn", false);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\stand", Vector2::Zero, 0.1f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\die", Vector2::Zero, 0.1f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack1", Vector2::Zero, 0.1f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack2", Vector2::Zero, 0.1f);
+	m_Animator->Play(L"Ionattack2", true);
 
 	//m_State = eBoss_IonState::Idle;
 
