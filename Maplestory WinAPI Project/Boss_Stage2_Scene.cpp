@@ -57,6 +57,8 @@ void Boss_Stage2_Scene::Release()
 }
 void Boss_Stage2_Scene::OnEnter()
 {
+	mMainChar->GetComponent<Transform>()->SetPos(Vector2(240.0f, 800.0f));
+
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 }

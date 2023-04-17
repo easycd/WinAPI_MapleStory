@@ -53,10 +53,10 @@ void BasicSkill::RightAttack()
 	m_Animator->Play(L"BasicAttackBasicAttackRight", false);
 	m_Animator->SetIsCameraMove(false);
 	Collider* collider = AddComponent<Collider>();
-	collider->SetCenter(Vector2(-300.0f, -380.0f));
-	collider->SetSize(Vector2(580.0f, 380.0f));
-	collider->SetIsColliderMove(false);
-	collider->SetNullCameraPosX(200);
+	//collider->SetCenter(Vector2(-300.0f, -380.0f));
+	//collider->SetSize(Vector2(580.0f, 380.0f));
+	//collider->SetIsColliderMove(false);
+	//collider->SetNullCameraPosX(200);
 }
 void BasicSkill::LeftAttack()
 {
@@ -65,8 +65,8 @@ void BasicSkill::LeftAttack()
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\BasicAttack\\BasicAttackLeft", Vector2::Zero,0.1f);
 	m_Animator->Play(L"BasicAttackBasicAttackLeft", false);
 	m_Animator->SetIsCameraMove(false);
-	Collider* collider = AddComponent<Collider>();
-	collider->SetCenter(Vector2(-300.0f, -380.0f));
-	collider->SetSize(Vector2(580.0f, 380.0f));
-	collider->SetNullCameraPosX(-400);
+	//Collider* collider = AddComponent<Collider>();
+	//collider->SetCenter(Vector2(-300.0f, -380.0f));
+	//collider->SetSize(Vector2(580.0f, 380.0f));
+	//collider->SetNullCameraPosX(-400);
 }

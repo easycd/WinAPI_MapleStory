@@ -90,6 +90,7 @@ void Arcana::Release()
 }
 void Arcana::OnEnter()
 {
+	m_mainchar->GetComponent<Transform>()->SetPos(Vector2(500.0f, 800.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);

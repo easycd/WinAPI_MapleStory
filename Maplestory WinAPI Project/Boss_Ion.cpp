@@ -45,7 +45,7 @@ void Boss_Ion::Update()
 	//{
 	//	respawn();
 	//}
-	switch (m_State)
+	/*switch (m_State)
 	{
 	case Boss_Ion::eBoss_IonState::Respawn:
 		respawn();
@@ -64,11 +64,12 @@ void Boss_Ion::Update()
 		break;
 	default:
 		break;
-	}
+	}*/
 }
 
 void Boss_Ion::Render(HDC hdc)
 {
+	m_Animator->SetRGB(RGB(255, 255, 255));
 	GameObject::Render(hdc);
 }
 

@@ -25,6 +25,7 @@ private:
 	eCosmosState m_State;
 	float mTime;
 	bool IsSkillOn;
+	bool IsSkillLoop;
 	int posx;
 	int posy;
 

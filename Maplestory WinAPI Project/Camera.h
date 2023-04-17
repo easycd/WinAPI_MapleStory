@@ -5,6 +5,8 @@ class GameObject;
 class Camera
 {
 public:
+	Camera();
+	~Camera();
 	static void Initiailize();
 	static void Update();
 

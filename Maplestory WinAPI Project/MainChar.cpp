@@ -127,7 +127,6 @@ void MainChar::Update()
 	/*if (m_Camera->GetLookPosition().x <= 0.f)
 		m_Camera->SetLookPosition(Vector2(0.f, m_Camera->GetLookPosition().y));*/
 
-
 }
 
 void MainChar::Render(HDC hdc)
@@ -138,6 +137,11 @@ void MainChar::Render(HDC hdc)
 void MainChar::Release()
 {
 	GameObject::Release();
+}
+
+void MainChar::OnCollisionEnter(Collider* other)
+{
+	int a = 0;
 }
 
 void MainChar::move()
@@ -179,8 +183,9 @@ void MainChar::move()
 		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		BasicSkill* basicskill = new BasicSkill();
+		basicskill->SetPosX(700);
 		basicskill->RightAttack();
-		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x + 300.f, tr->GetPos().y)); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
+		//basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x + 300.f, tr->GetPos().y)); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
 		curScene->AddGameObeject(basicskill, eLayerType::Skill);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
@@ -192,8 +197,9 @@ void MainChar::move()
 		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		BasicSkill* basicskill = new BasicSkill();
+		basicskill->SetPosX(50);
 		basicskill->LeftAttack();
-		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x - 300.f, tr->GetPos().y)); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
+		//basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos())); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
 		curScene->AddGameObeject(basicskill, eLayerType::Skill);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
@@ -276,7 +282,7 @@ void MainChar::idle()
 		m_State = eMainCharState::Jump;
 		m_Animator->Play(L"CharjumpLeft", true);
 		Vector2 velocity = mRigidbody->GetVelocity();
-		velocity.y -= 500.0f;
+		velocity.y -= 400.0f;
 
 		mRigidbody->SetVelocity(velocity);
 		mRigidbody->SetGround(false);
@@ -288,7 +294,7 @@ void MainChar::idle()
 		m_State = eMainCharState::Jump;
 		m_Animator->Play(L"CharjumpRight", true);
 		Vector2 velocity = mRigidbody->GetVelocity();
-		velocity.y -= 500.0f;
+		velocity.y -= 400.0f;
 
 		mRigidbody->SetVelocity(velocity);
 		mRigidbody->SetGround(false);
@@ -301,7 +307,7 @@ void MainChar::idle()
 		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		BasicSkill* basicskill = new BasicSkill();
-		basicskill->SetPosX(200);
+		basicskill->SetPosX(700);
 		basicskill->RightAttack();
 		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos().x + 300.f, tr->GetPos().y )); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
 		curScene->AddGameObeject(basicskill, eLayerType::Skill);
@@ -316,7 +322,7 @@ void MainChar::idle()
 		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		BasicSkill* basicskill = new BasicSkill();
-		basicskill->SetPosX(-400);
+		basicskill->SetPosX(50);
 		basicskill->LeftAttack();
 		basicskill->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos())); // Ä³¸¯ÅÍÀÇ ÁÂÇ¥¸¦ °¡Àú¿È
 		curScene->AddGameObeject(basicskill, eLayerType::Skill);
@@ -329,7 +335,9 @@ void MainChar::idle()
 		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		Cosmos* cosmos = new Cosmos();
-		cosmos->SetPosX(-250);
+		/*cosmos->SetPosX(-250);
+		cosmos->SetPosY(-350);*/
+		cosmos->SetPosX(250);
 		cosmos->SetPosY(-350);
 		cosmos->Initialize();
 		cosmos->GetComponent<Transform>()->SetPos(tr->GetPos());

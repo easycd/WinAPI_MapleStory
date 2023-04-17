@@ -9,6 +9,7 @@
 Cosmos::Cosmos()
 	:mTime(0.0f)
 	, IsSkillOn(false)
+	, IsSkillLoop(false)
 	, posx(0)
 	, posy(0)
 {
@@ -25,6 +26,7 @@ void Cosmos::Initialize()
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\start", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\end", Vector2::Zero, 0.1f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\loop", Vector2::Zero, 0.1f);
 
 	//m_Animator->GetStartEvent(L"Cosmossstart") = std::bind(&Cosmos::StartSkill, this);
 	m_Animator->Play(L"Cosmosstart", true);
@@ -32,9 +34,9 @@ void Cosmos::Initialize()
 	//m_Animator->Play(L"Cosmosend", true);
 
 
-	Collider* collider = AddComponent<Collider>();
-	collider->SetCenter(Vector2(-300.0f, -380.0f));
-	collider->SetSize(Vector2(580.0f, 380.0f));
+	//Collider* collider = AddComponent<Collider>();
+	//collider->SetCenter(Vector2(-300.0f, -380.0f));
+	//collider->SetSize(Vector2(580.0f, 380.0f));
 }
 
 void Cosmos::Update()
@@ -42,7 +44,28 @@ void Cosmos::Update()
 	GameObject::Update();
 
 	mTime += Time::DeltaTime();
+	if (mTime > 3.0f && IsSkillLoop == false)
+	{
+		IsSkillLoop = true;
+		m_Animator->Play(L"Cosmosloop", true);
+		m_Animator->SetIsCameraMove(false);
+	}
 
+	if (mTime > 5.0f && IsSkillOn == false && IsSkillLoop == true)
+	{
+		IsSkillOn = true;
+		m_Animator->Play(L"Cosmosend", false);
+		m_Animator->SetIsCameraMove(false);
+
+	}
+
+	if (IsSkillOn)
+	{
+		if (mTime > 6.0f)
+			Destory(this);
+	}
+
+	/*
 	if (mTime > 5.0f && IsSkillOn == false)
 	{
 		IsSkillOn = true;
@@ -56,6 +79,7 @@ void Cosmos::Update()
 		if (mTime > 8.f)
 			Destory(this);
 	}
+	*/
 }
 
 void Cosmos::Render(HDC hdc)

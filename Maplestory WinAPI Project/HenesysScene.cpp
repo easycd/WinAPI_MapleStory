@@ -89,6 +89,7 @@ void HenesysScene::Initialize()
 
 	col->GetComponent<Transform>()->SetPos(Vector2(650.0f, 610.0f)); col->GetComponent<Collider>()->SetSize(Vector2(1.0f, -30.0f));
 
+
 }
 void HenesysScene::Update()
 {
@@ -115,7 +116,7 @@ void HenesysScene::Release()
 }
 void HenesysScene::OnEnter()
 {
-	mMainChar->GetComponent<Transform>()->SetPos(Vector2(700.0f, 900.0f));
+	mMainChar->GetComponent<Transform>()->SetPos(Vector2(700.0f, 950.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);
