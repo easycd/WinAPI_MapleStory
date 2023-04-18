@@ -3,8 +3,7 @@
 #include "MainChar.h"
 #include "Rigidbody.h"
 #include "Transform.h"
-
-
+#include "mushroom.h"
 
 Ground::Ground()
 {
@@ -43,11 +42,13 @@ void Ground::OnCollisionEnter(Collider* other)
 	if (mainchar == nullptr) 
 		return;
 
-	Rigidbody* rb = mainchar->GetComponent<Rigidbody>();
-	rb->SetGround(true); //부딪히면 걸림
+	//부딪히면 걸림
+	Rigidbody* crb = mainchar->GetComponent<Rigidbody>();
+	crb->SetGround(true);
 
 	Collider* maincharCol = mainchar->GetComponent<Collider>();
 	Vector2 maincharPos = maincharCol->GetPos();
+
 
 	Collider* groundCol = this->GetComponent<Collider>();
 	Vector2 groundPos = groundCol->GetPos();

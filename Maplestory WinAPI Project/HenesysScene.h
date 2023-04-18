@@ -2,7 +2,6 @@
 #include "Scene.h"
 #include "Image.h"
 
-
 class MainChar;
 class HenesysBack;
 class HenesysObject;
@@ -30,10 +29,7 @@ class Camera;
 		HenesysBack* m_henesysBack;
 		HenesysObject* m_henesysobject;
 		MainChar* mMainChar;
-		mushroom* m_mushroom;
 		RedSnail* m_redsnail;
-		Portal* m_portal;
-		Portal* m_portal1;
 		Camera* Camera;
 	};
 

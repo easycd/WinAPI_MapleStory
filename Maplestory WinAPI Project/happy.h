@@ -21,6 +21,8 @@ public:
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
 
+	virtual void OnCollisionEnter(class Collider* other) override;
+
 private:
 	void move();
 	void idle();
@@ -30,6 +32,21 @@ private:
 private:
 	ehappyState m_State;
 	Animator* m_Animator;
+	float m_Time;
+	float SetPosX;
+	int Direction; // 방향 변수, 왼쪽 = 0, 오른쪽 = 1
+	bool Animation_Check;
+	bool Ground;
+
+public:
+	void SetInitialize_Direction(int dr)
+	{
+		Direction = dr;
+	}
+	void SetGround(bool set)
+	{
+		Ground = set;
+	}
 };
 
 

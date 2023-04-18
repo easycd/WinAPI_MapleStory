@@ -20,8 +20,8 @@ public:
 
 
 private:
-	class Collider* mCollider;
-	class Collider* collider;
+	//class Collider* mCollider;
+	//class Collider* collider;
 
 
 };

@@ -322,7 +322,10 @@
     <ClInclude Include="SoulEclipseEffect.h">
       <Filter>Contents\01. GameObject\Skill\SoulEclipse</Filter>
     </ClInclude>
-    <ClInclude Include="WallCollider.h">
+    <ClInclude Include="WallColliderLeft.h">
+      <Filter>Engine\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="WallColliderRight.h">
       <Filter>Engine\Collider</Filter>
     </ClInclude>
   </ItemGroup>
@@ -514,7 +517,10 @@
     <ClCompile Include="SoulEclipseEffect.cpp">
       <Filter>Contents\01. GameObject\Skill\SoulEclipse</Filter>
     </ClCompile>
-    <ClCompile Include="WallCollider.cpp">
+    <ClCompile Include="WallColliderLeft.cpp">
+      <Filter>Engine\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="WallColliderRight.cpp">
       <Filter>Engine\Collider</Filter>
     </ClCompile>
   </ItemGroup>

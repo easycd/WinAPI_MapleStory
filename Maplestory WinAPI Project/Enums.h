@@ -29,7 +29,7 @@ enum class eLayerType
 	Player,
 	PlayerGround,
 	Ground,
-	TransformCol,
+	WallCollider,
 	Effect,
 	UI,
 	End,

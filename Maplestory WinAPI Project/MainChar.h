@@ -30,6 +30,7 @@ public:
 	virtual void Release() override;
 
 	virtual void OnCollisionEnter(class Collider* other) override;
+	virtual void OnCollisionExit(class Collider* other) override;
 
 private:
 	void move();
@@ -59,6 +60,7 @@ private:
 	//HenesysBack* m_HenesysBack;
 	int posx;
 	int posy;
+	bool m_PortalState;
 
 public:
 	void SetCharPosX(int x)
@@ -76,6 +78,10 @@ public:
 	int GetCharPosY()
 	{
 		return posy;
+	}
+	bool GetPotalState()
+	{
+		return m_PortalState;
 	}
 };
 

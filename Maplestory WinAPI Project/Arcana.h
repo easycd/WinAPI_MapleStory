@@ -26,6 +26,5 @@ class waterspirit;
 		MainChar* m_mainchar;
 		ArcanaBack* m_arcanaback;
 		ArcanaObject* m_arcanaobject;
-		waterspirit* m_waterspirit;
 	};
 

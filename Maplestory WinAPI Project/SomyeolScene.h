@@ -6,6 +6,9 @@ class MainChar;
 class SomyeolBack;
 class SomyeolObject;
 class happy;
+class Portal;
+class Ground;
+class Camera;
 
 	class SomyeolScene : public Scene
 	{
@@ -25,6 +28,5 @@ class happy;
 		SomyeolBack* m_somyeolBack;
 		SomyeolObject* m_somyeolObject;
 		MainChar* mMainChar;
-		happy* m_happy;
 	};
 

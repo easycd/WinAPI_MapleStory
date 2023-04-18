@@ -16,10 +16,12 @@
 #include "SoulEclipseEffect.h"
 #include "Camera.h"
 #include "HenesysBack.h"
+#include "Portal.h"
 
 MainChar::MainChar()
 	: posx(0)
 	, posy(0)
+	, m_PortalState(false)
 {
 }
 
@@ -141,8 +143,24 @@ void MainChar::Release()
 
 void MainChar::OnCollisionEnter(Collider* other)
 {
-	int a = 0;
+	//Æ÷Å»¿¡ ºÎµóÇûÀ»¶§ °É¸®´Â ÇÔ¼ö
+	Portal* potal = dynamic_cast<Portal*>(other->GetOwner());
+	if (potal != nullptr)
+	{
+		m_PortalState = true;
+	}
 }
+
+void MainChar::OnCollisionExit(Collider* other)
+{
+	Portal* potal = dynamic_cast<Portal*>(other->GetOwner());
+	if (potal != nullptr)
+	{
+		m_PortalState = false;
+	}
+}
+
+
 
 void MainChar::move()
 {
