@@ -157,7 +157,7 @@ void HenesysScene::Initialize()
 	m_mushroom9->GetComponent<Transform>()->SetPos(Vector2(870.0f, 610.0f));
 	m_mushroom10->GetComponent<Transform>()->SetPos(Vector2(1070.0f, 610.0f)); m_mushroom10->SetInitialize_Direction(1);
 	m_mushroom11->GetComponent<Transform>()->SetPos(Vector2(1270.0f, 610.0f)); m_mushroom11->SetInitialize_Direction(1);
-	m_mushroom12->GetComponent<Transform>()->SetPos(Vector2(1470.0f, 610.0f)); m_mushroom11->SetInitialize_Direction(1);
+	m_mushroom12->GetComponent<Transform>()->SetPos(Vector2(1370.0f, 610.0f)); m_mushroom11->SetInitialize_Direction(1);
 	//7¹ø ¹Ù´Ú
 	m_mushroom13->GetComponent<Transform>()->SetPos(Vector2(130.0f, 670.0f));
 	m_mushroom14->GetComponent<Transform>()->SetPos(Vector2(300.0f, 670.0f)); 
@@ -198,8 +198,8 @@ void HenesysScene::Release()
 }
 void HenesysScene::OnEnter()
 {
-	//mMainChar->GetComponent<Transform>()->SetPos(Vector2(1560.0f, 890.0f));
-	mMainChar->GetComponent<Transform>()->SetPos(Vector2(100.0f, 890.0f));
+//	mMainChar->GetComponent<Transform>()->SetPos(Vector2(1560.0f, 890.0f));
+	mMainChar->GetComponent<Transform>()->SetPos(Vector2(1000.0f, 890.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);

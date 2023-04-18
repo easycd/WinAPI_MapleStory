@@ -25,6 +25,7 @@ enum class eLayerType
 	SoulEclipseEffect,
 	Portal,
 	Monster,
+	Boss,
 	Skill,
 	Player,
 	PlayerGround,

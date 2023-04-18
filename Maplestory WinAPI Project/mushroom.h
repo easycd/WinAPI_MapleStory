@@ -36,8 +36,13 @@ private:
 	float m_Time;
 	float SetPosX;
 	int Direction; // 방향 변수, 왼쪽 = 0, 오른쪽 = 1
+	int CompleteCnt;
 	bool Animation_Check;
 	bool Ground;
+	bool AnimationLoop;
+
+
+	bool Check;
 
 public:
 	void SetInitialize_Direction(int dr)

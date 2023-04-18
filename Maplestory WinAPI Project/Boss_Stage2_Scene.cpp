@@ -8,6 +8,7 @@
 #include "Camera.h"
 #include "Ground.h"
 #include "Transform.h"
+#include "Boss.h"
 
 Boss_Stage2_Scene::Boss_Stage2_Scene()
 {
@@ -28,6 +29,9 @@ void Boss_Stage2_Scene::Initialize()
 
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
+
+	Boss* boss = new Boss();
+	AddGameObeject(boss, eLayerType::Boss);
 
 	Scene::Initialize();
 
