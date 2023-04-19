@@ -62,6 +62,9 @@ private:
 	int posy;
 	bool m_PortalState;
 
+
+	Collider* collider2;
+
 public:
 	void SetCharPosX(int x)
 	{
@@ -82,6 +85,10 @@ public:
 	bool GetPotalState()
 	{
 		return m_PortalState;
+	}
+	Collider GetCollider()
+	{
+		return *collider2;
 	}
 };
 

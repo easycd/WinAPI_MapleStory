@@ -47,6 +47,22 @@
 			return nullptr;
 		}
 
+
+		template <typename T>
+		std::vector<T*> GetComponents()
+		{
+			std::vector<T*> components;
+
+			for (Component* comp : mComponents)
+			{
+				if (dynamic_cast<T*>(comp))
+					components.push_back(comp);
+			}
+
+			return components;
+		}
+		
+
 		eState GetState() { return mState; }
 		void SetState(eState state) { mState = state; }
 	private:

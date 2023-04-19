@@ -125,6 +125,9 @@
     <Filter Include="Contents\01. GameObject\Skill\SoulEclipse">
       <UniqueIdentifier>{b9a9d4f1-81ae-43b8-8f89-ed4e3193778c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\01. GameObject\BossMob\Ion">
+      <UniqueIdentifier>{feff017e-f751-4903-a2bc-1e3c899018a3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -203,9 +206,6 @@
       <Filter>Engine\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Boss_Yaldabaoth.h">
-      <Filter>Contents\01. GameObject\BossMob</Filter>
-    </ClInclude>
-    <ClInclude Include="Boss_Ion.h">
       <Filter>Contents\01. GameObject\BossMob</Filter>
     </ClInclude>
     <ClInclude Include="Boss.h">
@@ -328,6 +328,12 @@
     <ClInclude Include="WallColliderRight.h">
       <Filter>Engine\Collider</Filter>
     </ClInclude>
+    <ClInclude Include="Boss_Ion.h">
+      <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
+    </ClInclude>
+    <ClInclude Include="BossIon_Attack1.h">
+      <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -401,9 +407,6 @@
       <Filter>Engine\Camera</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Yaldabaoth.cpp">
-      <Filter>Contents\01. GameObject\BossMob</Filter>
-    </ClCompile>
-    <ClCompile Include="Boss_Ion.cpp">
       <Filter>Contents\01. GameObject\BossMob</Filter>
     </ClCompile>
     <ClCompile Include="Boss.cpp">
@@ -522,6 +525,12 @@
     </ClCompile>
     <ClCompile Include="WallColliderRight.cpp">
       <Filter>Engine\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Ion.cpp">
+      <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
+    </ClCompile>
+    <ClCompile Include="BossIon_Attack1.cpp">
+      <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

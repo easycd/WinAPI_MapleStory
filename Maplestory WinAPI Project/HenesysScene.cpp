@@ -45,6 +45,7 @@ void HenesysScene::Initialize()
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
 
+
 	MainChar_GroundCollider* CGround = new MainChar_GroundCollider();
 	AddGameObeject(CGround, eLayerType::PlayerGround);
 

@@ -21,6 +21,7 @@ mushroom::mushroom()
 	, CompleteCnt(0)
 	, AnimationLoop(false)
 	, Check(false)
+	, Check2(false)
 {
 }
 
@@ -38,6 +39,7 @@ void mushroom::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\IdleRight", Vector2::Zero, 0.3f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\moveLeft", Vector2::Zero, 0.3f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\moveRight", Vector2::Zero, 0.3f);
+	m_State = emushroomState::Move;
 	m_Animator->Play(L"mushroommoveLeft", false);
 
 
@@ -60,58 +62,38 @@ void mushroom::Initialize()
 void mushroom::Update()
 {
 	GameObject::Update();
+	//Check2 = false;
+	//m_Time += Time::DeltaTime();
+	//if (m_Time > 5.0f && m_Animator->IsComplte() && Check2 == false)
+	//{
+	//	Pattern = rand() % 2; // 0 ~ 1 ·£´ý ¼ýÀÚ 
+	//	if (Pattern == 0)
+	//		m_State = emushroomState::Move;
+	//
+	//	if (Pattern == 1)
+	//		m_State = emushroomState::Idle;
+	//	m_Time = 0.0f;
+	//	Check2 = true;
+	//}
+
+	Pattern = rand() % 2; // 0 ~ 1 ·£´ý ¼ýÀÚ 
 
 
-
-	if (m_Animator->IsComplte() == true && !Check)
+	switch (m_State)
 	{
- 		CompleteCnt++;
-		Check = true;
-	}
-
-	Check = false;
-
-	if (CompleteCnt == 3)
-	{
-		Pattern = rand() % 10; // 0 ~ 5°³ ·£´ý ¼ýÀÚ 
-		CompleteCnt = 0;
-	}
-
-	switch (Pattern)
-	{
-	case 0:
+	case mushroom::emushroomState::Move:
 		move();
 		break;
-	case  1:
-		idle();
+	case mushroom::emushroomState::Death:
+		death();
 		break;
-	case  2:
-		move();
-		break;
-	case  3:
-		idle();
-		break;
-	case  4:
-		move();
-		break;
-	case  5:
-		idle();
-		break;
-	case  6:
-		move();
-		break;
-	case  7:
-		idle();
-		break;
-	case  8:
-		move();
-		break;
-	case  9:
+	case mushroom::emushroomState::Idle:
 		idle();
 		break;
 	default:
 		break;
 	}
+
 }
 
 void mushroom::Render(HDC hdc)
@@ -155,7 +137,7 @@ void mushroom::move()
 	{
 		if(Animation_Check)
 		{
-			m_Animator->Play(L"mushroommoveLeft", false);
+			m_Animator->Play(L"mushroommoveLeft", true);
 			Animation_Check = false;
 		}
 		
@@ -165,7 +147,7 @@ void mushroom::move()
 	{
 		if(Animation_Check == false)
 		{
-			m_Animator->Play(L"mushroommoveRight", false);
+			m_Animator->Play(L"mushroommoveRight", true);
 			Animation_Check = true;
 		}
 		
@@ -176,14 +158,9 @@ void mushroom::move()
 
 void mushroom::idle()
 {
-	if (AnimationLoop == false)
-	{
-	m_Animator->Play(L"mushroomIdleLeft", false);
-	AnimationLoop = true;
-	}
 }
 
-void mushroom::dead()
+void mushroom::death()
 {
 }
 

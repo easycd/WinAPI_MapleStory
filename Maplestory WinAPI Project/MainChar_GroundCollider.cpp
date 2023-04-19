@@ -16,33 +16,16 @@ MainChar_GroundCollider::~MainChar_GroundCollider()
 
 void MainChar_GroundCollider::Initialize()
 {
-//	player = Instantiate<MainChar>(eLayerType::Player);
-////
-//	mPos = player->GetComponent<Transform>()->GetPos();
-//
-//	Transform* tr = GetComponent<Transform>();
-	//tr->SetPos(Vector2(mPos.x + 30.f, mPos.y + 10.f));
-//	//Transform* ChPos = player->GetComponent<Transform>();
-//	/*Transform* Pos =GetComponent<Transform>();
-//	Pos->SetPos(Vector2(ChPos));*/
-////
-//
-//	Collider* collider = AddComponent<Collider>();
-//	collider->SetSize(Vector2(50, 50)); // 히트박스 크기 조정
-//	collider->SetCenter(Vector2(-35.0f, -65.0f)); // 히트박스 위치 조정
+
+	Collider* m_ground = AddComponent<Collider>();
+	m_ground->SetSize(Vector2(50.0f, 50.0f));
 
 	GameObject::Initialize();
 }
 
 void MainChar_GroundCollider::Update()
 {
-//	mPos = player->GetComponent<Transform>()->GetPos();
-//
-//	Collider* collider = AddComponent<Collider>();
-//	collider->SetCenter(Vector2(mPos.x -35.0f, mPos.y -65.0f)); // 히트박스 위치 조정
-//
-//	Transform* tr = GetComponent<Transform>();
-//	tr->SetPos(Vector2(mPos.x + 30.f, mPos.y + 10.f));
+
 
 	GameObject::Update();
 }

@@ -26,7 +26,7 @@ public:
 private:
 	void move();
 	void idle();
-	void dead();
+	void death();
 
 private:
 	emushroomState m_State;
@@ -43,7 +43,7 @@ private:
 
 
 	bool Check;
-
+	bool Check2;
 public:
 	void SetInitialize_Direction(int dr)
 	{

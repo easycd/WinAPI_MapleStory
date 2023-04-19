@@ -7,6 +7,7 @@
 #include "Animator.h"
 #include "Scene.h"
 #include "Collider.h"
+#include "BossIon_Attack1.h"
 
 Boss_Ion::Boss_Ion()
 {
@@ -29,7 +30,7 @@ void Boss_Ion::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack2", Vector2::Zero, 0.1f);
 	m_Animator->Play(L"Ionattack2", true);
 
-	//m_State = eBoss_IonState::Idle;
+	m_State = eBoss_IonState::Attack1;
 
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(300, 580)); // 히트박스 크기 조정
@@ -45,7 +46,7 @@ void Boss_Ion::Update()
 	//{
 	//	respawn();
 	//}
-	/*switch (m_State)
+	switch (m_State)
 	{
 	case Boss_Ion::eBoss_IonState::Respawn:
 		respawn();
@@ -64,7 +65,7 @@ void Boss_Ion::Update()
 		break;
 	default:
 		break;
-	}*/
+	}
 }
 
 void Boss_Ion::Render(HDC hdc)
@@ -102,8 +103,10 @@ void Boss_Ion::dead()
 
 void Boss_Ion::attack1()
 {
-	m_State = eBoss_IonState::Attack1;
-	m_Animator->Play(L"Ionattack1", true);
+	//m_State = eBoss_IonState::Attack1;
+	//m_Animator->Play(L"Ionattack1", true);
+	BossIon_Attack1* at1 = new BossIon_Attack1();
+	at1->Initialize();
 }
 
 void Boss_Ion::attack2()
