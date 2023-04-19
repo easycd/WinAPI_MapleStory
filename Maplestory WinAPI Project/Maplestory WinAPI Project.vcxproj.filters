@@ -334,6 +334,9 @@
     <ClInclude Include="BossIon_Attack1.h">
       <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
     </ClInclude>
+    <ClInclude Include="BossIon_Attack2.h">
+      <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -526,10 +529,13 @@
     <ClCompile Include="WallColliderRight.cpp">
       <Filter>Engine\Collider</Filter>
     </ClCompile>
+    <ClCompile Include="BossIon_Attack1.cpp">
+      <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
+    </ClCompile>
     <ClCompile Include="Boss_Ion.cpp">
       <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
     </ClCompile>
-    <ClCompile Include="BossIon_Attack1.cpp">
+    <ClCompile Include="BossIon_Attack2.cpp">
       <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
     </ClCompile>
   </ItemGroup>

@@ -3,42 +3,35 @@
 #include "Image.h"
 
 class Animator;
-class Boss_Ion : public GameObject
+class BossIon_Attack2 : public GameObject
 {
 public:
-	enum class eBoss_IonState
+	enum class eBossIon_Attack1State
 	{
 		Respawn,
-		Pattern,
+		Move,
 		Death,
+		Idle,
 		Attack1,
 		Attack2,
 	};
 
-	Boss_Ion();
-	~Boss_Ion();
+	BossIon_Attack2();
+	~BossIon_Attack2();
 
 	virtual void Initialize() override;
 	virtual void Update() override;
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
-
-	void respawn();
-
-private:
-	void pattern();
-	void idle();
-	void dead();
 	void attack1();
-	void attack2();
-	void idleCompleteEvent();
 
 private:
-	eBoss_IonState m_State;
+
+
+
+
+private:
+	eBossIon_Attack1State m_State;
 	Animator* m_Animator;
 	int direction = 0; //0이면 왼쪽 1이면 오른쪽
-	float m_Time;
-	int attack_pattern;
 };
-
-
