@@ -1,0 +1,18 @@
+주황버섯 패턴 : move, hit, dead
+빨간달팽이 패턴 : move, hit, dead
+즐거움의 에르다스 패턴 : move, hit, dead, attack
+물의 정령 패턴 : move, hit, dead, attack
+
+if(몬스터 탐지범위 안)
+캐릭터 추적
+else
+랜덤 이동
+
+if(캐릭터히트박스와 몬스터히트박스 충돌)
+몬스터 공격 모션 실행
+
+if(캐릭터 스킬collider와 몬스터 collider충돌)
+몬스터 hit모션 실행
+
+if(캐릭터 스킬 2번 충돌)
+몬스터 Destroy;
