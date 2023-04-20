@@ -18,8 +18,8 @@ void Wizet::Initialize()
 	tr->SetPos(Vector2(670.0f, 450.0f));
 
 	m_Animator = AddComponent<Animator>();
-	m_Animator->CreateAnimations(L"..\\Resources\\Wizet", Vector2::Zero, 0.1f);
-	m_Animator->Play(L"ResourcesWizet", false);
+	m_Animator->CreateAnimations(L"..\\Resources\\UI\\Wizet", Vector2::Zero, 0.1f);
+	m_Animator->Play(L"UIWizet", false);
 	GameObject::Initialize();
 }
 

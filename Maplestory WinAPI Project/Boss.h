@@ -9,11 +9,13 @@ public:
 	enum class eBoss_State
 	{
 		Respawn,
+		Pattern,
 		Move,
-		Death,
 		Idle,
-		Attack1,
-		Attack2,
+		FullLeft_Skill1,
+		FullCenter_Skill2,
+		FullRight_Skill3,
+		Chain_Skill4,
 	};
 
 	Boss();
@@ -24,18 +26,24 @@ public:
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
 
-private:
 	void respawn();
+
+private:
+	void pattern();
 	void move();
 	void idle();
 	void dead();
-	void attack1();
-	void attack2();
+	void FullLeft_Skill1();
+	void FullCenter_Skill2();
+	void FullRight_Skill3();
+	void Chain_Skill4();
 
 
 private:
+	eBoss_State m_State;
 	Animator* m_Animator;
-	int direction = 0; //0이면 왼쪽 1이면 오른쪽
+	float m_Time;
+	int attack_pattern;
 };
 
 

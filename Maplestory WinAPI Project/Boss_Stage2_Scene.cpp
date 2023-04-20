@@ -65,6 +65,9 @@ void Boss_Stage2_Scene::OnEnter()
 
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
+
+	boss->respawn();
+
 }
 void Boss_Stage2_Scene::OnExit()
 {

@@ -6,6 +6,7 @@
 class MainChar;
 class Boss_Stage2_Back;
 class Boss_Stage2_Object;
+class Boss;
 
 class Boss_Stage2_Scene : public Scene
 {
@@ -25,5 +26,6 @@ private:
 	MainChar* mMainChar;
 	Boss_Stage2_Back* m_Boss_Stage2_Back;
 	Boss_Stage2_Object* m_Boss_Stage2_Object;
+	Boss* boss;
 };
 

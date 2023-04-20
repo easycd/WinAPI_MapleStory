@@ -70,6 +70,7 @@ void Boss_Stage1_Scene::OnEnter()
 	mMainChar->GetComponent<Transform>()->SetPos(Vector2(2400.0f, 700.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
+
 	m_Boss_Ion->respawn();
 }
 void Boss_Stage1_Scene::OnExit()
