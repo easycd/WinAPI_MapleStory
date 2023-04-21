@@ -46,6 +46,7 @@ private:
 	Animator* m_Animator;
 	float m_Time;
 	float LoopTime;
+	float FallTime;
 	int attack_pattern;
 	bool Loop;
 

@@ -14,6 +14,7 @@
 CircleObj::CircleObj()
 	: mState(eCircleState::Raspawn)
 	, Speed(300.0f)
+	, FallTime(0.0f)
 {
 }
 
@@ -44,15 +45,17 @@ void CircleObj::Initialize()
 void CircleObj::Update()
 {
 	Vector2 pos = mTransform->GetPos();
+	FallTime += Time::DeltaTime();
 	switch (mState)
 	{
 	case CircleObj::eCircleState::Fall:
-		pos.y += Speed * Time::DeltaTime();
-		mTransform->SetPos(pos);
-		
+			pos.y += Speed * Time::DeltaTime();
+			mTransform->SetPos(pos);
+
 		if (pos.y > 750.0f)
 		{
 			mState = eCircleState::End;
+			Check = false;
 		}
 		break;
 	case CircleObj::eCircleState::End:

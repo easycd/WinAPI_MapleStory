@@ -34,7 +34,9 @@ private:
 	Transform* mTransform;
 	eCircleState mState;
 	float m_Time;
+	float FallTime;
 	float Speed;
+	bool Check;
 
 };
 
