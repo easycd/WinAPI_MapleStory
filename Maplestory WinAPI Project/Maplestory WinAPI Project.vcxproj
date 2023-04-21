@@ -149,6 +149,7 @@
     <ClInclude Include="Boss_Stage2_Scene.h" />
     <ClInclude Include="Boss_Yaldabaoth.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CircleObj.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionManager.h" />
     <ClInclude Include="CommonInclude.h" />
@@ -220,6 +221,7 @@
     <ClCompile Include="Boss_Stage2_Scene.cpp" />
     <ClCompile Include="Boss_Yaldabaoth.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="CircleObj.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Component.cpp" />

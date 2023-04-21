@@ -9,8 +9,12 @@
 #include "Ground.h"
 #include "Transform.h"
 #include "Boss.h"
+#include "CircleObj.h"
+#include "Time.h"
+
 
 Boss_Stage2_Scene::Boss_Stage2_Scene()
+	: mTime(0.0f)
 {
 }
 Boss_Stage2_Scene::~Boss_Stage2_Scene()
@@ -33,10 +37,27 @@ void Boss_Stage2_Scene::Initialize()
 	boss = new Boss();
 	AddGameObeject(boss, eLayerType::Boss);
 
+	//circleobj0 = new CircleObj(); AddGameObeject(circleobj0, eLayerType::BossObj);
+	//circleobj1 = new CircleObj(); AddGameObeject(circleobj1, eLayerType::BossObj);
+	//circleobj2 = new CircleObj(); AddGameObeject(circleobj2, eLayerType::BossObj);
+	//circleobj3 = new CircleObj(); AddGameObeject(circleobj3, eLayerType::BossObj);
+	//circleobj4 = new CircleObj(); AddGameObeject(circleobj4, eLayerType::BossObj);
+	//circleobj5 = new CircleObj(); AddGameObeject(circleobj5, eLayerType::BossObj);
+	//circleobj6 = new CircleObj(); AddGameObeject(circleobj6, eLayerType::BossObj);
+	//circleobj7 = new CircleObj(); AddGameObeject(circleobj7, eLayerType::BossObj);
+
 	Scene::Initialize();
 
 	ground0->GetComponent<Transform>()->SetPos(Vector2(0.0f, 690.0f));
 	ground0->GetComponent<Collider>()->SetSize(Vector2(2000.0f, 30.0f));
+
+	//circleobj1->GetComponent<Transform>()->SetPos(Vector2(400.0f, 200.0f));
+	//circleobj2->GetComponent<Transform>()->SetPos(Vector2(650.0f, 200.0f));
+	//circleobj3->GetComponent<Transform>()->SetPos(Vector2(900.0f, 200.0f));
+	//circleobj4->GetComponent<Transform>()->SetPos(Vector2(1150.0f, 200.0f));
+	//circleobj5->GetComponent<Transform>()->SetPos(Vector2(1400.0f, 200.0f));
+	//circleobj6->GetComponent<Transform>()->SetPos(Vector2(1650.0f, 200.0f));
+	//circleobj7->GetComponent<Transform>()->SetPos(Vector2(1900.0f, 200.0f));
 }
 
 void Boss_Stage2_Scene::Update()
@@ -47,6 +68,7 @@ void Boss_Stage2_Scene::Update()
 	}
 
 	Scene::Update();
+
 
 	Camera::SetTarget(mMainChar);
 
@@ -65,8 +87,18 @@ void Boss_Stage2_Scene::OnEnter()
 
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
+	CollisionManager::SetLayer(eLayerType::BossObj, eLayerType::Ground, true);
 
 	boss->respawn();
+
+	//circleobj0->respawn();
+	//circleobj1->respawn();
+	//circleobj2->respawn();
+	//circleobj3->respawn();
+	//circleobj4->respawn();
+	//circleobj5->respawn();
+	//circleobj6->respawn();
+	//circleobj7->respawn();
 
 }
 void Boss_Stage2_Scene::OnExit()

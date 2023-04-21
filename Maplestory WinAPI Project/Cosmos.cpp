@@ -62,7 +62,7 @@ void Cosmos::Update()
 	if (IsSkillOn)
 	{
 		if (mTime > 6.0f)
-			Destory(this);
+			object::Destory(this);
 	}
 
 	/*

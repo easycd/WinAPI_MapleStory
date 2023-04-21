@@ -7,11 +7,15 @@
 #include "Animator.h"
 #include "Scene.h"
 #include "Collider.h"
+#include "CircleObj.h"
+#include "Object.h"
 
 Boss::Boss()
 	: m_Time(0.0f)
+	, LoopTime(0.0f)
 	, m_State(eBoss_State::Respawn)
 	, attack_pattern(0)
+	, Loop(false)
 {
 }
 
@@ -31,11 +35,22 @@ void Boss::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\BossImg\\FullRight_Skill3", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\BossImg\\Chain_Skill4", Vector2::Zero, 0.1f);
 
-	m_Animator->GetCompleteEvent(L"BossImgstand") = std::bind(&Boss::idle, this);
+	m_Animator->GetCompleteEvent(L"BossImgstand") = std::bind(&Boss::Obj_Circle, this);
 	m_Animator->GetCompleteEvent(L"BossImgFullLeft_Skill1") = std::bind(&Boss::idle, this);
 	m_Animator->GetCompleteEvent(L"BossImgFullCenter_Skill2") = std::bind(&Boss::idle, this);
 	m_Animator->GetCompleteEvent(L"BossImgFullRight_Skill3") = std::bind(&Boss::idle, this);
 	m_Animator->GetCompleteEvent(L"BossImgChain_Skill4") = std::bind(&Boss::idle, this);
+
+	circleobj0 = nullptr;
+	circleobj1 = nullptr;
+	circleobj2 = nullptr;
+	circleobj3 = nullptr;
+	circleobj4 = nullptr;
+	circleobj5 = nullptr;
+	circleobj6 = nullptr;
+	circleobj7 = nullptr;
+
+
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(300, 580)); // 히트박스 크기 조정
 	collider->SetCenter(Vector2(-150.0f, -580.0f)); // 히트박스 위치 조정
@@ -46,6 +61,7 @@ void Boss::Initialize()
 void Boss::Update()
 {
 	GameObject::Update();
+
 	switch (m_State)
 	{
 	case Boss::eBoss_State::Pattern:
@@ -104,6 +120,7 @@ void Boss::idle()
 {
 	m_State = eBoss_State::Pattern;
 	m_Animator->Play(L"BossImgstand", true);
+	Obj_Circle();
 }
 
 
@@ -130,6 +147,40 @@ void Boss::Chain_Skill4()
 {
 	m_State = eBoss_State::Chain_Skill4;
 	m_Animator->Play(L"BossImgChain_Skill4", true);
+}
+
+void Boss::Obj_Circle()
+{
+	if (Loop == false)
+	{
+	circleobj0 = object::Instantiate<CircleObj>(eLayerType::BossObj);
+	circleobj1 = object::Instantiate<CircleObj>(eLayerType::BossObj);
+	circleobj2 = object::Instantiate<CircleObj>(eLayerType::BossObj);
+	circleobj3 = object::Instantiate<CircleObj>(eLayerType::BossObj);
+	circleobj4 = object::Instantiate<CircleObj>(eLayerType::BossObj);
+	circleobj5 = object::Instantiate<CircleObj>(eLayerType::BossObj);
+	circleobj6 = object::Instantiate<CircleObj>(eLayerType::BossObj);
+	circleobj7 = object::Instantiate<CircleObj>(eLayerType::BossObj);
+
+	circleobj1->GetComponent<Transform>()->SetPos(Vector2(400.0f, 200.0f));
+	circleobj2->GetComponent<Transform>()->SetPos(Vector2(650.0f, 200.0f));
+	circleobj3->GetComponent<Transform>()->SetPos(Vector2(900.0f, 200.0f));
+	circleobj4->GetComponent<Transform>()->SetPos(Vector2(1150.0f, 200.0f));
+	circleobj5->GetComponent<Transform>()->SetPos(Vector2(1400.0f, 200.0f));
+	circleobj6->GetComponent<Transform>()->SetPos(Vector2(1650.0f, 200.0f));
+	circleobj7->GetComponent<Transform>()->SetPos(Vector2(1900.0f, 200.0f));
+
+	circleobj0->respawn();
+	circleobj1->respawn();
+	circleobj2->respawn();
+	circleobj3->respawn();
+	circleobj4->respawn();
+	circleobj5->respawn();
+	circleobj6->respawn();
+	circleobj7->respawn();
+
+	Loop = true;
+	}
 }
 
 void Boss::dead()

@@ -49,24 +49,24 @@ void Ground::OnCollisionEnter(Collider* other)
 	Collider* maincharCol = mainchar->GetComponent<Collider>();
 	Vector2 maincharPos = maincharCol->GetPos();
 
-
 	Collider* groundCol = this->GetComponent<Collider>();
 	Vector2 groundPos = groundCol->GetPos();
 
 	float fLen = fabs(maincharPos.y - groundPos.y); //들어간 깊이  = 플레이어 위치 - 그라운드 깊이
 	float fSize = (maincharCol->GetSize().y / 2.0f) + (groundCol->GetSize().y / 2.0f);
-
-	if (fLen < fSize) //길이가 실제 사이즈보다 작다면
-	{
-		Transform* mainTr = mainchar->GetComponent<Transform>();
-		Transform* grTr = this->GetComponent<Transform>();
-
-		Vector2 mainPos = mainTr->GetPos();
-		Vector2 grPos = grTr->GetPos();
-
-		mainPos -= (fSize - fLen) - 1.0f;
-		mainTr->SetPos(mainPos);
-	}
+	
+	//파고 들어가면 그라운드의 Y값으로 캐릭터 포지션 변경
+	//if (fLen < fSize) //길이가 실제 사이즈보다 작다면
+	//{
+	//	Transform* mainTr = mainchar->GetComponent<Transform>();
+	//	Transform* grTr = this->GetComponent<Transform>();
+	//
+	//	Vector2 mainPos = mainTr->GetPos();
+	//	Vector2 grPos = grTr->GetPos();
+	//
+	//	mainPos -= (fSize - fLen) - 1.0f;
+	//	mainTr->SetPos(mainPos);
+	//}
 }
 
 void Ground::OnCollisionStay(Collider* other)

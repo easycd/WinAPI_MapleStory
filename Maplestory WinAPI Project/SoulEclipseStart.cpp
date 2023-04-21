@@ -47,7 +47,7 @@ void SoulEclipseStart::Update()
 	if (IsSkillOn)
 	{
 		if (m_Time > 10.0f)
-		Destory(this);
+			object::Destory(this);
 	}
 }
 

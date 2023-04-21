@@ -119,14 +119,17 @@
     <Filter Include="Contents\01. GameObject\Object">
       <UniqueIdentifier>{02c9a848-48e9-4112-9202-fcfbe83b8b4b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\01. GameObject\BossMob">
-      <UniqueIdentifier>{325356db-179e-4c60-b163-a49bb8732934}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\01. GameObject\Skill\SoulEclipse">
       <UniqueIdentifier>{b9a9d4f1-81ae-43b8-8f89-ed4e3193778c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\01. GameObject\BossMob\Ion">
+    <Filter Include="Contents\01. GameObject\Boss">
+      <UniqueIdentifier>{325356db-179e-4c60-b163-a49bb8732934}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\Boss\Ion">
       <UniqueIdentifier>{feff017e-f751-4903-a2bc-1e3c899018a3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\Boss\Object">
+      <UniqueIdentifier>{6d34b05d-d2e7-48f2-a119-b4e3732a272c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -206,10 +209,10 @@
       <Filter>Engine\Camera</Filter>
     </ClInclude>
     <ClInclude Include="Boss_Yaldabaoth.h">
-      <Filter>Contents\01. GameObject\BossMob</Filter>
+      <Filter>Contents\01. GameObject\Boss</Filter>
     </ClInclude>
     <ClInclude Include="Boss.h">
-      <Filter>Contents\01. GameObject\BossMob</Filter>
+      <Filter>Contents\01. GameObject\Boss</Filter>
     </ClInclude>
     <ClInclude Include="happy.h">
       <Filter>Contents\01. GameObject\Monster</Filter>
@@ -329,14 +332,15 @@
       <Filter>Engine\Collider</Filter>
     </ClInclude>
     <ClInclude Include="Boss_Ion.h">
-      <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
+      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
     </ClInclude>
     <ClInclude Include="BossIon_Attack1.h">
-      <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
+      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
     </ClInclude>
     <ClInclude Include="BossIon_Attack2.h">
-      <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
+      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
     </ClInclude>
+    <ClInclude Include="CircleObj.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -410,10 +414,10 @@
       <Filter>Engine\Camera</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Yaldabaoth.cpp">
-      <Filter>Contents\01. GameObject\BossMob</Filter>
+      <Filter>Contents\01. GameObject\Boss</Filter>
     </ClCompile>
     <ClCompile Include="Boss.cpp">
-      <Filter>Contents\01. GameObject\BossMob</Filter>
+      <Filter>Contents\01. GameObject\Boss</Filter>
     </ClCompile>
     <ClCompile Include="happy.cpp">
       <Filter>Contents\01. GameObject\Monster</Filter>
@@ -530,13 +534,14 @@
       <Filter>Engine\Collider</Filter>
     </ClCompile>
     <ClCompile Include="BossIon_Attack1.cpp">
-      <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
+      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Ion.cpp">
-      <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
+      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
     </ClCompile>
     <ClCompile Include="BossIon_Attack2.cpp">
-      <Filter>Contents\01. GameObject\BossMob\Ion</Filter>
+      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
     </ClCompile>
+    <ClCompile Include="CircleObj.cpp" />
   </ItemGroup>
 </Project>

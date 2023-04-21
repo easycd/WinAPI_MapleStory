@@ -35,7 +35,7 @@ void SoulEclipseEffect::Update()
 	m_Time += Time::DeltaTime();
 	if (m_Time > 5.0f)
 	{
-		Destory(this);
+		object::Destory(this);
 	}
 
 }

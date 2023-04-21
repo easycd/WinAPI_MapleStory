@@ -10,6 +10,7 @@
 #include "WallColliderLeft.h"
 #include "WallColliderRight.h"
 #include "Rigidbody.h"
+#include "MainChar.h"
 
 mushroom::mushroom()
 	: m_Time(0.0f)
@@ -43,38 +44,20 @@ void mushroom::Initialize()
 	m_Animator->Play(L"mushroommoveLeft", false);
 
 
+
+
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(70, 70)); // 히트박스 크기 조정
 	collider->SetCenter(Vector2(-35.0f, -65.0f)); // 히트박스 위치 조정
 
-	//mRigidbody = AddComponent<Rigidbody>();
-	//mRigidbody->SetMass(1.0f);
-
 
 	GameObject::Initialize();
-
-	//Vector2 velocity = mRigidbody->GetVelocity();
-	//velocity.y -= 500.0f;
-	//mRigidbody->SetVelocity(velocity);
-	//mRigidbody->SetGround(false);
 }
 
 void mushroom::Update()
 {
 	GameObject::Update();
-	//Check2 = false;
-	//m_Time += Time::DeltaTime();
-	//if (m_Time > 5.0f && m_Animator->IsComplte() && Check2 == false)
-	//{
-	//	Pattern = rand() % 2; // 0 ~ 1 랜덤 숫자 
-	//	if (Pattern == 0)
-	//		m_State = emushroomState::Move;
-	//
-	//	if (Pattern == 1)
-	//		m_State = emushroomState::Idle;
-	//	m_Time = 0.0f;
-	//	Check2 = true;
-	//}
+
 
 	Pattern = rand() % 2; // 0 ~ 1 랜덤 숫자 
 
@@ -93,6 +76,7 @@ void mushroom::Update()
 	default:
 		break;
 	}
+	
 
 }
 
@@ -124,6 +108,7 @@ void mushroom::OnCollisionEnter(Collider* other)
 			Direction = 0;
 		}
 	}
+
 }
 
 void mushroom::move()
@@ -153,6 +138,8 @@ void mushroom::move()
 		
 		pos.x += 80.0 * Time::DeltaTime();
 	}
+
+	//ChPos = Ch->GetComponent<Transform>()->GetPos(); 캐릭터 위치 가져오는건데 안됨.
 	tr->SetPos(pos);
 }
 

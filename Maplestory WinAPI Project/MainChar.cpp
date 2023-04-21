@@ -66,7 +66,7 @@ void MainChar::Initialize()
 	direction = 1;
 
 	Collider* collider = AddComponent<Collider>();
-	collider->SetCenter(Vector2(-30.0f, -220.0f));
+	collider->SetCenter(Vector2(-30.0f, -150.0f));
 
 	mRigidbody = AddComponent<Rigidbody>();
 	mRigidbody->SetMass(1.0f);

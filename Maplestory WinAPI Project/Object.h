@@ -4,6 +4,8 @@
 #include "SceneManager.h"
 #include "Transform.h"
 
+namespace object
+{
 	//오브젝트 간단하게 불러옴
 	template <typename T>
 	static inline T* Instantiate(eLayerType type)
@@ -32,3 +34,4 @@
 	{
 		obj->SetState(GameObject::eState::Death);
 	}
+}

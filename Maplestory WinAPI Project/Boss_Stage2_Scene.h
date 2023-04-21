@@ -7,6 +7,7 @@ class MainChar;
 class Boss_Stage2_Back;
 class Boss_Stage2_Object;
 class Boss;
+class CircleObj;
 
 class Boss_Stage2_Scene : public Scene
 {
@@ -27,5 +28,16 @@ private:
 	Boss_Stage2_Back* m_Boss_Stage2_Back;
 	Boss_Stage2_Object* m_Boss_Stage2_Object;
 	Boss* boss;
+
+	CircleObj* circleobj0;
+	CircleObj* circleobj1;
+	CircleObj* circleobj2;
+	CircleObj* circleobj3;
+	CircleObj* circleobj4;
+	CircleObj* circleobj5;
+	CircleObj* circleobj6;
+	CircleObj* circleobj7;
+
+	float mTime;
 };
 

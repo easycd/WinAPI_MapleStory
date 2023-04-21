@@ -3,6 +3,7 @@
 #include "Image.h"
 
 class Animator;
+class MainChar;
 class mushroom : public GameObject 
 {
 public:
@@ -32,6 +33,8 @@ private:
 	emushroomState m_State;
 	Animator* m_Animator;
 	Rigidbody* mRigidbody;
+	MainChar* Ch;
+	Vector2 ChPos;
 	int Pattern;
 	float m_Time;
 	float SetPosX;

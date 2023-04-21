@@ -122,6 +122,12 @@ struct Vector2
 		y -= value;
 	}
 
+	void operator=(const float& value)
+	{
+		x = value;
+		y = value;
+	}
+
 	float Length()
 	{
 		return sqrtf(x * x + y * y);

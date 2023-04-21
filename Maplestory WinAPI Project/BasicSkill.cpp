@@ -24,7 +24,7 @@ void BasicSkill::Update()
 {
 	if(m_Animator->IsComplte())
 	{
-		Destory(this);
+		object::Destory(this);
 	}
 	GameObject::Update();
 }

@@ -35,7 +35,7 @@ void SoulEclipseBackGround::Update()
 	m_Time += Time::DeltaTime();
 	if (m_Time > 10.0f)
 	{
-		Destory(this);
+		object::Destory(this);
 	}
 	
 }

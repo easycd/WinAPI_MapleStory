@@ -26,6 +26,7 @@ enum class eLayerType
 	Portal,
 	Monster,
 	Boss,
+	BossObj,
 	Skill,
 	Player,
 	PlayerGround,

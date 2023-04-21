@@ -3,6 +3,8 @@
 #include "Image.h"
 
 class Animator;
+class CircleObj;
+
 class Boss : public GameObject
 {
 public:
@@ -15,6 +17,7 @@ public:
 		FullCenter_Skill2,
 		FullRight_Skill3,
 		Chain_Skill4,
+		Obj_Circle
 	};
 
 	Boss();
@@ -35,13 +38,25 @@ private:
 	void FullCenter_Skill2();
 	void FullRight_Skill3();
 	void Chain_Skill4();
+	void Obj_Circle();
 
 
 private:
 	eBoss_State m_State;
 	Animator* m_Animator;
 	float m_Time;
+	float LoopTime;
 	int attack_pattern;
+	bool Loop;
+
+	CircleObj* circleobj0;
+	CircleObj* circleobj1;
+	CircleObj* circleobj2;
+	CircleObj* circleobj3;
+	CircleObj* circleobj4;
+	CircleObj* circleobj5;
+	CircleObj* circleobj6;
+	CircleObj* circleobj7;
 };
 
 
