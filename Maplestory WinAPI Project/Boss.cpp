@@ -32,12 +32,10 @@ void Boss::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\BossImg\\Chain_Skill4", Vector2::Zero, 0.1f);
 
 	m_Animator->GetCompleteEvent(L"BossImgstand") = std::bind(&Boss::idle, this);
-	m_Animator->GetCompleteEvent(L"BossImgFullCenter_Skill2") = std::bind(&Boss::idle, this);
+	m_Animator->GetCompleteEvent(L"BossImgFullLeft_Skill1") = std::bind(&Boss::idle, this);
 	m_Animator->GetCompleteEvent(L"BossImgFullCenter_Skill2") = std::bind(&Boss::idle, this);
 	m_Animator->GetCompleteEvent(L"BossImgFullRight_Skill3") = std::bind(&Boss::idle, this);
 	m_Animator->GetCompleteEvent(L"BossImgChain_Skill4") = std::bind(&Boss::idle, this);
-
-	m_Animator->Play(L"BossImgChain_Skill4", true);
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(300, 580)); // 히트박스 크기 조정
 	collider->SetCenter(Vector2(-150.0f, -580.0f)); // 히트박스 위치 조정
@@ -77,7 +75,7 @@ void Boss::respawn()
 void Boss::pattern()
 {
 	m_Time += Time::DeltaTime();
-	if (m_Time > 3.0f)
+	if (m_Time > 5.0f)
 	{
 		m_Time = 0.0f;
 		attack_pattern = rand() % 4;
@@ -102,20 +100,13 @@ void Boss::pattern()
 	}
 }
 
-void Boss::move()
-{
-}
-
 void Boss::idle()
 {
 	m_State = eBoss_State::Pattern;
 	m_Animator->Play(L"BossImgstand", true);
 }
 
-void Boss::dead()
-{
-	
-}
+
 
 void Boss::FullLeft_Skill1()
 {
@@ -126,17 +117,22 @@ void Boss::FullLeft_Skill1()
 void Boss::FullCenter_Skill2()
 {
 	m_State = eBoss_State::FullCenter_Skill2;
-	m_Animator->Play(L"BossImgFullCenter_Skill1", true);
+	m_Animator->Play(L"BossImgFullCenter_Skill2", true);
 }
 
 void Boss::FullRight_Skill3()
 {
 	m_State = eBoss_State::FullRight_Skill3;
-	m_Animator->Play(L"BossImgFullRight_Skill1", true);
+	m_Animator->Play(L"BossImgFullRight_Skill3", true);
 }
 
 void Boss::Chain_Skill4()
 {
 	m_State = eBoss_State::Chain_Skill4;
 	m_Animator->Play(L"BossImgChain_Skill4", true);
+}
+
+void Boss::dead()
+{
+
 }

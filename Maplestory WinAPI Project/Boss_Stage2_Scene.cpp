@@ -30,7 +30,7 @@ void Boss_Stage2_Scene::Initialize()
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
 
-	Boss* boss = new Boss();
+	boss = new Boss();
 	AddGameObeject(boss, eLayerType::Boss);
 
 	Scene::Initialize();

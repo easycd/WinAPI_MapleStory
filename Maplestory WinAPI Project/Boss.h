@@ -10,7 +10,6 @@ public:
 	{
 		Respawn,
 		Pattern,
-		Move,
 		Idle,
 		FullLeft_Skill1,
 		FullCenter_Skill2,
@@ -30,7 +29,6 @@ public:
 
 private:
 	void pattern();
-	void move();
 	void idle();
 	void dead();
 	void FullLeft_Skill1();
