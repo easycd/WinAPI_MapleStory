@@ -75,7 +75,7 @@ void Boss::Update()
 
 void Boss::Render(HDC hdc)
 {
-	//m_Animator->SetRGB(RGB(29, 29, 29));
+	m_Animator->SetRGB(RGB(29, 29, 29));
 	GameObject::Render(hdc);
 }
 
