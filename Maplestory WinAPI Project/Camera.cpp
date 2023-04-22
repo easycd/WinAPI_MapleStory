@@ -38,8 +38,8 @@ void Camera::Update()
 	}*/
 	if (mTarget != nullptr)
 	{
-		mLookPosition.x = mTarget->GetComponent<Transform>()->GetPos().x + 500.f;
-		mLookPosition.y = mTarget->GetComponent<Transform>()->GetPos().y + 100;
+		mLookPosition.x = mTarget->GetComponent<Transform>()->GetPos().x + 200.f;
+		mLookPosition.y = mTarget->GetComponent<Transform>()->GetPos().y - 500.f;
 	}
 
 	//if (mDistance.x < 0.0f || mDistance.x > 524.0f || mDistance.y < 0.0f || mDistance.y > 312.0f) //¸ÊX°ª - 1366, ¸ÊY°ª - 768 

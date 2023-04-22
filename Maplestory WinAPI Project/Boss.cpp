@@ -10,13 +10,22 @@
 #include "CircleObj.h"
 #include "Object.h"
 
+#include "LeftFullSkill.h"
+#include "CenterFullSkill.h"
+#include "RightFullSkill.h"
+
 Boss::Boss()
 	: m_Time(0.0f)
 	, FallTime(0.0f)
 	, LoopTime(0.0f)
+	, T_Skill1(0.0f)
 	, m_State(eBoss_State::Respawn)
 	, attack_pattern(0)
-	, Loop(false)
+	, Skill1Loop(false)
+	, Skill2Loop(false)
+	, Skill3Loop(false)
+	, Skill4Loop(false)
+
 {
 }
 
@@ -50,6 +59,7 @@ void Boss::Initialize()
 	circleobj5 = nullptr;
 	circleobj6 = nullptr;
 	circleobj7 = nullptr;
+
 
 
 	Collider* collider = AddComponent<Collider>();
@@ -92,8 +102,9 @@ void Boss::respawn()
 void Boss::pattern()
 {
 	FallTime += Time::DeltaTime(); //Circle 오브젝트 시간 간격
+	T_Skill1 += Time::DeltaTime();
 	m_Time += Time::DeltaTime(); // 패턴 시간 간격
-	if (m_Time > 5.0f)
+	if (m_Time > 10.0f)
 	{
 		m_Time = 0.0f;
 		attack_pattern = rand() % 4;
@@ -121,6 +132,12 @@ void Boss::pattern()
 void Boss::idle()
 {
 	Obj_Circle();
+	Skill1_Obj();
+	Skill2_Obj();
+	Skill3_Obj();
+	Skill1Loop = false;
+	Skill2Loop = false;
+	Skill3Loop = false;
 	m_State = eBoss_State::Pattern;
 	m_Animator->Play(L"BossImgstand", true);
 }
@@ -131,18 +148,21 @@ void Boss::FullLeft_Skill1()
 {
 	m_State = eBoss_State::FullLeft_Skill1;
 	m_Animator->Play(L"BossImgFullLeft_Skill1", true);
+	Skill1Loop = true;
 }
 
 void Boss::FullCenter_Skill2()
 {
 	m_State = eBoss_State::FullCenter_Skill2;
 	m_Animator->Play(L"BossImgFullCenter_Skill2", true);
+	Skill2Loop = true;
 }
 
 void Boss::FullRight_Skill3()
 {
 	m_State = eBoss_State::FullRight_Skill3;
 	m_Animator->Play(L"BossImgFullRight_Skill3", true);
+	Skill3Loop = true;
 }
 
 void Boss::Chain_Skill4()
@@ -183,6 +203,33 @@ void Boss::Obj_Circle()
 		circleobj7->respawn();
 
 		FallTime = 0.0f;
+	}
+}
+
+void Boss::Skill1_Obj()
+{
+	if (Skill1Loop == true)
+	{
+	Skill1 = object::Instantiate<LeftFullSkill>(eLayerType::BossSkill);
+	Skill1->P1_Start();
+	}
+}
+
+void Boss::Skill2_Obj()
+{
+	if (Skill2Loop == true)
+	{
+		Skill2 = object::Instantiate<CenterFullSkill>(eLayerType::BossSkill);
+		Skill2->P1_Start();
+	}
+}
+
+void Boss::Skill3_Obj()
+{
+	if (Skill3Loop == true)
+	{
+		Skill3 = object::Instantiate<RightFullSkill>(eLayerType::BossSkill);
+		Skill3->P1_Start();
 	}
 }
 
