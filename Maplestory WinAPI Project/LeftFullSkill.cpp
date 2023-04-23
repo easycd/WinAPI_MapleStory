@@ -44,6 +44,7 @@ void LeftFullSkill::Update()
 
 void LeftFullSkill::Render(HDC hdc)
 {
+	m_Animator->SetRGB(RGB(255, 0, 255));
 	GameObject::Render(hdc);
 }
 

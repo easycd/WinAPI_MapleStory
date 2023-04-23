@@ -352,7 +352,12 @@
     <ClInclude Include="CenterFullSkill.h">
       <Filter>Contents\01. GameObject\Boss\BossSkill</Filter>
     </ClInclude>
-    <ClInclude Include="RightFullSkill.h" />
+    <ClInclude Include="RightFullSkill.h">
+      <Filter>Contents\01. GameObject\Boss\BossSkill</Filter>
+    </ClInclude>
+    <ClInclude Include="BlackChainSkill.h">
+      <Filter>Contents\01. GameObject\Boss\BossSkill</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -563,6 +568,11 @@
     <ClCompile Include="CenterFullSkill.cpp">
       <Filter>Contents\01. GameObject\Boss\BossSkill</Filter>
     </ClCompile>
-    <ClCompile Include="RightFullSkill.cpp" />
+    <ClCompile Include="RightFullSkill.cpp">
+      <Filter>Contents\01. GameObject\Boss\BossSkill</Filter>
+    </ClCompile>
+    <ClCompile Include="BlackChainSkill.cpp">
+      <Filter>Contents\01. GameObject\Boss\BossSkill</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

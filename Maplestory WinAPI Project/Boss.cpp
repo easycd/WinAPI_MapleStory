@@ -13,18 +13,23 @@
 #include "LeftFullSkill.h"
 #include "CenterFullSkill.h"
 #include "RightFullSkill.h"
+#include "BlackChainSkill.h"
+
 
 Boss::Boss()
 	: m_Time(0.0f)
 	, FallTime(0.0f)
 	, LoopTime(0.0f)
 	, T_Skill1(0.0f)
+	, TestTime(0.0f)
 	, m_State(eBoss_State::Respawn)
 	, attack_pattern(0)
 	, Skill1Loop(false)
 	, Skill2Loop(false)
 	, Skill3Loop(false)
 	, Skill4Loop(false)
+	, m_Test(false)
+	,cnt(0)
 
 {
 }
@@ -78,6 +83,15 @@ void Boss::Update()
 	case Boss::eBoss_State::Pattern:
 		pattern();
 		break;
+	case Boss::eBoss_State::FullLeft_Skill1:
+		break;
+	case Boss::eBoss_State::FullCenter_Skill2:
+		break;
+	case Boss::eBoss_State::FullRight_Skill3:
+		break;
+	case Boss::eBoss_State::Chain_Skill4:
+		break;
+
 	default:
 		break;
 	}
@@ -135,9 +149,11 @@ void Boss::idle()
 	Skill1_Obj();
 	Skill2_Obj();
 	Skill3_Obj();
+
 	Skill1Loop = false;
 	Skill2Loop = false;
 	Skill3Loop = false;
+	Skill4Loop = false;
 	m_State = eBoss_State::Pattern;
 	m_Animator->Play(L"BossImgstand", true);
 }
@@ -169,6 +185,37 @@ void Boss::Chain_Skill4()
 {
 	m_State = eBoss_State::Chain_Skill4;
 	m_Animator->Play(L"BossImgChain_Skill4", true);
+	//Skill4Loop = true;
+	m_Test = true;
+}
+
+void Boss::Test()
+{
+	/*if (Skill4Loop == true)
+	{
+		TestTime += Time::DeltaTime();
+
+		BS0 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
+		BS1 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
+		BS2 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
+		BS3 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
+		BS4 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
+		BS5 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
+
+		BS1->GetComponent<Transform>()->SetPos(Vector2(400.0f, 1600.0f));
+		BS2->GetComponent<Transform>()->SetPos(Vector2(650.0f, 1600.0f));
+		BS3->GetComponent<Transform>()->SetPos(Vector2(900.0f, 1600.0f));
+		BS4->GetComponent<Transform>()->SetPos(Vector2(1150.0f, 1600.0f));
+		BS5->GetComponent<Transform>()->SetPos(Vector2(1400.0f, 1600.0f));
+
+		BS0->Attack();
+		BS1->Attack();
+		BS2->Attack();
+		BS3->Attack();
+		BS4->Attack();
+		BS5->Attack();
+	}	*/
+
 }
 
 void Boss::Obj_Circle()

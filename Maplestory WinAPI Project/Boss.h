@@ -7,6 +7,7 @@ class CircleObj;
 class LeftFullSkill;
 class CenterFullSkill;
 class RightFullSkill;
+class BlackChainSkill;
 
 class Boss : public GameObject
 {
@@ -41,29 +42,42 @@ private:
 	void FullCenter_Skill2();
 	void FullRight_Skill3();
 	void Chain_Skill4();
-	void Obj_Circle();
+	void Test();
 
 	void Skill1_Obj();
 	void Skill2_Obj();
 	void Skill3_Obj();
+	void Obj_Circle();
 
 
 private:
 	eBoss_State m_State;
 	Animator* m_Animator;
+	int attack_pattern;
+	int cnt;
+
 	float m_Time;
 	float LoopTime;
 	float FallTime;
 	float T_Skill1;
-	int attack_pattern;
+	float TestTime;
+
 	bool Skill1Loop;
 	bool Skill2Loop;
 	bool Skill3Loop;
 	bool Skill4Loop;
+	bool m_Test;
 
 	LeftFullSkill* Skill1;
 	CenterFullSkill* Skill2;
 	RightFullSkill* Skill3;
+
+	BlackChainSkill* BS0;
+	BlackChainSkill* BS1;
+	BlackChainSkill* BS2;
+	BlackChainSkill* BS3;
+	BlackChainSkill* BS4;
+	BlackChainSkill* BS5;
 
 	CircleObj* circleobj0;
 	CircleObj* circleobj1;

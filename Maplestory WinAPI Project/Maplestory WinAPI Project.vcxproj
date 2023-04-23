@@ -135,6 +135,7 @@
     <ClInclude Include="ArcanaBack.h" />
     <ClInclude Include="ArcanaObject.h" />
     <ClInclude Include="BasicSkill.h" />
+    <ClInclude Include="BlackChainSkill.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossIon_Attack1.h" />
     <ClInclude Include="BossIon_Attack2.h" />
@@ -210,6 +211,7 @@
     <ClCompile Include="ArcanaBack.cpp" />
     <ClCompile Include="ArcanaObject.cpp" />
     <ClCompile Include="BasicSkill.cpp" />
+    <ClCompile Include="BlackChainSkill.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BossIon_Attack1.cpp" />
     <ClCompile Include="BossIon_Attack2.cpp" />
