@@ -29,13 +29,25 @@ public:
 	void fall();
 	void end();
 	void destroy();
+
+
+	void SetFallTiming(int num)
+	{
+		FallTiming = num;
+	}
+
 private:
 	Animator* m_Animator;
 	Transform* mTransform;
 	eCircleState mState;
+
+	int FallCnt;
+	int FallTiming;
+
 	float m_Time;
 	float FallTime;
 	float Speed;
+
 	bool Check;
 
 };

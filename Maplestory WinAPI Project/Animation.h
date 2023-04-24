@@ -43,9 +43,6 @@ private:
 	float mTime;
 	bool mbComplete;
 	int mSpriteIndex;
-	//WORD R;
-	//WORD G;
-	//WORD B;
 	COLORREF m_Color;
 	bool m_IsCameraMove;
 	int m_nullcameraX;

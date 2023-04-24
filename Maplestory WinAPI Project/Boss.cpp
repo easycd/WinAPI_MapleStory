@@ -23,7 +23,7 @@ Boss::Boss()
 	, T_Skill1(0.0f)
 	, TestTime(0.0f)
 	, m_State(eBoss_State::Respawn)
-	, attack_pattern(0)
+	, attack_pattern(3)
 	, Skill1Loop(false)
 	, Skill2Loop(false)
 	, Skill3Loop(false)
@@ -121,7 +121,7 @@ void Boss::pattern()
 	if (m_Time > 10.0f)
 	{
 		m_Time = 0.0f;
-		attack_pattern = rand() % 4;
+		//attack_pattern = rand() % 4;
 
 		switch (attack_pattern)
 		{
@@ -149,11 +149,13 @@ void Boss::idle()
 	Skill1_Obj();
 	Skill2_Obj();
 	Skill3_Obj();
+	Test();
 
 	Skill1Loop = false;
 	Skill2Loop = false;
 	Skill3Loop = false;
 	Skill4Loop = false;
+
 	m_State = eBoss_State::Pattern;
 	m_Animator->Play(L"BossImgstand", true);
 }
@@ -185,13 +187,12 @@ void Boss::Chain_Skill4()
 {
 	m_State = eBoss_State::Chain_Skill4;
 	m_Animator->Play(L"BossImgChain_Skill4", true);
-	//Skill4Loop = true;
-	m_Test = true;
+	Skill4Loop = true;
 }
 
 void Boss::Test()
 {
-	/*if (Skill4Loop == true)
+	if (Skill4Loop == true)
 	{
 		TestTime += Time::DeltaTime();
 
@@ -214,7 +215,7 @@ void Boss::Test()
 		BS3->Attack();
 		BS4->Attack();
 		BS5->Attack();
-	}	*/
+	}
 
 }
 
@@ -239,6 +240,15 @@ void Boss::Obj_Circle()
 		circleobj5->GetComponent<Transform>()->SetPos(Vector2(1400.0f, 200.0f));
 		circleobj6->GetComponent<Transform>()->SetPos(Vector2(1650.0f, 200.0f));
 		circleobj7->GetComponent<Transform>()->SetPos(Vector2(1900.0f, 200.0f));
+
+		circleobj0->SetFallTiming(1);
+		circleobj1->SetFallTiming(2);
+		circleobj2->SetFallTiming(3);
+		circleobj3->SetFallTiming(4);
+		circleobj4->SetFallTiming(5);
+		circleobj5->SetFallTiming(6);
+		circleobj6->SetFallTiming(7);
+		circleobj7->SetFallTiming(8);
 
 		circleobj0->respawn();
 		circleobj1->respawn();

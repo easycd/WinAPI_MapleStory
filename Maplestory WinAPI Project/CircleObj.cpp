@@ -15,6 +15,7 @@ CircleObj::CircleObj()
 	: mState(eCircleState::Raspawn)
 	, Speed(300.0f)
 	, FallTime(0.0f)
+	, FallCnt(0)
 {
 }
 
@@ -91,8 +92,13 @@ void CircleObj::respawn()
 
 void CircleObj::fall()
 {
+	if (FallCnt == FallTiming)
+	{
 	mState = eCircleState::Fall;
 	m_Animator->Play(L"CircleObjfall", true);
+	}
+
+	FallCnt++;
 }
 
 void CircleObj::end()

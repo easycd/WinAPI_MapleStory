@@ -25,19 +25,19 @@ void BlackChainSkill::Initialize()
 	tr->SetScale(Vector2(0.5f, 0.5f));
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\Object\\Skill4_BlackChain\\BlackChain_Obj", Vector2::Zero, 0.05f);
-	m_Animator->GetCompleteEvent(L"Skill4_BlackChainBlackChain_Obj") = std::bind(&BlackChainSkill::Attack, this);
+	m_Animator->GetCompleteEvent(L"Skill4_BlackChainBlackChain_Obj") = std::bind(&BlackChainSkill::Destroy, this);
 
 	GameObject::Initialize();
 }
 
 void BlackChainSkill::Update()
 {
-	m_Animator->SetRGB(RGB(208, 208, 208));
 	GameObject::Update();
 }
 
 void BlackChainSkill::Render(HDC hdc)
 {
+	m_Animator->SetRGB(RGB(208, 208, 208));
 	GameObject::Render(hdc);
 }
 
@@ -48,7 +48,7 @@ void BlackChainSkill::Release()
 
 void BlackChainSkill::Attack()
 {
-	m_Animator->Play(L"Skill4_BlackChainBlackChain_Obj", false);
+	m_Animator->Play(L"Skill4_BlackChainBlackChain_Obj", true);
 }
 
 void BlackChainSkill::Destroy()
