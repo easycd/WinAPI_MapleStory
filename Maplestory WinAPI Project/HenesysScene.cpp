@@ -206,6 +206,9 @@ void HenesysScene::OnEnter()
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);
 	CollisionManager::SetLayer(eLayerType::Monster, eLayerType::WallCollider, true);
 	CollisionManager::SetLayer(eLayerType::Monster, eLayerType::Ground, true);
+
+	Camera::SetLookRange(Vector2(1890.f, 1080.f));
+
 	
 }
 void HenesysScene::OnExit()

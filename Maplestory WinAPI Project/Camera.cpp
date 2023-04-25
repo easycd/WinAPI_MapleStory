@@ -11,6 +11,10 @@ extern Application application;
 Vector2 Camera::mResolution = Vector2::Zero;
 Vector2 Camera::mLookPosition = Vector2::Zero;
 Vector2 Camera::mDistance = Vector2::Zero;
+
+
+Vector2 Camera::mLookRange = Vector2::Zero;
+
 GameObject* Camera::mTarget = nullptr;
 
 Camera::Camera()
@@ -31,16 +35,26 @@ void Camera::Initiailize()
 
 void Camera::Update()
 {
-	/*if (mTarget != nullptr)
+	if (mTarget != nullptr)
 	{
 		mLookPosition
 			= mTarget->GetComponent<Transform>()->GetPos();
-	}*/
-	if (mTarget != nullptr)
-	{
-		mLookPosition.x = mTarget->GetComponent<Transform>()->GetPos().x + 200.f;
-		mLookPosition.y = mTarget->GetComponent<Transform>()->GetPos().y - 500.f;
 	}
+
+	if (mLookPosition.x <= (mResolution.x / 2.0f))
+		mLookPosition.x = (mResolution.x / 2.0f);
+	if (mLookPosition.x >= mLookRange.x - mResolution.x / 2.0f)
+		mLookPosition.x = mLookRange.x - mResolution.x / 2.0f;
+	if (mLookPosition.y >= mLookRange.y - mResolution.y / 2.0f)
+		mLookPosition.y = mLookRange.y - mResolution.y / 2.0f;
+	if (mLookPosition.y <= (mResolution.y / 2.0f))
+		mLookPosition.y = (mResolution.y / 2.0f);
+
+	//if (mTarget != nullptr)
+	//{
+	//	mLookPosition.x = mTarget->GetComponent<Transform>()->GetPos().x + 200.f;
+	//	mLookPosition.y = mTarget->GetComponent<Transform>()->GetPos().y - 500.f;
+	//}
 
 	//if (mDistance.x < 0.0f || mDistance.x > 524.0f || mDistance.y < 0.0f || mDistance.y > 312.0f) //¸ÊX°ª - 1366, ¸ÊY°ª - 768 
 	//{

@@ -4,6 +4,7 @@
 
 class Rigidbody;
 class Animator;
+class Camera;
 class MainChar : public GameObject 
 {
 public:
@@ -54,16 +55,17 @@ private:
 	Animator* attack;
 	Rigidbody* mRigidbody;
 	Vector2 mPos;
+	Transform* tr;
+	Camera* m_Camera;
+	Collider* collider2;
+
 	int direction = 0; //0이면 왼쪽 1이면 오른쪽
 	bool mGroundCheck;
-	Camera* m_Camera;
-	//HenesysBack* m_HenesysBack;
 	int posx;
 	int posy;
 	bool m_PortalState;
 
 
-	Collider* collider2;
 
 public:
 	void SetCharPosX(int x)

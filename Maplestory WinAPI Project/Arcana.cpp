@@ -150,6 +150,7 @@ void Arcana::Release()
 }
 void Arcana::OnEnter()
 {
+	Camera::SetLookRange(Vector2(2770.f, 1180.f));
 	m_mainchar->GetComponent<Transform>()->SetPos(Vector2(500.0f, 800.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);

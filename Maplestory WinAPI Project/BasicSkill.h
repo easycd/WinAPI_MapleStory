@@ -3,6 +3,7 @@
 
 class Animator;
 class Animation;
+class Transform;
 
 class BasicSkill : public GameObject
 {
@@ -20,6 +21,7 @@ public:
 
 private:
 	Animator* m_Animator;
+	Transform* pos;
 	float mTime;
 	int posx;
 	int posy;

@@ -79,18 +79,14 @@ void Animation::Render(HDC hdc)
             , mSpriteSheet[mSpriteIndex].size.x, mSpriteSheet[mSpriteIndex].size.y,
             m_Color); //RGB(207, 207, 207)
     }
-
     else
     {
         Vector2 pos = tr->GetPos();
-
         pos = mSpriteSheet[mSpriteIndex].offset;
-        //pos.x -= mSpriteSheet[mSpriteIndex].size.x / 2.0f;
-        //pos.y -= mSpriteSheet[mSpriteIndex].size.y;
+        pos.x = mSpriteSheet[mSpriteIndex].size.x / 2.0f;
+        pos.y = mSpriteSheet[mSpriteIndex].size.y;
 
-        TransparentBlt(hdc
-            , pos.x + m_nullcameraX
-            , pos.y + m_nullcameraY
+        TransparentBlt(hdc, pos.x, pos.y
             , mSpriteSheet[mSpriteIndex].size.x * scale.x
             , mSpriteSheet[mSpriteIndex].size.y * scale.y
             , mSheetImage->GetHdc()

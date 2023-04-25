@@ -24,7 +24,7 @@ void Cosmos::Initialize()
 	Transform* tr = GetComponent<Transform>();
 	tr->SetScale(Vector2(0.8f, 0.8f));
 	m_Animator = AddComponent<Animator>();
-	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\start", Vector2::Zero, 0.1f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\start", Vector2::Zero, 0.06f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\end", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\loop", Vector2::Zero, 0.1f);
 
