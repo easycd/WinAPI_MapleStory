@@ -188,6 +188,7 @@
     <ClInclude Include="RResources.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SolunaDivideStart.h" />
     <ClInclude Include="SomyeolBack.h" />
     <ClInclude Include="SomyeolObject.h" />
     <ClInclude Include="SomyeolScene.h" />
@@ -258,6 +259,7 @@
     <ClCompile Include="RResources.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SolunaDivideStart.cpp" />
     <ClCompile Include="SomyeolBack.cpp" />
     <ClCompile Include="SomyeolObject.cpp" />
     <ClCompile Include="SomyeolScene.cpp" />
@@ -277,8 +279,14 @@
     <ResourceCompile Include="Maplestory WinAPI Project.rc" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\Resources\UI\Cursor\CursorClick.png" />
+    <Image Include="..\Resources\UI\Cursor\CursorIdle.png" />
     <Image Include="Maplestory WinAPI Project.ico" />
     <Image Include="small.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cursor1.cur" />
+    <None Include="cursor2.cur" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

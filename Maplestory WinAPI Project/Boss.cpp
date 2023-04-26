@@ -23,7 +23,7 @@ Boss::Boss()
 	, T_Skill1(0.0f)
 	, TestTime(0.0f)
 	, m_State(eBoss_State::Respawn)
-	, attack_pattern(3)
+	, attack_pattern(0)
 	, Skill1Loop(false)
 	, Skill2Loop(false)
 	, Skill3Loop(false)
@@ -121,7 +121,7 @@ void Boss::pattern()
 	if (m_Time > 10.0f)
 	{
 		m_Time = 0.0f;
-		//attack_pattern = rand() % 4;
+		attack_pattern = rand() % 4;
 
 		switch (attack_pattern)
 		{

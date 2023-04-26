@@ -134,6 +134,9 @@
     <Filter Include="Contents\01. GameObject\Boss\BossSkill">
       <UniqueIdentifier>{acc6df5f-8d54-41fe-83e4-b207418f7109}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\01. GameObject\Skill\SolunaDivide">
+      <UniqueIdentifier>{b4002b81-c554-4991-844c-5bbac0d13cf4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -358,6 +361,7 @@
     <ClInclude Include="BlackChainSkill.h">
       <Filter>Contents\01. GameObject\Boss\BossSkill</Filter>
     </ClInclude>
+    <ClInclude Include="SolunaDivideStart.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -369,6 +373,12 @@
       <Filter>리소스 파일</Filter>
     </Image>
     <Image Include="Maplestory WinAPI Project.ico">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\Resources\UI\Cursor\CursorClick.png">
+      <Filter>리소스 파일</Filter>
+    </Image>
+    <Image Include="..\Resources\UI\Cursor\CursorIdle.png">
       <Filter>리소스 파일</Filter>
     </Image>
   </ItemGroup>
@@ -574,5 +584,14 @@
     <ClCompile Include="BlackChainSkill.cpp">
       <Filter>Contents\01. GameObject\Boss\BossSkill</Filter>
     </ClCompile>
+    <ClCompile Include="SolunaDivideStart.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cursor1.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
+    <None Include="cursor2.cur">
+      <Filter>리소스 파일</Filter>
+    </None>
   </ItemGroup>
 </Project>

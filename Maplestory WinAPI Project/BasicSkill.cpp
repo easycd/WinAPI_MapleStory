@@ -19,8 +19,6 @@ BasicSkill::~BasicSkill()
 
 void BasicSkill::Initialize()
 {
-	pos = GetComponent<Transform>();
-
 	GameObject::Initialize();
 }
 
@@ -35,7 +33,6 @@ void BasicSkill::Update()
 
 void BasicSkill::Render(HDC hdc)
 {
-	m_Animator->SetRGB(RGB(207, 207, 207));
 	GameObject::Render(hdc); //TransparentBlt½ÇÇà
 
 }
@@ -47,20 +44,20 @@ void BasicSkill::Release()
 
 void BasicSkill::RightAttack()
 {
+	Transform* pos = GetComponent<Transform>();
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\BasicAttack\\BasicAttackRight", Vector2::Zero, 0.065f);
 	m_Animator->Play(L"BasicAttackBasicAttackRight", false);
-	m_Animator->SetIsCameraMove(false);
 	Collider* collider = AddComponent<Collider>();
 	collider->SetCenter(Vector2(-300.0f, -380.0f));
 	collider->SetSize(Vector2(580.0f, 380.0f));
 }
 void BasicSkill::LeftAttack()
 {
+	Transform* pos = GetComponent<Transform>();
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\BasicAttack\\BasicAttackLeft", Vector2::Zero, 0.065f);
 	m_Animator->Play(L"BasicAttackBasicAttackLeft", false);
-	m_Animator->SetIsCameraMove(false);
 	Collider* collider = AddComponent<Collider>();
 	collider->SetCenter(Vector2(-300.0f, -380.0f));
 	collider->SetSize(Vector2(580.0f, 380.0f));

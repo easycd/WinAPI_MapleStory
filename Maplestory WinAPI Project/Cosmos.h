@@ -3,6 +3,7 @@
 
 class Animator;
 class Animation;
+class MainChar;
 
 class Cosmos : public GameObject
 {
@@ -23,6 +24,8 @@ public:
 private:
 	Animator* m_Animator;
 	eCosmosState m_State;
+	Transform* tr;
+	MainChar* player;
 	float mTime;
 	bool IsSkillOn;
 	bool IsSkillLoop;

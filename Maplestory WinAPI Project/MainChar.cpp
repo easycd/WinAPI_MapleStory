@@ -14,6 +14,7 @@
 #include "SoulEclipseStart.h"
 #include "SoulEclipseBackGround.h"
 #include "SoulEclipseEffect.h"
+#include "SolunaDivideStart.h"
 #include "Camera.h"
 #include "HenesysBack.h"
 #include "Portal.h"
@@ -39,28 +40,15 @@ void MainChar::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\IdleRight", Vector2::Zero, 0.6f); // 오른쪽 아이들
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\moveLeft", Vector2::Zero, 0.3f); // 왼쪽 걷기
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\moveRight", Vector2::Zero, 0.3f); // 오른쪽 걷기
-	m_Animator->CreateAnimations(L"..\\Resources\\Char\\attackLeft", Vector2::Zero, 0.2f); // 왼쪽 공격모션
-	m_Animator->CreateAnimations(L"..\\Resources\\Char\\attackRight", Vector2::Zero, 0.2f); // 오른쪽 공격모션
+	m_Animator->CreateAnimations(L"..\\Resources\\Char\\attackLeft", Vector2::Zero, 0.18f); // 왼쪽 공격모션
+	m_Animator->CreateAnimations(L"..\\Resources\\Char\\attackRight", Vector2::Zero, 0.18f); // 오른쪽 공격모션
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\jumpLeft", Vector2::Zero, 0.2f); // 왼쪽 점프
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\jumpRight", Vector2::Zero, 0.2f); // 오른쪽 점프
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownLeft", Vector2::Zero, 0.2f); // 왼쪽 눕기
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownRight", Vector2::Zero, 0.2f); // 오른쪽 눕기
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownAttackLeft", Vector2::Zero, 0.2f); // 왼쪽 아래 공격
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownAttackRight", Vector2::Zero, 0.2f); // 오른쪽 아래 공격
-	/*m_Animator->Play(L"CharIdleLeft", false);
-	m_Animator->Play(L"CharmoveLeft", false);
-	m_Animator->Play(L"CharmoveRight", false);
-	m_Animator->Play(L"CharattackLeft", false);
-	m_Animator->Play(L"CharattackRight", false);
-	m_Animator->Play(L"CharjumpLeft", false);
-	m_Animator->Play(L"CharjumpRight", false);
-	m_Animator->Play(L"CharDownLeft", false);
-	m_Animator->Play(L"CharDownRight", false);
-	m_Animator->Play(L"CharDownAttackLeft", false);
-	m_Animator->Play(L"CharDownAttackRight", false);*/
 
-
-	/*m_Animator->GetStartEvent(L"CharIdleRight") = std::bind(&MainChar::idleCompleteEvent, this);*/
 	m_Animator->Play(L"CharIdleRight", true);
 	direction = 1;
 
@@ -112,22 +100,12 @@ void MainChar::Update()
 	case  MainChar::eMainCharState::SoulEclipse:
 		souleclipseSkill();
 		break;
+	case  MainChar::eMainCharState::SolunaDivide:
+		solunadivide();
+		break;
 	default:
 		break;
 	}
-	//
-	/*Vector2 velocity = mRigidbody->GetVelocity();
-	velocity.y = 100.0f;
-
-	mRigidbody->SetVelocity(velocity);
-	mRigidbody->SetGround(false);*/
-
-	/*Transform* tr = GetComponent<Transform>();
-	if (tr->GetPos().x <= 0.f)
-		tr->SetPos(Vector2(0.f, tr->GetPos().y));*/
-
-	/*if (m_Camera->GetLookPosition().x <= 0.f)
-		m_Camera->SetLookPosition(Vector2(0.f, m_Camera->GetLookPosition().y));*/
 
 }
 
@@ -198,13 +176,12 @@ void MainChar::move()
 		m_State = eMainCharState::Attack;
 		m_Animator->Play(L"CharattackRight", true);
 		direction = 1;
-		Transform* pos = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
-		BasicSkill* basicskill = new BasicSkill();
+		BasicSkill* Rbasicskill = new BasicSkill();
 		Vector2 bsPos = tr->GetPos();
-		basicskill->GetComponent<Transform>()->SetPos(bsPos);
-		basicskill->RightAttack();
-		curScene->AddGameObeject(basicskill, eLayerType::Skill);
+		Rbasicskill->GetComponent<Transform>()->SetPos(Vector2(bsPos.x + 280.f, bsPos.y - 100.f));
+		Rbasicskill->RightAttack();
+		curScene->AddGameObeject(Rbasicskill, eLayerType::Skill);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
 	else if (Input::GetKeyDown(eKeyCode::F) && direction == 0)
@@ -212,13 +189,12 @@ void MainChar::move()
 		m_State = eMainCharState::Attack;
 		m_Animator->Play(L"CharattackLeft", true);
 		direction = 0;
-		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
-		BasicSkill* basicskill = new BasicSkill();
+		BasicSkill* Rbasicskill = new BasicSkill();
 		Vector2 bsPos = tr->GetPos();
-		basicskill->GetComponent<Transform>()->SetPos(bsPos);
-		basicskill->LeftAttack();
-		curScene->AddGameObeject(basicskill, eLayerType::Skill);
+		Rbasicskill->GetComponent<Transform>()->SetPos(Vector2(bsPos.x + 280.f, bsPos.y - 100.f));
+		Rbasicskill->LeftAttack();
+		curScene->AddGameObeject(Rbasicskill, eLayerType::Skill);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
 	else if (direction == 0 && Input::GetKeyDown(eKeyCode::SPACE))
@@ -322,65 +298,66 @@ void MainChar::idle()
 		m_State = eMainCharState::Attack; 
 		m_Animator->Play(L"CharattackRight", true);
 		direction = 1;
-		Transform* tr = GetComponent<Transform>();
+		Transform* BsR = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
-		BasicSkill* basicskill = new BasicSkill();
-		basicskill->RightAttack();
+		BasicSkill* Rbasicskill = new BasicSkill();
+		Rbasicskill->RightAttack();
 		Vector2 bsPos = tr->GetPos();
-		basicskill->GetComponent<Transform>()->SetPos(bsPos);
-		curScene->AddGameObeject(basicskill, eLayerType::Skill);
+		Rbasicskill->GetComponent<Transform>()->SetPos(Vector2(bsPos.x + 280.f, bsPos.y - 100.f));
+		curScene->AddGameObeject(Rbasicskill, eLayerType::Skill);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 
 	}
 	else if (Input::GetKeyDown(eKeyCode::F) && direction == 0)
 	{
 		m_State = eMainCharState::Attack;
+		Transform* BsL = GetComponent<Transform>();
 		m_Animator->Play(L"CharattackLeft", true);
 		direction = 0;
-		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
-		BasicSkill* basicskill = new BasicSkill();
-		basicskill->LeftAttack();
+		BasicSkill* Lbasicskill = new BasicSkill();
+		Lbasicskill->LeftAttack();
 		Vector2 bsPos = tr->GetPos();
-		basicskill->GetComponent<Transform>()->SetPos(bsPos);
-		curScene->AddGameObeject(basicskill, eLayerType::Skill);
+		Lbasicskill->GetComponent<Transform>()->SetPos(Vector2(bsPos.x - 280.f, bsPos.y - 100.f));
+		curScene->AddGameObeject(Lbasicskill, eLayerType::Skill);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
 	else if (Input::GetKeyDown(eKeyCode::D))
 	{
 		m_State = eMainCharState::CosmosSkill;
-		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		Cosmos* cosmos = new Cosmos();
+		cosmos->Initialize();
 		Vector2 CsPos = tr->GetPos();
 		cosmos->GetComponent<Transform>()->SetPos(CsPos);
-		cosmos->Initialize();
 		curScene->AddGameObeject(cosmos, eLayerType::Skill);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
 	else if (Input::GetKeyDown(eKeyCode::S))
 	{
 		m_State = eMainCharState::SoulEclipse;
-		//m_Animator->Play(L"CharattackLeft", true);
 		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		SoulEclipseBackGround* SBG = new SoulEclipseBackGround();
 		SoulEclipseStart* SS = new SoulEclipseStart();
-		SoulEclipseEffect* SE = new SoulEclipseEffect();
 		SBG->Initialize();
 		SS->Initialize();
-		//SE->Initialize();
-		SS->SetPosX(240);
-		SS->SetPosY(80);
-		//SBG->GetComponent<Transform>()->SetPos(Vector2::Zero);
-		//SBG->GetComponent<Transform>()->SetScale(Vector2(2.5f, 2.5f));
-		//SBG->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos())); // 캐릭터의 좌표를 가저옴
-		//SS->GetComponent<Transform>()->SetPos(Vector2(tr->GetPos())); // 캐릭터의 좌표를 가저옴
+		SS->GetComponent<Transform>()->SetPos(Vector2(780.f, 660.f));
 		curScene->AddGameObeject(SBG, eLayerType::SoulEclipse);
 		curScene->AddGameObeject(SS, eLayerType::SoulEclipse);
-		//curScene->AddGameObeject(SE, eLayerType::SoulEclipseEffect);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
+	else if (Input::GetKeyDown(eKeyCode::A))
+	{
+		m_State = eMainCharState::SolunaDivide;
+		Transform* tr = GetComponent<Transform>();
+		Scene* curScene = SceneManager::GetActiveScene();
+		SolunaDivideStart* SD = new SolunaDivideStart();
+		SD->Initialize();
+		SD->GetComponent<Transform>()->SetPos(Vector2(780.f, 660.f));
+		curScene->AddGameObeject(SD, eLayerType::SoulEclipse);
+		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
+		}
 }
 
 void MainChar::jump()
@@ -435,6 +412,20 @@ void MainChar::souleclipseSkill()
 		m_Animator->Play(L"CharIdleLeft", true);
 	}
 	else if (Input::GetKeyUp(eKeyCode::S) && direction == 1)
+	{
+		m_State = eMainCharState::Idle;
+		m_Animator->Play(L"CharIdleRight", true);
+	}
+}
+
+void MainChar::solunadivide()
+{
+	if (Input::GetKeyUp(eKeyCode::A) && direction == 0)
+	{
+		m_State = eMainCharState::Idle;
+		m_Animator->Play(L"CharIdleLeft", true);
+	}
+	else if (Input::GetKeyUp(eKeyCode::A) && direction == 1)
 	{
 		m_State = eMainCharState::Idle;
 		m_Animator->Play(L"CharIdleRight", true);

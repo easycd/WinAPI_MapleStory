@@ -15,7 +15,7 @@ public:
 
 
 
-	static void SetLookRange(Vector2 range) { mLookRange = range; }
+	static void SetImgResolution(Vector2 Resolution) { ImgR = Resolution; }
 
 
 
@@ -36,6 +36,6 @@ private:
 	static GameObject* mTarget;  // 카메라의 기준이 될 오브젝트
 
 
-	static Vector2 mLookRange;
+	static Vector2 ImgR;
 };
 

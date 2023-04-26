@@ -71,6 +71,8 @@ void Boss_Stage1_Scene::OnEnter()
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 
 	m_Boss_Ion->respawn();
+
+	Camera::SetImgResolution(Vector2(4520.f, 880.f));
 }
 void Boss_Stage1_Scene::OnExit()
 {

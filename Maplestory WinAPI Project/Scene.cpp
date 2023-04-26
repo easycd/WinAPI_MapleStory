@@ -66,6 +66,7 @@
 	void Scene::OnExit()
 	{
 	}
+
 	void Scene::AddGameObeject(GameObject* obj, eLayerType layer)
 	{
 		mLayers[(UINT)layer].AddGameObject(obj);

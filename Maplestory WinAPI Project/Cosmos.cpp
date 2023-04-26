@@ -5,6 +5,8 @@
 #include "Object.h"
 #include "Collider.h"
 #include "Animation.h"
+#include "MainChar.h"
+
 
 Cosmos::Cosmos()
 	:mTime(0.0f)
@@ -21,17 +23,15 @@ Cosmos::~Cosmos()
 
 void Cosmos::Initialize()
 {
-	Transform* tr = GetComponent<Transform>();
+	tr = GetComponent<Transform>();
 	tr->SetScale(Vector2(0.8f, 0.8f));
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\start", Vector2::Zero, 0.06f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\end", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\loop", Vector2::Zero, 0.1f);
 
-	//m_Animator->GetStartEvent(L"Cosmossstart") = std::bind(&Cosmos::StartSkill, this);
 	m_Animator->Play(L"Cosmosstart", true);
 	m_Animator->SetIsCameraMove(false);
-	//m_Animator->Play(L"Cosmosend", true);
 
 
 	//Collider* collider = AddComponent<Collider>();
@@ -85,8 +85,8 @@ void Cosmos::Update()
 void Cosmos::Render(HDC hdc)
 {
 	m_Animator->SetRGB(RGB(56, 11, 153));
-	m_Animator->SetNullCameraPosX(posx);
-	m_Animator->SetNullCameraPosY(posy);
+	//m_Animator->SetNullCameraPosX(posx);
+	//m_Animator->SetNullCameraPosY(posy);
 	GameObject::Render(hdc); //TransparentBlt½ÇÇà
 }
 

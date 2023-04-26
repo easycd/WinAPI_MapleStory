@@ -19,6 +19,7 @@ public:
 		Attack,
 		CosmosSkill,
 		SoulEclipse,
+		SolunaDivide,
 
 	};
 
@@ -42,6 +43,7 @@ private:
 	void basic_attack();
 	void cosmosSkill();
 	void souleclipseSkill();
+	void solunadivide();
 
 	void idleCompleteEvent();
 

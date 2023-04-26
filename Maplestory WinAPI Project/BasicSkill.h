@@ -21,7 +21,6 @@ public:
 
 private:
 	Animator* m_Animator;
-	Transform* pos;
 	float mTime;
 	int posx;
 	int posy;

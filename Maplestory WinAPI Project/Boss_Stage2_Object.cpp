@@ -40,7 +40,7 @@ void Boss_Stage2_Object::Render(HDC hdc)
 		, mImage->GetHdc()
 		, 0, 0
 		, mImage->GetWidth(), mImage->GetHeight()
-		, RGB(207, 207, 207));
+		, RGB(10, 10, 10));
 }
 void Boss_Stage2_Object::Release()
 {

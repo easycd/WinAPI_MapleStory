@@ -7,6 +7,7 @@ class Animator;
 class SoulEclipseStart : public GameObject
 {
 public:
+
 	SoulEclipseStart();
 	~SoulEclipseStart();
 
@@ -15,23 +16,16 @@ public:
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
 
+	void Start();
+	void End();
+
+private:
+	void Loop();
+
 private:
 	Animator* m_Animator;
-	Animator* m_Animator1;
-	float mTime;
-	int posx;
-	int posy;
-	float m_Time;
-	bool IsSkillOn;
 
-public:
-	const void SetPosX(int x)
-	{
-		posx = x;
-	}
-	const void SetPosY(int y)
-	{
-		posy = y;
-	}
+	float mTime;
+
 };
 

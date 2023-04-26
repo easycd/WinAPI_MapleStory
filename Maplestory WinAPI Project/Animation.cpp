@@ -58,41 +58,41 @@ void Animation::Render(HDC hdc)
     Transform* tr
         = mAnimator->GetOwner()->GetComponent<Transform>();
     Vector2 scale = tr->GetScale();
+    Vector2 pos1 = tr->GetPos();
+    Vector2 pos2 = tr->GetPos();
 
     // 이미지가 그려질 좌표는 오브젝트 좌표의 위쪽 중간에 그려진다.
       // 캐릭터의 발을 기준으로 포지션을 계산
     if (m_IsCameraMove)
     {
-        Vector2 pos = tr->GetPos();
-        pos = Camera::CaluatePos(pos); //pos좌표를 카메라 좌표로 변환
-        pos += mSpriteSheet[mSpriteIndex].offset;
-        pos.x -= mSpriteSheet[mSpriteIndex].size.x / 2.0f;
-        pos.y -= mSpriteSheet[mSpriteIndex].size.y;
+        pos1 = Camera::CaluatePos(pos1); //pos좌표를 카메라 좌표로 변환
+        pos1 += mSpriteSheet[mSpriteIndex].offset;
+        pos1.x -= mSpriteSheet[mSpriteIndex].size.x / 2.0f;
+        pos1.y -= mSpriteSheet[mSpriteIndex].size.y;
 
         TransparentBlt(hdc
-            , pos.x
-            , pos.y 
+            , pos1.x
+            , pos1.y
             , mSpriteSheet[mSpriteIndex].size.x * scale.x
             , mSpriteSheet[mSpriteIndex].size.y * scale.y
             , mSheetImage->GetHdc()
             , mSpriteSheet[mSpriteIndex].leftTop.x, mSpriteSheet[mSpriteIndex].leftTop.y
-            , mSpriteSheet[mSpriteIndex].size.x, mSpriteSheet[mSpriteIndex].size.y,
-            m_Color); //RGB(207, 207, 207)
+            , mSpriteSheet[mSpriteIndex].size.x, mSpriteSheet[mSpriteIndex].size.y
+            , m_Color); //RGB(207, 207, 207)
     }
     else
     {
-        Vector2 pos = tr->GetPos();
-        pos = mSpriteSheet[mSpriteIndex].offset;
-        pos.x = mSpriteSheet[mSpriteIndex].size.x / 2.0f;
-        pos.y = mSpriteSheet[mSpriteIndex].size.y;
+        pos2 += mSpriteSheet[mSpriteIndex].offset;
+        pos2.x -= mSpriteSheet[mSpriteIndex].size.x / 2.0f;
+        pos2.y -= mSpriteSheet[mSpriteIndex].size.y;
 
-        TransparentBlt(hdc, pos.x, pos.y
+        TransparentBlt(hdc, pos2.x, pos2.y
             , mSpriteSheet[mSpriteIndex].size.x * scale.x
             , mSpriteSheet[mSpriteIndex].size.y * scale.y
             , mSheetImage->GetHdc()
             , mSpriteSheet[mSpriteIndex].leftTop.x, mSpriteSheet[mSpriteIndex].leftTop.y
-            , mSpriteSheet[mSpriteIndex].size.x, mSpriteSheet[mSpriteIndex].size.y,
-            m_Color); //RGB(207, 207, 207)
+            , mSpriteSheet[mSpriteIndex].size.x, mSpriteSheet[mSpriteIndex].size.y
+            , m_Color);
     }
 
 

@@ -69,6 +69,8 @@ void Boss_Enter_Scene::OnEnter()
 	mMainChar->GetComponent<Transform>()->SetPos(Vector2(240.0f, 800.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);
+
+	Camera::SetImgResolution(Vector2(1990.f, 780.f));
 }
 void Boss_Enter_Scene::OnExit()
 {

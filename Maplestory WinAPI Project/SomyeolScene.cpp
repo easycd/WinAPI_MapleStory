@@ -167,7 +167,7 @@ void SomyeolScene::OnEnter()
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);
 	CollisionManager::SetLayer(eLayerType::Monster, eLayerType::WallCollider, true);
 
-	Camera::SetLookRange(Vector2(2095.f, 1360.f));
+	Camera::SetImgResolution(Vector2(2095.f, 1360.f));
 }
 void SomyeolScene::OnExit()
 {
