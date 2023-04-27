@@ -12,18 +12,6 @@ public:
 	virtual void Update() override;
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
-
-public:
-	UINT GetImageWidthSize()
-	{
-		return mImage->GetWidth();
-	}
-
-	UINT GetImageHeightSize()
-	{
-		return mImage->GetHeight();
-	}
-
 private:
 	Image* mImage;
 };

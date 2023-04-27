@@ -29,7 +29,7 @@ void WizetScene::Update()
 	mTime += Time::DeltaTime();
 	if (mTime > 6.0f)
 	{
-		SceneManager::LoadScene(eSceneType::Login);
+		SceneManager::LoadScene(eSceneType::ChannelSelect);
 	}
 	Scene::Update();
 }

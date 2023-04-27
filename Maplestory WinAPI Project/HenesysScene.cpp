@@ -26,14 +26,6 @@ HenesysScene::~HenesysScene()
 }
 void HenesysScene::Initialize()
 {
-	/*Vector2 Resolution = Camera->GetResolution();
-	if (Resolution.x <= 0.f)
-		Resolution.x = 0.f;
-
-	if (Resolution.y >= 768.f)
-		Resolution.y = 768.f;*/
-
-
 	//헤네시스 배경
 	HenesysBack* m_henesysBack = new HenesysBack();
 	AddGameObeject(m_henesysBack, eLayerType::BG);
@@ -52,12 +44,6 @@ void HenesysScene::Initialize()
 	//-------------------------포탈 오브젝트-----------------------------------------
 	Portal* m_portal0 = new Portal(); AddGameObeject(m_portal0, eLayerType::Portal);
 	Portal* m_portal1 = new Portal(); AddGameObeject(m_portal1, eLayerType::Portal);
-
-
-
-	//빨간달팽이 몬스터
-	//RedSnail* m_redsnail = new RedSnail();
-	//AddGameObeject(m_redsnail, eLayerType::Monster);
 	
 	//------------------------주황버섯 몬스터 오브젝트----------------------------------------
 	//1번 바닥
@@ -199,8 +185,7 @@ void HenesysScene::Release()
 }
 void HenesysScene::OnEnter()
 {
-//	mMainChar->GetComponent<Transform>()->SetPos(Vector2(1560.0f, 890.0f));
-	mMainChar->GetComponent<Transform>()->SetPos(Vector2(1000.0f, 890.0f));
+	mMainChar->GetComponent<Transform>()->SetPos(Vector2(1050.0f, 350.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);

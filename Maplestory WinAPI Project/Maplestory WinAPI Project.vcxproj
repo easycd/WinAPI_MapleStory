@@ -151,6 +151,12 @@
     <ClInclude Include="Boss_Yaldabaoth.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CenterFullSkill.h" />
+    <ClInclude Include="ChannelName.h" />
+    <ClInclude Include="ChannelSelectBG.h" />
+    <ClInclude Include="ChannelSelectScene.h" />
+    <ClInclude Include="CharacterMove.h" />
+    <ClInclude Include="CharacterSelectBG.h" />
+    <ClInclude Include="CharacterSelectScene.h" />
     <ClInclude Include="CircleObj.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionManager.h" />
@@ -170,8 +176,6 @@
     <ClInclude Include="Input.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LeftFullSkill.h" />
-    <ClInclude Include="LoginBack.h" />
-    <ClInclude Include="LoginScene.h" />
     <ClInclude Include="MainChar.h" />
     <ClInclude Include="MainChar_GroundCollider.h" />
     <ClInclude Include="MapleEngine.h" />
@@ -230,6 +234,12 @@
     <ClCompile Include="Boss_Yaldabaoth.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CenterFullSkill.cpp" />
+    <ClCompile Include="ChannelName.cpp" />
+    <ClCompile Include="ChannelSelectBG.cpp" />
+    <ClCompile Include="ChannelSelectScene.cpp" />
+    <ClCompile Include="CharacterMove.cpp" />
+    <ClCompile Include="CharacterSelectBG.cpp" />
+    <ClCompile Include="CharacterSelectScene.cpp" />
     <ClCompile Include="CircleObj.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionManager.cpp" />
@@ -246,8 +256,6 @@
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LeftFullSkill.cpp" />
-    <ClCompile Include="LoginBack.cpp" />
-    <ClCompile Include="LoginScene.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainChar.cpp" />
     <ClCompile Include="MainChar_GroundCollider.cpp" />

@@ -4,7 +4,7 @@
 enum class eSceneType
 {
 	Start,
-	Login,
+	ChannelSelect,
 	CharSelect,
 	Henesys,
 	Somyeol,

@@ -19,6 +19,16 @@ public:
 	UINT GetWidth() { return mWidth; }
 	UINT GetHeight() { return mHeight; }
 
+	//void SetWidth(UINT width)
+	//{
+	//	UINT mWidth = width;
+	//}
+	//
+	//void SetHeight(UINT hight)
+	//{
+	//	UINT mHeight = hight;
+	//}
+
 private:
 	void clear();
 

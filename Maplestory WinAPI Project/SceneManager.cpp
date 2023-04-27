@@ -3,8 +3,9 @@
 #include "Arcana.h"
 #include "HenesysScene.h"
 #include "SomyeolScene.h"
-#include "LoginScene.h"
 #include "WizetScene.h"
+#include "ChannelSelectScene.h"
+#include "CharacterSelectScene.h"
 #include "Boss_Stage1_Scene.h"
 #include "Boss_Stage2_Scene.h"
 #include "Boss_Enter_Scene.h"
@@ -17,7 +18,8 @@ void SceneManager::Initialize()
 	mScenes.resize((UINT)eSceneType::End);
 
 	mScenes[(UINT)eSceneType::Start] = new WizetScene();
-	mScenes[(UINT)eSceneType::Login] = new LoginScene(); // 로그인 씬
+	mScenes[(UINT)eSceneType::ChannelSelect] = new ChannelSelectScene(); //채널 선택 씬
+	mScenes[(UINT)eSceneType::CharSelect] = new CharacterSelectScene(); //캐릭터 선택 씬
 	mScenes[(UINT)eSceneType::Henesys] = new HenesysScene(); //헤네시스 씬
 	mScenes[(UINT)eSceneType::Arcana] = new Arcana(); // 아르카나 씬
 	mScenes[(UINT)eSceneType::Somyeol] = new SomyeolScene(); //소멸여로 씬
@@ -25,7 +27,7 @@ void SceneManager::Initialize()
 	mScenes[(UINT)eSceneType::Boss_Stage1] = new Boss_Stage1_Scene(); //보스스테이지1 씬
 	mScenes[(UINT)eSceneType::Boss_Stage2] = new Boss_Stage2_Scene(); //보스스테이지2 씬
 
-	mActiveScene = mScenes[(UINT)eSceneType::Login]; //씬 시작
+	mActiveScene = mScenes[(UINT)eSceneType::ChannelSelect]; //씬 시작
 
 	for (Scene* scene : mScenes)
 	{

@@ -150,12 +150,13 @@ void Arcana::Release()
 }
 void Arcana::OnEnter()
 {
-	Camera::SetImgResolution(Vector2(2770.f, 1180.f));
-	m_mainchar->GetComponent<Transform>()->SetPos(Vector2(500.0f, 800.0f));
+	m_mainchar->GetComponent<Transform>()->SetPos(Vector2(160.0f, 500.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);
 	CollisionManager::SetLayer(eLayerType::Monster, eLayerType::WallCollider, true);
+	
+	Camera::SetImgResolution(Vector2(2770.f, 1180.f));
 }
 void Arcana::OnExit()
 {

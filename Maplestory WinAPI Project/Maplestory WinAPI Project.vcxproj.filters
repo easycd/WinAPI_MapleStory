@@ -89,9 +89,6 @@
     <Filter Include="Contents\01. GameObject\BackObj\Henesys">
       <UniqueIdentifier>{8913dec4-d6e7-4150-9d37-957dd0a0bced}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\01. GameObject\BackObj\Login">
-      <UniqueIdentifier>{28310f8d-6305-48fa-810b-e5562f9cf982}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\01. GameObject\BackObj\Somyel">
       <UniqueIdentifier>{0c272131-ddfd-4f77-83c9-c4386d645c55}</UniqueIdentifier>
     </Filter>
@@ -103,9 +100,6 @@
     </Filter>
     <Filter Include="Contents\02. Scene\BossScene">
       <UniqueIdentifier>{cc07f761-2ad9-47b0-8134-b864c7db8aa2}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Contents\02. Scene\LoginScene">
-      <UniqueIdentifier>{76c91b62-c553-44b5-ad87-1c2c0627967b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Contents\02. Scene\SomyeolScene">
       <UniqueIdentifier>{05aee2f6-635d-4d9a-a482-11d1db726e4d}</UniqueIdentifier>
@@ -136,6 +130,18 @@
     </Filter>
     <Filter Include="Contents\01. GameObject\Skill\SolunaDivide">
       <UniqueIdentifier>{b4002b81-c554-4991-844c-5bbac0d13cf4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\BackObj\ChannelSelect">
+      <UniqueIdentifier>{5481bfcb-0079-40ce-8237-ab3613c26908}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\02. Scene\ChannelSelectSecne">
+      <UniqueIdentifier>{1c5dfd53-a7b9-4b19-9f3f-3d684c8d39a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\BackObj\CharacterSelect">
+      <UniqueIdentifier>{5c67b25f-6b97-41c5-9aa3-60473e546804}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\02. Scene\CharacterSelectScene">
+      <UniqueIdentifier>{25bfd49e-b2ac-4e59-b22f-7fc831a143da}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -262,9 +268,6 @@
     <ClInclude Include="HenesysBack.h">
       <Filter>Contents\01. GameObject\BackObj\Henesys</Filter>
     </ClInclude>
-    <ClInclude Include="LoginBack.h">
-      <Filter>Contents\01. GameObject\BackObj\Login</Filter>
-    </ClInclude>
     <ClInclude Include="SomyeolBack.h">
       <Filter>Contents\01. GameObject\BackObj\Somyel</Filter>
     </ClInclude>
@@ -300,9 +303,6 @@
     </ClInclude>
     <ClInclude Include="Boss_Stage2_Scene.h">
       <Filter>Contents\02. Scene\BossScene</Filter>
-    </ClInclude>
-    <ClInclude Include="LoginScene.h">
-      <Filter>Contents\02. Scene\LoginScene</Filter>
     </ClInclude>
     <ClInclude Include="SomyeolScene.h">
       <Filter>Contents\02. Scene\SomyeolScene</Filter>
@@ -369,6 +369,24 @@
     </ClInclude>
     <ClInclude Include="SolunaDivideBG.h">
       <Filter>Contents\01. GameObject\Skill\SolunaDivide</Filter>
+    </ClInclude>
+    <ClInclude Include="ChannelSelectBG.h">
+      <Filter>Contents\01. GameObject\BackObj\ChannelSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="ChannelSelectScene.h">
+      <Filter>Contents\02. Scene\ChannelSelectSecne</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterSelectBG.h">
+      <Filter>Contents\01. GameObject\BackObj\CharacterSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterSelectScene.h">
+      <Filter>Contents\02. Scene\CharacterSelectScene</Filter>
+    </ClInclude>
+    <ClInclude Include="CharacterMove.h">
+      <Filter>Contents\01. GameObject\BackObj\CharacterSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="ChannelName.h">
+      <Filter>Contents\01. GameObject\BackObj\CharacterSelect</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -493,9 +511,6 @@
     <ClCompile Include="HenesysBack.cpp">
       <Filter>Contents\01. GameObject\BackObj\Henesys</Filter>
     </ClCompile>
-    <ClCompile Include="LoginBack.cpp">
-      <Filter>Contents\01. GameObject\BackObj\Login</Filter>
-    </ClCompile>
     <ClCompile Include="SomyeolBack.cpp">
       <Filter>Contents\01. GameObject\BackObj\Somyel</Filter>
     </ClCompile>
@@ -531,9 +546,6 @@
     </ClCompile>
     <ClCompile Include="Boss_Stage2_Scene.cpp">
       <Filter>Contents\02. Scene\BossScene</Filter>
-    </ClCompile>
-    <ClCompile Include="LoginScene.cpp">
-      <Filter>Contents\02. Scene\LoginScene</Filter>
     </ClCompile>
     <ClCompile Include="SomyeolScene.cpp">
       <Filter>Contents\02. Scene\SomyeolScene</Filter>
@@ -600,6 +612,24 @@
     </ClCompile>
     <ClCompile Include="SolunaDivideBG.cpp">
       <Filter>Contents\01. GameObject\Skill\SolunaDivide</Filter>
+    </ClCompile>
+    <ClCompile Include="ChannelSelectBG.cpp">
+      <Filter>Contents\01. GameObject\BackObj\ChannelSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="ChannelSelectScene.cpp">
+      <Filter>Contents\02. Scene\ChannelSelectSecne</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterSelectBG.cpp">
+      <Filter>Contents\01. GameObject\BackObj\CharacterSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterSelectScene.cpp">
+      <Filter>Contents\02. Scene\CharacterSelectScene</Filter>
+    </ClCompile>
+    <ClCompile Include="CharacterMove.cpp">
+      <Filter>Contents\01. GameObject\BackObj\CharacterSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="ChannelName.cpp">
+      <Filter>Contents\01. GameObject\BackObj\CharacterSelect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
