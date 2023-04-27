@@ -15,6 +15,8 @@
 #include "SoulEclipseBackGround.h"
 #include "SoulEclipseEffect.h"
 #include "SolunaDivideStart.h"
+#include "SolunaDivideBG.h"
+
 #include "Camera.h"
 #include "HenesysBack.h"
 #include "Portal.h"
@@ -353,8 +355,11 @@ void MainChar::idle()
 		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		SolunaDivideStart* SD = new SolunaDivideStart();
+		SolunaDivideBG* BG = new SolunaDivideBG();
+		BG->Initialize();
 		SD->Initialize();
 		SD->GetComponent<Transform>()->SetPos(Vector2(780.f, 660.f));
+		curScene->AddGameObeject(BG, eLayerType::SoulEclipse);
 		curScene->AddGameObeject(SD, eLayerType::SoulEclipse);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 		}

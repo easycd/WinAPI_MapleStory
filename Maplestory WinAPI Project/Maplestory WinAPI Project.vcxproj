@@ -188,6 +188,8 @@
     <ClInclude Include="RResources.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="SolunaDivideBG.h" />
+    <ClInclude Include="SolunaDivideEffect.h" />
     <ClInclude Include="SolunaDivideStart.h" />
     <ClInclude Include="SomyeolBack.h" />
     <ClInclude Include="SomyeolObject.h" />
@@ -259,6 +261,8 @@
     <ClCompile Include="RResources.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="SolunaDivideBG.cpp" />
+    <ClCompile Include="SolunaDivideEffect.cpp" />
     <ClCompile Include="SolunaDivideStart.cpp" />
     <ClCompile Include="SomyeolBack.cpp" />
     <ClCompile Include="SomyeolObject.cpp" />

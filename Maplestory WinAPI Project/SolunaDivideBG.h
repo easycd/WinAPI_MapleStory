@@ -1,29 +1,25 @@
 #pragma once
 #include "GameObject.h"
+#include "Image.h"
 
-class Animation;
 class Animator;
-class SolunaDivideEffect;
-class SolunaDivideBG;
+class Animation;
 
-class SolunaDivideStart : public GameObject
+class SolunaDivideBG : public GameObject
 {
 public:
-	SolunaDivideStart();
-	~SolunaDivideStart();
+	SolunaDivideBG();
+	~SolunaDivideBG();
 
 	virtual void Initialize() override;
 	virtual void Update() override;
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
 
+
 private:
 	Animator* m_Animator;
-	SolunaDivideEffect* Effect;
-	float mTime;
 
-	void Loop();
-	void End();
-
+	float m_Time;
 };
 

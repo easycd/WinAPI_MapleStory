@@ -361,7 +361,15 @@
     <ClInclude Include="BlackChainSkill.h">
       <Filter>Contents\01. GameObject\Boss\BossSkill</Filter>
     </ClInclude>
-    <ClInclude Include="SolunaDivideStart.h" />
+    <ClInclude Include="SolunaDivideStart.h">
+      <Filter>Contents\01. GameObject\Skill\SolunaDivide</Filter>
+    </ClInclude>
+    <ClInclude Include="SolunaDivideEffect.h">
+      <Filter>Contents\01. GameObject\Skill\SolunaDivide</Filter>
+    </ClInclude>
+    <ClInclude Include="SolunaDivideBG.h">
+      <Filter>Contents\01. GameObject\Skill\SolunaDivide</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -584,7 +592,15 @@
     <ClCompile Include="BlackChainSkill.cpp">
       <Filter>Contents\01. GameObject\Boss\BossSkill</Filter>
     </ClCompile>
-    <ClCompile Include="SolunaDivideStart.cpp" />
+    <ClCompile Include="SolunaDivideStart.cpp">
+      <Filter>Contents\01. GameObject\Skill\SolunaDivide</Filter>
+    </ClCompile>
+    <ClCompile Include="SolunaDivideEffect.cpp">
+      <Filter>Contents\01. GameObject\Skill\SolunaDivide</Filter>
+    </ClCompile>
+    <ClCompile Include="SolunaDivideBG.cpp">
+      <Filter>Contents\01. GameObject\Skill\SolunaDivide</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="cursor1.cur">

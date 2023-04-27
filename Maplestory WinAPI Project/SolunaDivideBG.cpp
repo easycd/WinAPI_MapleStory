@@ -1,4 +1,4 @@
-#include "SoulEclipseBackGround.h"
+#include "SolunaDivideBG.h"
 #include "SceneManager.h"
 #include "Transform.h"
 #include "RResources.h"
@@ -9,16 +9,16 @@
 #include "Time.h"
 #include "Input.h"
 
-SoulEclipseBackGround::SoulEclipseBackGround()
+SolunaDivideBG::SolunaDivideBG()
 	: m_Time(0)
 {
 }
 
-SoulEclipseBackGround::~SoulEclipseBackGround()
+SolunaDivideBG::~SolunaDivideBG()
 {
 }
 
-void SoulEclipseBackGround::Initialize()
+void SolunaDivideBG::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
 	tr->SetScale(Vector2(2.f, 2.f));
@@ -31,24 +31,25 @@ void SoulEclipseBackGround::Initialize()
 	GameObject::Initialize();
 }
 
-void SoulEclipseBackGround::Update()
+void SolunaDivideBG::Update()
 {
-	GameObject::Update();
-
-	if (Input::GetKeyDown(eKeyCode::A))
+	m_Time += Time::DeltaTime();
+	if (m_Time > 2.5f)
 	{
 		object::Destory(this);
 	}
-	
+
+	GameObject::Update();
 }
 
-void SoulEclipseBackGround::Render(HDC hdc)
+void SolunaDivideBG::Render(HDC hdc)
 {
+
 	GameObject::Render(hdc);
 }
 
-void SoulEclipseBackGround::Release()
+void SolunaDivideBG::Release()
 {
+
 	GameObject::Release();
 }
-
