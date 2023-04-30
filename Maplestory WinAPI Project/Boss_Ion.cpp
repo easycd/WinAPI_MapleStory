@@ -27,16 +27,20 @@ void Boss_Ion::Initialize()
 	tr->SetPos(Vector2(1000.0f, 800.0f));
 
 	m_Animator = AddComponent<Animator>();
-	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\respawn", Vector2::Zero, 0.1f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\stand", Vector2::Zero, 0.1f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\die", Vector2::Zero, 0.1f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack1", Vector2::Zero, 0.1f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack2", Vector2::Zero, 0.1f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\respawn", Vector2::Zero, 0.08f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\standLeft", Vector2::Zero, 0.08f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\standRight", Vector2::Zero, 0.08f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\die_Left", Vector2::Zero, 0.08f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\die_Right", Vector2::Zero, 0.08f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack1_Left", Vector2::Zero, 0.08f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack1_Right", Vector2::Zero, 0.08f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack2_Left", Vector2::Zero, 0.08f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack2_Right", Vector2::Zero, 0.08f);
 
 
 	m_Animator->GetCompleteEvent(L"Ionrespawn") = std::bind(&Boss_Ion::idle, this);
-	m_Animator->GetCompleteEvent(L"Ionattack1") = std::bind(&Boss_Ion::idle, this);
-	m_Animator->GetCompleteEvent(L"Ionattack2") = std::bind(&Boss_Ion::idle, this);
+	m_Animator->GetCompleteEvent(L"Ionattack1_Right") = std::bind(&Boss_Ion::idle, this);
+	m_Animator->GetCompleteEvent(L"Ionattack2_Right") = std::bind(&Boss_Ion::idle, this);
 	//m_Animator->GetCompleteEvent(L"Ionstand") = std::bind(&Boss_Ion::attack1, this);
 
 	//m_State = eBoss_IonState::Attack1;
@@ -64,7 +68,7 @@ void Boss_Ion::Update()
 
 void Boss_Ion::Render(HDC hdc)
 {
-	//m_Animator->SetRGB(RGB(255, 255, 255));
+	m_Animator->SetRGB(RGB(207, 207, 207));
 	GameObject::Render(hdc);
 }
 
@@ -103,7 +107,7 @@ void Boss_Ion::pattern()
 void Boss_Ion::idle()
 {
 	m_State = eBoss_IonState::Pattern;
-	m_Animator->Play(L"Ionstand", true);
+	m_Animator->Play(L"IonstandRight", true);
 
 }
 
@@ -116,14 +120,14 @@ void Boss_Ion::dead()
 void Boss_Ion::attack1()
 {
 	m_State = eBoss_IonState::Attack1;
-	m_Animator->Play(L"Ionattack1", true);
+	m_Animator->Play(L"Ionattack1_Right", true);
 
 }
 
 void Boss_Ion::attack2()
 {
 	m_State = eBoss_IonState::Attack2;
-	m_Animator->Play(L"Ionattack2", true);
+	m_Animator->Play(L"Ionattack2_Right", true);
 }
 
 void Boss_Ion::idleCompleteEvent()

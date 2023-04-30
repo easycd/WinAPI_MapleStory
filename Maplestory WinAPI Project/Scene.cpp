@@ -67,6 +67,11 @@
 	{
 	}
 
+	MainChar* Scene::GetPlayer()
+	{
+		return nullptr;
+	}
+
 	void Scene::AddGameObeject(GameObject* obj, eLayerType layer)
 	{
 		mLayers[(UINT)layer].AddGameObject(obj);

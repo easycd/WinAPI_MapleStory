@@ -1,6 +1,8 @@
 #pragma once
 #include "Scene.h"
 
+	class MainChar;
+
 	class SceneManager
 	{
 	public:
@@ -12,7 +14,7 @@
 
 		static void LoadScene(eSceneType type);
 		static Scene* GetActiveScene() { return mActiveScene; }
-
+		static MainChar* GetPlayer();
 
 	private:
 		static std::vector<Scene*> mScenes;

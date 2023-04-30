@@ -5,6 +5,7 @@
 class Rigidbody;
 class Animator;
 class Camera;
+
 class MainChar : public GameObject 
 {
 public:

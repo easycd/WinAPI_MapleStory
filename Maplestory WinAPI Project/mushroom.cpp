@@ -11,14 +11,15 @@
 #include "WallColliderRight.h"
 #include "Rigidbody.h"
 #include "MainChar.h"
+#include "Object.h"
 
 mushroom::mushroom()
 	: m_Time(0.0f)
+	, Speed(Vector2(50.0f, 0.0f))
 	, SetPosX(0.0f)
 	, Direction(0)
 	, Animation_Check(false)
 	, Ground(false)
-	, Pattern(0)
 	, CompleteCnt(0)
 	, AnimationLoop(false)
 	, Check(false)
@@ -32,7 +33,7 @@ mushroom::~mushroom()
 
 void mushroom::Initialize()
 {
-	Transform* tr = GetComponent<Transform>();
+	tr = GetComponent<Transform>();
 	tr->SetPos(Vector2(800.0f, 600.0f));
 
 	m_Animator = AddComponent<Animator>();
@@ -42,9 +43,6 @@ void mushroom::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\moveRight", Vector2::Zero, 0.3f);
 	m_State = emushroomState::Move;
 	m_Animator->Play(L"mushroommoveLeft", false);
-
-
-
 
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(70, 70)); // 히트박스 크기 조정
@@ -58,9 +56,35 @@ void mushroom::Update()
 {
 	GameObject::Update();
 
-
-	Pattern = rand() % 2; // 0 ~ 1 랜덤 숫자 
-
+	//몬스터 일정범위 주위에 캐릭터가 있으면 추적하는 로직
+	// 오류: 캐릭터 Y값이랑 몬스터 Y값의 오차가 커서 예외처리 불가.
+	//if (m_State == emushroomState::Move)
+	//{
+	//MainChar* player = SceneManager::GetPlayer();
+	//Vector2 playerPos = player->GetComponent<Transform>()->GetPos();
+	//Vector2 playerX = Vector2(playerPos.x, 0.0f);
+	//Vector2 playerY = Vector2(0.0, playerPos.y);
+	//
+	//Vector2 mobX = Vector2(tr->GetPos().x, 0.0f);
+	//Vector2 mobY = Vector2(0.0f, tr->GetPos().y);
+	//
+	//Vector2 dr = math::Direction(mobX, playerX);
+	//float disX = fabs(playerX.x - mobX.x);
+	//float disY = fabs(playerY.y - mobY.y);
+	//if(disX < 50.0f && disY < 145.0f && disY > 50)
+	//{
+	//	tr->AddPos(dr * Speed * Time::DeltaTime());
+	//	if (dr.x > 0.0f)
+	//	{
+	//		Direction = 1;
+	//	}
+	//	else
+	//	{
+	//		Direction = 0;
+	//	}
+	//}
+	//
+	//}
 
 	switch (m_State)
 	{

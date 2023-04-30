@@ -35,11 +35,15 @@ private:
 	Rigidbody* mRigidbody;
 	MainChar* Ch;
 	Vector2 ChPos;
-	int Pattern;
+	Vector2 Speed;
+	Transform* tr;
+
 	float m_Time;
 	float SetPosX;
+
 	int Direction; // 방향 변수, 왼쪽 = 0, 오른쪽 = 1
 	int CompleteCnt;
+
 	bool Animation_Check;
 	bool Ground;
 	bool AnimationLoop;
@@ -47,6 +51,7 @@ private:
 
 	bool Check;
 	bool Check2;
+
 public:
 	void SetInitialize_Direction(int dr)
 	{

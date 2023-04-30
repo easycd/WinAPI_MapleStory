@@ -143,11 +143,16 @@ struct Vector2
 	Vector2& Normalize()
 	{
 		float length = Length();
+
+		if (Length() == 0.0f)
+			return *this;
+
 		x /= length;
 		y /= length;
 
 		return *this;
 	}
+
 };
 
 namespace math
@@ -176,6 +181,14 @@ namespace math
 	inline static float Cross(Vector2& v1, Vector2& v2)
 	{
 		return v1.x * v2.y - v1.y * v2.x;
+	}
+
+	static Vector2 Direction(Vector2 v1, Vector2 v2)
+	{
+		Vector2 Dir = v2 - v1;
+		Dir.Normalize();
+
+		return Dir;
 	}
 
 };

@@ -76,3 +76,9 @@ void SceneManager::LoadScene(eSceneType type)
 	mActiveScene = mScenes[(UINT)type];
 	mActiveScene->OnEnter();
 }
+
+
+MainChar* SceneManager::GetPlayer()
+{
+	return mActiveScene->GetPlayer();
+}

@@ -1,6 +1,7 @@
 #pragma once
 #include "Entity.h"
 #include "Layer.h"
+
 class Scene : public Entity
 {
 public:
@@ -15,6 +16,10 @@ public:
 
 	virtual void OnEnter();
 	virtual void OnExit();
+
+	virtual class MainChar* GetPlayer();
+
+
 
 	void AddGameObeject(GameObject* obj, eLayerType layer);
 	std::vector<GameObject*>& GetGameObjects(eLayerType layer);

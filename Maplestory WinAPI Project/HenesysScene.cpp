@@ -47,31 +47,31 @@ void HenesysScene::Initialize()
 	
 	//------------------------주황버섯 몬스터 오브젝트----------------------------------------
 	//1번 바닥
-	mushroom* m_mushroom0 = new mushroom(); AddGameObeject(m_mushroom0, eLayerType::Monster);
-	mushroom* m_mushroom1 = new mushroom(); AddGameObeject(m_mushroom1, eLayerType::Monster);
-	mushroom* m_mushroom2 = new mushroom(); AddGameObeject(m_mushroom2, eLayerType::Monster);
-	mushroom* m_mushroom3 = new mushroom(); AddGameObeject(m_mushroom3, eLayerType::Monster);
+	m_mushroom0 = new mushroom(); AddGameObeject(m_mushroom0, eLayerType::Monster);
+	m_mushroom1 = new mushroom(); AddGameObeject(m_mushroom1, eLayerType::Monster);
+	m_mushroom2 = new mushroom(); AddGameObeject(m_mushroom2, eLayerType::Monster);
+	m_mushroom3 = new mushroom(); AddGameObeject(m_mushroom3, eLayerType::Monster);
 	//4번 바닥
-	mushroom* m_mushroom4 = new mushroom(); AddGameObeject(m_mushroom4, eLayerType::Monster);
-	mushroom* m_mushroom5 = new mushroom(); AddGameObeject(m_mushroom5, eLayerType::Monster);
-	mushroom* m_mushroom6 = new mushroom(); AddGameObeject(m_mushroom6, eLayerType::Monster);
-	mushroom* m_mushroom7 = new mushroom(); AddGameObeject(m_mushroom7, eLayerType::Monster);
+	m_mushroom4 = new mushroom(); AddGameObeject(m_mushroom4, eLayerType::Monster);
+	m_mushroom5 = new mushroom(); AddGameObeject(m_mushroom5, eLayerType::Monster);
+	m_mushroom6 = new mushroom(); AddGameObeject(m_mushroom6, eLayerType::Monster);
+	m_mushroom7 = new mushroom(); AddGameObeject(m_mushroom7, eLayerType::Monster);
 	//6번 바닥
-	mushroom* m_mushroom8 = new mushroom(); AddGameObeject(m_mushroom8, eLayerType::Monster);
-	mushroom* m_mushroom9 = new mushroom(); AddGameObeject(m_mushroom9, eLayerType::Monster);
-	mushroom* m_mushroom10 = new mushroom(); AddGameObeject(m_mushroom10, eLayerType::Monster);
-	mushroom* m_mushroom11 = new mushroom(); AddGameObeject(m_mushroom11, eLayerType::Monster);
-	mushroom* m_mushroom12 = new mushroom(); AddGameObeject(m_mushroom12, eLayerType::Monster);
+	m_mushroom8 = new mushroom(); AddGameObeject(m_mushroom8, eLayerType::Monster);
+	m_mushroom9 = new mushroom(); AddGameObeject(m_mushroom9, eLayerType::Monster);
+	m_mushroom10 = new mushroom(); AddGameObeject(m_mushroom10, eLayerType::Monster);
+	m_mushroom11 = new mushroom(); AddGameObeject(m_mushroom11, eLayerType::Monster);
+	m_mushroom12 = new mushroom(); AddGameObeject(m_mushroom12, eLayerType::Monster);
 	//7번 바닥
-	mushroom* m_mushroom13 = new mushroom(); AddGameObeject(m_mushroom13, eLayerType::Monster);
-	mushroom* m_mushroom14 = new mushroom(); AddGameObeject(m_mushroom14, eLayerType::Monster);
-	mushroom* m_mushroom15 = new mushroom(); AddGameObeject(m_mushroom15, eLayerType::Monster);
-	mushroom* m_mushroom16 = new mushroom(); AddGameObeject(m_mushroom16, eLayerType::Monster);
+	m_mushroom13 = new mushroom(); AddGameObeject(m_mushroom13, eLayerType::Monster);
+	m_mushroom14 = new mushroom(); AddGameObeject(m_mushroom14, eLayerType::Monster);
+	m_mushroom15 = new mushroom(); AddGameObeject(m_mushroom15, eLayerType::Monster);
+	m_mushroom16 = new mushroom(); AddGameObeject(m_mushroom16, eLayerType::Monster);
 	//8번 바닥
-	mushroom* m_mushroom17 = new mushroom(); AddGameObeject(m_mushroom17, eLayerType::Monster);
-	mushroom* m_mushroom18 = new mushroom(); AddGameObeject(m_mushroom18, eLayerType::Monster);
-	mushroom* m_mushroom19 = new mushroom(); AddGameObeject(m_mushroom19, eLayerType::Monster);
-	mushroom* m_mushroom20 = new mushroom(); AddGameObeject(m_mushroom20, eLayerType::Monster);
+	m_mushroom17 = new mushroom(); AddGameObeject(m_mushroom17, eLayerType::Monster);
+	m_mushroom18 = new mushroom(); AddGameObeject(m_mushroom18, eLayerType::Monster);
+	m_mushroom19 = new mushroom(); AddGameObeject(m_mushroom19, eLayerType::Monster);
+	m_mushroom20 = new mushroom(); AddGameObeject(m_mushroom20, eLayerType::Monster);
 
 
 	//------------------------------------------방향충돌체 오브젝트-----------------------------------------------------
@@ -190,7 +190,6 @@ void HenesysScene::OnEnter()
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);
 	CollisionManager::SetLayer(eLayerType::Monster, eLayerType::WallCollider, true);
-	CollisionManager::SetLayer(eLayerType::Monster, eLayerType::Ground, true);
 
 	Camera::SetImgResolution(Vector2(1890.f, 1080.f));
 

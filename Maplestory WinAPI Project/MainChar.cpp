@@ -58,7 +58,7 @@ void MainChar::Initialize()
 	collider->SetCenter(Vector2(-30.0f, -150.0f));
 
 	mRigidbody = AddComponent<Rigidbody>();
-	mRigidbody->SetMass(1.0f);
+	mRigidbody->SetMass(1.f);
 
 	m_State = eMainCharState::Idle;
 	GameObject::Initialize();
@@ -203,7 +203,7 @@ void MainChar::move()
 	{
 		m_Animator->Play(L"CharjumpLeft", true);
 		Vector2 velocity = mRigidbody->GetVelocity();
-		velocity.y -= 500.0f;
+		velocity.y -= 400.0f;
 
 		mRigidbody->SetVelocity(velocity);
 		mRigidbody->SetGround(false);
@@ -212,7 +212,7 @@ void MainChar::move()
 	{
 		m_Animator->Play(L"CharjumpRight", true);
 		Vector2 velocity = mRigidbody->GetVelocity();
-		velocity.y -= 500.0f;
+		velocity.y -= 400.0f;
 
 		mRigidbody->SetVelocity(velocity);
 		mRigidbody->SetGround(false);

@@ -20,6 +20,7 @@ public:
 	void SetSize(Vector2 size) { mSize = size; };
 	Vector2 GetPos() { return mPos; }
 	Vector2 GetSize() { return mSize; }
+	Vector2 GetCenter() { return mCenter; }
 
 private:
 	static UINT ColliderNumber;
