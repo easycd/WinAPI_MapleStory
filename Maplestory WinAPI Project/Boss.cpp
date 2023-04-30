@@ -9,6 +9,7 @@
 #include "Collider.h"
 #include "CircleObj.h"
 #include "Object.h"
+#include "MainChar.h"
 
 #include "LeftFullSkill.h"
 #include "CenterFullSkill.h"
@@ -23,12 +24,21 @@ Boss::Boss()
 	, T_Skill1(0.0f)
 	, TestTime(0.0f)
 	, m_State(eBoss_State::Respawn)
-	, attack_pattern(0)
+	, attack_pattern(3)
+	, Skill4_Cnt(0)
 	, Skill1Loop(false)
 	, Skill2Loop(false)
 	, Skill3Loop(false)
 	, Skill4Loop(false)
-	, m_Test(false)
+
+	, Skill4_Loop0(false)
+	, Skill4_Loop1(false)
+	, Skill4_Loop2(false)
+	, Skill4_Loop3(false)
+	, Skill4_Loop4(false)
+	, Skill4_Loop5(false)
+
+	,  m_Test(false)
 	,cnt(0)
 
 {
@@ -44,17 +54,18 @@ void Boss::Initialize()
 	tr->SetPos(Vector2(1000.0f, 800.0f));
 
 	m_Animator = AddComponent<Animator>();
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\BossImg\\Respawn", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\BossImg\\stand", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\BossImg\\FullLeft_Skill1", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\BossImg\\FullCenter_Skill2", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\BossImg\\FullRight_Skill3", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\BossImg\\Chain_Skill4", Vector2::Zero, 0.1f);
 
-	m_Animator->GetCompleteEvent(L"BossImgstand") = std::bind(&Boss::idle, this);
+	m_Animator->GetCompleteEvent(L"BossImgRespawn") = std::bind(&Boss::idle, this);
 	m_Animator->GetCompleteEvent(L"BossImgFullLeft_Skill1") = std::bind(&Boss::idle, this);
 	m_Animator->GetCompleteEvent(L"BossImgFullCenter_Skill2") = std::bind(&Boss::idle, this);
 	m_Animator->GetCompleteEvent(L"BossImgFullRight_Skill3") = std::bind(&Boss::idle, this);
-	m_Animator->GetCompleteEvent(L"BossImgChain_Skill4") = std::bind(&Boss::idle, this);
+	m_Animator->GetCompleteEvent(L"BossImgChain_Skill4") = std::bind(&Boss::Chain, this);
 
 	circleobj0 = nullptr;
 	circleobj1 = nullptr;
@@ -78,10 +89,79 @@ void Boss::Update()
 {
 	GameObject::Update();
 
+	if (Skill4Loop == true)
+	{
+		player = SceneManager::GetPlayer();
+		TestTime += Time::DeltaTime();
+		if (TestTime > 0.0f && Skill4_Loop0 == true)
+		{
+			Vector2 playerPos0 = player->GetComponent<Transform>()->GetPos();
+			Vector2 playerX0 = Vector2(playerPos0.x, 0.0f);
+			BS0 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
+			BS0->GetComponent<Transform>()->SetPos(Vector2(playerX0.x, 900.0f));
+			BS0->Attack();
+			Skill4_Loop0 = false;
+			Skill4_Loop1 = true;
+		}
+		if (TestTime > 2.0f && Skill4_Loop1 == true)
+		{
+			Vector2 playerPos1 = player->GetComponent<Transform>()->GetPos();
+			Vector2 playerX1 = Vector2(playerPos1.x, 0.0f);
+			BS1 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
+			BS1->GetComponent<Transform>()->SetPos(Vector2(playerX1.x, 900.0f));
+			BS1->Attack();
+			Skill4_Loop1 = false;
+			Skill4_Loop2 = true;
+		}
+		if (TestTime > 4.0f && Skill4_Loop2 == true)
+		{
+			Vector2 playerPos2 = player->GetComponent<Transform>()->GetPos();
+			Vector2 playerX2 = Vector2(playerPos2.x, 0.0f);
+			BS2 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
+			BS2->GetComponent<Transform>()->SetPos(Vector2(playerX2.x, 900.0f));
+			BS2->Attack();
+			Skill4_Loop2 = false;
+			Skill4_Loop3 = true;
+		}
+		if (TestTime > 6.0f && Skill4_Loop3 == true)
+		{
+			Vector2 playerPos3 = player->GetComponent<Transform>()->GetPos();
+			Vector2 playerX3 = Vector2(playerPos3.x, 0.0f);
+			BS3 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
+			BS3->GetComponent<Transform>()->SetPos(Vector2(playerX3.x, 900.0f));
+			BS3->Attack();
+			Skill4_Loop3 = false;
+			Skill4_Loop4 = true;
+		}
+		if (TestTime > 8.0f && Skill4_Loop4 == true)
+		{
+			Vector2 playerPos4 = player->GetComponent<Transform>()->GetPos();
+			Vector2 playerX4 = Vector2(playerPos4.x, 0.0f);
+			BS4 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
+			BS4->GetComponent<Transform>()->SetPos(Vector2(playerX4.x, 900.0f));
+			BS4->Attack();
+			Skill4_Loop4 = false;
+			Skill4_Loop5 = true;
+		}
+		if (TestTime > 10.0f && Skill4_Loop5 == true)
+		{
+			Vector2 playerPos5 = player->GetComponent<Transform>()->GetPos();
+			Vector2 playerX5 = Vector2(playerPos5.x, 0.0f);
+			BS5 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
+			BS5->GetComponent<Transform>()->SetPos(Vector2(playerX5.x, 900.0f));
+			BS5->Attack();
+			Skill4_Loop5 = false;
+			Skill4Loop == false;
+		}
+	}
+
 	switch (m_State)
 	{
 	case Boss::eBoss_State::Pattern:
 		pattern();
+		break;
+	case Boss::eBoss_State::Idle:
+		idle();
 		break;
 	case Boss::eBoss_State::FullLeft_Skill1:
 		break;
@@ -110,7 +190,7 @@ void Boss::Release()
 
 void Boss::respawn()
 {
-	m_Animator->Play(L"BossImgstand", true);
+	m_Animator->Play(L"BossImgRespawn", true);
 }
 
 void Boss::pattern()
@@ -121,7 +201,7 @@ void Boss::pattern()
 	if (m_Time > 10.0f)
 	{
 		m_Time = 0.0f;
-		attack_pattern = rand() % 4;
+		//attack_pattern = rand() % 4;
 
 		switch (attack_pattern)
 		{
@@ -149,12 +229,10 @@ void Boss::idle()
 	Skill1_Obj();
 	Skill2_Obj();
 	Skill3_Obj();
-	Test();
 
 	Skill1Loop = false;
 	Skill2Loop = false;
 	Skill3Loop = false;
-	Skill4Loop = false;
 
 	m_State = eBoss_State::Pattern;
 	m_Animator->Play(L"BossImgstand", true);
@@ -187,36 +265,14 @@ void Boss::Chain_Skill4()
 {
 	m_State = eBoss_State::Chain_Skill4;
 	m_Animator->Play(L"BossImgChain_Skill4", true);
-	Skill4Loop = true;
 }
 
-void Boss::Test()
+void Boss::Chain()
 {
-	if (Skill4Loop == true)
-	{
-		TestTime += Time::DeltaTime();
-
-		BS0 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
-		BS1 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
-		BS2 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
-		BS3 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
-		BS4 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
-		BS5 = object::Instantiate<BlackChainSkill>(eLayerType::BossObj);
-
-		BS1->GetComponent<Transform>()->SetPos(Vector2(400.0f, 1600.0f));
-		BS2->GetComponent<Transform>()->SetPos(Vector2(650.0f, 1600.0f));
-		BS3->GetComponent<Transform>()->SetPos(Vector2(900.0f, 1600.0f));
-		BS4->GetComponent<Transform>()->SetPos(Vector2(1150.0f, 1600.0f));
-		BS5->GetComponent<Transform>()->SetPos(Vector2(1400.0f, 1600.0f));
-
-		BS0->Attack();
-		BS1->Attack();
-		BS2->Attack();
-		BS3->Attack();
-		BS4->Attack();
-		BS5->Attack();
-	}
-
+	Skill4Loop = true;
+	Skill4_Loop0 = true;
+	TestTime = 0.0f;
+	m_State = eBoss_State::Idle;
 }
 
 void Boss::Obj_Circle()

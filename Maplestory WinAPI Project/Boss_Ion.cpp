@@ -7,8 +7,6 @@
 #include "Animator.h"
 #include "Scene.h"
 #include "Collider.h"
-#include "BossIon_Attack1.h"
-#include "BossIon_Attack2.h"
 #include "MainChar.h"
 
 Boss_Ion::Boss_Ion()
@@ -49,9 +47,9 @@ void Boss_Ion::Initialize()
 	m_Animator->GetCompleteEvent(L"Ionattack2_Right") = std::bind(&Boss_Ion::idle, this);
 	m_Animator->GetCompleteEvent(L"Ionattack2_Left") = std::bind(&Boss_Ion::idle, this);
 
-	Collider* collider = AddComponent<Collider>();
-	collider->SetSize(Vector2(300, 580)); // 히트박스 크기 조정
-	collider->SetCenter(Vector2(-150.0f, -580.0f)); // 히트박스 위치 조정
+	Idle_collider = AddComponent<Collider>();
+	Idle_collider->SetSize(Vector2(350, 600)); // 히트박스 크기 조정
+	Idle_collider->SetCenter(Vector2(-100.f, -650.0f)); // 히트박스 위치 조정
 
 	GameObject::Initialize();
 }
@@ -109,7 +107,7 @@ void Boss_Ion::Release()
 	GameObject::Release();
 }
 
-void Boss_Ion::respawn()
+void Boss_Ion::Ion_respawn()
 {
 	m_Animator->Play(L"Ionrespawn", true);
 }
@@ -155,8 +153,6 @@ void Boss_Ion::idle()
 {
 	m_State = eBoss_IonState::Pattern;
 	attack2_Delay = 0.0f;
-	//SetMoveRight = false;
-	//SetMoveLeft = false;
 
 	if (Direction == 0)
 		m_Animator->Play(L"IonstandLeft", true);

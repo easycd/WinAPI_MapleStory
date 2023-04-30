@@ -71,6 +71,7 @@ void mushroom::Update()
 	//Vector2 dr = math::Direction(mobX, playerX);
 	//float disX = fabs(playerX.x - mobX.x);
 	//float disY = fabs(playerY.y - mobY.y);
+	// 
 	//if(disX < 50.0f && disY < 145.0f && disY > 50)
 	//{
 	//	tr->AddPos(dr * Speed * Time::DeltaTime());

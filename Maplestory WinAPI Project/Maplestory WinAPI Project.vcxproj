@@ -137,8 +137,6 @@
     <ClInclude Include="BasicSkill.h" />
     <ClInclude Include="BlackChainSkill.h" />
     <ClInclude Include="Boss.h" />
-    <ClInclude Include="BossIon_Attack1.h" />
-    <ClInclude Include="BossIon_Attack2.h" />
     <ClInclude Include="Boss_Enter_Scene.h" />
     <ClInclude Include="Boss_Enter_Back.h" />
     <ClInclude Include="Boss_Ion.h" />
@@ -220,8 +218,6 @@
     <ClCompile Include="BasicSkill.cpp" />
     <ClCompile Include="BlackChainSkill.cpp" />
     <ClCompile Include="Boss.cpp" />
-    <ClCompile Include="BossIon_Attack1.cpp" />
-    <ClCompile Include="BossIon_Attack2.cpp" />
     <ClCompile Include="Boss_Enter_Scene.cpp" />
     <ClCompile Include="Boss_Enter_Back.cpp" />
     <ClCompile Include="Boss_Ion.cpp" />

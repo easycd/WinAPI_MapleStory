@@ -4,6 +4,8 @@
 
 class Animator;
 class MainChar;
+class Transform;
+
 class Boss_Ion : public GameObject
 {
 public:
@@ -24,7 +26,7 @@ public:
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
 
-	void respawn();
+	void Ion_respawn();
 
 private:
 	void pattern();
@@ -39,6 +41,8 @@ private:
 	Animator* m_Animator;
 	Transform* tr;
 	MainChar* player;
+
+	Collider* Idle_collider;
 
 	int Direction; //0이면 왼쪽 1이면 오른쪽
 	int attack_pattern;

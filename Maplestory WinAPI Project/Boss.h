@@ -8,6 +8,7 @@ class LeftFullSkill;
 class CenterFullSkill;
 class RightFullSkill;
 class BlackChainSkill;
+class MainChar;
 
 class Boss : public GameObject
 {
@@ -42,7 +43,7 @@ private:
 	void FullCenter_Skill2();
 	void FullRight_Skill3();
 	void Chain_Skill4();
-	void Test();
+	void Chain();
 
 	void Skill1_Obj();
 	void Skill2_Obj();
@@ -51,9 +52,11 @@ private:
 
 
 private:
+	MainChar* player;
 	eBoss_State m_State;
 	Animator* m_Animator;
 	int attack_pattern;
+	int Skill4_Cnt;
 	int cnt;
 
 	float m_Time;
@@ -67,6 +70,13 @@ private:
 	bool Skill3Loop;
 	bool Skill4Loop;
 	bool m_Test;
+
+	bool Skill4_Loop0;
+	bool Skill4_Loop1;
+	bool Skill4_Loop2;
+	bool Skill4_Loop3;
+	bool Skill4_Loop4;
+	bool Skill4_Loop5;
 
 	LeftFullSkill* Skill1;
 	CenterFullSkill* Skill2;

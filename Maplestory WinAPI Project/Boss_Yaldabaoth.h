@@ -3,14 +3,19 @@
 #include "Image.h"
 
 class Animator;
+class MainChar;
+class Transform;
+
 class Boss_Yaldabaoth : public GameObject
 {
 public:
 	enum class eBoss_YaldabaothState
 	{
-		Move,
+		Respawn,
+		Pattern,
 		Death,
-		Idle,
+		Attack1,
+		Attack2,
 	};
 
 	Boss_Yaldabaoth();
@@ -21,14 +26,31 @@ public:
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
 
+	void Yaldabaoth_respawn();
+
 private:
-	void move();
+	void pattern();
 	void idle();
-	void dead();
+	void death();
+	void attack1();
+	void attack2();
+	void idleCompleteEvent();
 
 private:
 	eBoss_YaldabaothState m_State;
 	Animator* m_Animator;
-};
+	Transform* tr;
+	MainChar* player;
 
+	Collider* Idle_collider;
+
+	int Direction; //0이면 왼쪽 1이면 오른쪽
+	int attack_pattern;
+
+	float m_Time;
+	float attack2_Delay;
+
+	bool SetMoveLeft;
+	bool SetMoveRight;
+};
 

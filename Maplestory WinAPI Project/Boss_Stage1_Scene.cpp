@@ -38,8 +38,10 @@ void Boss_Stage1_Scene::Initialize()
 	AddGameObeject(m_Boss_Yaldabaoth, eLayerType::Monster);
 
 	Scene::Initialize();
-	m_Boss_Ion->GetComponent<Transform>()->SetPos(Vector2(1800, 900));
-	m_Boss_Yaldabaoth->GetComponent<Transform>()->SetPos(Vector2(2700, 780));
+	m_Boss_Ion->GetComponent<Transform>()->SetPos(Vector2(1800, 820));
+	m_Boss_Ion->GetComponent<Transform>()->SetScale(Vector2(1.15f, 1.15f));
+	m_Boss_Yaldabaoth->GetComponent<Transform>()->SetPos(Vector2(2700, 860));
+	m_Boss_Yaldabaoth->GetComponent<Transform>()->SetScale(Vector2(1.15f, 1.15f));
 
 	ground0->GetComponent<Transform>()->SetPos(Vector2(0.0f, 770.0f));
 	ground0->GetComponent<Collider>()->SetSize(Vector2(5000.0f, 30.0f));
@@ -70,7 +72,8 @@ void Boss_Stage1_Scene::OnEnter()
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 
-	m_Boss_Ion->respawn();
+	m_Boss_Yaldabaoth->Yaldabaoth_respawn();
+	m_Boss_Ion->Ion_respawn();
 
 	Camera::SetImgResolution(Vector2(4520.f, 880.f));
 }

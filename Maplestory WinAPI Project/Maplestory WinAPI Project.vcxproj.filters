@@ -143,6 +143,12 @@
     <Filter Include="Contents\02. Scene\CharacterSelectScene">
       <UniqueIdentifier>{25bfd49e-b2ac-4e59-b22f-7fc831a143da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\01. GameObject\Boss\Yaldabaoth">
+      <UniqueIdentifier>{2444e32c-5fc9-4209-8bd0-ae1dda4bd0ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\Boss\Boss">
+      <UniqueIdentifier>{b12bbdb0-4323-4b40-8b50-3a33a6ba0936}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -219,12 +225,6 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Engine\Camera</Filter>
-    </ClInclude>
-    <ClInclude Include="Boss_Yaldabaoth.h">
-      <Filter>Contents\01. GameObject\Boss</Filter>
-    </ClInclude>
-    <ClInclude Include="Boss.h">
-      <Filter>Contents\01. GameObject\Boss</Filter>
     </ClInclude>
     <ClInclude Include="happy.h">
       <Filter>Contents\01. GameObject\Monster</Filter>
@@ -337,15 +337,6 @@
     <ClInclude Include="WallColliderRight.h">
       <Filter>Engine\Collider</Filter>
     </ClInclude>
-    <ClInclude Include="Boss_Ion.h">
-      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
-    </ClInclude>
-    <ClInclude Include="BossIon_Attack1.h">
-      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
-    </ClInclude>
-    <ClInclude Include="BossIon_Attack2.h">
-      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
-    </ClInclude>
     <ClInclude Include="CircleObj.h">
       <Filter>Contents\01. GameObject\Boss\Object</Filter>
     </ClInclude>
@@ -387,6 +378,15 @@
     </ClInclude>
     <ClInclude Include="ChannelName.h">
       <Filter>Contents\01. GameObject\BackObj\CharacterSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Ion.h">
+      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Yaldabaoth.h">
+      <Filter>Contents\01. GameObject\Boss\Yaldabaoth</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Contents\01. GameObject\Boss\Boss</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -465,12 +465,6 @@
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Engine\Camera</Filter>
-    </ClCompile>
-    <ClCompile Include="Boss_Yaldabaoth.cpp">
-      <Filter>Contents\01. GameObject\Boss</Filter>
-    </ClCompile>
-    <ClCompile Include="Boss.cpp">
-      <Filter>Contents\01. GameObject\Boss</Filter>
     </ClCompile>
     <ClCompile Include="happy.cpp">
       <Filter>Contents\01. GameObject\Monster</Filter>
@@ -580,15 +574,6 @@
     <ClCompile Include="WallColliderRight.cpp">
       <Filter>Engine\Collider</Filter>
     </ClCompile>
-    <ClCompile Include="BossIon_Attack1.cpp">
-      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
-    </ClCompile>
-    <ClCompile Include="Boss_Ion.cpp">
-      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
-    </ClCompile>
-    <ClCompile Include="BossIon_Attack2.cpp">
-      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
-    </ClCompile>
     <ClCompile Include="LeftFullSkill.cpp">
       <Filter>Contents\01. GameObject\Boss\BossSkill</Filter>
     </ClCompile>
@@ -630,6 +615,15 @@
     </ClCompile>
     <ClCompile Include="ChannelName.cpp">
       <Filter>Contents\01. GameObject\BackObj\CharacterSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Ion.cpp">
+      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Yaldabaoth.cpp">
+      <Filter>Contents\01. GameObject\Boss\Yaldabaoth</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Contents\01. GameObject\Boss\Boss</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
