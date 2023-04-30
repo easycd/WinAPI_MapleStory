@@ -56,6 +56,7 @@ class Animator : public Component
 		std::function<void()>& GetStartEvent(const std::wstring& name);
 		std::function<void()>& GetCompleteEvent(const std::wstring& name);
 		std::function<void()>& GetEndEvent(const std::wstring& name);
+
 		bool IsComplte() { return mActiveAnimation->IsComplete(); } //현재 애니메이션이 끝났는지 안끝났는지 확인하는 함수
 		
 		void SetIsCameraMove(bool IsCameraMove) 

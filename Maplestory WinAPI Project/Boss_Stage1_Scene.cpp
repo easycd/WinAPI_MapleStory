@@ -38,7 +38,7 @@ void Boss_Stage1_Scene::Initialize()
 	AddGameObeject(m_Boss_Yaldabaoth, eLayerType::Monster);
 
 	Scene::Initialize();
-	m_Boss_Ion->GetComponent<Transform>()->SetPos(Vector2(1800, 780));
+	m_Boss_Ion->GetComponent<Transform>()->SetPos(Vector2(1800, 900));
 	m_Boss_Yaldabaoth->GetComponent<Transform>()->SetPos(Vector2(2700, 780));
 
 	ground0->GetComponent<Transform>()->SetPos(Vector2(0.0f, 770.0f));

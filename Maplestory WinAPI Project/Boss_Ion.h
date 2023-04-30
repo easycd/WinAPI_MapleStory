@@ -3,6 +3,7 @@
 #include "Image.h"
 
 class Animator;
+class MainChar;
 class Boss_Ion : public GameObject
 {
 public:
@@ -28,7 +29,7 @@ public:
 private:
 	void pattern();
 	void idle();
-	void dead();
+	void death();
 	void attack1();
 	void attack2();
 	void idleCompleteEvent();
@@ -36,9 +37,17 @@ private:
 private:
 	eBoss_IonState m_State;
 	Animator* m_Animator;
-	int direction = 0; //0이면 왼쪽 1이면 오른쪽
-	float m_Time;
+	Transform* tr;
+	MainChar* player;
+
+	int Direction; //0이면 왼쪽 1이면 오른쪽
 	int attack_pattern;
+
+	float m_Time;
+	float attack2_Delay;
+
+	bool SetMoveLeft;
+	bool SetMoveRight;
 };
 
 

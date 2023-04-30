@@ -23,6 +23,8 @@ public:
 	virtual void OnEnter() override;
 	virtual void OnExit() override;
 
+	virtual MainChar* GetPlayer() override { return mMainChar; };
+
 private:
 	MainChar* mMainChar;
 	Boss_Stage1_Back* m_Boss_Stage1_Back;
