@@ -12,6 +12,8 @@
 #include "Portal.h"
 #include "WallColliderLeft.h"
 #include "WallColliderRight.h"
+#include "Sound.h"
+#include "RResources.h"
 
 SomyeolScene::SomyeolScene()
 {
@@ -29,7 +31,10 @@ void SomyeolScene::Initialize()
 
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
-	
+
+	SomyeolSound = RResources::Load<Sound>(L"SomyeolSound", L"..\\Resources\\Sound\\Map_Sound\\Somyeol.wav");
+	NextMap = RResources::Load<Sound>(L"NextMap", L"..\\Resources\\Sound\\UI_Sound\\Portal.wav");
+
 	//-------------포탈 오브젝트---------------
 	Portal* portal0 = new Portal();
 	AddGameObeject(portal0, eLayerType::Portal);
@@ -161,6 +166,7 @@ void SomyeolScene::Release()
 }
 void SomyeolScene::OnEnter()
 {
+	SomyeolSound->Play(true);
 	mMainChar->GetComponent<Transform>()->SetPos(Vector2(100.0f, 650.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
@@ -171,4 +177,6 @@ void SomyeolScene::OnEnter()
 }
 void SomyeolScene::OnExit()
 {
+	SomyeolSound->Stop(true);
+	NextMap->Play(false);
 }

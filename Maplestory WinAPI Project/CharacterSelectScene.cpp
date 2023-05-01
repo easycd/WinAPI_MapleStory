@@ -8,6 +8,9 @@
 #include "Animator.h"
 #include "ChannelName.h"
 #include "ChannelSelectScene.h"
+#include "Sound.h"
+#include "RResources.h"
+
 CharacterSelectScene::CharacterSelectScene()
 {
 }

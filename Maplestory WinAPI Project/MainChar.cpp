@@ -4,6 +4,7 @@
 #include "SceneManager.h"
 #include "Transform.h"
 #include "RResources.h"
+#include "Sound.h"
 #include "Animator.h"
 #include "Scene.h"
 #include "Collider.h"
@@ -50,6 +51,15 @@ void MainChar::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownRight", Vector2::Zero, 0.2f); // 오른쪽 눕기
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownAttackLeft", Vector2::Zero, 0.2f); // 왼쪽 아래 공격
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownAttackRight", Vector2::Zero, 0.2f); // 오른쪽 아래 공격
+
+	S_Jump = RResources::Load<Sound>(L"Jump", L"..\\Resources\\Sound\\Character_Sound\\Jump.wav");
+	S_BasicSkill = RResources::Load<Sound>(L"BasicSkill", L"..\\Resources\\Sound\\Character_Sound\\BasicSkill.wav");
+	S_Blazing = RResources::Load<Sound>(L"Blazing", L"..\\Resources\\Sound\\Character_Sound\\blazing.wav");
+	S_Cosmos = RResources::Load<Sound>(L"Cosmos", L"..\\Resources\\Sound\\Character_Sound\\Cosmos.wav");
+	S_Die = RResources::Load<Sound>(L"Die", L"..\\Resources\\Sound\\Character_Sound\\Die.wav");
+	S_Jump = RResources::Load<Sound>(L"Jump", L"..\\Resources\\Sound\\Character_Sound\\Jump.wav");
+	S_SolunaDivide = RResources::Load<Sound>(L"SolunaDivide", L"..\\Resources\\Sound\\Character_Sound\\SolunaDivide.wav");
+
 
 	m_Animator->Play(L"CharIdleRight", true);
 	direction = 1;
@@ -177,6 +187,7 @@ void MainChar::move()
 	{
 		m_State = eMainCharState::Attack;
 		m_Animator->Play(L"CharattackRight", true);
+		S_BasicSkill->Play(false);
 		direction = 1;
 		Scene* curScene = SceneManager::GetActiveScene();
 		BasicSkill* Rbasicskill = new BasicSkill();
@@ -190,6 +201,7 @@ void MainChar::move()
 	{
 		m_State = eMainCharState::Attack;
 		m_Animator->Play(L"CharattackLeft", true);
+		S_BasicSkill->Play(false);
 		direction = 0;
 		Scene* curScene = SceneManager::GetActiveScene();
 		BasicSkill* Rbasicskill = new BasicSkill();
@@ -203,8 +215,8 @@ void MainChar::move()
 	{
 		m_Animator->Play(L"CharjumpLeft", true);
 		Vector2 velocity = mRigidbody->GetVelocity();
+		S_Jump->Play(false);
 		velocity.y -= 400.0f;
-
 		mRigidbody->SetVelocity(velocity);
 		mRigidbody->SetGround(false);
 	}
@@ -212,8 +224,8 @@ void MainChar::move()
 	{
 		m_Animator->Play(L"CharjumpRight", true);
 		Vector2 velocity = mRigidbody->GetVelocity();
+		S_Jump->Play(false);
 		velocity.y -= 400.0f;
-
 		mRigidbody->SetVelocity(velocity);
 		mRigidbody->SetGround(false);
 	}
@@ -278,6 +290,7 @@ void MainChar::idle()
 		m_State = eMainCharState::Jump;
 		m_Animator->Play(L"CharjumpLeft", true);
 		Vector2 velocity = mRigidbody->GetVelocity();
+		S_Jump->Play(false);
 		velocity.y -= 400.0f;
 
 		mRigidbody->SetVelocity(velocity);
@@ -290,6 +303,7 @@ void MainChar::idle()
 		m_State = eMainCharState::Jump;
 		m_Animator->Play(L"CharjumpRight", true);
 		Vector2 velocity = mRigidbody->GetVelocity();
+		S_Jump->Play(false);
 		velocity.y -= 400.0f;
 
 		mRigidbody->SetVelocity(velocity);
@@ -299,6 +313,7 @@ void MainChar::idle()
 	{
 		m_State = eMainCharState::Attack; 
 		m_Animator->Play(L"CharattackRight", true);
+		S_BasicSkill->Play(false);
 		direction = 1;
 		Transform* BsR = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
@@ -315,6 +330,7 @@ void MainChar::idle()
 		m_State = eMainCharState::Attack;
 		Transform* BsL = GetComponent<Transform>();
 		m_Animator->Play(L"CharattackLeft", true);
+		S_BasicSkill->Play(false);
 		direction = 0;
 		Scene* curScene = SceneManager::GetActiveScene();
 		BasicSkill* Lbasicskill = new BasicSkill();
@@ -327,6 +343,7 @@ void MainChar::idle()
 	else if (Input::GetKeyDown(eKeyCode::D))
 	{
 		m_State = eMainCharState::CosmosSkill;
+		S_Cosmos->Play(false);
 		Scene* curScene = SceneManager::GetActiveScene();
 		Cosmos* cosmos = new Cosmos();
 		cosmos->Initialize();
@@ -352,6 +369,7 @@ void MainChar::idle()
 	else if (Input::GetKeyDown(eKeyCode::A))
 	{
 		m_State = eMainCharState::SolunaDivide;
+		S_SolunaDivide->Play(false);
 		Transform* tr = GetComponent<Transform>();
 		Scene* curScene = SceneManager::GetActiveScene();
 		SolunaDivideStart* SD = new SolunaDivideStart();

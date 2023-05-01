@@ -11,7 +11,8 @@
 #include "Boss.h"
 #include "CircleObj.h"
 #include "Time.h"
-
+#include "Sound.h"
+#include "RResources.h"
 
 Boss_Stage2_Scene::Boss_Stage2_Scene()
 	: mTime(0.0f)
@@ -27,6 +28,8 @@ void Boss_Stage2_Scene::Initialize()
 
 	m_Boss_Stage2_Object = new Boss_Stage2_Object();
 	AddGameObeject(m_Boss_Stage2_Object, eLayerType::BossObj);
+
+	Stage2 = RResources::Load<Sound>(L"Stage2", L"..\\Resources\\Sound\\Map_Sound\\boss.wav");
 
 	Ground* ground0 = new Ground();
 	AddGameObeject(ground0, eLayerType::Ground);
@@ -66,6 +69,7 @@ void Boss_Stage2_Scene::Release()
 }
 void Boss_Stage2_Scene::OnEnter()
 {
+	Stage2->Play(true);
 	mMainChar->GetComponent<Transform>()->SetPos(Vector2(240.0f, 800.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
@@ -77,4 +81,5 @@ void Boss_Stage2_Scene::OnEnter()
 }
 void Boss_Stage2_Scene::OnExit()
 {
+	Stage2->Stop(true);
 }

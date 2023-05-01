@@ -12,6 +12,8 @@
 #include "Portal.h"
 #include "WallColliderLeft.h"
 #include "WallColliderRight.h"
+#include "Sound.h"
+#include "RResources.h"
 
 Arcana::Arcana()
 {
@@ -29,6 +31,8 @@ void Arcana::Initialize()
 	m_mainchar = new MainChar();
 	AddGameObeject(m_mainchar, eLayerType::Player);
 
+	ArcanaSound = RResources::Load<Sound>(L"ArcanaSound", L"..\\Resources\\Sound\\Map_Sound\\Arcana.wav");
+	NextMap = RResources::Load<Sound>(L"NextMap", L"..\\Resources\\Sound\\UI_Sound\\Portal.wav");
 
 	//--------------------------포탈 오브젝트----------------------------------
 	Portal* portal0 = new Portal(); AddGameObeject(portal0, eLayerType::Portal);
@@ -150,6 +154,7 @@ void Arcana::Release()
 }
 void Arcana::OnEnter()
 {
+	ArcanaSound->Play(true);
 	m_mainchar->GetComponent<Transform>()->SetPos(Vector2(160.0f, 500.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
@@ -160,4 +165,6 @@ void Arcana::OnEnter()
 }
 void Arcana::OnExit()
 {
+	ArcanaSound->Stop(true);
+	NextMap->Play(false);
 }

@@ -3,6 +3,7 @@
 
 class Animation;
 class Animator;
+class Sound;
 
 class SoulEclipseStart : public GameObject
 {
@@ -24,8 +25,10 @@ private:
 
 private:
 	Animator* m_Animator;
+	Sound* S_SoulEclipse_Start;
+	Sound* S_SoulEclipse_Loop;
 
 	float mTime;
-
+	bool PSound;
 };
 

@@ -8,6 +8,7 @@ class Boss_Stage1_Back;
 class Boss_Stage1_Object;
 class Boss_Ion;
 class Boss_Yaldabaoth;
+class Sound;
 
 class Boss_Stage1_Scene : public Scene
 {
@@ -31,5 +32,7 @@ private:
 	Boss_Stage1_Object* m_Boss_Stage1_Object;
 	Boss_Ion* m_Boss_Ion;
 	Boss_Yaldabaoth* m_Boss_Yaldabaoth;
+	Sound* Stage1;
+	Sound* NextMap;
 };
 

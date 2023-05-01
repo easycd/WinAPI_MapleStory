@@ -5,6 +5,8 @@
 #include "Time.h"
 #include "Transform.h"
 #include "Animator.h"
+#include "Sound.h"
+#include "RResources.h"
 
 WizetScene::WizetScene()
 	: mTime(0.0f)

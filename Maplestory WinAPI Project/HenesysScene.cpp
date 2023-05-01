@@ -17,6 +17,8 @@
 #include "Camera.h"
 #include "WallColliderLeft.h"
 #include "WallColliderRight.h"
+#include "Sound.h"
+#include "RResources.h"
 
 HenesysScene::HenesysScene()
 {
@@ -32,6 +34,9 @@ void HenesysScene::Initialize()
 
 	HenesysObject* m_henesysobject = new HenesysObject();
 	AddGameObeject(m_henesysobject, eLayerType::Object);
+
+	HenesysSound = RResources::Load<Sound>(L"HenesysSound", L"..\\Resources\\Sound\\Map_Sound\\Henesys.wav");
+	NextMap = RResources::Load<Sound>(L"NextMap", L"..\\Resources\\Sound\\UI_Sound\\Portal.wav");
 
 	//Ä³¸¯ÅÍ
 	mMainChar = new MainChar();
@@ -185,6 +190,8 @@ void HenesysScene::Release()
 }
 void HenesysScene::OnEnter()
 {
+	HenesysSound->Play(true);
+
 	mMainChar->GetComponent<Transform>()->SetPos(Vector2(1050.0f, 350.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
@@ -197,4 +204,6 @@ void HenesysScene::OnEnter()
 }
 void HenesysScene::OnExit()
 {
+	HenesysSound->Stop(true);
+	NextMap->Play(false);
 }

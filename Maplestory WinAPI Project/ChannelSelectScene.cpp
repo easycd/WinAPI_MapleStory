@@ -22,7 +22,7 @@ void ChannelSelectScene::Initialize()
 {
 	Scene::Initialize();
 	ChennalSd = RResources::Load<Sound>(L"ChennalSound", L"..\\Resources\\Sound\\Map_Sound\\Login.wav");
-	ChennalSd->Play(true);
+
 	BG = new ChannelSelectBG();
 	AddGameObeject(BG, eLayerType::BG);
 	BG->Initialize();
@@ -51,9 +51,10 @@ void ChannelSelectScene::Release()
 
 void ChannelSelectScene::OnEnter()
 {
+	ChennalSd->Play(true);
 }
 
 void ChannelSelectScene::OnExit()
 {
-	ChennalSd->Stop(false);
+	ChennalSd->Stop(true);
 }

@@ -8,8 +8,11 @@
 #include "Time.h"
 #include "Input.h"
 #include "SolunaDivideStart.h"
+#include "RResources.h"
+#include "Sound.h"
 
 SoulEclipseStart::SoulEclipseStart()
+	: PSound(false)
 {
 }
 SoulEclipseStart::~SoulEclipseStart()
@@ -27,6 +30,13 @@ void SoulEclipseStart::Initialize()
 
 	m_Animator->GetCompleteEvent(L"SoulEclipseStartEffect") = std::bind(&SoulEclipseStart::Loop, this);
 	//m_Animator->GetCompleteEvent(L"SoulEclipseContinue") = std::bind(&SoulEclipseStart::End, this);
+
+	S_SoulEclipse_Start = RResources::Load<Sound>(L"SoulEclipse_Start", L"..\\Resources\\Sound\\Character_Sound\\SoulEclipse_Start.wav");
+	S_SoulEclipse_Loop = RResources::Load<Sound>(L"SoulEclipse_Loop", L"..\\Resources\\Sound\\Character_Sound\\SoulEclipse_Loop.wav");
+
+	S_SoulEclipse_Start->Play(false);
+	S_SoulEclipse_Loop->Play(true);
+	
 	m_Animator->Play(L"SoulEclipseStartEffect", true);
 	m_Animator->SetIsCameraMove(false);
 
@@ -35,6 +45,7 @@ void SoulEclipseStart::Initialize()
 
 void SoulEclipseStart::Update()
 {
+
 	if (Input::GetKeyDown(eKeyCode::A))
 		End();
 
@@ -64,5 +75,6 @@ void SoulEclipseStart::Loop()
 
 void SoulEclipseStart::End()
 {
+	S_SoulEclipse_Loop->Stop(true);
 	object::Destory(this);
 }

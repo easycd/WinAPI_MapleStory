@@ -27,7 +27,7 @@ void SceneManager::Initialize()
 	mScenes[(UINT)eSceneType::Boss_Stage1] = new Boss_Stage1_Scene(); //보스스테이지1 씬
 	mScenes[(UINT)eSceneType::Boss_Stage2] = new Boss_Stage2_Scene(); //보스스테이지2 씬
 
-	mActiveScene = mScenes[(UINT)eSceneType::ChannelSelect]; //씬 시작
+	mActiveScene = mScenes[(UINT)eSceneType::Start]; //씬 시작
 
 	for (Scene* scene : mScenes)
 	{

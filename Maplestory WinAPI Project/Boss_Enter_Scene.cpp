@@ -8,6 +8,8 @@
 #include "Ground.h"
 #include "Transform.h"
 #include "Portal.h"
+#include "Sound.h"
+#include "RResources.h"
 
 Boss_Enter_Scene::Boss_Enter_Scene()
 {
@@ -22,6 +24,9 @@ void Boss_Enter_Scene::Initialize()
 
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
+
+	EnterSound = RResources::Load<Sound>(L"EnterSound", L"..\\Resources\\Sound\\Map_Sound\\boss_enter.wav");
+	NextMap = RResources::Load<Sound>(L"NextMap", L"..\\Resources\\Sound\\UI_Sound\\Portal.wav");
 
 	Ground* ground0 = new Ground();
 	AddGameObeject(ground0, eLayerType::Ground);
@@ -66,6 +71,7 @@ void Boss_Enter_Scene::Release()
 }
 void Boss_Enter_Scene::OnEnter()
 {
+	EnterSound->Play(true);
 	mMainChar->GetComponent<Transform>()->SetPos(Vector2(130.0f, 700.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Portal, true);
@@ -74,4 +80,6 @@ void Boss_Enter_Scene::OnEnter()
 }
 void Boss_Enter_Scene::OnExit()
 {
+	EnterSound->Stop(true);
+	NextMap->Play(false);
 }

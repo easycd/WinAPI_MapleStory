@@ -5,6 +5,7 @@
 class Rigidbody;
 class Animator;
 class Camera;
+class Sound;
 
 class MainChar : public GameObject 
 {
@@ -61,6 +62,13 @@ private:
 	Transform* tr;
 	Camera* m_Camera;
 	Collider* collider2;
+
+	Sound* S_Jump;
+	Sound* S_BasicSkill;
+	Sound* S_Blazing;
+	Sound* S_Cosmos;
+	Sound* S_Die;
+	Sound* S_SolunaDivide;
 
 	int direction = 0; //0이면 왼쪽 1이면 오른쪽
 	bool mGroundCheck;

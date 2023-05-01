@@ -4,6 +4,7 @@
 
 class MainChar;
 class Boss_Enter_Back;
+class Sound;
 
 class Boss_Enter_Scene : public Scene
 {
@@ -22,5 +23,7 @@ public:
 private:
 	MainChar* mMainChar;
 	Boss_Enter_Back* boss_enter_back;
+	Sound* EnterSound;
+	Sound* NextMap;
 };
 
