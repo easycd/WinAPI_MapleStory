@@ -165,6 +165,7 @@
     <ClInclude Include="emptyScene.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Enums.h" />
+    <ClInclude Include="Exbar.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Ground.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="HenesysBack.h" />
     <ClInclude Include="HenesysObject.h" />
     <ClInclude Include="HenesysScene.h" />
+    <ClInclude Include="Hp_Mp.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Layer.h" />
@@ -181,6 +183,7 @@
     <ClInclude Include="MapleEngine.h" />
     <ClInclude Include="Maplestory WinAPI Project.h" />
     <ClInclude Include="Math.h" />
+    <ClInclude Include="Menubar.h" />
     <ClInclude Include="mushroom.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Portal.h" />
@@ -192,6 +195,7 @@
     <ClInclude Include="RResources.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Skillbar.h" />
     <ClInclude Include="SolunaDivideBG.h" />
     <ClInclude Include="SolunaDivideEffect.h" />
     <ClInclude Include="SolunaDivideStart.h" />
@@ -248,12 +252,14 @@
     <ClCompile Include="EmptyObj.cpp" />
     <ClCompile Include="emptyScene.cpp" />
     <ClCompile Include="Entity.cpp" />
+    <ClCompile Include="Exbar.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Ground.cpp" />
     <ClCompile Include="happy.cpp" />
     <ClCompile Include="HenesysBack.cpp" />
     <ClCompile Include="HenesysObject.cpp" />
     <ClCompile Include="HenesysScene.cpp" />
+    <ClCompile Include="Hp_Mp.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="Layer.cpp" />
@@ -262,6 +268,7 @@
     <ClCompile Include="MainChar.cpp" />
     <ClCompile Include="MainChar_GroundCollider.cpp" />
     <ClCompile Include="Math.cpp" />
+    <ClCompile Include="Menubar.cpp" />
     <ClCompile Include="mushroom.cpp" />
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="RedSnail.cpp" />
@@ -271,6 +278,7 @@
     <ClCompile Include="RResources.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Skillbar.cpp" />
     <ClCompile Include="SolunaDivideBG.cpp" />
     <ClCompile Include="SolunaDivideEffect.cpp" />
     <ClCompile Include="SolunaDivideStart.cpp" />

@@ -14,6 +14,11 @@
 #include "Sound.h"
 #include "RResources.h"
 
+#include "Exbar.h"
+#include "Hp_Mp.h"
+#include "Menubar.h"
+#include "Skillbar.h"
+
 Boss_Stage2_Scene::Boss_Stage2_Scene()
 	: mTime(0.0f)
 {
@@ -28,6 +33,18 @@ void Boss_Stage2_Scene::Initialize()
 
 	m_Boss_Stage2_Object = new Boss_Stage2_Object();
 	AddGameObeject(m_Boss_Stage2_Object, eLayerType::BossObj);
+
+	Exbar* exbar = new Exbar();
+	AddGameObeject(exbar, eLayerType::UI);
+
+	Hp_Mp* hp = new Hp_Mp();
+	AddGameObeject(hp, eLayerType::UI);
+
+	Menubar* menu = new Menubar();
+	AddGameObeject(menu, eLayerType::UI);
+
+	Skillbar* skillbar = new Skillbar();
+	AddGameObeject(skillbar, eLayerType::UI);
 
 	Stage2 = RResources::Load<Sound>(L"Stage2", L"..\\Resources\\Sound\\Map_Sound\\boss.wav");
 

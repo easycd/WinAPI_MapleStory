@@ -24,6 +24,8 @@
 #include "Portal.h"
 #include "MainChar_GroundCollider.h"
 
+#include "Exbar.h"
+
 MainChar::MainChar()
 	: posx(0)
 	, posy(0)
@@ -60,7 +62,6 @@ void MainChar::Initialize()
 	S_Die = RResources::Load<Sound>(L"Die", L"..\\Resources\\Sound\\Character_Sound\\Die.wav");
 	S_Jump = RResources::Load<Sound>(L"Jump", L"..\\Resources\\Sound\\Character_Sound\\Jump.wav");
 	S_SolunaDivide = RResources::Load<Sound>(L"SolunaDivide", L"..\\Resources\\Sound\\Character_Sound\\SolunaDivide.wav");
-
 
 	m_Animator->Play(L"CharIdleRight", true);
 	direction = 1;

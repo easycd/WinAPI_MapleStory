@@ -14,6 +14,11 @@
 #include "Sound.h"
 #include "RResources.h"
 
+#include "Exbar.h"
+#include "Hp_Mp.h"
+#include "Menubar.h"
+#include "Skillbar.h"
+
 Boss_Stage1_Scene::Boss_Stage1_Scene()
 {
 }
@@ -26,6 +31,18 @@ void Boss_Stage1_Scene::Initialize()
 	AddGameObeject(m_Boss_Stage1_Back, eLayerType::BG);
 	m_Boss_Stage1_Object = new Boss_Stage1_Object();
 	AddGameObeject(m_Boss_Stage1_Object, eLayerType::BG);
+
+	Exbar* exbar = new Exbar();
+	AddGameObeject(exbar, eLayerType::UI);
+
+	Hp_Mp* hp = new Hp_Mp();
+	AddGameObeject(hp, eLayerType::UI);
+
+	Menubar* menu = new Menubar();
+	AddGameObeject(menu, eLayerType::UI);
+
+	Skillbar* skillbar = new Skillbar();
+	AddGameObeject(skillbar, eLayerType::UI);
 
 	Stage1 = RResources::Load<Sound>(L"Stage1", L"..\\Resources\\Sound\\Map_Sound\\boss_stage1.wav");
 	NextMap = RResources::Load<Sound>(L"NextMap", L"..\\Resources\\Sound\\UI_Sound\\Portal.wav");
