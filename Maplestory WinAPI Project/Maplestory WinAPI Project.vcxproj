@@ -161,6 +161,8 @@
     <ClInclude Include="CommonInclude.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="Cosmos.h" />
+    <ClInclude Include="EmptyObj.h" />
+    <ClInclude Include="emptyScene.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="Enums.h" />
     <ClInclude Include="framework.h" />
@@ -243,6 +245,8 @@
     <ClCompile Include="CollisionManager.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="Cosmos.cpp" />
+    <ClCompile Include="EmptyObj.cpp" />
+    <ClCompile Include="emptyScene.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Ground.cpp" />

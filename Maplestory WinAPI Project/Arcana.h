@@ -23,6 +23,8 @@ public:
 	virtual void OnEnter() override;
 	virtual void OnExit() override;
 
+	virtual MainChar* GetPlayer() override { return m_mainchar; };
+
 private:
 	MainChar* m_mainchar;
 	ArcanaBack* m_arcanaback;

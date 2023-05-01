@@ -14,17 +14,15 @@ WizetScene::WizetScene()
 }
 WizetScene::~WizetScene()
 {
-	/*delete m_wizet;
-	m_wizet = nullptr;*/
 }
 void WizetScene::Initialize()
 {
+	Scene::Initialize();
 	//메모리 누수
 	m_wizet = new Wizet();
 	AddGameObeject(m_wizet, eLayerType::BG);
 	m_wizet->Initialize();
-		
-	Scene::Initialize();
+	wzsound = RResources::Load<Sound>(L"wzsound", L"..\\Resources\\Sound\\UI_Sound\\WzLogo.wav");
 }
 void WizetScene::Update()
 {
@@ -45,7 +43,9 @@ void WizetScene::Release()
 }
 void WizetScene::OnEnter()
 {
+	wzsound->Play(true);
 }
 void WizetScene::OnExit()
 {
+	wzsound->Stop(true);
 }

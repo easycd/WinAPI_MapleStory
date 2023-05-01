@@ -397,6 +397,12 @@
     <ClInclude Include="SoundManager.h">
       <Filter>Engine\Resource\Sound</Filter>
     </ClInclude>
+    <ClInclude Include="EmptyObj.h">
+      <Filter>Contents\01. GameObject\BackObj\Start</Filter>
+    </ClInclude>
+    <ClInclude Include="emptyScene.h">
+      <Filter>Contents\02. Scene\StartScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -639,6 +645,12 @@
     </ClCompile>
     <ClCompile Include="SoundManager.cpp">
       <Filter>Engine\Resource\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="EmptyObj.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Start</Filter>
+    </ClCompile>
+    <ClCompile Include="emptyScene.cpp">
+      <Filter>Contents\02. Scene\StartScene</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

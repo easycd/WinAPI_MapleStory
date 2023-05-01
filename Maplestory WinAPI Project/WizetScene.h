@@ -4,6 +4,7 @@
 
 
 class Wizet;
+class Sound;
 
 class WizetScene : public Scene
 {
@@ -21,6 +22,7 @@ public:
 
 private:
 	Wizet* m_wizet;
+	Sound* wzsound;
 	float mTime;
 };
 

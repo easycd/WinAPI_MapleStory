@@ -63,19 +63,21 @@ void Application::Update()
 	Time::Update();
 	Input::Update();
 	Camera::Update(); //카메라 함수 업데이트
+
 	SceneManager::Update();
 	CollisionManager::Update();
 }
 
 void Application::Render()
 {
-	// clear
+	//clear();
+
 	Rectangle(mBackHDC, -1, -1, 1602, 902);
 
 	Time::Render(mBackHDC);
 	Input::Render(mBackHDC);
 	SceneManager::Render(mBackHDC);
-
+	Camera::Render(mBackHDC);
 	// 백버퍼에 있는 그림을 원본버퍼에 그려줘야한다.
 	BitBlt(mHdc, 0, 0, mWidth, mHeight, mBackHDC, 0, 0, SRCCOPY);
 }

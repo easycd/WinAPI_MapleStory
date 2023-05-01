@@ -25,6 +25,8 @@ public:
 	virtual void OnEnter() override;
 	virtual void OnExit() override;
 
+	virtual MainChar* GetPlayer() override { return mMainChar; };
+
 private:
 	SomyeolBack* m_somyeolBack;
 	SomyeolObject* m_somyeolObject;

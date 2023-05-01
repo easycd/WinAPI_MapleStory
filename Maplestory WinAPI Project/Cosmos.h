@@ -21,6 +21,13 @@ public:
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
 
+	void Start();
+
+private:
+	void Loop();
+	void End();
+	void Destroy();
+
 private:
 	Animator* m_Animator;
 	eCosmosState m_State;

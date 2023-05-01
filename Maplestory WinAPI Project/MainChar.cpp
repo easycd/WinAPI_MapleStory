@@ -9,6 +9,7 @@
 #include "Scene.h"
 #include "Collider.h"
 #include "Rigidbody.h"
+#include "Object.h"
 #include "CollisionManager.h"
 #include "BasicSkill.h"
 #include "Cosmos.h"
@@ -344,12 +345,8 @@ void MainChar::idle()
 	{
 		m_State = eMainCharState::CosmosSkill;
 		S_Cosmos->Play(false);
-		Scene* curScene = SceneManager::GetActiveScene();
-		Cosmos* cosmos = new Cosmos();
-		cosmos->Initialize();
-		Vector2 CsPos = tr->GetPos();
-		cosmos->GetComponent<Transform>()->SetPos(CsPos);
-		curScene->AddGameObeject(cosmos, eLayerType::Skill);
+		Cosmos* cosmos = object::Instantiate<Cosmos>(eLayerType::Skill);
+		cosmos->Start();
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 	}
 	else if (Input::GetKeyDown(eKeyCode::S))

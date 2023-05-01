@@ -3,6 +3,7 @@
 
 enum class eSceneType
 {
+	Loding,
 	Start,
 	ChannelSelect,
 	CharSelect,

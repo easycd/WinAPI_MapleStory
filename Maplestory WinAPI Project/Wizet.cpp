@@ -16,6 +16,7 @@ void Wizet::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
 	tr->SetPos(Vector2(670.0f, 450.0f));
+	//tr->SetPos(Vector2(1000.0f, 1000.0f));
 
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\StartUI\\Wizet", Vector2::Zero, 0.1f);

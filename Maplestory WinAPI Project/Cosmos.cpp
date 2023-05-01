@@ -6,7 +6,7 @@
 #include "Collider.h"
 #include "Animation.h"
 #include "MainChar.h"
-
+#include "MainChar.h"
 
 Cosmos::Cosmos()
 	:mTime(0.0f)
@@ -30,68 +30,51 @@ void Cosmos::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\end", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Skill\\Cosmos\\loop", Vector2::Zero, 0.1f);
 
-	m_Animator->Play(L"Cosmosstart", true);
-	m_Animator->SetIsCameraMove(false);
+	m_Animator->GetCompleteEvent(L"Cosmosstart") = std::bind(&Cosmos::Loop, this);
+	m_Animator->GetCompleteEvent(L"Cosmosloop") = std::bind(&Cosmos::End, this);
+	m_Animator->GetCompleteEvent(L"Cosmosend") = std::bind(&Cosmos::Destroy, this);
 
-
-	//Collider* collider = AddComponent<Collider>();
-	//collider->SetCenter(Vector2(-300.0f, -380.0f));
-	//collider->SetSize(Vector2(580.0f, 380.0f));
+	Collider* collider = AddComponent<Collider>();
+	collider->SetCenter(Vector2(-400.0f, -700.0f));
+	collider->SetSize(Vector2(650.0f, 380.0f));
 }
 
 void Cosmos::Update()
 {
 	GameObject::Update();
-
-	mTime += Time::DeltaTime();
-	if (mTime > 3.0f && IsSkillLoop == false)
-	{
-		IsSkillLoop = true;
-		m_Animator->Play(L"Cosmosloop", true);
-		m_Animator->SetIsCameraMove(false);
-	}
-
-	if (mTime > 5.0f && IsSkillOn == false && IsSkillLoop == true)
-	{
-		IsSkillOn = true;
-		m_Animator->Play(L"Cosmosend", false);
-		m_Animator->SetIsCameraMove(false);
-
-	}
-
-	if (IsSkillOn)
-	{
-		if (mTime > 6.0f)
-			object::Destory(this);
-	}
-
-	/*
-	if (mTime > 5.0f && IsSkillOn == false)
-	{
-		IsSkillOn = true;
-		m_Animator->Play(L"Cosmosend", false);
-		m_Animator->SetIsCameraMove(false);
-
-	}
-
-	if (IsSkillOn)
-	{
-		if (mTime > 8.f)
-			Destory(this);
-	}
-	*/
+	player = SceneManager::GetPlayer();
+	Vector2 playerPos = player->GetComponent<Transform>()->GetPos();
+	tr->SetPos(Vector2(playerPos.x + 90.0f, playerPos.y + 290.0f));
 }
 
 void Cosmos::Render(HDC hdc)
 {
 	m_Animator->SetRGB(RGB(56, 11, 153));
-	//m_Animator->SetNullCameraPosX(posx);
-	//m_Animator->SetNullCameraPosY(posy);
 	GameObject::Render(hdc); //TransparentBlt½ÇÇà
 }
 
 void Cosmos::Release()
 {
 	GameObject::Release();
+}
+
+void Cosmos::Start()
+{
+	m_Animator->Play(L"Cosmosstart", true);
+}
+
+void Cosmos::Loop()
+{
+	m_Animator->Play(L"Cosmosloop", true);
+}
+
+void Cosmos::End()
+{
+	m_Animator->Play(L"Cosmosend", true);
+}
+
+void Cosmos::Destroy()
+{
+	object::Destory(this);
 }
 
