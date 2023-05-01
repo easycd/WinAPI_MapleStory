@@ -18,3 +18,10 @@
 #include <filesystem> //파일 불러오는 헤더
 
 #pragma comment(lib, "Msimg32.lib") // TransparentBlt 함수를 쓸 수있게 해주는 코드
+
+#include <mmsystem.h>
+#include <dsound.h>
+#include <dinput.h> //다이렉트 사운드
+
+#pragma comment(lib, "winmm.lib")
+#pragma comment(lib, "dsound.lib")

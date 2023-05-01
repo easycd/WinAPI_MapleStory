@@ -4,7 +4,7 @@
 
 
 class ChannelSelectBG;
-
+class Sound;
 class ChannelSelectScene : public Scene
 {
 public:
@@ -19,8 +19,15 @@ public:
 	virtual void OnEnter() override;
 	virtual void OnExit() override;
 
+	void SetSound(bool ss)
+	{
+		bool Check = ss;
+	}
+
 private:
 	ChannelSelectBG* BG;
+	Sound* ChennalSd;
 	float mTime;
+	bool Check;
 };
 

@@ -7,7 +7,7 @@
 #include "Transform.h"
 #include "Animator.h"
 #include "ChannelName.h"
-
+#include "ChannelSelectScene.h"
 CharacterSelectScene::CharacterSelectScene()
 {
 }
@@ -55,4 +55,5 @@ void CharacterSelectScene::OnEnter()
 
 void CharacterSelectScene::OnExit()
 {
+	chs->SetSound(true);
 }

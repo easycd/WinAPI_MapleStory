@@ -5,6 +5,7 @@
 class CharacterSelectBG;
 class CharacterMove;
 class ChannelName;
+class ChannelSelectScene;
 
 class CharacterSelectScene : public Scene
 {
@@ -24,6 +25,8 @@ private:
 	CharacterSelectBG* BG;
 	CharacterMove* Character;
 	ChannelName* ChName;
+	ChannelSelectScene* chs;
+
 	float mTime;
 };
 

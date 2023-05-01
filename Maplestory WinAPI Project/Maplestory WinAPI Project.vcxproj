@@ -199,6 +199,8 @@
     <ClInclude Include="SoulEclipseBackGround.h" />
     <ClInclude Include="SoulEclipseEffect.h" />
     <ClInclude Include="SoulEclipseStart.h" />
+    <ClInclude Include="Sound.h" />
+    <ClInclude Include="SoundManager.h" />
     <ClInclude Include="WallColliderLeft.h" />
     <ClInclude Include="WallColliderRight.h" />
     <ClInclude Include="WizetScene.h" />
@@ -274,6 +276,8 @@
     <ClCompile Include="SoulEclipseBackGround.cpp" />
     <ClCompile Include="SoulEclipseEffect.cpp" />
     <ClCompile Include="SoulEclipseStart.cpp" />
+    <ClCompile Include="Sound.cpp" />
+    <ClCompile Include="SoundManager.cpp" />
     <ClCompile Include="WallColliderLeft.cpp" />
     <ClCompile Include="WallColliderRight.cpp" />
     <ClCompile Include="WizetScene.cpp" />

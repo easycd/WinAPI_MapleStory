@@ -5,6 +5,8 @@
 #include "CollisionManager.h"
 #include "Camera.h"
 #include "resource.h"
+#include "SoundManager.h"
+
 Application::Application()
 	: mHwnd(NULL) //초기화
 	, mHdc(NULL)  //초기화
@@ -44,6 +46,7 @@ void Application::Initialize(HWND hWnd)
 
 	Time::Initialize();
 	Input::Initialize();
+	SoundManager::Initialize();
 	SceneManager::Initialize();
 	Camera::Initiailize(); //카메라 함수 초기화
 }
