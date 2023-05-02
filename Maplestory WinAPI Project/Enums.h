@@ -37,6 +37,8 @@ enum class eLayerType
 	WallCollider,
 	Effect,
 	UI,
+	ChannelList,
+	Mous,
 	End,
 };
 

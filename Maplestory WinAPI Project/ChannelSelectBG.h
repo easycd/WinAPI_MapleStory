@@ -4,7 +4,6 @@
 
 class Animation;
 class Animator;
-class Application;
 
 class ChannelSelectBG : public GameObject
 {
@@ -19,6 +18,5 @@ public:
 
 private:
 	Animator* m_Animator;
-	Application* Width;
-	Application* Hight;
+
 };

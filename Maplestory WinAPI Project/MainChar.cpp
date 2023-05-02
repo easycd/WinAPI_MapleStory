@@ -22,7 +22,6 @@
 #include "Camera.h"
 #include "HenesysBack.h"
 #include "Portal.h"
-#include "MainChar_GroundCollider.h"
 
 #include "Exbar.h"
 

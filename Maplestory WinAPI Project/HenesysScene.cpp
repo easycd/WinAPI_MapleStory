@@ -13,7 +13,6 @@
 #include "HenesysObject.h"
 #include "Rigidbody.h"
 #include "Portal.h"
-#include "MainChar_GroundCollider.h"
 #include "Camera.h"
 #include "WallColliderLeft.h"
 #include "WallColliderRight.h"
@@ -55,14 +54,10 @@ void HenesysScene::Initialize()
 	HenesysSound = RResources::Load<Sound>(L"HenesysSound", L"..\\Resources\\Sound\\Map_Sound\\Henesys.wav");
 	NextMap = RResources::Load<Sound>(L"NextMap", L"..\\Resources\\Sound\\UI_Sound\\Portal.wav");
 
-
 	//캐릭터
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);
 
-
-	MainChar_GroundCollider* CGround = new MainChar_GroundCollider();
-	AddGameObeject(CGround, eLayerType::PlayerGround);
 
 	//-------------------------포탈 오브젝트-----------------------------------------
 	Portal* m_portal0 = new Portal(); AddGameObeject(m_portal0, eLayerType::Portal);
@@ -140,15 +135,15 @@ void HenesysScene::Initialize()
 	m_portal1->GetComponent<Transform>()->SetPos(Vector2(1800.0f, 880.0f));
 
 	//-----------------------방향 충돌체Pos--------------------------------------------- 왼쪽 = Ground의 X축값 , 오른쪽 = Ground의 X축값 + collider사이즈 - 10, Y축 GroundY축값 - 10
-	wallcolLeft6->GetComponent<Transform>()->SetPos(Vector2(650.0f, 600.0f)); wallcolLeft6->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
+	wallcolLeft6->GetComponent<Transform>()->SetPos(Vector2(650.0f, 600.0f));   wallcolLeft6->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
 	wallcolRight6->GetComponent<Transform>()->SetPos(Vector2(1320.0f, 600.0f)); wallcolRight6->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
-	wallcolLeft1->GetComponent<Transform>()->SetPos(Vector2(110.0f, 300.0f)); wallcolLeft1->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
-	wallcolRight1->GetComponent<Transform>()->SetPos(Vector2(780.0f, 300.0f)); wallcolRight1->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
-	wallcolLeft4->GetComponent<Transform>()->SetPos(Vector2(745.0f, 420.0f)); wallcolLeft4->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
+	wallcolLeft1->GetComponent<Transform>()->SetPos(Vector2(110.0f, 300.0f));   wallcolLeft1->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
+	wallcolRight1->GetComponent<Transform>()->SetPos(Vector2(780.0f, 300.0f));  wallcolRight1->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
+	wallcolLeft4->GetComponent<Transform>()->SetPos(Vector2(745.0f, 420.0f));   wallcolLeft4->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
 	wallcolRight4->GetComponent<Transform>()->SetPos(Vector2(1220.0f, 420.0f)); wallcolRight4->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
-	wallcolLeft7->GetComponent<Transform>()->SetPos(Vector2(110.0f, 660.0f)); wallcolLeft7->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
-	wallcolRight7->GetComponent<Transform>()->SetPos(Vector2(600.0f, 660.0f)); wallcolRight7->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
-	wallcolLeft8->GetComponent<Transform>()->SetPos(Vector2(1375.0f,360.0f)); wallcolLeft8->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
+	wallcolLeft7->GetComponent<Transform>()->SetPos(Vector2(110.0f, 660.0f));   wallcolLeft7->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
+	wallcolRight7->GetComponent<Transform>()->SetPos(Vector2(600.0f, 660.0f));  wallcolRight7->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
+	wallcolLeft8->GetComponent<Transform>()->SetPos(Vector2(1375.0f,360.0f));   wallcolLeft8->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
 	wallcolRight8->GetComponent<Transform>()->SetPos(Vector2(1860.0f, 360.0f)); wallcolRight8->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
 
 
@@ -178,9 +173,6 @@ void HenesysScene::Initialize()
 	m_mushroom18->GetComponent<Transform>()->SetPos(Vector2(1540.0f, 370.0f));
 	m_mushroom19->GetComponent<Transform>()->SetPos(Vector2(1690.0f, 370.0f)); m_mushroom19->SetInitialize_Direction(1);
 	m_mushroom20->GetComponent<Transform>()->SetPos(Vector2(1840.0f, 370.0f)); m_mushroom20->SetInitialize_Direction(1);
-
-
-
 
 }
 void HenesysScene::Update()
@@ -218,7 +210,6 @@ void HenesysScene::OnEnter()
 
 	Camera::SetImgResolution(Vector2(1890.f, 1080.f));
 
-	
 }
 void HenesysScene::OnExit()
 {

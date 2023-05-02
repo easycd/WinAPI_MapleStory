@@ -158,6 +158,12 @@
     <Filter Include="Contents\01. GameObject\Skill_Hit">
       <UniqueIdentifier>{f38f11f8-1588-42c1-83a5-0551e2f05faa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\01. GameObject\BackObj\ChannelSelect\HP_MP">
+      <UniqueIdentifier>{7ccf398d-8b4e-434d-822f-92fe7b9c68d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\Player\HP_MP">
+      <UniqueIdentifier>{cd203da9-2943-4261-adee-4c743df71360}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -325,9 +331,6 @@
     <ClInclude Include="Portal.h">
       <Filter>Contents\01. GameObject\Object</Filter>
     </ClInclude>
-    <ClInclude Include="MainChar_GroundCollider.h">
-      <Filter>Engine\Collider</Filter>
-    </ClInclude>
     <ClInclude Include="Cosmos.h">
       <Filter>Contents\01. GameObject\Skill</Filter>
     </ClInclude>
@@ -423,6 +426,24 @@
     </ClInclude>
     <ClInclude Include="BsHit.h">
       <Filter>Contents\01. GameObject\Skill_Hit</Filter>
+    </ClInclude>
+    <ClInclude Include="MousCollider.h">
+      <Filter>Engine\Collider</Filter>
+    </ClInclude>
+    <ClInclude Include="ServerList.h">
+      <Filter>Contents\01. GameObject\BackObj\ChannelSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="Scania.h">
+      <Filter>Contents\01. GameObject\BackObj\ChannelSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="SeverCannel_Select.h">
+      <Filter>Contents\01. GameObject\BackObj\ChannelSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="WorldChannelSelect.h">
+      <Filter>Contents\01. GameObject\BackObj\ChannelSelect</Filter>
+    </ClInclude>
+    <ClInclude Include="HpBar.h">
+      <Filter>Contents\01. GameObject\Player\HP_MP</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -589,9 +610,6 @@
     <ClCompile Include="Portal.cpp">
       <Filter>Contents\01. GameObject\Object</Filter>
     </ClCompile>
-    <ClCompile Include="MainChar_GroundCollider.cpp">
-      <Filter>Engine\Collider</Filter>
-    </ClCompile>
     <ClCompile Include="Cosmos.cpp">
       <Filter>Contents\01. GameObject\Skill</Filter>
     </ClCompile>
@@ -687,6 +705,24 @@
     </ClCompile>
     <ClCompile Include="BsHit.cpp">
       <Filter>Contents\01. GameObject\Skill_Hit</Filter>
+    </ClCompile>
+    <ClCompile Include="MousCollider.cpp">
+      <Filter>Engine\Collider</Filter>
+    </ClCompile>
+    <ClCompile Include="ServerList.cpp">
+      <Filter>Contents\01. GameObject\BackObj\ChannelSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="Scania.cpp">
+      <Filter>Contents\01. GameObject\BackObj\ChannelSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="SeverCannel_Select.cpp">
+      <Filter>Contents\01. GameObject\BackObj\ChannelSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="WorldChannelSelect.cpp">
+      <Filter>Contents\01. GameObject\BackObj\ChannelSelect</Filter>
+    </ClCompile>
+    <ClCompile Include="HpBar.cpp">
+      <Filter>Contents\01. GameObject\Player\HP_MP</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

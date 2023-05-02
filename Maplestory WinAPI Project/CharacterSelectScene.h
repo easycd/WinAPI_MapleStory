@@ -6,6 +6,7 @@ class CharacterSelectBG;
 class CharacterMove;
 class ChannelName;
 class ChannelSelectScene;
+class Sound;
 
 class CharacterSelectScene : public Scene
 {
@@ -27,6 +28,8 @@ private:
 	ChannelName* ChName;
 	ChannelSelectScene* chs;
 
+	Sound* StartSound;
+	Sound* EndSound;
 	float mTime;
 };
 

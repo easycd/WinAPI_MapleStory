@@ -9,7 +9,8 @@ enum class eKeyCode
 	Z, X, C, V, B, N, M, 
 	
 	UP, DOWN, LEFT, RIGHT, SPACE, ALT,
-	CONTROL,
+	CONTROL, 
+	MousLeftClick, 
 	END,
 };
 

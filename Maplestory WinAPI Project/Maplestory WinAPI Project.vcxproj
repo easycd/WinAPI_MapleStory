@@ -174,17 +174,18 @@
     <ClInclude Include="HenesysBack.h" />
     <ClInclude Include="HenesysObject.h" />
     <ClInclude Include="HenesysScene.h" />
+    <ClInclude Include="HpBar.h" />
     <ClInclude Include="Hp_Mp.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LeftFullSkill.h" />
     <ClInclude Include="MainChar.h" />
-    <ClInclude Include="MainChar_GroundCollider.h" />
     <ClInclude Include="MapleEngine.h" />
     <ClInclude Include="Maplestory WinAPI Project.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Menubar.h" />
+    <ClInclude Include="MousCollider.h" />
     <ClInclude Include="mushroom.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Portal.h" />
@@ -194,8 +195,11 @@
     <ClInclude Include="Rigidbody.h" />
     <ClInclude Include="RResource.h" />
     <ClInclude Include="RResources.h" />
+    <ClInclude Include="Scania.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="ServerList.h" />
+    <ClInclude Include="SeverCannel_Select.h" />
     <ClInclude Include="Skillbar.h" />
     <ClInclude Include="SolunaDivideBG.h" />
     <ClInclude Include="SolunaDivideEffect.h" />
@@ -217,6 +221,7 @@
     <ClInclude Include="Transform.h" />
     <ClInclude Include="waterspirit.h" />
     <ClInclude Include="Wizet.h" />
+    <ClInclude Include="WorldChannelSelect.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
@@ -261,6 +266,7 @@
     <ClCompile Include="HenesysBack.cpp" />
     <ClCompile Include="HenesysObject.cpp" />
     <ClCompile Include="HenesysScene.cpp" />
+    <ClCompile Include="HpBar.cpp" />
     <ClCompile Include="Hp_Mp.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Input.cpp" />
@@ -268,9 +274,9 @@
     <ClCompile Include="LeftFullSkill.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MainChar.cpp" />
-    <ClCompile Include="MainChar_GroundCollider.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Menubar.cpp" />
+    <ClCompile Include="MousCollider.cpp" />
     <ClCompile Include="mushroom.cpp" />
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="RedSnail.cpp" />
@@ -278,8 +284,11 @@
     <ClCompile Include="Rigidbody.cpp" />
     <ClCompile Include="RResource.cpp" />
     <ClCompile Include="RResources.cpp" />
+    <ClCompile Include="Scania.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="ServerList.cpp" />
+    <ClCompile Include="SeverCannel_Select.cpp" />
     <ClCompile Include="Skillbar.cpp" />
     <ClCompile Include="SolunaDivideBG.cpp" />
     <ClCompile Include="SolunaDivideEffect.cpp" />
@@ -300,6 +309,7 @@
     <ClCompile Include="Transform.cpp" />
     <ClCompile Include="waterspirit.cpp" />
     <ClCompile Include="Wizet.cpp" />
+    <ClCompile Include="WorldChannelSelect.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc" />

@@ -5,6 +5,11 @@
 
 class ChannelSelectBG;
 class Sound;
+class MousCollider;
+class ServerList;
+class Scania;
+class WorldChannelSelect;
+
 class ChannelSelectScene : public Scene
 {
 public:
@@ -24,10 +29,21 @@ public:
 		bool Check = ss;
 	}
 
+
 private:
 	ChannelSelectBG* BG;
 	Sound* ChennalSd;
+	Sound* worldClick;
+	Sound* NextScene;
+	MousCollider* Mc;
+	POINT mousePos;
+	Vector2 McPos;
+	ServerList* Sl;
+	Scania* scania;
+	WorldChannelSelect* Wcs;
+
 	float mTime;
 	bool Check;
+	bool nextCheck;
 };
 

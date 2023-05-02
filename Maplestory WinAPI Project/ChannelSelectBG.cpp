@@ -5,7 +5,6 @@
 #include "Camera.h"
 #include "Animation.h"
 #include "Animator.h"
-#include "Application.h"
 
 ChannelSelectBG::ChannelSelectBG()
 {
@@ -32,8 +31,6 @@ void ChannelSelectBG::Update()
 
 void ChannelSelectBG::Render(HDC hdc)
 {
-	//Width->SetWidth(600);
-	//Hight->SetHeight(600);
 	GameObject::Render(hdc);
 }
 

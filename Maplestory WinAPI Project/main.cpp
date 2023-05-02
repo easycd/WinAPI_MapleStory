@@ -6,7 +6,6 @@
 #include "Application.h"
 #include "SceneManager.h"
 #include "RResources.h"
-
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
@@ -154,6 +153,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     {
     case WM_COMMAND:
         {
+        
+
             int wmId = LOWORD(wParam);
             // 메뉴 선택을 구문 분석합니다:
             switch (wmId)

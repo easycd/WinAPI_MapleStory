@@ -21,6 +21,8 @@ CharacterSelectScene::~CharacterSelectScene()
 
 void CharacterSelectScene::Initialize()
 {
+	StartSound = RResources::Load<Sound>(L"StartSound", L"..\\Resources\\Sound\\UI_Sound\\CharSelect.wav");
+	EndSound = RResources::Load<Sound>(L"EndSound", L"..\\Resources\\Sound\\UI_Sound\\MagnifierSuccess.wav");
 	BG = new CharacterSelectBG();
 	AddGameObeject(BG, eLayerType::BG);
 
@@ -35,7 +37,7 @@ void CharacterSelectScene::Initialize()
 
 void CharacterSelectScene::Update()
 {
-	if (Input::GetKeyDown(eKeyCode::N))
+	if (Input::GetKeyUp(eKeyCode::MousLeftClick))
 	{
 		SceneManager::LoadScene(eSceneType::Henesys);
 	}
@@ -54,9 +56,10 @@ void CharacterSelectScene::Release()
 
 void CharacterSelectScene::OnEnter()
 {
+	StartSound->Play(false);
 }
 
 void CharacterSelectScene::OnExit()
 {
-	chs->SetSound(true);
+	EndSound->Play(false);
 }
