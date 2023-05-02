@@ -4,6 +4,8 @@
 
 class Animator;
 class MainChar;
+class BsHit;
+
 class mushroom : public GameObject 
 {
 public:
@@ -23,11 +25,13 @@ public:
 	virtual void Release() override;
 
 	virtual void OnCollisionEnter(class Collider* other) override;
+	virtual void OnCollisionStay(Collider* other) override;
 
 private:
 	void move();
 	void idle();
 	void death();
+	void Destroy();
 
 private:
 	emushroomState m_State;
@@ -38,11 +42,14 @@ private:
 	Vector2 Speed;
 	Transform* tr;
 
+	BsHit* bshit;
+
 	float m_Time;
 	float SetPosX;
 
 	int Direction; // 방향 변수, 왼쪽 = 0, 오른쪽 = 1
 	int CompleteCnt;
+	int Hp;
 
 	bool Animation_Check;
 	bool Ground;
@@ -51,6 +58,7 @@ private:
 
 	bool Check;
 	bool Check2;
+	bool die_Check;
 
 public:
 	void SetInitialize_Direction(int dr)

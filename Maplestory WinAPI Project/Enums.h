@@ -30,6 +30,7 @@ enum class eLayerType
 	Boss,
 	BossObj,
 	Skill,
+	Skill_hit,
 	Player,
 	PlayerGround,
 	Ground,

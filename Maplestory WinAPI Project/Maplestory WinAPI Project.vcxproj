@@ -147,6 +147,7 @@
     <ClInclude Include="Boss_Stage2_Object.h" />
     <ClInclude Include="Boss_Stage2_Scene.h" />
     <ClInclude Include="Boss_Yaldabaoth.h" />
+    <ClInclude Include="BsHit.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CenterFullSkill.h" />
     <ClInclude Include="ChannelName.h" />
@@ -236,6 +237,7 @@
     <ClCompile Include="Boss_Stage2_Object.cpp" />
     <ClCompile Include="Boss_Stage2_Scene.cpp" />
     <ClCompile Include="Boss_Yaldabaoth.cpp" />
+    <ClCompile Include="BsHit.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="CenterFullSkill.cpp" />
     <ClCompile Include="ChannelName.cpp" />

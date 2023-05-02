@@ -30,7 +30,7 @@ void emptyScene::Initialize()
 void emptyScene::Update()
 {
 	mTime += Time::DeltaTime();
-	if (mTime > 2.0f)
+	if (mTime > 1.0f)
 	{
 		SceneManager::LoadScene(eSceneType::Start);
 	}

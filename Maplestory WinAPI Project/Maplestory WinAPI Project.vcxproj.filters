@@ -155,6 +155,9 @@
     <Filter Include="Contents\01. GameObject\GameUI">
       <UniqueIdentifier>{ac063b6f-e9de-4a47-9217-0cd9f8dcb30c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\01. GameObject\Skill_Hit">
+      <UniqueIdentifier>{f38f11f8-1588-42c1-83a5-0551e2f05faa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -418,6 +421,9 @@
     <ClInclude Include="Menubar.h">
       <Filter>Contents\01. GameObject\GameUI</Filter>
     </ClInclude>
+    <ClInclude Include="BsHit.h">
+      <Filter>Contents\01. GameObject\Skill_Hit</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -678,6 +684,9 @@
     </ClCompile>
     <ClCompile Include="Menubar.cpp">
       <Filter>Contents\01. GameObject\GameUI</Filter>
+    </ClCompile>
+    <ClCompile Include="BsHit.cpp">
+      <Filter>Contents\01. GameObject\Skill_Hit</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

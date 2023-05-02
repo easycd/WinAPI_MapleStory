@@ -13,6 +13,11 @@
 #include "MainChar.h"
 #include "Object.h"
 
+#include "BasicSkill.h"
+#include "Cosmos.h"
+
+#include "BsHit.h"
+
 mushroom::mushroom()
 	: m_Time(0.0f)
 	, Speed(Vector2(50.0f, 0.0f))
@@ -24,6 +29,9 @@ mushroom::mushroom()
 	, AnimationLoop(false)
 	, Check(false)
 	, Check2(false)
+	, die_Check(false)
+	, Hp(100)
+	, m_State(emushroomState::Move)
 {
 }
 
@@ -41,8 +49,13 @@ void mushroom::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\IdleRight", Vector2::Zero, 0.3f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\moveLeft", Vector2::Zero, 0.3f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\moveRight", Vector2::Zero, 0.3f);
-	m_State = emushroomState::Move;
-	m_Animator->Play(L"mushroommoveLeft", false);
+	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\dieLeft", Vector2::Zero, 0.1f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\dieRight", Vector2::Zero, 0.f);
+
+	m_Animator->GetCompleteEvent(L"mushroomdieLeft") = std::bind(&mushroom::Destroy, this);
+	m_Animator->GetCompleteEvent(L"mushroomdieRight") = std::bind(&mushroom::Destroy, this);
+
+	m_Animator->Play(L"mushroommoveLeft", true);
 
 	Collider* collider = AddComponent<Collider>();
 	collider->SetSize(Vector2(70, 70)); // 히트박스 크기 조정
@@ -55,6 +68,10 @@ void mushroom::Initialize()
 void mushroom::Update()
 {
 	GameObject::Update();
+
+	if (Hp == 0)
+		m_State = emushroomState::Death;
+		//death();
 
 	//몬스터 일정범위 주위에 캐릭터가 있으면 추적하는 로직
 	// 오류: 캐릭터 Y값이랑 몬스터 Y값의 오차가 커서 예외처리 불가.
@@ -134,10 +151,28 @@ void mushroom::OnCollisionEnter(Collider* other)
 		}
 	}
 
+	BasicSkill* bs = dynamic_cast<BasicSkill*>(other->GetOwner());
+	if (bs != nullptr)
+	{
+		//bshit = object::Instantiate<BsHit>(eLayerType::Skill_hit);
+		//bshit->Hit();
+		Hp -= 10;
+	}
+
+}
+
+void mushroom::OnCollisionStay(Collider* other)
+{
+	Cosmos* cosmos = dynamic_cast<Cosmos*>(other->GetOwner());
+	if (cosmos != nullptr)
+	{
+		Hp -= 10;
+	}
 }
 
 void mushroom::move()
 {
+	m_State = emushroomState::Move;
 	Transform* tr = GetComponent<Transform>();
 	Vector2 pos = tr->GetPos();
 
@@ -164,7 +199,6 @@ void mushroom::move()
 		pos.x += 80.0 * Time::DeltaTime();
 	}
 
-	//ChPos = Ch->GetComponent<Transform>()->GetPos(); 캐릭터 위치 가져오는건데 안됨.
 	tr->SetPos(pos);
 }
 
@@ -174,5 +208,20 @@ void mushroom::idle()
 
 void mushroom::death()
 {
+	if (Direction == 0)
+	{	
+		m_Animator->Play(L"mushroomdieLeft", true);
+	
+	}
+	else if (Direction == 1)
+	{
+		m_Animator->Play(L"mushroomdieRight", true);
+	}
 }
+
+void mushroom::Destroy()
+{
+	object::Destory(this);
+}
+
 
