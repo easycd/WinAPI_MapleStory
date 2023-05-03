@@ -70,7 +70,7 @@ void Boss_Enter_Scene::Update()
 {
 	if (Input::GetKeyState(eKeyCode::N) == eKeyState::Down)
 	{
-		SceneManager::LoadScene(eSceneType::Boss_Stage1);
+		SceneManager::LoadScene(eSceneType::Boss_Stage1_Ani);
 	}
 
 	Scene::Update();

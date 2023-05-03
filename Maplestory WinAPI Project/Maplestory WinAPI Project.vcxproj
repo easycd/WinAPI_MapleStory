@@ -213,6 +213,10 @@
     <ClInclude Include="SoulEclipseStart.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundManager.h" />
+    <ClInclude Include="Stage1Enter_Ani.h" />
+    <ClInclude Include="Stage1Enter_AniScene.h" />
+    <ClInclude Include="Stage2Enter_Ani.h" />
+    <ClInclude Include="Stage2Enter_AniScene.h" />
     <ClInclude Include="WallColliderLeft.h" />
     <ClInclude Include="WallColliderRight.h" />
     <ClInclude Include="WizetScene.h" />
@@ -303,6 +307,10 @@
     <ClCompile Include="SoulEclipseStart.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SoundManager.cpp" />
+    <ClCompile Include="Stage1Enter_Ani.cpp" />
+    <ClCompile Include="Stage1Enter_AniScene.cpp" />
+    <ClCompile Include="Stage2Enter_Ani.cpp" />
+    <ClCompile Include="Stage2Enter_AniScene.cpp" />
     <ClCompile Include="WallColliderLeft.cpp" />
     <ClCompile Include="WallColliderRight.cpp" />
     <ClCompile Include="WizetScene.cpp" />

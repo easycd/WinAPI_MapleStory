@@ -454,6 +454,18 @@
     <ClInclude Include="Boss_Stage2_Scene.h">
       <Filter>Contents\02. Scene\BossScene\Phase2</Filter>
     </ClInclude>
+    <ClInclude Include="Stage1Enter_Ani.h">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2Enter_Ani.h">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage1Enter_AniScene.h">
+      <Filter>Contents\02. Scene\BossScene\Phase1</Filter>
+    </ClInclude>
+    <ClInclude Include="Stage2Enter_AniScene.h">
+      <Filter>Contents\02. Scene\BossScene\Phase2</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -734,6 +746,18 @@
       <Filter>Contents\02. Scene\BossScene\Phase1</Filter>
     </ClCompile>
     <ClCompile Include="Boss_Stage2_Scene.cpp">
+      <Filter>Contents\02. Scene\BossScene\Phase2</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1Enter_Ani.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2Enter_Ani.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage1Enter_AniScene.cpp">
+      <Filter>Contents\02. Scene\BossScene\Phase1</Filter>
+    </ClCompile>
+    <ClCompile Include="Stage2Enter_AniScene.cpp">
       <Filter>Contents\02. Scene\BossScene\Phase2</Filter>
     </ClCompile>
   </ItemGroup>

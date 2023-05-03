@@ -10,8 +10,8 @@
 #include "Boss_Stage1_Scene.h"
 #include "Boss_Stage2_Scene.h"
 #include "Boss_Enter_Scene.h"
-//#include "Stage1_AniScene.h"
-//#include "Stage2_AniScene.h"
+#include "Stage1Enter_AniScene.h"
+#include "Stage2Enter_AniScene.h"
 
 std::vector<Scene*> SceneManager::mScenes = {};
 Scene* SceneManager::mActiveScene = nullptr;
@@ -28,12 +28,12 @@ void SceneManager::Initialize()
 	mScenes[(UINT)eSceneType::Arcana] = new Arcana(); // 아르카나 씬
 	mScenes[(UINT)eSceneType::Somyeol] = new SomyeolScene(); //소멸여로 씬
 	mScenes[(UINT)eSceneType::Boss_Enter] = new Boss_Enter_Scene(); //보스입구 씬
-	//mScenes[(UINT)eSceneType::Boss_Stage1_Ani] = new Stage1_AniScene(); //보스입구 씬
+	mScenes[(UINT)eSceneType::Boss_Stage1_Ani] = new Stage1Enter_AniScene(); // 페이즈1 애니
 	mScenes[(UINT)eSceneType::Boss_Stage1] = new Boss_Stage1_Scene(); //보스스테이지1 씬
-	//mScenes[(UINT)eSceneType::Boss_Stage2_Ani] = new Stage2_AniScene(); //보스입구 씬
+	mScenes[(UINT)eSceneType::Boss_Stage2_Ani] = new Stage2Enter_AniScene(); // 페이즈2 애니
 	mScenes[(UINT)eSceneType::Boss_Stage2] = new Boss_Stage2_Scene(); //보스스테이지2 씬
 
-	mActiveScene = mScenes[(UINT)eSceneType::Start]; //씬 시작
+	mActiveScene = mScenes[(UINT)eSceneType::Boss_Enter]; //씬 시작
 
 	for (Scene* scene : mScenes)
 	{
