@@ -6,6 +6,7 @@ class Rigidbody;
 class Animator;
 class Camera;
 class Sound;
+class HenesysScene;
 
 class MainChar : public GameObject 
 {
@@ -35,6 +36,11 @@ public:
 
 	virtual void OnCollisionEnter(class Collider* other) override;
 	virtual void OnCollisionExit(class Collider* other) override;
+
+	int GetHP()
+	{
+		return HP;
+	}
 
 private:
 	void move();
@@ -70,12 +76,16 @@ private:
 	Sound* S_Die;
 	Sound* S_SolunaDivide;
 
+
+	HenesysScene* hs;
+
 	int direction = 0; //0이면 왼쪽 1이면 오른쪽
 	bool mGroundCheck;
 	int posx;
 	int posy;
 	bool m_PortalState;
 
+	int HP;
 
 
 public:

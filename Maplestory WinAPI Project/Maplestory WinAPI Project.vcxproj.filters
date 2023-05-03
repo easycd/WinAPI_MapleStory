@@ -158,9 +158,6 @@
     <Filter Include="Contents\01. GameObject\Skill_Hit">
       <UniqueIdentifier>{f38f11f8-1588-42c1-83a5-0551e2f05faa}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\01. GameObject\BackObj\ChannelSelect\HP_MP">
-      <UniqueIdentifier>{7ccf398d-8b4e-434d-822f-92fe7b9c68d4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\01. GameObject\Player\HP_MP">
       <UniqueIdentifier>{cd203da9-2943-4261-adee-4c743df71360}</UniqueIdentifier>
     </Filter>
@@ -445,6 +442,9 @@
     <ClInclude Include="HpBar.h">
       <Filter>Contents\01. GameObject\Player\HP_MP</Filter>
     </ClInclude>
+    <ClInclude Include="BackCover.h">
+      <Filter>Contents\01. GameObject\Player\HP_MP</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -722,6 +722,9 @@
       <Filter>Contents\01. GameObject\BackObj\ChannelSelect</Filter>
     </ClCompile>
     <ClCompile Include="HpBar.cpp">
+      <Filter>Contents\01. GameObject\Player\HP_MP</Filter>
+    </ClCompile>
+    <ClCompile Include="BackCover.cpp">
       <Filter>Contents\01. GameObject\Player\HP_MP</Filter>
     </ClCompile>
   </ItemGroup>

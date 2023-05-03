@@ -134,6 +134,7 @@
     <ClInclude Include="Application.h" />
     <ClInclude Include="ArcanaBack.h" />
     <ClInclude Include="ArcanaObject.h" />
+    <ClInclude Include="BackCover.h" />
     <ClInclude Include="BasicSkill.h" />
     <ClInclude Include="BlackChainSkill.h" />
     <ClInclude Include="Boss.h" />
@@ -229,6 +230,7 @@
     <ClCompile Include="Application.cpp" />
     <ClCompile Include="ArcanaBack.cpp" />
     <ClCompile Include="ArcanaObject.cpp" />
+    <ClCompile Include="BackCover.cpp" />
     <ClCompile Include="BasicSkill.cpp" />
     <ClCompile Include="BlackChainSkill.cpp" />
     <ClCompile Include="Boss.cpp" />

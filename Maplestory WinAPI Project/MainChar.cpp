@@ -25,10 +25,13 @@
 
 #include "Exbar.h"
 
+#include "mushroom.h"
+#include "HenesysScene.h"
 MainChar::MainChar()
 	: posx(0)
 	, posy(0)
 	, m_PortalState(false)
+	, HP(1000)
 {
 }
 
@@ -139,6 +142,13 @@ void MainChar::OnCollisionEnter(Collider* other)
 	if (potal != nullptr)
 	{
 		m_PortalState = true;
+	}
+
+	mushroom* m_mob = dynamic_cast<mushroom*>(other->GetOwner());
+	if (m_mob != nullptr)
+	{
+		HP -= 10;
+		hs->SetCheck(true);
 	}
 }
 

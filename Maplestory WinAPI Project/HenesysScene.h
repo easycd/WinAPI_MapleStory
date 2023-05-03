@@ -11,6 +11,7 @@ class Portal;
 class Ground;
 class Camera;
 class Sound;
+class HpBar;
 class HenesysScene : public Scene
 {
 public:
@@ -28,7 +29,10 @@ public:
 
 	virtual MainChar* GetPlayer() override { return mMainChar; };
 
-
+	void SetCheck(bool m_check)
+	{
+		bool check = m_check;
+	}
 private:
 	HenesysBack* m_henesysBack;
 	HenesysObject* m_henesysobject;
@@ -63,5 +67,12 @@ private:
 	mushroom* m_mushroom18;
 	mushroom* m_mushroom19;
 	mushroom* m_mushroom20;
+
+	HpBar* player_hp;
+	float hp;
+	double div;
+	float Test;
+
+	bool check;
 };
 

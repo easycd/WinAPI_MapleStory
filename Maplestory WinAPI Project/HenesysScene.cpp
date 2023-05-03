@@ -18,13 +18,18 @@
 #include "WallColliderRight.h"
 #include "Sound.h"
 #include "RResources.h"
+#include "Time.h"
 
 #include "Exbar.h"
 #include "Hp_Mp.h"
 #include "Menubar.h"
 #include "Skillbar.h"
+#include "BackCover.h"
+#include "HpBar.h"
 
 HenesysScene::HenesysScene()
+	: Test(1.0f)
+	, check(false)
 {
 }
 HenesysScene::~HenesysScene()
@@ -41,15 +46,21 @@ void HenesysScene::Initialize()
 
 	Exbar* exbar = new Exbar();
 	AddGameObeject(exbar, eLayerType::UI);
-
+	
 	Hp_Mp* hp = new Hp_Mp();
 	AddGameObeject(hp, eLayerType::UI);
+
+	BackCover* hp_Cover = new BackCover();
+	AddGameObeject(hp_Cover, eLayerType::UI);
 
 	Menubar* menu = new Menubar();
 	AddGameObeject(menu, eLayerType::UI);
 
 	Skillbar* skillbar = new Skillbar();
 	AddGameObeject(skillbar, eLayerType::UI);
+
+	player_hp = new HpBar();
+	AddGameObeject(player_hp, eLayerType::ChannelList);
 
 	HenesysSound = RResources::Load<Sound>(L"HenesysSound", L"..\\Resources\\Sound\\Map_Sound\\Henesys.wav");
 	NextMap = RResources::Load<Sound>(L"NextMap", L"..\\Resources\\Sound\\UI_Sound\\Portal.wav");
@@ -182,6 +193,14 @@ void HenesysScene::Update()
 	{
 		SceneManager::LoadScene(eSceneType::Somyeol);
 	}*/
+	if (check == true)
+	{
+	hp = mMainChar->GetHP();
+	div = hp / 10000;
+	Test += div;
+	player_hp->GetComponent<Transform>()->SetScale(Vector2((Test), 1.0f));
+	check = false;
+	}
 
 	if (Input::GetKeyState(eKeyCode::N) == eKeyState::Down)
 	{

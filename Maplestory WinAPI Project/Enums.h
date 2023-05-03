@@ -36,6 +36,8 @@ enum class eLayerType
 	Ground,
 	WallCollider,
 	Effect,
+	HpCover,
+	Hpbar,
 	UI,
 	ChannelList,
 	Mous,
