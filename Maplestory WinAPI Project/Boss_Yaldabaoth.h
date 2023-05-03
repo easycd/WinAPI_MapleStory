@@ -26,6 +26,9 @@ public:
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
 
+	virtual void OnCollisionEnter(class Collider* other) override;
+	virtual void OnCollisionStay(Collider* other) override;
+
 	void Yaldabaoth_respawn();
 
 private:
@@ -34,7 +37,7 @@ private:
 	void death();
 	void attack1();
 	void attack2();
-	void idleCompleteEvent();
+	void Destroy();
 
 private:
 	eBoss_YaldabaothState m_State;
@@ -46,11 +49,13 @@ private:
 
 	int Direction; //0이면 왼쪽 1이면 오른쪽
 	int attack_pattern;
+	int Hp;
 
 	float m_Time;
 	float attack2_Delay;
 
 	bool SetMoveLeft;
 	bool SetMoveRight;
+	bool die_Check;
 };
 

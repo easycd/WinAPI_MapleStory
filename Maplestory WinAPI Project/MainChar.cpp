@@ -385,7 +385,7 @@ void MainChar::idle()
 		SD->Initialize();
 		SD->GetComponent<Transform>()->SetPos(Vector2(780.f, 660.f));
 		curScene->AddGameObeject(BG, eLayerType::SoulEclipse);
-		curScene->AddGameObeject(SD, eLayerType::SoulEclipse);
+		curScene->AddGameObeject(SD, eLayerType::Skill);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
 		}
 }

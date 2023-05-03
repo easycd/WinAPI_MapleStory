@@ -11,6 +11,7 @@ public:
 		Move,
 		Death,
 		Idle,
+		Die,
 	};
 
 	happy();
@@ -22,11 +23,13 @@ public:
 	virtual void Release() override;
 
 	virtual void OnCollisionEnter(class Collider* other) override;
+	virtual void OnCollisionStay(Collider* other) override;
 
 private:
 	void move();
 	void idle();
 	void dead();
+	void Delete();
 
 
 private:
@@ -37,6 +40,8 @@ private:
 	int Direction; // 방향 변수, 왼쪽 = 0, 오른쪽 = 1
 	bool Animation_Check;
 	bool Ground;
+	bool die_Check;
+	int Hp;
 
 public:
 	void SetInitialize_Direction(int dr)

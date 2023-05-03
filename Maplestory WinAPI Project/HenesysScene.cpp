@@ -221,6 +221,7 @@ void HenesysScene::OnEnter()
 {
 	HenesysSound->Play(true);
 
+
 	mMainChar->GetComponent<Transform>()->SetPos(Vector2(1050.0f, 350.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);

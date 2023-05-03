@@ -24,20 +24,26 @@ public:
 
 
 	virtual void OnCollisionEnter(class Collider* other) override;
+	virtual void OnCollisionStay(Collider* other) override;
 
 private:
 	void move();
 	void idle();
 	void dead();
+	void Delete();
 
 private:
 	ewaterspiritState m_State;
 	Animator* m_Animator;
 	float m_Time;
 	float SetPosX;
+
 	int Direction; // 방향 변수, 왼쪽 = 0, 오른쪽 = 1
+	int Hp;
+
 	bool Animation_Check;
 	bool Ground;
+	bool die_Check;
 
 public:
 	void SetInitialize_Direction(int dr)

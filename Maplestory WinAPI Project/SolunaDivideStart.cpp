@@ -32,6 +32,9 @@ void SolunaDivideStart::Initialize()
 	Effect->Initialize();
 	m_Animator->Play(L"SolunaDividescreen2", true);
 
+	Collider* collider = AddComponent<Collider>();
+	collider->SetSize(Vector2(10000.f, 10000.f)); // 히트박스 크기 조정
+	collider->SetCenter(Vector2(-1000.0f, -1000.0f)); // 히트박스 위치 조정
 
 	m_Animator->SetIsCameraMove(false);
 	GameObject::Initialize();

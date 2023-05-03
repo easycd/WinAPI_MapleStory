@@ -8,6 +8,12 @@
 #include "Scene.h"
 #include "Collider.h"
 #include "MainChar.h"
+#include "Object.h"
+
+#include "BasicSkill.h"
+#include "Cosmos.h"
+#include "SolunaDivideStart.h"
+
 
 Boss_Yaldabaoth::Boss_Yaldabaoth()
 	: m_Time(0.0f)
@@ -17,6 +23,8 @@ Boss_Yaldabaoth::Boss_Yaldabaoth()
 	, Direction(0)
 	, SetMoveLeft(false)
 	, SetMoveRight(false)
+	, die_Check(true)
+	, Hp(10)
 {
 }
 
@@ -46,6 +54,8 @@ void Boss_Yaldabaoth::Initialize()
 	m_Animator->GetCompleteEvent(L"YaldabaothY_attack1_Left") = std::bind(&Boss_Yaldabaoth::idle, this);
 	m_Animator->GetCompleteEvent(L"YaldabaothY_attack2_Right") = std::bind(&Boss_Yaldabaoth::idle, this);
 	m_Animator->GetCompleteEvent(L"YaldabaothY_attack2_Left") = std::bind(&Boss_Yaldabaoth::idle, this);
+	m_Animator->GetCompleteEvent(L"YaldabaothY_die_Left") = std::bind(&Boss_Yaldabaoth::Destroy, this);
+	m_Animator->GetCompleteEvent(L"YaldabaothY_die_Right") = std::bind(&Boss_Yaldabaoth::Destroy, this);
 
 	Idle_collider = AddComponent<Collider>();
 	Idle_collider->SetSize(Vector2(350, 600)); // 히트박스 크기 조정
@@ -57,6 +67,9 @@ void Boss_Yaldabaoth::Initialize()
 void Boss_Yaldabaoth::Update()
 {
 	GameObject::Update();
+
+	if (Hp == 0)
+		death();
 
 	Vector2 pos = tr->GetPos();
 	if (Direction == 1 && SetMoveRight == true)
@@ -104,6 +117,43 @@ void Boss_Yaldabaoth::Render(HDC hdc)
 void Boss_Yaldabaoth::Release()
 {
 	GameObject::Release();
+}
+
+void Boss_Yaldabaoth::OnCollisionEnter(Collider* other)
+{
+	BasicSkill* bs = dynamic_cast<BasicSkill*>(other->GetOwner());
+	if (bs != nullptr)
+	{
+		//bshit = object::Instantiate<BsHit>(eLayerType::Skill_hit);
+		//bshit->Hit();
+		Hp -= 10;
+	}
+	SolunaDivideStart* divide = dynamic_cast<SolunaDivideStart*>(other->GetOwner());
+	if (divide != nullptr)
+	{
+		Hp -= 10;
+	}
+}
+
+void Boss_Yaldabaoth::OnCollisionStay(Collider* other)
+{
+	Cosmos* cosmos = dynamic_cast<Cosmos*>(other->GetOwner());
+	if (cosmos != nullptr)
+	{
+		Hp -= 10;
+	}
+	SolunaDivideStart* divide = dynamic_cast<SolunaDivideStart*>(other->GetOwner());
+	if (divide != nullptr)
+	{
+		Hp -= 10;
+	}
+	BasicSkill* bs = dynamic_cast<BasicSkill*>(other->GetOwner());
+	if (bs != nullptr)
+	{
+		//bshit = object::Instantiate<BsHit>(eLayerType::Skill_hit);
+		//bshit->Hit();
+		Hp -= 10;
+	}
 }
 
 void Boss_Yaldabaoth::Yaldabaoth_respawn()
@@ -163,7 +213,23 @@ void Boss_Yaldabaoth::idle()
 void Boss_Yaldabaoth::death()
 {
 	m_State = eBoss_YaldabaothState::Death;
-	m_Animator->Play(L"YaldabaothY_die", true);
+	if (Direction == 0)
+	{
+		if (die_Check == true)
+		{
+			m_Animator->Play(L"YaldabaothY_die_Left", true);
+			die_Check = false;
+		}
+
+	}
+	else if (Direction == 1)
+	{
+		if (die_Check == true)
+		{
+			m_Animator->Play(L"YaldabaothY_die_Right", true);
+			die_Check = false;
+		}
+	}
 }
 
 void Boss_Yaldabaoth::attack1()
@@ -195,7 +261,7 @@ void Boss_Yaldabaoth::attack2()
 
 }
 
-void Boss_Yaldabaoth::idleCompleteEvent()
+void Boss_Yaldabaoth::Destroy()
 {
-
+	object::Destory(this);
 }

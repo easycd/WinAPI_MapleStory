@@ -27,11 +27,11 @@ public:
 	virtual void OnCollisionEnter(class Collider* other) override;
 	virtual void OnCollisionStay(Collider* other) override;
 
+	void idle();
 private:
 	void move();
-	void idle();
 	void death();
-	void Destroy();
+	void Delete();
 
 private:
 	emushroomState m_State;

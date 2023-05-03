@@ -83,9 +83,6 @@
     <Filter Include="Contents\01. GameObject\BackObj\Arcana">
       <UniqueIdentifier>{1efa029d-ea86-4eae-a085-2977053aa590}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Contents\01. GameObject\BackObj\Boss_Stage">
-      <UniqueIdentifier>{582c299c-8295-4d47-8e5a-bd2977b13f3e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Contents\01. GameObject\BackObj\Henesys">
       <UniqueIdentifier>{8913dec4-d6e7-4150-9d37-957dd0a0bced}</UniqueIdentifier>
     </Filter>
@@ -160,6 +157,18 @@
     </Filter>
     <Filter Include="Contents\01. GameObject\Player\HP_MP">
       <UniqueIdentifier>{cd203da9-2943-4261-adee-4c743df71360}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\02. Scene\BossScene\Boss_Enter">
+      <UniqueIdentifier>{efd79031-b671-40fc-9476-fbe30451ff4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\02. Scene\BossScene\Phase1">
+      <UniqueIdentifier>{def52ffe-dbb7-432f-b32f-a864872a0158}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\02. Scene\BossScene\Phase2">
+      <UniqueIdentifier>{364ca5ef-42a3-403e-b36c-a9c5ac1f7266}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Contents\01. GameObject\BackObj\Boss_Stage">
+      <UniqueIdentifier>{582c299c-8295-4d47-8e5a-bd2977b13f3e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -307,15 +316,6 @@
     <ClInclude Include="Arcana.h">
       <Filter>Contents\02. Scene\ArcanaScene</Filter>
     </ClInclude>
-    <ClInclude Include="Boss_Enter_Scene.h">
-      <Filter>Contents\02. Scene\BossScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Boss_Stage1_Scene.h">
-      <Filter>Contents\02. Scene\BossScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Boss_Stage2_Scene.h">
-      <Filter>Contents\02. Scene\BossScene</Filter>
-    </ClInclude>
     <ClInclude Include="SomyeolScene.h">
       <Filter>Contents\02. Scene\SomyeolScene</Filter>
     </ClInclude>
@@ -444,6 +444,15 @@
     </ClInclude>
     <ClInclude Include="BackCover.h">
       <Filter>Contents\01. GameObject\Player\HP_MP</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Enter_Scene.h">
+      <Filter>Contents\02. Scene\BossScene\Boss_Enter</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Stage1_Scene.h">
+      <Filter>Contents\02. Scene\BossScene\Phase1</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss_Stage2_Scene.h">
+      <Filter>Contents\02. Scene\BossScene\Phase2</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -589,15 +598,6 @@
     <ClCompile Include="Arcana.cpp">
       <Filter>Contents\02. Scene\ArcanaScene</Filter>
     </ClCompile>
-    <ClCompile Include="Boss_Enter_Scene.cpp">
-      <Filter>Contents\02. Scene\BossScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Boss_Stage1_Scene.cpp">
-      <Filter>Contents\02. Scene\BossScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Boss_Stage2_Scene.cpp">
-      <Filter>Contents\02. Scene\BossScene</Filter>
-    </ClCompile>
     <ClCompile Include="SomyeolScene.cpp">
       <Filter>Contents\02. Scene\SomyeolScene</Filter>
     </ClCompile>
@@ -726,6 +726,15 @@
     </ClCompile>
     <ClCompile Include="BackCover.cpp">
       <Filter>Contents\01. GameObject\Player\HP_MP</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Enter_Scene.cpp">
+      <Filter>Contents\02. Scene\BossScene\Boss_Enter</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Stage1_Scene.cpp">
+      <Filter>Contents\02. Scene\BossScene\Phase1</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss_Stage2_Scene.cpp">
+      <Filter>Contents\02. Scene\BossScene\Phase2</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

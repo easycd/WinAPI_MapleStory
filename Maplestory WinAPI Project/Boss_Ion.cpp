@@ -8,6 +8,11 @@
 #include "Scene.h"
 #include "Collider.h"
 #include "MainChar.h"
+#include "Object.h"
+
+#include "BasicSkill.h"
+#include "Cosmos.h"
+#include "SolunaDivideStart.h"
 
 Boss_Ion::Boss_Ion()
 	: m_Time(0.0f)
@@ -17,6 +22,8 @@ Boss_Ion::Boss_Ion()
 	, Direction(1)
 	, SetMoveLeft(false)
 	, SetMoveRight(false)
+	, die_Check(true)
+	, Hp(10)
 {
 }
 
@@ -33,8 +40,8 @@ void Boss_Ion::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\respawn", Vector2::Zero, 0.08f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\standLeft", Vector2::Zero, 0.08f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\standRight", Vector2::Zero, 0.08f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\die_Left", Vector2::Zero, 0.08f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\die_Right", Vector2::Zero, 0.08f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\die_Left", Vector2::Zero, 0.09f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\die_Right", Vector2::Zero, 0.09f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack1_Left", Vector2::Zero, 0.08f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack1_Right", Vector2::Zero, 0.08f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack2_Left", Vector2::Zero, 0.08f);
@@ -46,6 +53,8 @@ void Boss_Ion::Initialize()
 	m_Animator->GetCompleteEvent(L"Ionattack1_Left") = std::bind(&Boss_Ion::idle, this);
 	m_Animator->GetCompleteEvent(L"Ionattack2_Right") = std::bind(&Boss_Ion::idle, this);
 	m_Animator->GetCompleteEvent(L"Ionattack2_Left") = std::bind(&Boss_Ion::idle, this);
+	m_Animator->GetCompleteEvent(L"Iondie_Left") = std::bind(&Boss_Ion::Destroy, this);
+	m_Animator->GetCompleteEvent(L"Iondie_Right") = std::bind(&Boss_Ion::Destroy, this);
 
 	Idle_collider = AddComponent<Collider>();
 	Idle_collider->SetSize(Vector2(350, 600)); // 히트박스 크기 조정
@@ -57,6 +66,9 @@ void Boss_Ion::Initialize()
 void Boss_Ion::Update()
 {
 	GameObject::Update();
+
+	if (Hp == 0)
+		death();
 
 	Vector2 pos = tr->GetPos();
 	if (Direction == 1 && SetMoveRight == true)
@@ -105,6 +117,43 @@ void Boss_Ion::Render(HDC hdc)
 void Boss_Ion::Release()
 {
 	GameObject::Release();
+}
+
+void Boss_Ion::OnCollisionEnter(Collider* other)
+{
+	BasicSkill* bs = dynamic_cast<BasicSkill*>(other->GetOwner());
+	if (bs != nullptr)
+	{
+		//bshit = object::Instantiate<BsHit>(eLayerType::Skill_hit);
+		//bshit->Hit();
+		Hp -= 10;
+	}
+	SolunaDivideStart* divide = dynamic_cast<SolunaDivideStart*>(other->GetOwner());
+	if (divide != nullptr)
+	{
+		Hp -= 10;
+	}
+}
+
+void Boss_Ion::OnCollisionStay(Collider* other)
+{
+	Cosmos* cosmos = dynamic_cast<Cosmos*>(other->GetOwner());
+	if (cosmos != nullptr)
+	{
+		Hp -= 10;
+	}
+	SolunaDivideStart* divide = dynamic_cast<SolunaDivideStart*>(other->GetOwner());
+	if (divide != nullptr)
+	{
+		Hp -= 10;
+	}
+	BasicSkill* bs = dynamic_cast<BasicSkill*>(other->GetOwner());
+	if (bs != nullptr)
+	{
+		//bshit = object::Instantiate<BsHit>(eLayerType::Skill_hit);
+		//bshit->Hit();
+		Hp -= 10;
+	}
 }
 
 void Boss_Ion::Ion_respawn()
@@ -164,7 +213,23 @@ void Boss_Ion::idle()
 void Boss_Ion::death()
 {
 	m_State = eBoss_IonState::Death;
-	m_Animator->Play(L"Iondie", true);
+	if (Direction == 0)
+	{
+		if (die_Check == true)
+		{
+			m_Animator->Play(L"Iondie_Left", true);
+			die_Check = false;
+		}
+
+	}
+	else if (Direction == 1)
+	{
+		if (die_Check == true)
+		{
+			m_Animator->Play(L"Iondie_Right", true);
+			die_Check = false;
+		}
+	}
 }
 
 void Boss_Ion::attack1()
@@ -196,7 +261,7 @@ void Boss_Ion::attack2()
 
 }
 
-void Boss_Ion::idleCompleteEvent()
+void Boss_Ion::Destroy()
 {
-
+	object::Destory(this);
 }

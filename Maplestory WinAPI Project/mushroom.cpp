@@ -15,6 +15,7 @@
 
 #include "BasicSkill.h"
 #include "Cosmos.h"
+#include "SolunaDivideStart.h"
 
 #include "BsHit.h"
 
@@ -29,8 +30,8 @@ mushroom::mushroom()
 	, AnimationLoop(false)
 	, Check(false)
 	, Check2(false)
-	, die_Check(false)
-	, Hp(100)
+	, die_Check(true)
+	, Hp(10)
 	, m_State(emushroomState::Move)
 {
 }
@@ -49,11 +50,11 @@ void mushroom::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\IdleRight", Vector2::Zero, 0.3f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\moveLeft", Vector2::Zero, 0.3f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\moveRight", Vector2::Zero, 0.3f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\dieLeft", Vector2::Zero, 0.1f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\dieRight", Vector2::Zero, 0.f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\dieLeft", Vector2::Zero, 0.15f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\mushroom\\dieRight", Vector2::Zero, 0.15f);
 
-	m_Animator->GetCompleteEvent(L"mushroomdieLeft") = std::bind(&mushroom::Destroy, this);
-	m_Animator->GetCompleteEvent(L"mushroomdieRight") = std::bind(&mushroom::Destroy, this);
+	m_Animator->GetCompleteEvent(L"mushroomdieLeft") = std::bind(&mushroom::Delete, this);
+	m_Animator->GetCompleteEvent(L"mushroomdieRight") = std::bind(&mushroom::Delete, this);
 
 	m_Animator->Play(L"mushroommoveLeft", true);
 
@@ -70,7 +71,8 @@ void mushroom::Update()
 	GameObject::Update();
 
 	if (Hp == 0)
-		m_State = emushroomState::Death;
+		death();
+	
 		//death();
 
 	//몬스터 일정범위 주위에 캐릭터가 있으면 추적하는 로직
@@ -158,6 +160,11 @@ void mushroom::OnCollisionEnter(Collider* other)
 		//bshit->Hit();
 		Hp -= 10;
 	}
+	SolunaDivideStart* divide = dynamic_cast<SolunaDivideStart*>(other->GetOwner());
+	if (divide != nullptr)
+	{
+		Hp -= 10;
+	}
 
 }
 
@@ -168,6 +175,19 @@ void mushroom::OnCollisionStay(Collider* other)
 	{
 		Hp -= 10;
 	}
+	SolunaDivideStart * divide = dynamic_cast<SolunaDivideStart*>(other->GetOwner());
+	if (divide != nullptr)
+	{
+		Hp -= 10;
+	}
+	BasicSkill* bs = dynamic_cast<BasicSkill*>(other->GetOwner());
+	if (bs != nullptr)
+	{
+		//bshit = object::Instantiate<BsHit>(eLayerType::Skill_hit);
+		//bshit->Hit();
+		Hp -= 10;
+	}
+
 }
 
 void mushroom::move()
@@ -208,18 +228,28 @@ void mushroom::idle()
 
 void mushroom::death()
 {
+	m_State = emushroomState::Death;
+
 	if (Direction == 0)
-	{	
-		m_Animator->Play(L"mushroomdieLeft", true);
+	{
+		if (die_Check == true)
+		{
+			m_Animator->Play(L"mushroomdieLeft", true);
+			die_Check = false;
+		}
 	
 	}
 	else if (Direction == 1)
 	{
-		m_Animator->Play(L"mushroomdieRight", true);
+		if (die_Check == true)
+		{
+			m_Animator->Play(L"mushroomdieRight", true);
+			die_Check = false;
+		}
 	}
 }
 
-void mushroom::Destroy()
+void mushroom::Delete()
 {
 	object::Destory(this);
 }

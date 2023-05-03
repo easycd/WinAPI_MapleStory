@@ -137,32 +137,32 @@ void SomyeolScene::Initialize()
 
 	//-------------------------------몬스터Pos-------------------------------- x축 = GroundX축 + 50, Y축 = GroundY축 , 몬스터 간격 X축 + 150
 	//1번 바닥
-	m_happy0->GetComponent<Transform>()->SetPos(Vector2(80.0f, 975.0f));
-	m_happy1->GetComponent<Transform>()->SetPos(Vector2(230.0f, 975.0f)); 
-	m_happy2->GetComponent<Transform>()->SetPos(Vector2(380.0f, 975.0f)); m_happy2->SetInitialize_Direction(1);
-	m_happy3->GetComponent<Transform>()->SetPos(Vector2(530.0f, 975.0f)); m_happy3->SetInitialize_Direction(1);
+	m_happy0->GetComponent<Transform>()->SetPos(Vector2(80.0f, 1215.0f));
+	m_happy1->GetComponent<Transform>()->SetPos(Vector2(230.0f, 1215.0f));
+	m_happy2->GetComponent<Transform>()->SetPos(Vector2(380.0f, 1215.0f)); m_happy2->SetInitialize_Direction(1);
+	m_happy3->GetComponent<Transform>()->SetPos(Vector2(530.0f, 1215.0f)); m_happy3->SetInitialize_Direction(1);
 	//3번 바닥
-	m_happy4->GetComponent<Transform>()->SetPos(Vector2(1530.0f, 555.0f));
-	m_happy5->GetComponent<Transform>()->SetPos(Vector2(1680.0f, 555.0f));
-	m_happy6->GetComponent<Transform>()->SetPos(Vector2(1830.0f, 555.0f)); m_happy6->SetInitialize_Direction(1);
-	m_happy7->GetComponent<Transform>()->SetPos(Vector2(1980.0f, 555.0f)); m_happy7->SetInitialize_Direction(1);
+	m_happy4->GetComponent<Transform>()->SetPos(Vector2(1530.0f, 795.0f));
+	m_happy5->GetComponent<Transform>()->SetPos(Vector2(1680.0f, 795.0f));
+	m_happy6->GetComponent<Transform>()->SetPos(Vector2(1830.0f, 795.0f)); m_happy6->SetInitialize_Direction(1);
+	m_happy7->GetComponent<Transform>()->SetPos(Vector2(1980.0f, 795.0f)); m_happy7->SetInitialize_Direction(1);
 	//4번 바닥
-	m_happy8->GetComponent<Transform>()->SetPos(Vector2(1530.0f, 975.0f));
-	m_happy9->GetComponent<Transform>()->SetPos(Vector2(1680.0f, 975.0f));
-	m_happy10->GetComponent<Transform>()->SetPos(Vector2(1830.0f, 975.0f)); m_happy10->SetInitialize_Direction(1);
-	m_happy11->GetComponent<Transform>()->SetPos(Vector2(1980.0f, 975.0f));	m_happy11->SetInitialize_Direction(1);
+	m_happy8->GetComponent<Transform>()->SetPos(Vector2(1530.0f, 1215.0f));
+	m_happy9->GetComponent<Transform>()->SetPos(Vector2(1680.0f, 1215.0f));
+	m_happy10->GetComponent<Transform>()->SetPos(Vector2(1830.0f, 1215.0f)); m_happy10->SetInitialize_Direction(1);
+	m_happy11->GetComponent<Transform>()->SetPos(Vector2(1980.0f, 1215.0f)); m_happy11->SetInitialize_Direction(1);
 	//5번 바닥
-	m_happy12->GetComponent<Transform>()->SetPos(Vector2(750.0f, 855.0f));
-	m_happy13->GetComponent<Transform>()->SetPos(Vector2(900.0f, 855.0f));
-	m_happy14->GetComponent<Transform>()->SetPos(Vector2(1050.0f, 855.0f)); 
-	m_happy15->GetComponent<Transform>()->SetPos(Vector2(1200.0f, 855.0f));	m_happy15->SetInitialize_Direction(1);
-	m_happy16->GetComponent<Transform>()->SetPos(Vector2(1350.0f, 855.0f));	m_happy16->SetInitialize_Direction(1);
+	m_happy12->GetComponent<Transform>()->SetPos(Vector2(750.0f, 1095.0f));
+	m_happy13->GetComponent<Transform>()->SetPos(Vector2(900.0f, 1095.0f));
+	m_happy14->GetComponent<Transform>()->SetPos(Vector2(1050.0f, 1095.0f));
+	m_happy15->GetComponent<Transform>()->SetPos(Vector2(1200.0f, 1095.0f));	m_happy15->SetInitialize_Direction(1);
+	m_happy16->GetComponent<Transform>()->SetPos(Vector2(1350.0f, 1095.0f));	m_happy16->SetInitialize_Direction(1);
 	//6번 바닥
-	m_happy17->GetComponent<Transform>()->SetPos(Vector2(750.0f, 435.0f));
-	m_happy18->GetComponent<Transform>()->SetPos(Vector2(900.0f, 435.0f));
-	m_happy19->GetComponent<Transform>()->SetPos(Vector2(1050.0f, 435.0f));
-	m_happy20->GetComponent<Transform>()->SetPos(Vector2(1200.0f, 435.0f)); m_happy20->SetInitialize_Direction(1);
-	m_happy21->GetComponent<Transform>()->SetPos(Vector2(1350.0f, 435.0f)); m_happy21->SetInitialize_Direction(1);
+	m_happy17->GetComponent<Transform>()->SetPos(Vector2(750.0f, 675.0f));
+	m_happy18->GetComponent<Transform>()->SetPos(Vector2(900.0f, 675.0f));
+	m_happy19->GetComponent<Transform>()->SetPos(Vector2(1050.0f, 675.0f));
+	m_happy20->GetComponent<Transform>()->SetPos(Vector2(1200.0f, 675.0f)); m_happy20->SetInitialize_Direction(1);
+	m_happy21->GetComponent<Transform>()->SetPos(Vector2(1350.0f, 675.0f)); m_happy21->SetInitialize_Direction(1);
 }
 void SomyeolScene::Update()
 {

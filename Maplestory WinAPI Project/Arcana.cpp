@@ -124,30 +124,30 @@ void Arcana::Initialize()
 	wallcolRight5->GetComponent<Transform>()->SetPos(Vector2(2570.0f, 720.0f)); wallcolRight5->GetComponent<Collider>()->SetSize(Vector2(10.0f, -10.0f));
 
 	//0¹ø ¹Ù´Ú
-	m_waterspirit0->GetComponent<Transform>()->SetPos(Vector2(300.0f, 995.0f));
-	m_waterspirit1->GetComponent<Transform>()->SetPos(Vector2(600.0f, 995.0f)); m_waterspirit1->SetInitialize_Direction(1);
-	m_waterspirit2->GetComponent<Transform>()->SetPos(Vector2(900.0f, 995.0f));
-	m_waterspirit3->GetComponent<Transform>()->SetPos(Vector2(1200.0f, 995.0f)); m_waterspirit3->SetInitialize_Direction(1);
-	m_waterspirit4->GetComponent<Transform>()->SetPos(Vector2(1500.0f, 995.0f)); 
-	m_waterspirit5->GetComponent<Transform>()->SetPos(Vector2(1800.0f, 995.0f)); m_waterspirit5->SetInitialize_Direction(1);
-	m_waterspirit6->GetComponent<Transform>()->SetPos(Vector2(2100.0f, 995.0f)); 
-	m_waterspirit7->GetComponent<Transform>()->SetPos(Vector2(2400.0f, 995.0f)); m_waterspirit7->SetInitialize_Direction(1);
+	m_waterspirit0->GetComponent<Transform>()->SetPos(Vector2(300.0f, 1215.0f));
+	m_waterspirit1->GetComponent<Transform>()->SetPos(Vector2(600.0f, 1215.0f)); m_waterspirit1->SetInitialize_Direction(1);
+	m_waterspirit2->GetComponent<Transform>()->SetPos(Vector2(900.0f, 1215.0f));
+	m_waterspirit3->GetComponent<Transform>()->SetPos(Vector2(1200.0f, 1215.0f)); m_waterspirit3->SetInitialize_Direction(1);
+	m_waterspirit4->GetComponent<Transform>()->SetPos(Vector2(1500.0f, 1215.0f));
+	m_waterspirit5->GetComponent<Transform>()->SetPos(Vector2(1800.0f, 1215.0f)); m_waterspirit5->SetInitialize_Direction(1);
+	m_waterspirit6->GetComponent<Transform>()->SetPos(Vector2(2100.0f, 1215.0f));
+	m_waterspirit7->GetComponent<Transform>()->SetPos(Vector2(2400.0f, 1215.0f)); m_waterspirit7->SetInitialize_Direction(1);
 	//2¹ø ¹Ù´Ú
-	m_waterspirit8->GetComponent<Transform>()->SetPos(Vector2(600.0f, 580.0f)); m_waterspirit8->SetInitialize_Direction(1);
-	m_waterspirit9->GetComponent<Transform>()->SetPos(Vector2(750.0f, 580.0f));
-	m_waterspirit10->GetComponent<Transform>()->SetPos(Vector2(900.0f, 580.0f)); m_waterspirit10->SetInitialize_Direction(1);
+	m_waterspirit8->GetComponent<Transform>()->SetPos(Vector2(600.0f, 800.0f)); m_waterspirit8->SetInitialize_Direction(1);
+	m_waterspirit9->GetComponent<Transform>()->SetPos(Vector2(750.0f, 800.0f));
+	m_waterspirit10->GetComponent<Transform>()->SetPos(Vector2(900.0f, 800.0f)); m_waterspirit10->SetInitialize_Direction(1);
 	//3¹ø ¹Ù´Ú
-	m_waterspirit11->GetComponent<Transform>()->SetPos(Vector2(1150.0f, 730.0f));
-	m_waterspirit12->GetComponent<Transform>()->SetPos(Vector2(1300.0f, 730.0f)); m_waterspirit12->SetInitialize_Direction(1);
-	m_waterspirit13->GetComponent<Transform>()->SetPos(Vector2(1450.0f, 730.0f));
+	m_waterspirit11->GetComponent<Transform>()->SetPos(Vector2(1150.0f, 950.0f));
+	m_waterspirit12->GetComponent<Transform>()->SetPos(Vector2(1300.0f, 950.0f)); m_waterspirit12->SetInitialize_Direction(1);
+	m_waterspirit13->GetComponent<Transform>()->SetPos(Vector2(1450.0f, 950.0f));
 	//4¹ø ¹Ù´Ú
-	m_waterspirit14->GetComponent<Transform>()->SetPos(Vector2(1680.0f, 580.0f)); m_waterspirit14->SetInitialize_Direction(1);
-	m_waterspirit15->GetComponent<Transform>()->SetPos(Vector2(1830.0f, 580.0f));
-	m_waterspirit16->GetComponent<Transform>()->SetPos(Vector2(1990.0f, 580.0f));
+	m_waterspirit14->GetComponent<Transform>()->SetPos(Vector2(1680.0f, 800.0f)); m_waterspirit14->SetInitialize_Direction(1);
+	m_waterspirit15->GetComponent<Transform>()->SetPos(Vector2(1830.0f, 800.0f));
+	m_waterspirit16->GetComponent<Transform>()->SetPos(Vector2(1990.0f, 800.0f));
 	//5¹ø ¹Ù´Ú
-	m_waterspirit17->GetComponent<Transform>()->SetPos(Vector2(2170.0f, 730.0f));
-	m_waterspirit18->GetComponent<Transform>()->SetPos(Vector2(2320.0f, 730.0f)); m_waterspirit18->SetInitialize_Direction(1);
-	m_waterspirit19->GetComponent<Transform>()->SetPos(Vector2(2470.0f, 730.0f)); m_waterspirit19->SetInitialize_Direction(1);
+	m_waterspirit17->GetComponent<Transform>()->SetPos(Vector2(2170.0f, 950.0f));
+	m_waterspirit18->GetComponent<Transform>()->SetPos(Vector2(2320.0f, 950.0f)); m_waterspirit18->SetInitialize_Direction(1);
+	m_waterspirit19->GetComponent<Transform>()->SetPos(Vector2(2470.0f, 950.0f)); m_waterspirit19->SetInitialize_Direction(1);
 }
 void Arcana::Update()
 {
