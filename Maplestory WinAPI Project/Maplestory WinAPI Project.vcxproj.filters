@@ -170,6 +170,9 @@
     <Filter Include="Contents\01. GameObject\BackObj\Boss_Stage">
       <UniqueIdentifier>{582c299c-8295-4d47-8e5a-bd2977b13f3e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Contents\02. Scene\BossScene\LastMap">
+      <UniqueIdentifier>{b1188449-37cc-418f-a572-2be283e81bdd}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="targetver.h">
@@ -484,6 +487,12 @@
     <ClInclude Include="Missobj.h">
       <Filter>Contents\01. GameObject\Player</Filter>
     </ClInclude>
+    <ClInclude Include="LastMAp.h">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="LastMapScene.h">
+      <Filter>Contents\02. Scene\BossScene\LastMap</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc">
@@ -795,6 +804,12 @@
     </ClCompile>
     <ClCompile Include="YalHP.cpp">
       <Filter>Contents\01. GameObject\Boss\Yaldabaoth</Filter>
+    </ClCompile>
+    <ClCompile Include="LastMAp.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="LastMapScene.cpp">
+      <Filter>Contents\02. Scene\BossScene\LastMap</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

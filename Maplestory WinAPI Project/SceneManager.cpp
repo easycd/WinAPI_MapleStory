@@ -12,7 +12,7 @@
 #include "Boss_Enter_Scene.h"
 #include "Stage1Enter_AniScene.h"
 #include "Stage2Enter_AniScene.h"
-
+#include "LastMapScene.h"
 std::vector<Scene*> SceneManager::mScenes = {};
 Scene* SceneManager::mActiveScene = nullptr;
 
@@ -32,6 +32,7 @@ void SceneManager::Initialize()
 	mScenes[(UINT)eSceneType::Boss_Stage1] = new Boss_Stage1_Scene(); //보스스테이지1 씬
 	mScenes[(UINT)eSceneType::Boss_Stage2_Ani] = new Stage2Enter_AniScene(); // 페이즈2 애니
 	mScenes[(UINT)eSceneType::Boss_Stage2] = new Boss_Stage2_Scene(); //보스스테이지2 씬
+	mScenes[(UINT)eSceneType::Ending] = new LastMapScene();
 
 	mActiveScene = mScenes[(UINT)eSceneType::Loding]; //씬 시작
 

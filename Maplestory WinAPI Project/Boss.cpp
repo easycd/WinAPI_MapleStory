@@ -45,7 +45,8 @@ Boss::Boss()
 	, Skill4_Loop4(false)
 	, Skill4_Loop5(false)
 
-	,  m_Test(false)
+	, Boss_Die(false)
+	, m_Test(false)
 	,cnt(0)
 
 {
@@ -98,6 +99,10 @@ void Boss::Initialize()
 
 void Boss::Update()
 {
+	if (BossHP == 7)
+	{
+		Boss_Die = true;
+	}
 	GameObject::Update();
 
 	if (Skill4Loop == true)

@@ -183,6 +183,8 @@
     <ClInclude Include="Image.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="IonHP.h" />
+    <ClInclude Include="LastMAp.h" />
+    <ClInclude Include="LastMapScene.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LeftFullSkill.h" />
     <ClInclude Include="MainChar.h" />
@@ -286,6 +288,8 @@
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="IonHP.cpp" />
+    <ClCompile Include="LastMAp.cpp" />
+    <ClCompile Include="LastMapScene.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LeftFullSkill.cpp" />
     <ClCompile Include="main.cpp" />

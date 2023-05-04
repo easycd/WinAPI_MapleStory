@@ -75,11 +75,19 @@ void Boss_Stage2_Scene::Update()
 {
 	Hpb->BossHP = boss->GetBossHPCnt();
 
-	if (Input::GetKeyState(eKeyCode::N) == eKeyState::Down)
-	{
-		SceneManager::LoadScene(eSceneType::Henesys);
-	}
+	//if (Input::GetKeyState(eKeyCode::N) == eKeyState::Down)
+	//{
+	//	SceneManager::LoadScene(eSceneType::Ending);
+	//}
 
+	if (boss->GetBossDie())
+	{
+		mTime += Time::DeltaTime();
+			if (mTime > 3.0f)
+			{
+				SceneManager::LoadScene(eSceneType::Ending);
+			}
+	}
 	Scene::Update();
 
 

@@ -43,6 +43,11 @@ public:
 		return BossHP;
 	}
 
+	bool GetBossDie()
+	{
+		return Boss_Die;
+	}
+
 private:
 	void pattern();
 	void idle();
@@ -86,6 +91,8 @@ private:
 	bool Skill4_Loop3;
 	bool Skill4_Loop4;
 	bool Skill4_Loop5;
+
+	bool Boss_Die;
 
 	LeftFullSkill* Skill1;
 	CenterFullSkill* Skill2;
