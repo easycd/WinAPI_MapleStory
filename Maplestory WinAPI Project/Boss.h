@@ -33,7 +33,14 @@ public:
 	virtual void Render(HDC hdc) override;
 	virtual void Release() override;
 
+	virtual void OnCollisionEnter(class Collider* other) override;
+
 	void respawn();
+
+	int GetBossHPCnt()
+	{
+		return BossHP;
+	}
 
 private:
 	void pattern();
@@ -58,6 +65,7 @@ private:
 	int attack_pattern;
 	int Skill4_Cnt;
 	int cnt;
+	int BossHP;
 
 	float m_Time;
 	float LoopTime;

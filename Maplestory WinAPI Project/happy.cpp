@@ -155,7 +155,7 @@ void happy::move()
 			Animation_Check = false;
 		}
 
-		//pos.x -= 60.0 * Time::DeltaTime();
+		pos.x -= 60.0 * Time::DeltaTime();
 	}
 	else if (Direction == 1)
 	{
@@ -165,7 +165,7 @@ void happy::move()
 			Animation_Check = true;
 		}
 
-		//pos.x += 60.0 * Time::DeltaTime();
+		pos.x += 60.0 * Time::DeltaTime();
 	}
 	tr->SetPos(pos);
 }

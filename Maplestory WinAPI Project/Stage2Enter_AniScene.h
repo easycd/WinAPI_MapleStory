@@ -5,7 +5,7 @@
 
 class Sound;
 class Stage2Enter_Ani;
-
+class MainChar;
 class Stage2Enter_AniScene : public Scene
 {
 public:
@@ -19,8 +19,10 @@ public:
 
 	virtual void OnEnter() override;
 	virtual void OnExit() override;
+	virtual MainChar* GetPlayer() override { return mMainChar; };
 
 private:
+	MainChar* mMainChar;
 	Stage2Enter_Ani* ani;
 	Sound* S2Enter;
 	float mTime;

@@ -138,6 +138,9 @@
     <ClInclude Include="BasicSkill.h" />
     <ClInclude Include="BlackChainSkill.h" />
     <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossHP_Bar.h" />
+    <ClInclude Include="BossHP_State.h" />
+    <ClInclude Include="BossPortal.h" />
     <ClInclude Include="Boss_Enter_Scene.h" />
     <ClInclude Include="Boss_Enter_Back.h" />
     <ClInclude Include="Boss_Ion.h" />
@@ -186,7 +189,8 @@
     <ClInclude Include="Maplestory WinAPI Project.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Menubar.h" />
-    <ClInclude Include="MousCollider.h" />
+    <ClInclude Include="CheckBoxCollider.h" />
+    <ClInclude Include="Missobj.h" />
     <ClInclude Include="mushroom.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Portal.h" />
@@ -238,6 +242,9 @@
     <ClCompile Include="BasicSkill.cpp" />
     <ClCompile Include="BlackChainSkill.cpp" />
     <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossHP_Bar.cpp" />
+    <ClCompile Include="BossHP_State.cpp" />
+    <ClCompile Include="BossPortal.cpp" />
     <ClCompile Include="Boss_Enter_Scene.cpp" />
     <ClCompile Include="Boss_Enter_Back.cpp" />
     <ClCompile Include="Boss_Ion.cpp" />
@@ -282,7 +289,8 @@
     <ClCompile Include="MainChar.cpp" />
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Menubar.cpp" />
-    <ClCompile Include="MousCollider.cpp" />
+    <ClCompile Include="CheckBoxCollider.cpp" />
+    <ClCompile Include="Missobj.cpp" />
     <ClCompile Include="mushroom.cpp" />
     <ClCompile Include="Portal.cpp" />
     <ClCompile Include="RedSnail.cpp" />

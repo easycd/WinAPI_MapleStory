@@ -23,6 +23,7 @@ Boss_Ion::Boss_Ion()
 	, SetMoveLeft(false)
 	, SetMoveRight(false)
 	, die_Check(true)
+	, I_Die(false)
 	, Hp(10)
 {
 }
@@ -133,27 +134,16 @@ void Boss_Ion::OnCollisionEnter(Collider* other)
 	{
 		Hp -= 10;
 	}
-}
-
-void Boss_Ion::OnCollisionStay(Collider* other)
-{
 	Cosmos* cosmos = dynamic_cast<Cosmos*>(other->GetOwner());
 	if (cosmos != nullptr)
 	{
 		Hp -= 10;
 	}
-	SolunaDivideStart* divide = dynamic_cast<SolunaDivideStart*>(other->GetOwner());
-	if (divide != nullptr)
-	{
-		Hp -= 10;
-	}
-	BasicSkill* bs = dynamic_cast<BasicSkill*>(other->GetOwner());
-	if (bs != nullptr)
-	{
-		//bshit = object::Instantiate<BsHit>(eLayerType::Skill_hit);
-		//bshit->Hit();
-		Hp -= 10;
-	}
+}
+
+void Boss_Ion::OnCollisionStay(Collider* other)
+{
+	
 }
 
 void Boss_Ion::Ion_respawn()
@@ -263,5 +253,6 @@ void Boss_Ion::attack2()
 
 void Boss_Ion::Destroy()
 {
+	I_Die = true;
 	object::Destory(this);
 }

@@ -5,7 +5,6 @@
 
 class ChannelSelectBG;
 class Sound;
-class MousCollider;
 class ServerList;
 class Scania;
 class WorldChannelSelect;
@@ -35,7 +34,6 @@ private:
 	Sound* ChennalSd;
 	Sound* worldClick;
 	Sound* NextScene;
-	MousCollider* Mc;
 	POINT mousePos;
 	Vector2 McPos;
 	ServerList* Sl;

@@ -34,5 +34,11 @@ private:
 	Boss_Yaldabaoth* m_Boss_Yaldabaoth;
 	Sound* Stage1;
 	Sound* NextMap;
+
+	float mTime;
+	bool produce;
+
+	bool IDie;
+	bool YDie;
 };
 

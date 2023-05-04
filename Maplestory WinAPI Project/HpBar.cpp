@@ -6,7 +6,6 @@
 #include "Animation.h"
 #include "Animator.h"
 #include "Collider.h"
-#include "MousCollider.h"
 
 HpBar::HpBar()
 {

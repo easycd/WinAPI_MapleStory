@@ -7,7 +7,6 @@
 #include "Animator.h"
 #include "Sound.h"
 #include "RResources.h"
-#include "MousCollider.h"
 #include "Application.h"
 #include "Collider.h"
 #include "ServerList.h"
@@ -36,8 +35,6 @@ void ChannelSelectScene::Initialize()
 	AddGameObeject(BG, eLayerType::BG);
 	BG->Initialize();
 
-	//Mc = new MousCollider();
-	//AddGameObeject(Mc, eLayerType::Mous);
 
 	Sl = new ServerList();
 	AddGameObeject(Sl, eLayerType::UI);
@@ -50,21 +47,10 @@ void ChannelSelectScene::Initialize()
 
 	Scene::Initialize();
 
-	//Mc->GetComponent<Transform>()->SetPos(Vector2(-1000.f, 500.f));
-	//Mc->GetComponent<Collider>()->SetSize(Vector2(25.0f, 25.0f));
 }
 
 void ChannelSelectScene::Update()
 {
-	//if (GetFocus())
-	//{
-	//	mousePos = {};
-	//	GetCursorPos(&mousePos);
-	//	McPos.x = mousePos.x;
-	//	McPos.y = mousePos.y;
-	//	Mc->GetComponent<Transform>()->SetPos(Vector2(McPos.x - 1500.0f, McPos.y - 200.0f));
-	//}
-
 	mTime += Time::DeltaTime();
 
 	if (Input::GetKeyUp(eKeyCode::MousLeftClick))
@@ -97,7 +83,6 @@ void ChannelSelectScene::Release()
 
 void ChannelSelectScene::OnEnter()
 {
-	//CollisionManager::SetLayer(eLayerType::ChannelList, eLayerType::Mous, true);
 	ChennalSd->Play(true);
 }
 

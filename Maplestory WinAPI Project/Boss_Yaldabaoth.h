@@ -31,6 +31,11 @@ public:
 
 	void Yaldabaoth_respawn();
 
+	bool GetDieState()
+	{
+		return Y_Die;
+	}
+
 private:
 	void pattern();
 	void idle();
@@ -57,5 +62,6 @@ private:
 	bool SetMoveLeft;
 	bool SetMoveRight;
 	bool die_Check;
+	bool Y_Die;
 };
 

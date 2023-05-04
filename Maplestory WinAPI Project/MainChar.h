@@ -80,12 +80,16 @@ private:
 	HenesysScene* hs;
 
 	int direction = 0; //0이면 왼쪽 1이면 오른쪽
-	bool mGroundCheck;
 	int posx;
 	int posy;
-	bool m_PortalState;
-
 	int HP;
+	
+	float missTime;
+	
+	bool mGroundCheck;
+	bool m_PortalState;
+	bool hit;
+
 
 
 public:

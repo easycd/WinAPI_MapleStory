@@ -18,6 +18,9 @@
 #include "SoulEclipseEffect.h"
 #include "SolunaDivideStart.h"
 #include "SolunaDivideBG.h"
+#include "CheckBoxCollider.h"
+#include "Missobj.h"
+#include "HenesysScene.h"
 
 #include "Camera.h"
 #include "HenesysBack.h"
@@ -26,12 +29,21 @@
 #include "Exbar.h"
 
 #include "mushroom.h"
-#include "HenesysScene.h"
+#include "happy.h"
+#include "waterspirit.h"
+#include "Boss_Ion.h"
+#include "Boss_Yaldabaoth.h"
+#include "Boss.h"
+#include "CircleObj.h"
+#include "BlackChainSkill.h"
+
 MainChar::MainChar()
 	: posx(0)
 	, posy(0)
 	, m_PortalState(false)
 	, HP(1000)
+	, hit(false)
+	, missTime(0.0f)
 {
 }
 
@@ -56,6 +68,8 @@ void MainChar::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownRight", Vector2::Zero, 0.2f); // 오른쪽 눕기
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownAttackLeft", Vector2::Zero, 0.2f); // 왼쪽 아래 공격
 	m_Animator->CreateAnimations(L"..\\Resources\\Char\\DownAttackRight", Vector2::Zero, 0.2f); // 오른쪽 아래 공격
+
+
 
 	S_Jump = RResources::Load<Sound>(L"Jump", L"..\\Resources\\Sound\\Character_Sound\\Jump.wav");
 	S_BasicSkill = RResources::Load<Sound>(L"BasicSkill", L"..\\Resources\\Sound\\Character_Sound\\BasicSkill.wav");
@@ -88,6 +102,13 @@ void MainChar::Initialize()
 
 void MainChar::Update()
 {
+	if (hit)
+	{
+	Missobj* miss = object::Instantiate<Missobj>(eLayerType::UI);
+	miss->play();
+	hit = false;
+	}
+
 	GameObject::Update();
 
 	switch (m_State)
@@ -147,10 +168,52 @@ void MainChar::OnCollisionEnter(Collider* other)
 	mushroom* m_mob = dynamic_cast<mushroom*>(other->GetOwner());
 	if (m_mob != nullptr)
 	{
-		HP -= 10;
-		hs->SetCheck(true);
+		hit = true;
+	}
+
+	happy* hpp = dynamic_cast<happy*>(other->GetOwner());
+	if (hpp != nullptr)
+	{
+		hit = true;
+	}
+
+	waterspirit* ws = dynamic_cast<waterspirit*>(other->GetOwner());
+	if (ws != nullptr)
+	{
+		hit = true;
+	}
+
+	Boss_Ion* ion = dynamic_cast<Boss_Ion*>(other->GetOwner());
+	if (ion != nullptr)
+	{
+		hit = true;
+	}
+
+	Boss_Yaldabaoth* yal = dynamic_cast<Boss_Yaldabaoth*>(other->GetOwner());
+	if (yal != nullptr)
+	{
+		hit = true;
+	}
+
+	Boss* bos = dynamic_cast<Boss*>(other->GetOwner());
+	if (bos != nullptr)
+	{
+		hit = true;
+	}
+
+	CircleObj* cir = dynamic_cast<CircleObj*>(other->GetOwner());
+	if (cir != nullptr)
+	{
+		hit = true;
+	}
+
+	BlackChainSkill* Bcs = dynamic_cast<BlackChainSkill*>(other->GetOwner());
+	if (Bcs != nullptr)
+	{
+		hit = true;
 	}
 }
+
 
 void MainChar::OnCollisionExit(Collider* other)
 {
@@ -334,6 +397,7 @@ void MainChar::idle()
 		Rbasicskill->GetComponent<Transform>()->SetPos(Vector2(bsPos.x + 280.f, bsPos.y - 100.f));
 		curScene->AddGameObeject(Rbasicskill, eLayerType::Skill);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
+		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Boss, true);
 
 	}
 	else if (Input::GetKeyDown(eKeyCode::F) && direction == 0)

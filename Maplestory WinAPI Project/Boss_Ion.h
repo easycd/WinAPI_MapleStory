@@ -31,6 +31,11 @@ public:
 
 	void Ion_respawn();
 
+	bool GetDieState()
+	{
+		return I_Die;
+	}
+
 private:
 	void pattern();
 	void idle();
@@ -57,6 +62,7 @@ private:
 	bool SetMoveLeft;
 	bool SetMoveRight;
 	bool die_Check;
+	bool I_Die;
 };
 
 

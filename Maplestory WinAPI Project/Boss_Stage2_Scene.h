@@ -9,7 +9,7 @@ class Boss_Stage2_Object;
 class Boss;
 class CircleObj;
 class Sound;
-
+class BossHP_Bar;
 class Boss_Stage2_Scene : public Scene
 {
 public:
@@ -32,6 +32,7 @@ private:
 	Boss_Stage2_Object* m_Boss_Stage2_Object;
 	Boss* boss;
 	Sound* Stage2;
+	BossHP_Bar* Hpb;
 
 	CircleObj* circleobj0;
 	CircleObj* circleobj1;
@@ -43,5 +44,9 @@ private:
 	CircleObj* circleobj7;
 
 	float mTime;
+
+	int bossHpCnt;
+	int cnt;
+	bool test = false;
 };
 

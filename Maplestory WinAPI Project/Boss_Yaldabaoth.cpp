@@ -24,6 +24,7 @@ Boss_Yaldabaoth::Boss_Yaldabaoth()
 	, SetMoveLeft(false)
 	, SetMoveRight(false)
 	, die_Check(true)
+	, Y_Die(false)
 	, Hp(10)
 {
 }
@@ -133,27 +134,15 @@ void Boss_Yaldabaoth::OnCollisionEnter(Collider* other)
 	{
 		Hp -= 10;
 	}
-}
-
-void Boss_Yaldabaoth::OnCollisionStay(Collider* other)
-{
 	Cosmos* cosmos = dynamic_cast<Cosmos*>(other->GetOwner());
 	if (cosmos != nullptr)
 	{
 		Hp -= 10;
 	}
-	SolunaDivideStart* divide = dynamic_cast<SolunaDivideStart*>(other->GetOwner());
-	if (divide != nullptr)
-	{
-		Hp -= 10;
-	}
-	BasicSkill* bs = dynamic_cast<BasicSkill*>(other->GetOwner());
-	if (bs != nullptr)
-	{
-		//bshit = object::Instantiate<BsHit>(eLayerType::Skill_hit);
-		//bshit->Hit();
-		Hp -= 10;
-	}
+}
+
+void Boss_Yaldabaoth::OnCollisionStay(Collider* other)
+{
 }
 
 void Boss_Yaldabaoth::Yaldabaoth_respawn()
@@ -263,5 +252,6 @@ void Boss_Yaldabaoth::attack2()
 
 void Boss_Yaldabaoth::Destroy()
 {
+	Y_Die = true;
 	object::Destory(this);
 }

@@ -424,7 +424,7 @@
     <ClInclude Include="BsHit.h">
       <Filter>Contents\01. GameObject\Skill_Hit</Filter>
     </ClInclude>
-    <ClInclude Include="MousCollider.h">
+    <ClInclude Include="CheckBoxCollider.h">
       <Filter>Engine\Collider</Filter>
     </ClInclude>
     <ClInclude Include="ServerList.h">
@@ -465,6 +465,18 @@
     </ClInclude>
     <ClInclude Include="Stage2Enter_AniScene.h">
       <Filter>Contents\02. Scene\BossScene\Phase2</Filter>
+    </ClInclude>
+    <ClInclude Include="BossPortal.h">
+      <Filter>Contents\01. GameObject\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="BossHP_State.h">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="Missobj.h">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="BossHP_Bar.h">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -718,7 +730,7 @@
     <ClCompile Include="BsHit.cpp">
       <Filter>Contents\01. GameObject\Skill_Hit</Filter>
     </ClCompile>
-    <ClCompile Include="MousCollider.cpp">
+    <ClCompile Include="CheckBoxCollider.cpp">
       <Filter>Engine\Collider</Filter>
     </ClCompile>
     <ClCompile Include="ServerList.cpp">
@@ -759,6 +771,18 @@
     </ClCompile>
     <ClCompile Include="Stage2Enter_AniScene.cpp">
       <Filter>Contents\02. Scene\BossScene\Phase2</Filter>
+    </ClCompile>
+    <ClCompile Include="BossPortal.cpp">
+      <Filter>Contents\01. GameObject\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="BossHP_State.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="Missobj.cpp">
+      <Filter>Contents\01. GameObject\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="BossHP_Bar.cpp">
+      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

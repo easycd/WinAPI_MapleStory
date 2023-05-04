@@ -26,6 +26,10 @@ void BlackChainSkill::Initialize()
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\Object\\Skill4_BlackChain\\BlackChain_Obj", Vector2::Zero, 0.05f);
 	m_Animator->GetCompleteEvent(L"Skill4_BlackChainBlackChain_Obj") = std::bind(&BlackChainSkill::Destroy, this);
+	
+	Collider* collider = AddComponent<Collider>();
+	collider->SetSize(Vector2(150.f, 1400.f));
+	collider->SetCenter(Vector2(-40.0f, -1500.0f));
 
 	GameObject::Initialize();
 }

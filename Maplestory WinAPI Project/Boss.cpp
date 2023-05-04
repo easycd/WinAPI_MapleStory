@@ -10,11 +10,16 @@
 #include "CircleObj.h"
 #include "Object.h"
 #include "MainChar.h"
+#include "CollisionManager.h"
 
 #include "LeftFullSkill.h"
 #include "CenterFullSkill.h"
 #include "RightFullSkill.h"
 #include "BlackChainSkill.h"
+
+#include "BasicSkill.h"
+#include "Cosmos.h"
+#include "SolunaDivideStart.h"
 
 
 Boss::Boss()
@@ -25,6 +30,7 @@ Boss::Boss()
 	, TestTime(0.0f)
 	, m_State(eBoss_State::Respawn)
 	, attack_pattern(3)
+	, BossHP(0)
 	, Skill4_Cnt(0)
 	, Skill1Loop(false)
 	, Skill2Loop(false)
@@ -102,6 +108,7 @@ void Boss::Update()
 			BS0->Attack();
 			Skill4_Loop0 = false;
 			Skill4_Loop1 = true;
+			CollisionManager::SetLayer(eLayerType::Player, eLayerType::BossObj, true);
 		}
 		if (TestTime > 2.0f && Skill4_Loop1 == true)
 		{
@@ -186,6 +193,27 @@ void Boss::Render(HDC hdc)
 void Boss::Release()
 {
 	GameObject::Release();
+}
+
+void Boss::OnCollisionEnter(Collider* other)
+{
+	BasicSkill* bs = dynamic_cast<BasicSkill*>(other->GetOwner());
+	if (bs != nullptr)
+	{
+		//bshit = object::Instantiate<BsHit>(eLayerType::Skill_hit);
+		//bshit->Hit();
+		BossHP += 1;
+	}
+	SolunaDivideStart* divide = dynamic_cast<SolunaDivideStart*>(other->GetOwner());
+	if (divide != nullptr)
+	{
+		BossHP += 1;
+	}
+	Cosmos* cosmos = dynamic_cast<Cosmos*>(other->GetOwner());
+	if (cosmos != nullptr)
+	{
+		BossHP += 1;
+	}
 }
 
 void Boss::respawn()

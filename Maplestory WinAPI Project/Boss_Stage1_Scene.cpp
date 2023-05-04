@@ -13,13 +13,17 @@
 #include "Boss_Ion.h"
 #include "Sound.h"
 #include "RResources.h"
+#include "Time.h"
 
+#include "Portal.h"
 #include "Exbar.h"
 #include "Hp_Mp.h"
 #include "Menubar.h"
 #include "Skillbar.h"
 
 Boss_Stage1_Scene::Boss_Stage1_Scene()
+	: mTime(0.0f)
+	, produce(false)
 {
 }
 Boss_Stage1_Scene::~Boss_Stage1_Scene()
@@ -32,6 +36,9 @@ void Boss_Stage1_Scene::Initialize()
 	m_Boss_Stage1_Object = new Boss_Stage1_Object();
 	AddGameObeject(m_Boss_Stage1_Object, eLayerType::BG);
 
+	Portal* portal = new Portal();
+	AddGameObeject(portal, eLayerType::Portal);
+
 	Exbar* exbar = new Exbar();
 	AddGameObeject(exbar, eLayerType::UI);
 
@@ -43,6 +50,7 @@ void Boss_Stage1_Scene::Initialize()
 
 	Skillbar* skillbar = new Skillbar();
 	AddGameObeject(skillbar, eLayerType::UI);
+
 
 	Stage1 = RResources::Load<Sound>(L"Stage1", L"..\\Resources\\Sound\\Map_Sound\\boss_stage1.wav");
 	NextMap = RResources::Load<Sound>(L"NextMap", L"..\\Resources\\Sound\\UI_Sound\\Portal.wav");
@@ -67,12 +75,23 @@ void Boss_Stage1_Scene::Initialize()
 
 	ground0->GetComponent<Transform>()->SetPos(Vector2(0.0f, 770.0f));
 	ground0->GetComponent<Collider>()->SetSize(Vector2(5000.0f, 30.0f));
+
+	portal->GetComponent<Transform>()->SetPos(Vector2(510.0f, 770.0f));
 }
 void Boss_Stage1_Scene::Update()
 {
 	if (Input::GetKeyState(eKeyCode::N) == eKeyState::Down)
 	{
 		SceneManager::LoadScene(eSceneType::Boss_Stage2_Ani);
+	}
+
+	IDie = m_Boss_Ion->GetDieState();
+	YDie = m_Boss_Yaldabaoth->GetDieState();
+	if (IDie && YDie)
+	{
+		mTime += Time::DeltaTime();
+		if(mTime > 4.0f)
+			SceneManager::LoadScene(eSceneType::Boss_Stage2_Ani);
 	}
 
 	Scene::Update();
