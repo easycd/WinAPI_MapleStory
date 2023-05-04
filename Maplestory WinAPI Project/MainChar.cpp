@@ -447,10 +447,11 @@ void MainChar::idle()
 		SolunaDivideBG* BG = new SolunaDivideBG();
 		BG->Initialize();
 		SD->Initialize();
-		SD->GetComponent<Transform>()->SetPos(Vector2(780.f, 660.f));
+		SD->GetComponent<Transform>()->SetPos(Vector2(650.f, 770.f));
 		curScene->AddGameObeject(BG, eLayerType::SoulEclipse);
-		curScene->AddGameObeject(SD, eLayerType::Skill);
+		curScene->AddGameObeject(SD, eLayerType::SoulEclipse);
 		CollisionManager::SetLayer(eLayerType::Skill, eLayerType::Monster, true);
+		CollisionManager::SetLayer(eLayerType::SoulEclipse, eLayerType::Monster, true);
 		}
 }
 

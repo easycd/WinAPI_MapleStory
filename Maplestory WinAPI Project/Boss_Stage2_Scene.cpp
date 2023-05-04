@@ -75,7 +75,6 @@ void Boss_Stage2_Scene::Update()
 {
 	Hpb->BossHP = boss->GetBossHPCnt();
 
-
 	if (Input::GetKeyState(eKeyCode::N) == eKeyState::Down)
 	{
 		SceneManager::LoadScene(eSceneType::Henesys);

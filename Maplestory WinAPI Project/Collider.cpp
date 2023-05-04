@@ -33,9 +33,9 @@ void Collider::Render(HDC hdc)
 {
 	HPEN pen = NULL;
 	if (mCollisionCount <= 0)
-		pen = CreatePen(BS_SOLID, 2, RGB(0, 255, 0));
+		pen = CreatePen(PS_NULL, 2, RGB(0, 255, 0));
 	else
-		pen = CreatePen(BS_SOLID, 2, RGB(255, 0, 0));
+		pen = CreatePen(PS_NULL, 2, RGB(255, 0, 0));
 
 	//초록색 테두리 그리기
 	HPEN oldPen = (HPEN)SelectObject(hdc, pen);

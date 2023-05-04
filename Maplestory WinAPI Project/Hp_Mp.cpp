@@ -47,7 +47,7 @@ void Hp_Mp::Render(HDC hdc)
 		, mImage->GetHdc()
 		, 0, 0
 		, mImage->GetWidth(), mImage->GetHeight()
-		, RGB(207, 207, 207));
+		, RGB(255, 0, 255));
 }
 
 void Hp_Mp::Release()

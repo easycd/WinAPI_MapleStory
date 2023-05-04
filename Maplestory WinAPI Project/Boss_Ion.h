@@ -5,6 +5,7 @@
 class Animator;
 class MainChar;
 class Transform;
+class Sound;
 
 class Boss_Ion : public GameObject
 {
@@ -36,6 +37,11 @@ public:
 		return I_Die;
 	}
 
+	int GetionHP()
+	{
+		return Hp;
+	}
+
 private:
 	void pattern();
 	void idle();
@@ -51,6 +57,11 @@ private:
 	MainChar* player;
 
 	Collider* Idle_collider;
+
+	Sound* skill1;
+	Sound* skill2;
+	Sound* respawn;
+	Sound* die;
 
 	int Direction; //0이면 왼쪽 1이면 오른쪽
 	int attack_pattern;

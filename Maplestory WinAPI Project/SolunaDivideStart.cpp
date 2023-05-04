@@ -49,7 +49,7 @@ void SolunaDivideStart::Update()
 
 void SolunaDivideStart::Render(HDC hdc)
 {
-	m_Animator->SetRGB(RGB(241, 185, 26));
+	m_Animator->SetRGB(RGB(241, 186, 24));
 	GameObject::Render(hdc);
 }
 

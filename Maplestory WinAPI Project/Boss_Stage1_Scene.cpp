@@ -14,6 +14,8 @@
 #include "Sound.h"
 #include "RResources.h"
 #include "Time.h"
+#include "IonHP.h"
+#include "YalHP.h"
 
 #include "Portal.h"
 #include "Exbar.h"
@@ -35,6 +37,12 @@ void Boss_Stage1_Scene::Initialize()
 	AddGameObeject(m_Boss_Stage1_Back, eLayerType::BG);
 	m_Boss_Stage1_Object = new Boss_Stage1_Object();
 	AddGameObeject(m_Boss_Stage1_Object, eLayerType::BG);
+
+	ionhp = new IonHP();
+	AddGameObeject(ionhp, eLayerType::UI);
+
+	yalhp = new YalHP();
+	AddGameObeject(yalhp, eLayerType::UI);
 
 	Portal* portal = new Portal();
 	AddGameObeject(portal, eLayerType::Portal);
@@ -77,9 +85,13 @@ void Boss_Stage1_Scene::Initialize()
 	ground0->GetComponent<Collider>()->SetSize(Vector2(5000.0f, 30.0f));
 
 	portal->GetComponent<Transform>()->SetPos(Vector2(510.0f, 770.0f));
+
 }
 void Boss_Stage1_Scene::Update()
 {
+	ionhp->Ion_HP = m_Boss_Ion->GetionHP();
+	yalhp->Yal_HP = m_Boss_Yaldabaoth->GetYalHP();
+
 	if (Input::GetKeyState(eKeyCode::N) == eKeyState::Down)
 	{
 		SceneManager::LoadScene(eSceneType::Boss_Stage2_Ani);
@@ -110,7 +122,7 @@ void Boss_Stage1_Scene::Release()
 void Boss_Stage1_Scene::OnEnter()
 {
 	Stage1->Play(true);
-	mMainChar->GetComponent<Transform>()->SetPos(Vector2(2400.0f, 700.0f));
+	mMainChar->GetComponent<Transform>()->SetPos(Vector2(2300.0f, 800.0f));
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Monster, true);
 	CollisionManager::SetLayer(eLayerType::Player, eLayerType::Ground, true);
 

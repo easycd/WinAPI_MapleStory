@@ -9,6 +9,7 @@ class CenterFullSkill;
 class RightFullSkill;
 class BlackChainSkill;
 class MainChar;
+class Sound;
 
 class Boss : public GameObject
 {
@@ -105,6 +106,10 @@ private:
 	CircleObj* circleobj5;
 	CircleObj* circleobj6;
 	CircleObj* circleobj7;
+
+	Sound* Bskill1;
+	Sound* Bskill2;
+	Sound* Bskill3;
 };
 
 

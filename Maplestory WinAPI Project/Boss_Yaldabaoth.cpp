@@ -9,6 +9,7 @@
 #include "Collider.h"
 #include "MainChar.h"
 #include "Object.h"
+#include "Sound.h"
 
 #include "BasicSkill.h"
 #include "Cosmos.h"
@@ -25,7 +26,7 @@ Boss_Yaldabaoth::Boss_Yaldabaoth()
 	, SetMoveRight(false)
 	, die_Check(true)
 	, Y_Die(false)
-	, Hp(10)
+	, Hp(0)
 {
 }
 
@@ -49,6 +50,11 @@ void Boss_Yaldabaoth::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Yaldabaoth\\Y_attack2_Left", Vector2::Zero, 0.08f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Yaldabaoth\\Y_attack2_Right", Vector2::Zero, 0.08f);
 
+	Yskill1 = RResources::Load<Sound>(L"Yskill1", L"..\\Resources\\Sound\\Boss_Sound\\ion_attack1.wav");
+	Yskill2 = RResources::Load<Sound>(L"Yskill2", L"..\\Resources\\Sound\\Boss_Sound\\ion_attack2.wav");
+	Yrespawn = RResources::Load<Sound>(L"Yrespawn", L"..\\Resources\\Sound\\Boss_Sound\\ion_respawn.wav");
+	Ydie = RResources::Load<Sound>(L"Ydie", L"..\\Resources\\Sound\\Boss_Sound\\ion_Die.wav");
+
 
 	m_Animator->GetCompleteEvent(L"YaldabaothY_respawn") = std::bind(&Boss_Yaldabaoth::idle, this);
 	m_Animator->GetCompleteEvent(L"YaldabaothY_attack1_Right") = std::bind(&Boss_Yaldabaoth::idle, this);
@@ -69,7 +75,7 @@ void Boss_Yaldabaoth::Update()
 {
 	GameObject::Update();
 
-	if (Hp == 0)
+	if (Hp == 6)
 		death();
 
 	Vector2 pos = tr->GetPos();
@@ -125,19 +131,18 @@ void Boss_Yaldabaoth::OnCollisionEnter(Collider* other)
 	BasicSkill* bs = dynamic_cast<BasicSkill*>(other->GetOwner());
 	if (bs != nullptr)
 	{
-		//bshit = object::Instantiate<BsHit>(eLayerType::Skill_hit);
-		//bshit->Hit();
-		Hp -= 10;
+
+		Hp += 1;
 	}
 	SolunaDivideStart* divide = dynamic_cast<SolunaDivideStart*>(other->GetOwner());
 	if (divide != nullptr)
 	{
-		Hp -= 10;
+		Hp += 1;
 	}
 	Cosmos* cosmos = dynamic_cast<Cosmos*>(other->GetOwner());
 	if (cosmos != nullptr)
 	{
-		Hp -= 10;
+		Hp += 1;
 	}
 }
 
@@ -147,6 +152,7 @@ void Boss_Yaldabaoth::OnCollisionStay(Collider* other)
 
 void Boss_Yaldabaoth::Yaldabaoth_respawn()
 {
+	Yrespawn->Play(false);
 	m_Animator->Play(L"YaldabaothY_respawn", true);
 }
 
@@ -206,6 +212,7 @@ void Boss_Yaldabaoth::death()
 	{
 		if (die_Check == true)
 		{
+			Ydie->Play(false);
 			m_Animator->Play(L"YaldabaothY_die_Left", true);
 			die_Check = false;
 		}
@@ -215,6 +222,7 @@ void Boss_Yaldabaoth::death()
 	{
 		if (die_Check == true)
 		{
+			Ydie->Play(false);
 			m_Animator->Play(L"YaldabaothY_die_Right", true);
 			die_Check = false;
 		}
@@ -225,6 +233,7 @@ void Boss_Yaldabaoth::attack1()
 {
 	//사슬 휘두르기
 	m_State = eBoss_YaldabaothState::Attack1;
+	Yskill1->Play(false);
 
 	if (Direction == 0)
 		m_Animator->Play(L"YaldabaothY_attack1_Left", true);
@@ -239,11 +248,13 @@ void Boss_Yaldabaoth::attack2()
 	m_State = eBoss_YaldabaothState::Attack2;
 	if (Direction == 0)
 	{
+		Yskill2->Play(false);
 		m_Animator->Play(L"YaldabaothY_attack2_Left", true);
 		SetMoveLeft = true;
 	}
 	if (Direction == 1)
 	{
+		Yskill2->Play(false);
 		m_Animator->Play(L"YaldabaothY_attack2_Right", true);
 		SetMoveRight = true;
 	}

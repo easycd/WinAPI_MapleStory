@@ -14,6 +14,8 @@
 #include "Cosmos.h"
 #include "SolunaDivideStart.h"
 
+#include "Sound.h"
+
 Boss_Ion::Boss_Ion()
 	: m_Time(0.0f)
 	, attack2_Delay(0.0f)
@@ -24,7 +26,7 @@ Boss_Ion::Boss_Ion()
 	, SetMoveRight(false)
 	, die_Check(true)
 	, I_Die(false)
-	, Hp(10)
+	, Hp(0)
 {
 }
 
@@ -48,6 +50,12 @@ void Boss_Ion::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack2_Left", Vector2::Zero, 0.08f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss_stage1\\Ion\\attack2_Right", Vector2::Zero, 0.08f);
 
+	skill1 = RResources::Load<Sound>(L"skill1", L"..\\Resources\\Sound\\Boss_Sound\\ion_attack1.wav");
+	skill2 = RResources::Load<Sound>(L"sikll2", L"..\\Resources\\Sound\\Boss_Sound\\ion_attack2.wav");
+	respawn = RResources::Load<Sound>(L"respawn", L"..\\Resources\\Sound\\Boss_Sound\\ion_respawn.wav");
+	die = RResources::Load<Sound>(L"die", L"..\\Resources\\Sound\\Boss_Sound\\ion_Die.wav");
+
+
 
 	m_Animator->GetCompleteEvent(L"Ionrespawn") = std::bind(&Boss_Ion::idle, this);
 	m_Animator->GetCompleteEvent(L"Ionattack1_Right") = std::bind(&Boss_Ion::idle, this);
@@ -68,7 +76,7 @@ void Boss_Ion::Update()
 {
 	GameObject::Update();
 
-	if (Hp == 0)
+	if (Hp == 7)
 		death();
 
 	Vector2 pos = tr->GetPos();
@@ -125,19 +133,17 @@ void Boss_Ion::OnCollisionEnter(Collider* other)
 	BasicSkill* bs = dynamic_cast<BasicSkill*>(other->GetOwner());
 	if (bs != nullptr)
 	{
-		//bshit = object::Instantiate<BsHit>(eLayerType::Skill_hit);
-		//bshit->Hit();
-		Hp -= 10;
+		Hp += 1;
 	}
 	SolunaDivideStart* divide = dynamic_cast<SolunaDivideStart*>(other->GetOwner());
 	if (divide != nullptr)
 	{
-		Hp -= 10;
+		Hp += 1;
 	}
 	Cosmos* cosmos = dynamic_cast<Cosmos*>(other->GetOwner());
 	if (cosmos != nullptr)
 	{
-		Hp -= 10;
+		Hp += 1;
 	}
 }
 
@@ -148,6 +154,7 @@ void Boss_Ion::OnCollisionStay(Collider* other)
 
 void Boss_Ion::Ion_respawn()
 {
+	respawn->Play(false);
 	m_Animator->Play(L"Ionrespawn", true);
 }
 
@@ -207,6 +214,7 @@ void Boss_Ion::death()
 	{
 		if (die_Check == true)
 		{
+			die->Play(false);
 			m_Animator->Play(L"Iondie_Left", true);
 			die_Check = false;
 		}
@@ -216,6 +224,7 @@ void Boss_Ion::death()
 	{
 		if (die_Check == true)
 		{
+			die->Play(false);
 			m_Animator->Play(L"Iondie_Right", true);
 			die_Check = false;
 		}
@@ -226,7 +235,8 @@ void Boss_Ion::attack1()
 {
 	//사슬 휘두르기
 	m_State = eBoss_IonState::Attack1;
-
+	
+	skill1->Play(false);
 	if (Direction == 0)
 		m_Animator->Play(L"Ionattack1_Left", true);
 	if (Direction == 1)
@@ -240,11 +250,13 @@ void Boss_Ion::attack2()
 	m_State = eBoss_IonState::Attack2;
 	if (Direction == 0)
 	{
+		skill2->Play(false);
 		m_Animator->Play(L"Ionattack2_Left", true);
 		SetMoveLeft = true;
 	}
 	if (Direction == 1)
 	{
+		skill2->Play(false);
 		m_Animator->Play(L"Ionattack2_Right", true);
 		SetMoveRight = true;
 	}

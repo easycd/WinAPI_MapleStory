@@ -32,7 +32,7 @@ void SomyeolScene::Initialize()
 	AddGameObeject(m_somyeolBack, eLayerType::BG);
 
 	m_somyeolObject = new SomyeolObject();
-	AddGameObeject(m_somyeolObject, eLayerType::BG);
+	AddGameObeject(m_somyeolObject, eLayerType::Object);
 
 	mMainChar = new MainChar();
 	AddGameObeject(mMainChar, eLayerType::Player);

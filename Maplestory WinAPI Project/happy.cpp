@@ -38,8 +38,8 @@ void happy::Initialize()
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\happymob\\moveLeft", Vector2::Zero, 0.2f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\happymob\\moveRight", Vector2::Zero, 0.2f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\happymob\\die_Left", Vector2::Zero, 0.2f);
-	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\happymob\\die_Right", Vector2::Zero, 0.2f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\happymob\\die_Left", Vector2::Zero, 0.15f);
+	m_Animator->CreateAnimations(L"..\\Resources\\Mob\\happymob\\die_Right", Vector2::Zero, 0.15f);
 
 	m_Animator->GetCompleteEvent(L"happymobdie_Right") = std::bind(&happy::Delete, this);
 	m_Animator->GetCompleteEvent(L"happymobdie_Left") = std::bind(&happy::Delete, this);

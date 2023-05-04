@@ -20,6 +20,7 @@
 #include "BasicSkill.h"
 #include "Cosmos.h"
 #include "SolunaDivideStart.h"
+#include "Sound.h"
 
 
 Boss::Boss()
@@ -66,6 +67,10 @@ void Boss::Initialize()
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\BossImg\\FullCenter_Skill2", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\BossImg\\FullRight_Skill3", Vector2::Zero, 0.1f);
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\boss\\BossImg\\Chain_Skill4", Vector2::Zero, 0.1f);
+
+	Bskill1 = RResources::Load<Sound>(L"Bskill1", L"..\\Resources\\Sound\\Boss_Sound\\Boss_skill1.wav");
+	Bskill2 = RResources::Load<Sound>(L"Bskill2", L"..\\Resources\\Sound\\Boss_Sound\\Boss_skill2.wav");
+	Bskill3 = RResources::Load<Sound>(L"Bskill3", L"..\\Resources\\Sound\\Boss_Sound\\Boss_skill3.wav");
 
 	m_Animator->GetCompleteEvent(L"BossImgRespawn") = std::bind(&Boss::idle, this);
 	m_Animator->GetCompleteEvent(L"BossImgFullLeft_Skill1") = std::bind(&Boss::idle, this);
@@ -229,7 +234,7 @@ void Boss::pattern()
 	if (m_Time > 10.0f)
 	{
 		m_Time = 0.0f;
-		//attack_pattern = rand() % 4;
+		attack_pattern = rand() % 4;
 
 		switch (attack_pattern)
 		{
@@ -272,6 +277,7 @@ void Boss::FullLeft_Skill1()
 {
 	m_State = eBoss_State::FullLeft_Skill1;
 	m_Animator->Play(L"BossImgFullLeft_Skill1", true);
+	Bskill1->Play(false);
 	Skill1Loop = true;
 }
 
@@ -279,6 +285,7 @@ void Boss::FullCenter_Skill2()
 {
 	m_State = eBoss_State::FullCenter_Skill2;
 	m_Animator->Play(L"BossImgFullCenter_Skill2", true);
+	Bskill2->Play(false);
 	Skill2Loop = true;
 }
 
@@ -286,6 +293,7 @@ void Boss::FullRight_Skill3()
 {
 	m_State = eBoss_State::FullRight_Skill3;
 	m_Animator->Play(L"BossImgFullRight_Skill3", true);
+	Bskill3->Play(false);
 	Skill3Loop = true;
 }
 
@@ -293,6 +301,7 @@ void Boss::Chain_Skill4()
 {
 	m_State = eBoss_State::Chain_Skill4;
 	m_Animator->Play(L"BossImgChain_Skill4", true);
+	Bskill3->Play(false);
 }
 
 void Boss::Chain()
@@ -305,7 +314,7 @@ void Boss::Chain()
 
 void Boss::Obj_Circle()
 {
-	if (FallTime > 10.0f)
+	if (FallTime > 20.0f)
 	{
 		LoopTime += Time::DeltaTime();
 		circleobj0 = object::Instantiate<CircleObj>(eLayerType::BossObj);

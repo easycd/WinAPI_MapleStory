@@ -15,7 +15,7 @@ Stage2Enter_Ani::~Stage2Enter_Ani()
 void Stage2Enter_Ani::Initialize()
 {
 	Transform* tr = GetComponent<Transform>();
-	tr->SetPos(Vector2(2670.0f, 1150.0f));
+	tr->SetPos(Vector2(2580.0f, 1150.0f));
 	tr->SetScale(Vector2(0.75f, 0.75f));
 	m_Animator = AddComponent<Animator>();
 	m_Animator->CreateAnimations(L"..\\Resources\\Boss\\Enter_Ani\\phase2", Vector2::Zero, 0.03f);

@@ -9,6 +9,8 @@ class Boss_Stage1_Object;
 class Boss_Ion;
 class Boss_Yaldabaoth;
 class Sound;
+class IonHP;
+class YalHP;
 
 class Boss_Stage1_Scene : public Scene
 {
@@ -26,6 +28,8 @@ public:
 
 	virtual MainChar* GetPlayer() override { return mMainChar; };
 
+
+
 private:
 	MainChar* mMainChar;
 	Boss_Stage1_Back* m_Boss_Stage1_Back;
@@ -34,6 +38,9 @@ private:
 	Boss_Yaldabaoth* m_Boss_Yaldabaoth;
 	Sound* Stage1;
 	Sound* NextMap;
+
+	IonHP* ionhp;
+	YalHP* yalhp;
 
 	float mTime;
 	bool produce;

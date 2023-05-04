@@ -182,6 +182,7 @@
     <ClInclude Include="Hp_Mp.h" />
     <ClInclude Include="Image.h" />
     <ClInclude Include="Input.h" />
+    <ClInclude Include="IonHP.h" />
     <ClInclude Include="Layer.h" />
     <ClInclude Include="LeftFullSkill.h" />
     <ClInclude Include="MainChar.h" />
@@ -231,6 +232,7 @@
     <ClInclude Include="waterspirit.h" />
     <ClInclude Include="Wizet.h" />
     <ClInclude Include="WorldChannelSelect.h" />
+    <ClInclude Include="YalHP.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
@@ -283,6 +285,7 @@
     <ClCompile Include="Hp_Mp.cpp" />
     <ClCompile Include="Image.cpp" />
     <ClCompile Include="Input.cpp" />
+    <ClCompile Include="IonHP.cpp" />
     <ClCompile Include="Layer.cpp" />
     <ClCompile Include="LeftFullSkill.cpp" />
     <ClCompile Include="main.cpp" />
@@ -328,6 +331,7 @@
     <ClCompile Include="waterspirit.cpp" />
     <ClCompile Include="Wizet.cpp" />
     <ClCompile Include="WorldChannelSelect.cpp" />
+    <ClCompile Include="YalHP.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Maplestory WinAPI Project.rc" />

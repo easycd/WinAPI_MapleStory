@@ -30,7 +30,7 @@ void Stage1Enter_AniScene::Update()
 	mTime += Time::DeltaTime();
 
 	//if (mTime > 7.0f)
-	if (mTime > 1.0f)
+	if (mTime > 7.0f)
 	{
 		SceneManager::LoadScene(eSceneType::Boss_Stage1);
 	}

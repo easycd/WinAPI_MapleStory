@@ -472,11 +472,17 @@
     <ClInclude Include="BossHP_State.h">
       <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
     </ClInclude>
-    <ClInclude Include="Missobj.h">
-      <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
-    </ClInclude>
     <ClInclude Include="BossHP_Bar.h">
       <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClInclude>
+    <ClInclude Include="IonHP.h">
+      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
+    </ClInclude>
+    <ClInclude Include="YalHP.h">
+      <Filter>Contents\01. GameObject\Boss\Yaldabaoth</Filter>
+    </ClInclude>
+    <ClInclude Include="Missobj.h">
+      <Filter>Contents\01. GameObject\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -783,6 +789,12 @@
     </ClCompile>
     <ClCompile Include="BossHP_Bar.cpp">
       <Filter>Contents\01. GameObject\BackObj\Boss_Stage</Filter>
+    </ClCompile>
+    <ClCompile Include="IonHP.cpp">
+      <Filter>Contents\01. GameObject\Boss\Ion</Filter>
+    </ClCompile>
+    <ClCompile Include="YalHP.cpp">
+      <Filter>Contents\01. GameObject\Boss\Yaldabaoth</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -5,6 +5,7 @@
 class Animator;
 class MainChar;
 class Transform;
+class Sound;
 
 class Boss_Yaldabaoth : public GameObject
 {
@@ -35,6 +36,11 @@ public:
 	{
 		return Y_Die;
 	}
+	
+	int GetYalHP()
+	{
+		return Hp;
+	}
 
 private:
 	void pattern();
@@ -51,6 +57,11 @@ private:
 	MainChar* player;
 
 	Collider* Idle_collider;
+
+	Sound* Yskill1;
+	Sound* Yskill2;
+	Sound* Yrespawn;
+	Sound* Ydie;
 
 	int Direction; //0이면 왼쪽 1이면 오른쪽
 	int attack_pattern;
